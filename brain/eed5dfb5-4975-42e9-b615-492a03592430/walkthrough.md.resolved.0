@@ -1,0 +1,27 @@
+# Walkthrough: System Specification v1 (FFRS)
+
+He completado la creación del documento **SS_v1.md**, que formaliza los requisitos técnicos del sistema Antigravity/AXON.
+
+## Cambios Realizados
+
+- **[NUEVO] [SS_v1.md](file:///C:/Users/daria/.gemini/antigravity/brain/eed5dfb5-4975-42e9-b615-492a03592430/SS_v1.md):** Documento maestro de especificaciones.
+- **[ACTUALIZADO] [task.md](file:///C:/Users/daria/.gemini/antigravity/brain/eed5dfb5-4975-42e9-b615-492a03592430/task.md):** Seguimiento de la tarea completado.
+
+## Resumen de la Especificación
+
+El documento **SS v1** ahora incluye:
+
+1.  **Integración de ComfyUI y Gemini CLI:** Base para la orquestación visual y local.
+2.  **Arquitectura "Hive":** Organización de agentes por roles y equipos.
+3.  **Sistema "Architect":** El agente constructor de equipos y herramientas autónomas.
+4.  **Deep Trace & Radiología:** Trazabilidad extrema desde el input hasta el objeto final de 50+ campos.
+5.  **Cerebro & NotebookLM:** Protocolo de registro vivo y extracción de conocimiento experto.
+6.  **Titan 5.3:** Modelo de datos conectado de punta a punta.
+
+## Validación
+
+- [x] **No hay pérdida de información:** Se han incluido todos los puntos de la extracción original.
+- [x] **Cumplimiento COC v1.0:** Trazabilidad total y estructura FFRS aplicada.
+- [x] **Estilo Antigravity:** Tono técnico, premium y orientado a resultados.
+
+Para los siguientes pasos, podemos proceder con el **Esquema JSON del Modelo de Datos** o la **Plantilla Oficial de 50+ campos**, como mencionaste anteriormente.

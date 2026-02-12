@@ -1,0 +1,97 @@
+# AXON System Grammar v1.0
+# Framework: AXON v1.7 (Adaptative Organism)
+# Compliance: PROT-001 to PROT-009
+
+system:
+  id: "AXON-001"
+  name: "Antigravity/AXON Core"
+  version: "1.7.0"
+  owner: "Darias"
+
+governance:
+  control_principles:
+    - id: "0.1"
+      name: "Trazabilidad Absoluta"
+      required_fields: ["uid", "version", "origen", "fecha", "dependencias", "fuentes_base"]
+    - id: "0.2"
+      name: "Inmutabilidad por Versiones"
+      rule: "Derivados (L1/L2) nunca sobrescriben fuentes (L3)"
+    - id: "0.3"
+      name: "Registro Vivo Obligatorio"
+      target: "NotebookLM / Registro"
+
+central_control:
+  ucc:
+    id: "CentralControlUnit"
+    modules:
+      - id: "EMA"
+        name: "Execution-Minimums Agent"
+        function: "Grant execution templates (5-12 steps)"
+      - id: "ChangeLedger"
+        name: "Registro Inmutable"
+        retention: "Permanent"
+      - id: "ComplianceEnforcer"
+        name: "Gatekeeper"
+        action: "Block if minimums not met"
+      - id: "UpdateBroadcaster"
+        name: "Sync Engine"
+        mode: "Asynchronous Pub/Sub"
+
+memory_hierarchy:
+  layers:
+    L1:
+      name: "Superficial (Quick Guide)"
+      limit: "10 bullets"
+      requirements: ["Gatillos de escalado", "Refs x L3"]
+    L2:
+      name: "Intermedia (Operativo)"
+      content_types: ["Procedimientos", "Criterios", "Casos de Uso"]
+      requirements: ["Refs x L3"]
+    L3:
+      name: "Profunda (Fuentes Base)"
+      sublayers:
+        - "Core (Canónica): Fuentes oficiales"
+        - "Edge (Apoyo): Recursos adicionales"
+      source_limit_recommended: 30
+
+agents:
+  base_schema:
+    id: "uuid"
+    type: "specialization_type"
+    version: "semver"
+    status: "active | deprecated | archived"
+    memory_access: "Regla D3"
+    orchestration:
+      adaptive_modes: ["Abstraer", "Sustraer", "Expandir", "Argumentar", "Pulir", "Agregar"]
+    monitoring:
+      failover:
+        manager: "ModelFailoverManager"
+        snapshot_required: true
+
+pipeline:
+  traza:
+    levels:
+      LITE: "Executive (10-30 lines)"
+      FULL: "Forensic (Structured JSON)"
+    metrics:
+      - "knowledge_depth_used"
+      - "failover_event_count"
+      - "compliance_score"
+
+deliverable_object:
+  schema:
+    fields_count_min: 50
+    field_structure:
+      id: "field_id"
+      capa_1: "Functional Description"
+      capa_2: "Technical Spec"
+      capa_3: "L3 Refs"
+      metadata:
+        owner_agent: "agent_id"
+        timestamp: "iso8601"
+        audit_trail: ["change_id"]
+
+auditor_forense:
+  standard: "PROT-001 (Mirror Protocol)"
+  levels: ["Superficial", "Operativa", "Profunda"]
+  rollback_policy: "Automatic on integrity failure"

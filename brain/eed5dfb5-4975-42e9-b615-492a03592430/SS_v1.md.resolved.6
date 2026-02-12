@@ -1,0 +1,246 @@
+# System Specification v1 (FFRS) — Antigravity/AXON
+
+**Version:** 1.5 (Paquete Operativo v1)  
+**Status:** Official / Audited  
+**Framework:** FFRS + EET (COC v1.0 Compliance + PROT-001)
+
+---
+
+> [!NOTE]
+> Este documento es una extracción íntegra, organizada y agrupada de todos los puntos, datos y requisitos mencionados, sin pérdida de información, estructurados para análisis posterior y diseño del sistema.
+
+## 0) Principios de control (garantía de no pérdida de datos)
+
+**0.1 Trazabilidad absoluta**
+* Todo elemento (fuente, nota, agente, campo del objeto, paso del pipeline) recibe:
+    * `uid` único
+    * `version`
+    * `origen`
+    * `fecha`
+    * `dependencias[]`
+    * `fuentes_base[]` (links a Nivel 3)
+* Ningún resumen vive sin referencias explícitas a sus fuentes profundas.
+
+**0.2 Inmutabilidad por versiones**
+* Las capas derivadas (Nivel 1 y 2) **no sobrescriben** fuentes profundas (Nivel 3).
+* Cualquier actualización crea nueva versión; las versiones previas se conservan.
+
+**0.3 Registro vivo obligatorio**
+* Cada sesión de NotebookLM crea/actualiza la nota **“registro”** como fuente viva:
+    * Cambios hechos
+    * Fuentes añadidas/retiradas
+    * Impacto en capas 1/2
+    * Agentes que consumieron el cambio
+
+---
+
+## 1) Integraciones Técnicas & Plataformas IA
+
+**1.1 Antigravity (núcleo de orquestación)**
+* Integrar y usar **ComfyUI dentro de Antigravity**.
+* Uso de **/agent/** o **hive** como modelo de organización de agentes en Antigravity.
+* **Stitch Antigravity** (mecanismo de ensamblaje / composición de flujos).
+* Uso de **auto whisk** y otras extensiones del navegador controladas automáticamente por Antigravity.
+* Control de herramientas del browser desde Antigravity.
+* Uso de **Gemini CLI dentro de Antigravity**.
+* Posible **control del PC** vía Gemini CLI desde Antigravity (ejecución de acciones locales).
+* Interacción Antigravity ↔ Gemini vía **API** para:
+    * Acceder a cuadernos
+    * Probar flujos
+    * Ejecutar tareas
+
+**1.2 Gemini**
+* Gemini accede a cuadernos y puede interactuar con Antigravity.
+* Cuaderno específico con **chats de Gemini**.
+* Agente asociado al cuaderno de Gemini.
+
+**1.3 ChatGPT**
+* Cuaderno con **chats de ChatGPT**.
+* Agente asociado al cuaderno de ChatGPT.
+
+**1.4 NotebookLM**
+* Uso de NotebookLM como repositorio de fuentes.
+* Cada interacción debe crear/actualizar una nota llamada **“registro”** (Entregable H) que se agrega como fuente viva del sistema.
+* Cada fuente debe ser:
+    * Renombrada (Convención: `L1_Tema__vX.Y`, `L2_Tema__vX.Y`, `L3_FuenteOficial__vX.Y`)
+    * Ordenada
+    * Clasificada y normalizada según ejemplo/estándar
+
+---
+
+## 2) Sistema de Agentes (Arquitectura, Roles y Capacidades)
+
+**2.1 Tipos de agentes**
+* Agentes especializados por función:
+    * Generación visual (imagen/video)
+    * Investigación
+    * Curaduría de fuentes
+    * Edición de video
+    * Finanzas (objetivo explícito: **crear negocios online y venderlos generando $**)
+    * Herramientas
+    * Automatización
+    * Programador de agentes/herramientas
+* Agente “herramienta” creado a partir de cuadernos existentes.
+* Agentes asociados a:
+    * Cuaderno de ChatGPT
+    * Cuaderno de Gemini
+    * Librería de Skills
+
+**2.2 Agente constructor de equipos**
+* Agente con capacidad de:
+    * Crear equipos de agentes para una tarea específica.
+    * Detectar agentes faltantes y **crearlos si no existen**.
+    * Ampliar funciones de agentes existentes.
+    * Crear **sus propias herramientas personalizadas** si no existen (agente programador).
+
+**2.3 Algoritmo interno de cada agente (Entregable I)**
+* Cada agente debe tener:
+    * Algoritmo de ejecución definido (Nivel 1: descripción, Nivel 2: pasos, Nivel 3: fundamentos)
+    * Selección automática de capa: ¿Nivel 1 es suficiente? → L2 → L3.
+    * Lógica de decisión y criterios de evaluación.
+    * Fuentes de conocimiento que consulta (Registro del nivel consultado en el log).
+
+**2.4 Plantillas Oficiales (Entregable B)**
+* Definición de plantillas oficiales v1 para: documentos L1/L2/L3, Agentes, Pasos del pipeline y Campos del Objeto.
+* Todo se genera desde plantilla oficial con `template_id` y `template_version`.
+
+**2.5 Consultas directas a agentes**
+* Posibilidad de hacer **consultas directas** a los agentes para:
+    * Aportar conocimiento
+    * Evaluar decisiones
+    * Proveer criterios
+
+---
+
+## 3) Pipeline, Flujo de Ejecución & Trazabilidad (Radiología - Entregable E)
+
+**3.1 Traza completa del pipeline**
+Visualización en consola de un formato estándar de traza:
+* Paso actual, anterior y siguiente.
+* Qué recibe (input) y qué transforma.
+* En qué se basa y qué conocimiento consulta (L1/L2/L3).
+* Qué objetos produce y dónde se guarda.
+* Qué agente intervino.
+* Métricas de auditoría: `knowledge_depth_used` (Entregable D).
+
+**3.2 Anatomía del proceso**
+* Descomposición metafórica del pipeline (Cuerdas → Átomos → Protones → Neutrones → Electrones).
+
+**3.3 Radiología del “paquete”**
+* Mapa completo del camino del input del usuario: Transformaciones sucesivas y generación progresiva.
+
+---
+
+## 4) Objeto Entregable Objetivo (Estructura Central - Entregable F)
+
+**4.1 Definición del objeto**
+* Objeto final compuesto por **50 o más campos/estructuras**.
+* Cada campo posee arquitectura 3 capas:
+    * Capa 1: descripción funcional breve
+    * Capa 2: especificación técnica
+    * Capa 3: fuentes base que lo justifican (links a L3)
+* Registro de auditoría: `refs_L3[]`, `agentes_que_aportaron[]`, `log_pipeline_ids[]`.
+
+**4.2 Plantillas oficiales**
+* Creación desde la **última versión oficial de la plantilla**.
+* Link a la última versión registrada en el sistema.
+
+**4.3 Ciclo de retroalimentación**
+* El producto publicado refresca el sistema y alimenta: Planificación, Análisis, Evaluación, Documentación, Comparación, Registro.
+
+---
+
+## 5) Gestión del Conocimiento
+
+**5.1 Conocimiento operativo**
+* Saber hacer las **preguntas correctas**: Análisis, Filtrado, Identificación, Comparación, Selección.
+
+**5.2 Cuadernos “cerebro”**
+* Información de Canales de YouTube, Personas famosas, Expertos.
+* Aplicación de ese conocimiento al sistema de agentes.
+
+**5.3 Organización multinivel (Arquitectura 3 capas - Entregable A)**
+Organización modular, estandarizada y versionada en al menos 3 capas:
+* **Nivel 1 – Capa Superficial (Guía rápida / Dirección):** Orientación rápida, comprobación, decisiones rápidas.
+* **Nivel 2 – Capa Intermedia (Conocimiento aplicado / Operativo):** Especificaciones, procedimientos, implementación técnica.
+* **Nivel 3 – Capa Profunda (Fuentes base vivas, ~30 fuentes):** Fuente primaria de verdad, documentación técnica, recursos oficiales.
+
+**5.4 Índice de acceso rápido (Entregable C)**
+* Enrutamiento dinámico según tarea (Verificación → L1, Diseño → L2, Auditoría → L3).
+
+---
+
+## 6) Extensiones, Scraping & Acceso a Contenido
+
+**6.1 YouTube**
+* Uso de: **YouTube Summary Extension (Chrome)**
+
+**6.2 Instagram / TikTok**
+* Tools/extensiones para: Balancear contenidos, Acceder a contenido, Imitar formatos, Mejorar contenidos.
+
+**6.3 Automatización de extensiones**
+* Uso de Auto Whisk y otras extensiones controladas automáticamente por Antigravity.
+
+---
+
+## 7) Base de Datos & Modelo de Información
+
+**7.1 Titan 5.3**
+* Uso de **todas las tablas definidas por la base de datos Titan 5.3**.
+* Vinculadas, relacionadas pieza a pieza y conectadas front-end ↔ back-end.
+
+**7.2 Flujo de datos**
+* Sistema: fluido, transparente, definido, detallado, consciente, algorítmico, especializado.
+
+**7.3 Documentación**
+* Todo documentado mediante: Fuentes, Notas, Recursos de cuadernos, Expediente, Cerebro.
+
+---
+
+## 8) Auditoría, Forense y Gobernanza (Entregable G)
+
+**8.1 Auditoría forense por capas**
+* Capa 1: detección rápida de inconsistencias / anomalías.
+* Capa 2: análisis operativo y de causa probable.
+* Capa 3: verificación contra fuentes base y decisiones raíz.
+* Generación de reportes versionados con referencias exactas.
+
+**8.2 Registro vivo (H)**
+* Nota “registro” en NotebookLM como bitácora oficial. Actualización de mapeo nombre antiguo → nuevo.
+
+---
+
+## 9) Estandarización, Versionado & Plantillas (B)
+
+**9.1 Plantillas oficiales**
+* Generación desde la última versión oficial. Inmutabilidad por versiones (las capas derivadas no sobrescriben fuentes profundas).
+
+**9.2 Sistema de feedback**
+* Actualización continua desde el documento oficial de feedback.
+
+**9.3 Principio de no-átomos sueltos**
+* Todo es absorbido y utilizado; ningún átomo queda desvinculado.
+
+---
+
+## 10) Checklist Operativo (Documento por Documento)
+
+Para cada elemento del sistema:
+* Nombre, Estructura, Descripción funcional, Versión actual.
+* Link a plantilla oficial, Agente responsable, Fuente de conocimiento, Estado.
+* Conexiones (FE/BE/Agentes), Resultado, Uso en pipeline.
+* Registro de cambios (Audit Trail) y Auditoría aplicada.
+
+---
+
+## 🧪 Próximos Pasos (Resultado Integrado v1)
+* 📐 **Esquema técnico formal (JSON / YAML) del sistema completo**
+* 🧭 **Diagrama de arquitectura de agentes y flujos**
+* 🧪 **Primer ejemplo real de ejecución del pipeline con logs simulados en consola**
+
+---
+
+**Mirror Verification Trace (FFRS-002):**
+- **Protocol:** PROT-001 (Mirror Protocol)
+- **Status:** 100% Literal Fidelity Verified (Paquete Operativo v1)
+- **Date:** 2026-02-11

@@ -1,0 +1,37 @@
+# Walkthrough: System Specification v1 (FFRS)
+
+### Milestone: AXON v1.7 Blueprints & Governance Core (Phase 1)
+- **Technical Grammar**: Defined `axon_grammar.yaml` for system entities.
+- **Topology Map**: Generated `AXON_Architecture.md` (Mermaid).
+- **Control Unit**: Transformed `InternalAffairs.ts` into a UCC with EMA gatekeeping.
+- **Verification**: Validated UCC logic via `verify_ucc.ts`.
+
+### Milestone: "Organismo Vivo" Dashboard (Phase 2)
+- **Interactive Topology**: Evolved `SystemMap.tsx` with core AXON nodes and animated SVG flows.
+- **Fidelity Sheets**: Implemented real-time telemetry display (Resilience, PROT-001 Fidelity, Depth).
+- **Package Journey**: Visualized data movement between agents.
+
+### Milestone: Adaptive Resilience Engine (Phase 3)
+- **Adaptive Runner**: Upgraded `AgentRunner.ts` to V4.2 AXON Adaptive.
+- **Failover Logic**: Automated context snapshotting and model switching (PROT-008).
+- **Orchestrator**: Implemented mode switching (Abstraer/Expandir) based on complexity (PROT-009).
+- **Compliance Link**: Full registration of every execution in the UCC Change Ledger.
+
+He completado la creación del documento **SS_v1.md**, que formaliza los requisitos técnicos del sistema Antigravity/AXON.
+
+## Cambios Realizados
+
+- **[NUEVO] [KNOWLEDGE_ITEMS.md](file:///C:/Users/daria/.gemini/antigravity/brain/eed5dfb5-4975-42e9-b615-492a03592430/KNOWLEDGE_ITEMS.md):** Almacén central de reglas y protocolos del sistema.
+- **[ACTUALIZADO] [mirror.md](file:///c:/Users/daria/.gemini/antigravity/workspaces/AXON/.agent/workflows/mirror.md):** Workflow con versión 1.0.1 y firma técnica.
+- **[DIAGRAMA] [AXON_Architecture.md](file:///C:/Users/daria/.gemini/antigravity/brain/eed5dfb5-4975-42e9-b615-492a03592430/AXON_Architecture.md):** Mapa visual de flujos entre UCC, Adaptación, Failover y Memoria.
+- **[GRAMÁTICA] [axon_grammar.yaml](file:///C:/Users/daria/.gemini/antigravity/brain/eed5dfb5-4975-42e9-b615-492a03592430/axon_grammar.yaml):** Esquema técnico formal que define entidades, reglas (D3, 1-2-3) y estructuras de datos.
+
+## Validación Final
+- [x] **Continuidad Automática:** Protocolo de Failover y Snapshots transaccionales integrados.
+- [x] **AXON Adaptativo:** Lógica de Orquestación (Abstraer/Expandir/Argumentar) documentada.
+- [x] **Unidad Central de Control (UCC):** Gatekeeping por mínimos pasos y registro inmutable (EMA + Change Ledger).
+- [x] **Blueprint Técnico:** Gramática YAML y Mapa de Arquitectura finalizados.
+
+Darias, el "hardware cognitivo" ya tiene sus planos maestros. Estamos listos para la fase de construcción o simulación.
+
+Para los siguientes pasos, podemos proceder con el **Esquema JSON del Modelo de Datos** o la **Plantilla Oficial de 50+ campos**, como mencionaste anteriormente.

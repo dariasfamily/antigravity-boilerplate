@@ -1,0 +1,321 @@
+# System Specification v1 (FFRS) — Antigravity/AXON
+
+**Version:** 1.2 (Mirror Faithful)  
+**Status:** Official / Audited  
+**Framework:** FFRS + EET (COC v1.0 Compliance)
+
+---
+
+> [!NOTE]
+> Este documento es una extracción íntegra, organizada y agrupada de todos los puntos, datos y requisitos mencionados, sin pérdida de información, estructurados para análisis posterior y diseño del sistema.
+
+## 1) Integraciones Técnicas & Plataformas IA
+
+**1.1 Antigravity (núcleo de orquestación)**
+* Integrar y usar **ComfyUI dentro de Antigravity**.
+* Uso de **/agent/** o **hive** como modelo de organización de agentes en Antigravity.
+* **Stitch Antigravity** (mecanismo de ensamblaje / composición de flujos).
+* Uso de **auto whisk** y otras extensiones del navegador controladas automáticamente por Antigravity.
+* Control de herramientas del browser desde Antigravity.
+* Uso de **Gemini CLI dentro de Antigravity**.
+* Posible **control del PC** vía Gemini CLI desde Antigravity (ejecución de acciones locales).
+* Interacción Antigravity ↔ Gemini vía **API** para:
+    * Acceder a cuadernos
+    * Probar flujos
+    * Ejecutar tareas
+
+**1.2 Gemini**
+* Gemini accede a cuadernos y puede interactuar con Antigravity.
+* Cuaderno específico con **chats de Gemini**.
+* Agente asociado al cuaderno de Gemini.
+
+**1.3 ChatGPT**
+* Cuaderno con **chats de ChatGPT**.
+* Agente asociado al cuaderno de ChatGPT.
+
+**1.4 NotebookLM**
+* Uso de NotebookLM como repositorio de fuentes.
+* Cada interacción debe crear/actualizar una nota llamada **“registro”** que se agrega como fuente viva del sistema.
+* Cada fuente debe ser:
+    * Renombrada
+    * Ordenada
+    * Normalizada según ejemplo/estándar
+
+---
+
+## 2) Sistema de Agentes (Arquitectura, Roles y Capacidades)
+
+**2.1 Tipos de agentes**
+* Agentes especializados por función:
+    * Generación visual (imagen/video)
+    * Investigación
+    * Curaduría de fuentes
+    * Edición de video
+    * Finanzas (objetivo explícito: **crear negocios online y venderlos generando $**)
+    * Herramientas
+    * Automatización
+    * Programador de agentes/herramientas
+* Agente “herramienta” creado a partir de cuadernos existentes.
+* Agentes asociados a:
+    * Cuaderno de ChatGPT
+    * Cuaderno de Gemini
+    * Librería de Skills
+
+### 📄 Knowledge Items (The Library)
+- **[PROT-001] Protocolo Espejo:** Norma de fidelidad absoluta para la transferencia de información sin síntesis ni omisiones.
+
+### 🔄 III. AUDIT PROTOCOL (The Loop)
+To be executed at the end of every Task Boundary.
+
+1. **Status Check:** Did we break [task.md](file:///C:/Users/daria/.gemini/antigravity/brain/eed5dfb5-4975-42e9-b615-492a03592430/task.md)?
+2. **File Hygiene:** Are there temp files left over? (Delete them).
+3. **User Value:** Did this task bring Daria closer to "Income Factory" completion?
+4. **Zero-Loss Audit (PROT-001):** En tareas de ingeniería de requisitos o FFRS, ¿se ha preservado el 100% de los descriptores y estados? Si no, aplicar `/mirror`.
+
+**2.2 Agente constructor de equipos**
+* Agente con capacidad de:
+    * Crear equipos de agentes para una tarea específica.
+    * Detectar agentes faltantes y **crearlos si no existen**.
+    * Ampliar funciones de agentes existentes.
+    * Crear **sus propias herramientas personalizadas** si no existen (agente programador).
+
+**2.3 Algoritmo interno de cada agente**
+* Cada agente debe tener:
+    * Algoritmo de ejecución definido
+    * Pasos internos documentados
+    * Lógica de decisión
+    * Criterios de evaluación
+    * Fuentes de conocimiento que consulta
+
+**2.4 Aportación especializada al producto**
+* Cada agente aporta al video de forma especializada:
+    * Detalles técnicos
+    * Recursos
+    * Contexto
+    * Outputs listos para publicación
+
+**2.5 Consultas directas a agentes**
+* Posibilidad de hacer **consultas directas** a los agentes para:
+    * Aportar conocimiento
+    * Evaluar decisiones
+    * Proveer criterios
+
+---
+
+## 3) Pipeline, Flujo de Ejecución & Trazabilidad (Radiología del Proceso)
+
+**3.1 Traza completa del pipeline**
+Visualización en consola de:
+* Cada paso ejecutado
+* Orden de ejecución (antes/después)
+* Estado actual del flujo
+* Qué hace cada paso
+* Por qué existe ese paso
+* Qué recibe como input
+* Cómo usa ese input
+* Cómo decide
+* En qué conocimiento se basa
+* Qué parámetros lee
+* Qué parámetros crea
+* Qué parámetros ejecuta
+
+**3.2 Anatomía del proceso**
+* Descomposición metafórica del pipeline:
+    * Cuerdas
+    * Átomos
+    * Protones
+    * Neutrones
+    * Electrones
+    (cada nivel representa granularidad extrema del sistema)
+
+**3.3 Radiología del “paquete”**
+* Mapa completo del camino del input del usuario:
+    * Evolución del paquete
+    * Transformaciones sucesivas
+    * Generación progresiva del objeto resultante
+
+---
+
+## 4) Objeto Entregable Objetivo (Estructura Central del Sistema)
+
+**4.1 Definición del objeto**
+* Objeto final compuesto por:
+    * **50 o más campos/estructuras**
+    * Cada campo representa:
+        * Elemento
+        * Recurso
+        * Parte
+        * Componente
+        * Pieza de valor
+        * Contexto
+        * Datos
+        * Información
+
+**4.2 Plantillas oficiales**
+* El objeto entregable:
+    * Se crea desde la **última versión oficial de la plantilla**
+    * Cada campo contiene:
+        * Link a la última versión oficial registrada en el sistema
+    * Cada campo se enriquece con:
+        * Información aportada por los agentes responsables de ese campo
+
+**4.3 Ciclo de retroalimentación**
+* El producto final publicado:
+    * Refresca el sistema
+    * Alimenta:
+        * Planificación
+        * Análisis
+        * Evaluación
+        * Documentación
+        * Comparación
+        * Registro
+    * Activa otros agentes/equipos según necesidad
+
+---
+
+## 5) Gestión del Conocimiento
+
+**5.1 Conocimiento operativo**
+* El conocimiento es:
+    * Saber hacer las **preguntas correctas**
+    * Con capacidad de:
+        * Análisis
+        * Filtrado
+        * Identificación
+        * Comparación
+        * Selección de la respuesta correcta según contexto
+
+**5.2 Cuadernos “cerebro”**
+* Creación de cuadernos “cerebro” con:
+    * Información de:
+        * Canales especializados de YouTube
+        * Personas famosas
+        * Expertos
+    * Información extraída de:
+        * Links a videos
+        * Top videos más importantes de cada canal
+* Aplicación de ese conocimiento al sistema de agentes.
+
+---
+
+## 6) Extensiones, Scraping & Acceso a Contenido
+
+**6.1 YouTube**
+* Uso de:
+    * **YouTube Summary Extension (Chrome)**
+
+**6.2 Instagram / TikTok**
+* Uso de:
+    * Tools/extensiones para:
+        * Balancear contenidos
+        * Acceder a contenido
+        * Imitar formatos
+        * Mejorar contenidos
+
+**6.3 Automatización de extensiones**
+* Uso de:
+    * Auto Whisk
+    * Otras extensiones de navegador
+* Controladas automáticamente por Antigravity
+
+---
+
+## 7) Base de Datos & Modelo de Información
+
+**7.1 Titan 5.3**
+* Uso de **todas las tablas definidas por la base de datos Titan 5.3**.
+* Todas las tablas deben estar:
+    * Vinculadas entre sí
+    * Relacionadas pieza a pieza
+    * Conectadas front-end ↔ back-end
+
+**7.2 Flujo de datos**
+* El sistema debe:
+    * Fluir correctamente
+    * Ser transparente
+    * Estar definido
+    * Ser detallado
+    * Consciente (estado del sistema)
+    * Algorítmico
+    * Basado en conocimiento comprobable
+    * Accesible
+    * Especializado según función
+
+**7.3 Documentación**
+* Todo documentado mediante:
+    * Fuentes
+    * Notas
+    * Recursos de cuadernos
+    * Expediente
+    * Cerebro del sistema
+
+---
+
+## 8) Auditoría, Forense y Gobernanza
+
+**8.1 Auditoría forense**
+* Auditoría forense completa al sistema:
+    * Flujos
+    * Decisiones
+    * Transformaciones
+    * Pérdida de información
+    * Trazabilidad
+    * Consistencia de versiones
+
+**8.2 Registro vivo**
+* Nota “registro” en NotebookLM:
+    * Se actualiza siempre
+    * Se agrega como fuente oficial
+    * Funciona como bitácora del sistema
+
+---
+
+## 9) Estandarización, Versionado & Plantillas
+
+**9.1 Plantillas oficiales**
+* Cada agente, estructura, pieza o elemento:
+    * Se genera desde la **última versión oficial de plantilla** del sistema.
+    * Garantiza:
+        * Homogeneidad
+        * Estandarización
+
+**9.2 Sistema de feedback**
+* Las plantillas:
+    * Se actualizan continuamente
+    * Se alimentan del documento oficial de feedback
+    * Extraen datos de reportes de ejecución
+
+**9.3 Principio de no-átomos sueltos**
+* Todo en el sistema:
+    * Es absorbido
+    * Es utilizado con un objetivo
+    * Ningún átomo queda suelto ni desvinculado
+
+---
+
+## 10) Checklist Operativo (Documento por Documento, Elemento por Elemento)
+
+Para cada documento / elemento del sistema:
+* Nombre del elemento
+* Estructura a la que pertenece
+* Descripción funcional
+* Versión actual
+* Link a plantilla oficial
+* Agente responsable
+* Fuente de conocimiento
+* Estado (activo, en revisión, obsoleto)
+* Conexiones con:
+    * Front-end
+    * Back-end
+    * Otros agentes
+* Resultado que produce
+* Uso dentro del pipeline
+* Registro de cambios
+* Auditoría aplicada
+
+---
+
+## Próximos Pasos (Ingeniería Formal)
+* **Modelo de datos maestro del sistema (JSON / esquema formal)**
+* **Arquitectura de agentes (diagrama funcional + roles)**
+* **Plantilla oficial v1 del “Objeto Entregable Objetivo” con los 50+ campos definidos**

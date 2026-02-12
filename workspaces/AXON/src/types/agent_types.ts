@@ -209,6 +209,16 @@ export interface SystemContext {
         priority_manifest_id: string; // The specific video we are focusing on NOW
     };
 
+    // 🏛️ AXON v1.7 ADAPTIVE PROPERTIES (PROT-008/009)
+    mode?: 'Standard' | 'Abstraer' | 'Expandir' | 'Pulir';
+    failover_active?: boolean;
+    last_snapshot?: {
+        last_state: any;
+        error: string;
+        timestamp: string;
+    };
+    complexity?: number; // 0-10 used by Orchestrator
+
     // 5. Agent Registry (The "Hardware" State)
     agents: {
         [key: string]: UniversalAgentState<any, any>;

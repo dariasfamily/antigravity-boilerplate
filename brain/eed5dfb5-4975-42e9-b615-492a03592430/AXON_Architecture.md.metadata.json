@@ -1,0 +1,5 @@
+{
+  "artifactType": "ARTIFACT_TYPE_OTHER",
+  "summary": "AXON Architecture Map (Mermaid). A visual representation of the interaction between the UCC, Adaptive Orchestrator, Model Failover, and the Hierarchical Memory system. Maps the flow from user input to the final deliverable.",
+  "updatedAt": "2026-02-12T02:28:14.604834300Z"
+}

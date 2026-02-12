@@ -1,0 +1,79 @@
+# Knowledge Items — Antigravity/AXON
+
+**Version:** 1.0.0  
+**Last Updated:** 2026-02-11  
+**Author:** Antigravity (AXON Core)
+
+---
+
+## 🛠️ Protocols & Directives
+
+### [PROT-001] Protocolo Espejo (Mirror Protocol)
+**Definición:** Norma de fidelidad absoluta para la transferencia de información en documentos de ingeniería (FFRS, System Specs).
+- **Objetivo:** Eliminar la pérdida de información por sesgo de síntesis.
+- **Acción:** Requiere que el agente desctive filtros de optimización y realice una auditoría línea a línea contra la fuente.
+- **Activación:** Se invoca automáticamente en tareas FFRS o manualmente mediante el comando `/mirror`.
+
+### [PROT-007] Unidad Central de Control (UCC) y Mínimos (EMA)
+- **Gatekeeper:** Prohibido aplicar cambios sin cumplir la plantilla de "mínimos pasos" (EMA).
+- **Sincronización:** Los componentes deben usar siempre la última versión `active` difundida por la UCC.
+- **Registro Inmutable:** Cada movimiento operativo debe reflejarse en el `Change Ledger`.
+
+### [PROT-008] Failover de Modelo y Snapshots
+- **Snapshot Transaccional:** Antes de un failover o cambio estructural, capturar estado del pipeline, refs L1/L2/L3 y variables.
+- **Rehidratación:** El nuevo modelo debe validar la integridad del snapshot antes de continuar desde el `resume_step_id`.
+- **Idempotencia:** Los pasos de ejecución deben ser diseñados para no duplicar efectos al reanudar.
+
+### [PROT-009] Adaptación Autónoma AXON
+- **Operaciones:** Abstraer, Sustraer, Expandir, Argumentar, Pulir, Agregar.
+- **Aprobación:** Cambios de alto impacto requieren "Auditoría Forense". Cambios de bajo riesgo siguen el `Policy Engine`.
+- **Rollback:** Obligatorio si el post-check de integridad falla tras una adaptación.
+
+### [PROT-004] Estándar de Decisión D3 (Depth Decision)
+Regla de selección de profundidad de conocimiento para agentes:
+- **Usa L1 si:** Verificación simple, bajo riesgo, sin cálculos complejos.
+- **Usa L2 si:** Ejecución técnica, configuración, diseño de flujo.
+- **Usa L3 si:** Conflicto, incertidumbre alta, impacto alto, cambios recientes.
+- **Métrica:** Se debe loguear siempre `knowledge_depth_used`.
+
+### [PROT-005] Trazabilidad en 2 Niveles (Logs)
+- **Log LITE (Ejecutivo):** 10-30 líneas, legible por humano, resumen operativo.
+- **Log FULL (Forense):** Estructurado, completo, persistido para investigaciones.
+- **Regla 1-2-3:** 
+    - Tareas pequeñas: L1 + Log LITE.
+    - Tareas medianas: L2 + Log LITE.
+    - Tareas críticas: L3 + Log FULL.
+
+### [PROT-006] Control de Calidad y Vigencia
+- **Status Doc:** `active` | `deprecated` | `archived`. Solo `active` es consultable por defecto.
+- **QC Checklist (Check de Rigor):** 
+    1. ¿Tiene `uid` y `version`? 
+    2. ¿Tiene `status`? 
+    3. ¿Tiene `refs_L3`? 
+    4. ¿Tiene gatillos de escalado?
+- **Fuente Canónica:** Máximo 3 fuentes base por dominio marcadas como "Source of Truth".
+
+### [PROT-003] Principios de Control de Datos
+**0.1 Trazabilidad Absoluta:** Todo elemento debe poseer `uid`, `version`, `origen`, `fecha`, `dependencias[]` y `fuentes_base[]`. Prohibido el uso de resúmenes sin referencias a Nivel 3.
+**0.2 Inmutabilidad por Versiones:** Las capas derivadas (L1/L2) nunca sobrescriben fuentes profundas (L3). Las actualizaciones generan nuevas versiones preservando el histórico.
+**0.3 Registro Vivo Obligatorio:** Cada sesión requiere actualización de la nota “registro” detallando cambios, fuentes e impacto.
+
+### [PROT-002] Memoria Jerárquica Cognitiva
+**Definición:** Modelo de organización de información en 3 capas de profundidad (Nivel 1, 2, 3).
+- **Nivel 1 (Superficial):** Guías rápidas, veríficaciones, resúmenes direccionales.
+- **Nivel 2 (Intermedio):** Conocimiento aplicado, procedimientos, especificaciones detalladas.
+- **Nivel 3 (Profundo):** Fuentes base vivas (~30 fuentes), recursos oficiales, documentación técnica.
+
+---
+
+## 📈 System Metrics & Governance
+- **Zero-Loss Audit (PROT-001):** Requisito de verificación final para cada tarea de documentación crítica.
+- **Métrica de Suficiencia de Capa (Entregable D):** Auditoría del uso de capas (`knowledge_depth_used = 1 | 2 | 3`) persistido en el objeto de traza del pipeline.
+- **Coherencia de Versionado (Entregable B):** Documentos L1/L2 deben incluir `fuentes_base_version[]`.
+- **Radiología del Pipeline (Entregable E):** Formato estándar de traza en consola obligatorio para todos los agentes.
+
+---
+
+**Signature:**
+- Verified by: `[AXON-AGENT-ANTIGRAVITY]`
+- Timestamp: 2026-02-11T21:20:19-05:00

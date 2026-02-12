@@ -1,0 +1,24 @@
+# Plan: AXON v1.7 Integration - Phase 1: Governance & UCC
+
+Materializing the Central Control Unit (UCC) to enforce AXON v1.7 protocols.
+
+## Proposed Changes
+
+### [Engineering / src]
+
+#### [MODIFY] [InternalAffairs.ts](file:///c:/Users/daria/.gemini/antigravity/workspaces/AXON/src/core/InternalAffairs.ts)
+- Implement `CentralControlUnit` class.
+- Add `ExecutionMinimumsAgent (EMA)` logic to validate task requirements.
+- Implement the `ChangeLedger` for immutable recording of system movements.
+- Add gatekeeping logic to prevent unauthorized or non-compliant modifications.
+
+### [Knowledge Base / Brain]
+
+#### [MODIFY] [walkthrough.md](file:///C:/Users/daria/.gemini/antigravity/brain/eed5dfb5-4975-42e9-b615-492a03592430/walkthrough.md)
+- Track implementation progress of the UCC.
+
+## Verification Plan
+
+### Automated Tests
+- Run unit tests for [InternalAffairs](file:///c:/Users/daria/.gemini/antigravity/workspaces/AXON/src/core/InternalAffairs.ts#10-89) (if they exist) or create a verification script to test the gatekeeper logic.
+- Verify that a task failing to meet "Minimum Steps" is correctly blocked.

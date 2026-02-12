@@ -72,3 +72,30 @@ export interface AgentLogic<TInput, TOutput> {
      */
     justify(output: TOutput): Promise<TripleJustification>;
 }
+
+/**
+ * 🏛️ UCC: CENTRAL CONTROL UNIT TYPES
+ */
+
+export type SystemChangeType = 'code' | 'data' | 'template' | 'pipeline' | 'memory' | 'agent';
+
+export interface ExecutionMinimums {
+    template_id: string;
+    version: string;
+    required_steps: string[];
+    pre_checks: string[];
+    post_checks: string[];
+}
+
+export interface UCCChangeEntry {
+    change_id: string;
+    timestamp: string;
+    type: SystemChangeType;
+    agent_id: string;
+    ema_template_id: string;
+    before_state_hash: string;
+    after_state_hash: string;
+    policy_applied: string;
+    compliance_status: 'OK' | 'Blocked' | 'Warning';
+    modules_touched: string[];
+}

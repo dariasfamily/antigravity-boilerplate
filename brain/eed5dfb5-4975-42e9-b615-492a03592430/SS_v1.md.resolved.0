@@ -1,0 +1,131 @@
+# System Specification v1 (FFRS) — Antigravity/AXON
+
+**Version:** 1.0  
+**Status:** Official / Active  
+**Framework:** FFRS + EET (COC v1.0 Compliance)
+
+---
+
+## 1. Integrations Técnicas & Plataformas IA
+
+### 1.1 Antigravity (Núcleo de Orquestación)
+* **ComfyUI:** Integración nativa dentro de Antigravity para flujos de generación visual.
+* **Hive Architecture:** Uso de `/agent/` o estructura de "hive" (colmena) para la organización de agentes.
+* **Stitch Antigravity:** Mecanismo central para el ensamblaje y composición de flujos complejos.
+* **Navegador & Browser Tools:**
+    * Uso de **Auto Whisk** y extensiones controladas automáticamente.
+    * Control total de herramientas del browser desde el núcleo.
+* **Gemini CLI:** Ejecución de comandos de Gemini y control del PC (acciones locales) desde Antigravity.
+* **Interacción Antigravity ↔ Gemini API:**
+    * Acceso a cuadernos (notebooks).
+    * Prueba de flujos y ejecución de tareas.
+
+### 1.2 Ecosistema de Cuadernos (Cerebro)
+* **Gemini:** Cuaderno específico con chats de Gemini + Agente asociado.
+* **ChatGPT:** Cuaderno con historial de chats de ChatGPT + Agente asociado.
+* **NotebookLM:** Repositorio central de fuentes vivas.
+    * **Protocolo de Registro:** Cada interacción debe crear/actualizar una nota llamada **"registro"** como fuente viva.
+    * **Normalización:** Las fuentes deben ser renombradas, ordenadas y normalizadas según el estándar del sistema.
+
+---
+
+## 2. Sistema de Agentes (Arquitectura y Roles)
+
+### 2.1 Especialización de Agentes
+Agentes definidos por funciones críticas, incluyendo:
+* **Generación Visual:** Imagen y video.
+* **Investigación & Curaduría:** Fuentes y datos.
+* **Edición de Video:** Post-producción.
+* **Wealth (Finanzas):** Objetivo explícito de crear negocios online y monetizarlos.
+* **Programador de Herramientas:** Creación de scripts y extensiones.
+
+### 2.2 Agente Constructor de Equipos (The Architect)
+Capacidad autónoma de:
+1. Crear equipos de agentes para tareas específicas.
+2. Detectar vacíos y crear nuevos agentes si no existen.
+3. Ampliar funciones de agentes existentes.
+4. Crear herramientas personalizadas (auto-programación).
+
+### 2.3 Algoritmo Interno (Protocolo Individual)
+Cada agente opera bajo un algoritmo documentado que incluye:
+* Pasos internos de ejecución.
+* Lógica de decisión y criterios de evaluación.
+* Fuentes de conocimiento consultadas.
+
+---
+
+## 3. Pipeline, Flujo de Ejecución & Trazabilidad
+
+### 3.1 Radiología del Proceso (Deep Trace)
+Visualización en consola de la traza completa:
+* **Pasos:** Orden de ejecución (antes/después) y estado actual.
+* **Lógica:** Qué hace cada paso y por qué existe.
+* **Datos:** Input recibido, uso del input y parámetros (leídos, creados, ejecutados).
+* **Fundamentación:** Base de conocimiento utilizada para cada decisión.
+
+### 3.2 Granularidad del Sistema (Metáfora Atómica)
+Descomposición del pipeline en niveles de detalle extremo:
+* **Cuerdas → Átomos → Protones → Neutrones → Electrones.**
+
+### 3.3 Evolución del Objeto (Radiología del Paquete)
+Monitoreo constante del path del input del usuario, sus transformaciones sucesivas y la generación progresiva del entregable final.
+
+---
+
+## 4. Objeto Entregable Objetivo (Output Schema)
+
+### 4.1 Definición del Objeto
+El producto final es un objeto compuesto por **50 o más campos/estructuras**, donde cada campo representa:
+* Elementos, recursos, componentes y piezas de valor.
+* Contexto y datos enriquecidos por agentes responsables.
+
+### 4.2 Control de Plantillas
+* **Estandarización:** Todo campo nace de la última versión oficial de la plantilla.
+* **Trazabilidad:** Cada campo incluye un link a su versión oficial registrada.
+
+### 4.3 Ciclo de Retroalimentación (Feedback Loop)
+El producto publicado refresca el sistema alimentando:
+* Planificación, análisis, evaluación y registro forense.
+
+---
+
+## 5. Gestión del Conocimiento & Contenido
+
+### 5.1 Conocimiento Operativo
+Capacidad de análisis, filtrado e identificación de la respuesta correcta según el contexto.
+
+### 5.2 Cuadernos "Cerebro"
+Extracción y aplicación de conocimiento experto de:
+* Canales de YouTube especializados.
+* Expertos y figuras influyentes.
+* Top videos y recursos técnicos.
+
+### 5.3 Scraping & Redes Sociales
+* **YouTube:** Integración con *YouTube Summary Extension*.
+* **IG/TikTok:** Herramientas para imitación de formatos, balanceo de contenido y mejora de producción.
+* **Automatización:** Control total vía Antigravity de extensiones como Auto Whisk.
+
+---
+
+## 6. Base de Datos & Gobernanza
+
+### 6.1 Titan 5.3
+* Uso íntegro de las tablas de Titan 5.3.
+* Relación pieza a pieza y conexión total Front-end ↔ Back-end.
+
+### 6.2 Auditoría Forense y Registro
+* **Auditoría:** Revisión de decisiones, flujos y transformaciones para evitar pérdida de información.
+* **Bitácora:** Actualización constante de la nota "registro" en NotebookLM como fuente oficial.
+
+### 6.3 Estandarización Total
+* **Principio de No-Átomos Sueltos:** Todo en el sistema tiene un objetivo y está vinculado; nada queda desvinculado.
+
+---
+
+## 7. Checklist Operativo por Elemento
+Cada documento o componente debe registrar:
+* Nombre, Estructura y Versión.
+* Link a plantilla y Agente responsable.
+* Fuente de conocimiento y Estado.
+* Conexiones (FE/BE) y Resultado producido.
+* Auditoría y Registro de cambios.

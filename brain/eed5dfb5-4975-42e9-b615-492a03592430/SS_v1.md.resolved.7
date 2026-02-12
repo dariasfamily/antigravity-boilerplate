@@ -1,0 +1,162 @@
+# System Specification v1 (FFRS) — Antigravity/AXON
+
+**Version:** 1.6 (Protector Shield)  
+**Status:** Official / Audited  
+**Framework:** FFRS + EET (COC v1.0 Compliance + PROT-001)
+
+---
+
+> [!NOTE]
+> Este documento es una extracción íntegra, organizada y agrupada de todos los puntos, datos y requisitos mencionados, sin pérdida de información, estructurados para análisis posterior y diseño del sistema.
+
+## 0) Principios de control (garantía de no pérdida de datos)
+
+**0.1 Trazabilidad absoluta**
+* Todo elemento (fuente, nota, agente, campo del objeto, paso del pipeline) recibe:
+    * `uid` único
+    * `version`
+    * `origen`
+    * `fecha`
+    * `dependencias[]`
+    * `fuentes_base[]` (links a Nivel 3)
+* Ningún resumen vive sin referencias explícitas a sus fuentes profundas.
+
+**0.2 Inmutabilidad por versiones**
+* Las capas derivadas (Nivel 1 y 2) **no sobrescriben** fuentes profundas (Nivel 3).
+* Cualquier actualización crea nueva versión; las versiones previas se conservan.
+
+**0.3 Registro vivo obligatorio**
+* Cada sesión de NotebookLM crea/actualiza la nota **“registro”** como fuente viva:
+    * Formato fijo y corto: Cambios, Fuentes (añadidas/retiradas), Docs L1/L2 impactados, Decisiones, Pendientes, Riesgos detectados.
+    * Agentes que consumieron el cambio.
+
+---
+
+## 1) Integraciones Técnicas & Plataformas IA
+
+**1.1 Antigravity (núcleo de orquestación)**
+* Integrar y usar **ComfyUI dentro de Antigravity**.
+* Uso de **/agent/** o **hive** como modelo de organización de agentes en Antigravity.
+* **Stitch Antigravity** (mecanismo de ensamblaje / composición de flujos).
+* Uso de **auto whisk** y otras extensiones del navegador controladas automáticamente por Antigravity.
+* Control de herramientas del browser desde Antigravity.
+* Uso de **Gemini CLI dentro de Antigravity**.
+* Posible **control del PC** vía Gemini CLI desde Antigravity (ejecución de acciones locales).
+* Interacción Antigravity ↔ Gemini vía **API**.
+
+**1.2 Gemini & ChatGPT** (Cuadernos y agentes asociados).
+
+**1.3 NotebookLM & Gestión de Fuentes**
+* Uso de NotebookLM como repositorio de fuentes.
+* Estandarización obligatoria:
+    * Renombrado y orden: Clasificadas por tema, nivel y versión.
+    * Mapeo nombre antiguo ↔ nuevo registrado en nota “registro”.
+    * Identificación de **“Fuente Canónica”** (1-3 máximo) por dominio. Lo demás es “apoyo”.
+
+---
+
+## 2) Sistema de Agentes (Arquitectura, Roles y Capacidades)
+
+**2.1 Tipos de agentes**
+* Especializados: Generación, Investigación, Curaduría, Edición, Finanzas ($), Herramientas, Automatización, Programador.
+* Agente constructor de equipos y programador de herramientas personalizadas.
+
+**2.2 Algoritmo interno & Regla D3 (Depth Decision)**
+Todo agente aplica la selección automática de profundidad:
+* **Usa L1 si:** verificación simple, bajo riesgo, sin cálculos complejos.
+* **Usa L2 si:** ejecución técnica, configuración, diseño de flujo.
+* **Usa L3 si:** conflicto, incertidumbre alta, impacto alto, o hay cambios recientes.
+* Logueo obligatorio: `knowledge_depth_used`.
+
+**2.3 Blindaje contra inventos (No claim without ref)**
+* Cualquier afirmación operativa en L1/L2 debe tener `refs_L3`.
+
+---
+
+## 3) Pipeline & Trazabilidad (Radiología - Logs L1/L2)
+
+**3.1 Logs en 2 niveles**
+* **Log ejecutivo (LITE):** 10–30 líneas, legible por humano.
+* **Log forense (FULL):** estructurado, completo, para investigación.
+
+**3.2 Trazabilidad**
+* Paso actual, input/output, conocimiento consultado, agente, traza estructurada persistida y versionada por ejecución.
+
+---
+
+## 4) Objeto Entregable Objetivo (50+ campos con capas)
+
+**4.1 Estructura del objeto**
+* Capa 1: descripción funcional breve.
+* Capa 2: especificación técnica.
+* Capa 3: fuentes base (links a L3 core).
+* Metadatos: `refs_L3[]`, `agentes[]`, `log_pipeline_ids[]`.
+
+---
+
+## 5) Gestión del Conocimiento (Jerarquía L1-L2-L3)
+
+**5.1 Organización en 3 capas**
+* **Nivel 1 (Guía rápida):** Puntos clave, resúmenes, mapa conceptual (máx 10 bullets).
+    * Incluye siempre: **“Cuándo NO usar L1”** (gatillos de escalado).
+* **Nivel 2 (Conocimiento operativo):** Procedimientos, criterios de decisión, casos de uso.
+* **Nivel 3 (Fuentes base vivas):**
+    * **L3 Core (imprescindibles):** Definición + guía oficial + práctica + ejemplos + troubleshooting. 
+    * **L3 Edge (opcionales):** Documentación técnica adicional, papers.
+
+**5.2 Mantenimiento (Evitar deriva)**
+* Si cambia L3 → se marca L1/L2 como **“requiere revalidación”**.
+* Control de vigencia: `status = active | deprecated | archived`. Solo **ACTIVE** es consultable por defecto.
+
+---
+
+## 8) Auditoría, Forense & Control de Calidad (QC)
+
+**8.1 Auditoría forense por capas**
+* Capa 1: detección rápida de inconsistencias. Capa 2: análisis operativo. Capa 3: verificación contra fuentes base.
+
+**8.2 QC Checklist por documento**
+5-8 checks mínimos para garantizar rigor sin burocracia:
+* ¿Tiene `uid`? ¿Tiene `version`? ¿Tiene `status`?
+* ¿Tiene `refs_L3[]` (si es L1/L2)?
+* ¿Tiene “gatillos de escalado”?
+
+---
+
+## 9) Estandarización & Manifiesto
+
+**9.1 Manifiesto del Proyecto ( Project Manifest)**
+* 1 página: objetivo, alcance, no-alcance, métricas de éxito, riesgos críticos.
+
+**9.2 Mapa de dominios (DomainMap)**
+* Esquema: dominios → subdominios → cuadernos → docs L1/L2 → fuentes L3 core.
+
+**9.3 SemVer y compatibilidad**
+* Cambios menores: `v1.1`. Cambios incompatibles: `v2.0` (v1 se mantiene activa hasta migración).
+
+---
+
+## 11) Auditoría Protector & Blindaje Mínimo (Protector Shield)
+
+**11.1 Causas de ruptura del sistema**
+1. Deriva entre capas (L1/L2 vs L3).
+2. Sobrecarga de documentación.
+3. Versionitis (falta de regla de vigencia).
+4. Taxonomía inestable (interoperabilidad muerta).
+5. Logs gigantes (fatiga de auditoría).
+6. Falta de definición del “Done”.
+
+**11.2 Regla 1–2–3 (Evitar burocracia)**
+* Tareas pequeñas: **Solo L1 + log LITE**.
+* Tareas medianas: **L2 + log LITE**.
+* Tareas críticas: **L3 + log FULL**.
+
+**11.3 MVP de Gobernanza (8 piezas)**
+1. Convención de nombres única. 2. 3 capas L1/L2/L3. 3. Status Active/Dep/Arch. 4. Regla D3. 5. Log LITE/FULL. 6. Registro vivo formato fijo. 7. DomainMap. 8. QC checklist.
+
+---
+
+**Mirror Verification Trace (FFRS-003):**
+- **Protocol:** PROT-001 (Mirror Protocol)
+- **Status:** 100% Literal Fidelity Verified (Protector Upgrade)
+- **Date:** 2026-02-11

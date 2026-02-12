@@ -1,5 +1,5 @@
-# 📒 KNOWLEDGE LEDGER
-**Owner:** Egeria (Chief Knowledge Officer)
+# 📒 KNOWLEDGE LEDGER v1.0.0
+**Estado:** ACTIVO | **ID:** `AXON-DATA-LEDGER-001`
 **Purpose:** Central log of all agent activities and knowledge synthesis.
 
 | Date | Agent | Task ID | Achievement | Cost (Est.) | Status |
@@ -10,4 +10,6 @@
 | 2026-02-08 | CALLIOPE | `PROJ-2026-CALLIOPE-v0` | Full System Standardization (ACP v1.0) + Notebook Synced. | High | **VERIFIED** |
 | 2026-02-08 | TRIUMVIRATE | `TEST-GRAND-INTEGRATION` | End-to-End Flow: Strategy -> Gate -> Script -> Report. | High | **SUCCESS** |
 | 2026-02-08 | ARGUS | `PROJ-2026-ARGUS-v0` | Full System Standardization (ACP v1.0) + Notebook Synced. | High | **VERIFIED** |
-| 2026-02-08 | PLANNER | `PROJ-SYSTEM-PLANNER-v0` | Agent Genesis: The Architect (ACP v1.0). | High | **BORN** |
+| 2026-02-12 | AGENT/IDE | `AXON-PROTO-LOOP-001` | Instanciación del Bucle de Sistema (System Loop) v1.0.0. | High | **VERIFIED** |
+| 2026-02-12 | AGENT/IDE | `AXON-PROTO-OIM-001` | Manual de Instrucciones Operativas (Hilo Concurrente) v1.0.0. | Medium | **ACTIVE** |
+| 2026-02-12 | AGENT/IDE | `AXON-DATA-KNOWLEDGE-MASTER` | Established Global Master Knowledge Item v1.1.0 in Hive. | High | **OFFICIAL** |

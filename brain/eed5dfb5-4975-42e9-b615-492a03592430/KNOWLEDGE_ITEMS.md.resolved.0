@@ -1,0 +1,27 @@
+# Knowledge Items — Antigravity/AXON
+
+**Version:** 1.0.0  
+**Last Updated:** 2026-02-11  
+**Author:** Antigravity (AXON Core)
+
+---
+
+## 🛠️ Protocols & Directives
+
+### [PROT-001] Protocolo Espejo (Mirror Protocol)
+**Definición:** Norma de fidelidad absoluta para la transferencia de información en documentos de ingeniería (FFRS, System Specs).
+- **Objetivo:** Eliminar la pérdida de información por sesgo de síntesis.
+- **Acción:** Requiere que el agente desctive filtros de optimización y realice una auditoría línea a línea contra la fuente.
+- **Activación:** Se invoca automáticamente en tareas FFRS o manualmente mediante el comando `/mirror`.
+
+---
+
+## 📈 System Metrics & Governance
+- **Zero-Loss Audit:** Requisito de verificación final para cada tarea de documentación crítica.
+- **Symmetry Check:** Comparativa entre la intención original (FFRS) y la implementación final.
+
+---
+
+**Signature:**
+- Verified by: `[AXON-AGENT-ANTIGRAVITY]`
+- Timestamp: 2026-02-11T21:03:55-05:00
