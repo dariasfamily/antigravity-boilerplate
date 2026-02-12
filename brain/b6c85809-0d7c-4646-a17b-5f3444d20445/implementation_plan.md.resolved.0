@@ -1,0 +1,84 @@
+# Plan de Auditoría Forense Élite: Sistema AXON v1.0
+
+Este plan establece una metodología de revisión exhaustiva y profunda de cada recurso del ecosistema AXON, aplicando los principios de **Ingeniería de Intención (FFRS + EET)** y asegurando la **Recuperación ante Interrupciones** como núcleo operativo.
+
+## User Review Required
+
+> [!IMPORTANT]
+> **Gobernanza de Interrupciones**: Se propone la creación del protocolo `[PROT-005] RESILIENCIA_ESTADO` para guardar estados de auditoría en `hive/sessions/` de forma automática tras cada hito.
+> **Confirmación de Alcance**: ¿Desea que la revisión de los Notebooks de NotebookLM incluya la verificación de la calidad del contenido indexado o solo la existencia y etiquetado?
+
+---
+
+## Proposed Changes
+
+### [Component: Governance & Hive]
+Revisión y actualización de los cimientos del sistema.
+
+#### [MODIFY] [KNOWLEDGE_ITEMS.md](file:///c:/Users/daria/.gemini/antigravity/hive/knowledge/KNOWLEDGE_ITEMS.md)
+- Añadir `[PROT-005] Protocolo de Resiliencia y Recuperación` al núcleo estático.
+- Definir la obligatoriedad del "State-Log" en auditorías elite.
+
+#### [NEW] [RESILIENCE_PROTOCOL.md](file:///c:/Users/daria/.gemini/antigravity/hive/protocols/RESILIENCE_PROTOCOL.md)
+- Detalle del mecanismo de checkpoint/recovery para procesos largos.
+
+---
+
+### [Component: Agent Hierarchy (The Septemvirate)]
+Auditoría individual de cada uno de los 7 agentes núcleo.
+
+#### [AUDIT] Egeria, Pulsar, Orion, Calliope, Argus, Planner, Nexus
+- **Nivel L1 (Existencia)**: Verificar SS v0, Datasheet y Skills.
+- **Nivel L2 (Conectividad)**: Validar tokens de NotebookLM, Supabase y IDs de integración.
+- **Nivel L3 (Fidelidad)**: Aplicar `[PROT-001] Mirror` para asegurar que el código local coincide con las especificaciones del Hive.
+
+---
+
+### [Component: Resources & Infrastructure]
+Verificación forense de la infraestructura de soporte.
+
+#### [CHECK] Supabase / DB
+- Esquemas de bases de datos y políticas RLS.
+#### [CHECK] NotebookLM
+- Etiquetado `[MOD-X AGENTE]` según el nuevo protocolo.
+#### [CHECK] App Code (AXON Boilerplate)
+- Alineación del [PROJECT_STRUCTURE.md](file:///c:/Users/daria/.gemini/antigravity/workspaces/AXON/PROJECT_STRUCTURE.md) con la implementación real en `src/`.
+
+---
+
+## Check-list de Ejecución Forense (Punto a Punto)
+
+### 1. Reconstrucción de Contexto (Bootstrap)
+- [ ] 1.1 Leer [KNOWLEDGE_ITEMS.md](file:///c:/Users/daria/.gemini/antigravity/hive/knowledge/KNOWLEDGE_ITEMS.md) y cargar `ADN Universal`.
+- [ ] 1.2 Verificar paridad entre [hive/agents/agents_registry.md](file:///c:/Users/daria/.gemini/antigravity/hive/agents/agents_registry.md) y el estado real de archivos.
+- [ ] 1.3 Crear Checkpoint de Inicio en `hive/sessions/audit_checkpoint_001.json`.
+
+### 2. Auditoría de Agentes Nucleares
+- [ ] 2.1 **EGERIA**: Validar `FINAL_SSv0` y rol de Orquestador.
+- [ ] 2.2 **PULSAR**: Verificar Gateway y latencia de respuesta.
+- [ ] 2.3 **ORION**: Auditar matrices de estrategia y lógica de decisión.
+- [ ] 2.4 **CALLIOPE**: Revisar outputs multimedia y "Glass-Box".
+- [ ] 2.5 **ARGUS**: Comprobar protocolos de auditoría interna.
+- [ ] 2.6 **PLANNER**: Validar escalabilidad de la arquitectura propuesta.
+- [ ] 2.7 **NEXUS**: Verificar integración de APIs externas.
+
+### 3. Sincronización de Conocimiento (Zero-Drift)
+- [ ] 3.1 Ejecutar `/egeria-sync` para NotebookLM.
+- [ ] 3.2 Validar que cada recurso externalizado tiene su espejo en `hive/knowledge/`.
+- [ ] 3.3 Corregir naming conventions en fuentes de NotebookLM.
+
+### 4. Blindaje de Gobernanza
+- [ ] 4.1 Implementar `[PROT-005]` en el core de Antigravity.
+- [ ] 4.2 Probar recuperación de interrupción simulada.
+
+---
+
+## Verification Plan
+
+### Automated Tests
+- `npm run validate-system`: Script personalizado para verificar conectividad de agentes. (Necesita ser creado).
+- `python scripts/sync_notebooklm.py --dry-run`: Verificar sincronización sin cambios.
+
+### Manual Verification
+- Revisión visual de la estructura del Hive por el usuario (Darias).
+- Validación de la "Hoja de Fidelidad" de un agente aleatorio.

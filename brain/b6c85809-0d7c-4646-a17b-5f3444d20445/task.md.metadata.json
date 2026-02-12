@@ -1,0 +1,5 @@
+{
+  "artifactType": "ARTIFACT_TYPE_TASK",
+  "summary": "Este artefacto define el flujo de trabajo para la Auditoría Forense Élite del sistema AXON, garantizando la recuperación ante interrupciones y la trazabilidad total mediante FFRS + EET.",
+  "updatedAt": "2026-02-12T02:55:50.847395800Z"
+}
