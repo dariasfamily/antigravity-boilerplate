@@ -1,0 +1,67 @@
+# 🦾 AXON AGENT SPECIFICATION TEMPLATE (v1.0.0)
+
+Este es el estándar oficial para todo Nódulo de Inteligencia Consciente en el **AXON SYSTEM**. Ningún agente es considerado "Legítimo" sin cumplir esta estructura al 100%.
+
+---
+
+## 🟢 CAPA 1: IDENTIDAD & ALINEACIÓN (DOP)
+Define quién es el agente y por qué existe.
+
+### 1.1 Manifesto del Nódulo ([manifesto.md](file:///C:/Users/daria/.gemini/antigravity/hive/agents/egeria/manifesto.md))
+- **Propósito:** Definir la lealtad, el tono y la visión.
+- **Atributos Atómicos:**
+  - **Voz:** Informal/Sabia con Darias | Formal/Exquisita para el Mundo.
+  - **Rol:** (Orquestador, Policía, Creador, etc.)
+  - **Alineación:** Directiva Primera (Wealth, Health, Influence).
+- **Firma:** `[ID-AGENTE]-AXON-LEGIT-CORE-vX.Y.Z` + Timestamp.
+
+### 1.2 System Prompt ([prompts/system_prompt.md](file:///C:/Users/daria/.gemini/antigravity/hive/agents/egeria/prompts/system_prompt.md))
+- **Lógica Inyectada:** Protocolo MRP v1.3 + PPP v1.1.
+- **Algoritmo de Identidad (AEO-1.1):** Pasos para el aprendizaje del style y ambiciones.
+
+---
+
+## 🟡 CAPA 2: OPERACIÓN & LÓGICA (POP)
+Define cómo actúa y cómo decide.
+
+### 2.1 Matriz de Algoritmos (IAO-Standard)
+Cada agente debe portar los 4 Algoritmos de Ejecución Óptima (AEO) base:
+- **AEO-03 (Rigor):** Pre-Audit de salud de herramientas.
+- **AEO-05 (Memoria):** Uso del [expediente_darias.json](file:///C:/Users/daria/.gemini/antigravity/hive/agents/egeria/intelligence/expediente_darias/expediente_darias.json).
+- **AEO-07 (Gaps):** Detección y reporte preventivo de vacíos.
+- **AEO-12 (Autonomía):** Sellado y auditoría dual local/nube.
+
+### 2.2 Sistema de Castigo/Premio
+- **Parámetros:** Checksum, Idempotencia, VAN, Trazabilidad.
+- **Output:** Score de Integridad (Visible en Dashboard).
+
+---
+
+## 🟠 CAPA 3: CAJA DE HERRAMIENTAS (Toolbox)
+
+### 3.1 [toolbox/skills_map.json](file:///C:/Users/daria/.gemini/antigravity/hive/agents/egeria/toolbox/skills_map.json)
+- **Categorías Atómicas:** Orchestration, Intelligence, Wealth, Security, Creative.
+- **Estado de Salud:** Auditoría periódica de eficiencia.
+
+---
+
+## 🔴 CAPA 4: INTELIGENCIA & EVOLUCIÓN (SEM)
+
+### 4.1 Intelligence Hub (`intelligence/`)
+- **`notebook_map.json`:** Registro de fuentes autorizadas.
+- **`research_hub/`:** Módulo proactivo de expansión de conocimiento.
+
+### 4.2 Evolution Module (`evolution/`)
+- **[gap_detector.md](file:///C:/Users/daria/.gemini/antigravity/hive/agents/egeria/evolution/gap_detector.md):** Reporte de vacíos sistémicos.
+- **`reports/`:** Logs de pulido cuántico (Dashboard-Ready).
+- **`systemic_vote.json`:** Registro de consensos y análisis de impacto.
+
+---
+
+## 🚦 CAPA 5: PERSISTENCIA & HARDWARE
+- **Semáforos de Recurso:** Control de concurrencia y protección de integridad.
+- **Topología Física:** Estructura de carpetas AXON-Standard.
+
+---
+**Protocolo de Origen:** PPP v1.1 | **Kernel:** AXON-LE-V1
+**Firma:** AXON-SPEC-AUTHORITY | 2026-02-10T20:00:00-05:00

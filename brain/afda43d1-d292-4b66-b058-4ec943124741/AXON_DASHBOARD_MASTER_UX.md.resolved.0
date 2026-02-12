@@ -1,0 +1,74 @@
+# 🖥️ AXON MASTER DASHBOARD: UX/UI SPECIFICATION (v1.0)
+## ⚡ The Glass Box Interface
+
+Este documento define la arquitectura visual y funcional de la Web App que permitirá a Darias visualizar y controlar el AXON SYSTEM en tiempo real.
+
+---
+
+## 1. Filosofía de Diseño: "Antigravity OS"
+- **Estética:** Cyber-Executive / Glassmorphism.
+- **Paleta:** Deep Space Black (`#050510`), Neon Cyan (`#00F0FF` - Integrity), Alert Amber (`#FFD700` - Wealth), Critical Red (`#FF2A6D` - Gaps).
+- **Tipografía:** `JetBrains Mono` (Data) + `Inter` (UI).
+- **Interacción:** Las tarjetas de agentes *respiran* (micro-animaciones) según su estado de procesamiento.
+
+---
+
+## 2. Arquitectura de Información (Matriz de Matrices)
+El dashboard no "lee texto", consume **IDs Atómicos** definidos en los [MASTER_SPEC.md](file:///C:/Users/daria/.gemini/antigravity/hive/agents/pulsar/PULSAR_V1.2_MASTER_SPEC.md).
+
+### 🧬 Data-Binding
+| Elemento UI | Fuente de Verdad (Markdown ID) | Tipo de Dato |
+| :--- | :--- | :--- |
+| **Integrity Gauge** | Egeria `[AEO-12]` | Porcentaje (0-100%) |
+| **Wealth Ticker** | Wealth-Module `[ID-05]` | Currency / Token Count |
+| **Security Status** | Pulsar `[ID-02] Police` | Boolean (Secure/Breach) |
+| **Sync Status** | `[ID-06] Sync-Strategy` | Timestamp (Last Sync) |
+
+---
+
+## 3. Sitemap & Módulos
+
+### 🏠 A. Main Command Center (Home)
+Vista de águila del sistema completo.
+1.  **The System Heartbeat:** Un orbe central pulsante que representa a **Egeria**.
+    *   *Color:* Verde (L-6 Compliant) / Amarillo (Optimizing) / Rojo (Error).
+    *   *Data:* % de Autonomía Global.
+2.  **The Hive Grid:** Tarjetas hexagonales para cada agente (Pulsar, Orion, Calliope).
+    *   Muestra: Versión (v1.2), Estado (Idle/Working), ROI generado.
+
+### 🧠 B. Intelligence Inspector (Drill-Down)
+Al hacer clic en un agente (ej. Pulsar):
+1.  **Identity Layer:** Muestra `[ID-01] Mimetismo` y `[ID-04] Skills`.
+2.  **Live Terminal:** Stream de logs de ejecución en tiempo real (`debug_traces`).
+3.  **Wealth Graph:** Gráfico de línea mostrando "Tokens Ahorrados vs Valor Generado".
+
+### 💰 C. Wealth & Cronos View
+Vista dedicada a la producción y el tiempo.
+1.  **Launch Timeline:** Línea de tiempo horizontal (Gantt) alimentada por la **Cuerda 15 (Cronos)**.
+2.  **Pricing Tables:** Tablas dinámicas extraídas de [pricing-strategy](file:///C:/Users/daria/.gemini/antigravity/hive/skills/skills/pricing-strategy).
+
+### 🛡️ D. Audit Chamber
+Vista forense para Darias.
+1.  **Gap Reports:** Lista de entradas de [gap_detector.md](file:///C:/Users/daria/.gemini/antigravity/hive/agents/egeria/evolution/gap_detector.md).
+2.  **Version Control:** Historial de cambios entre `_LEGACY` y `_MASTER`.
+
+---
+
+## 4. Estructura de "Átomos y Electrones"
+El sistema UI parsea los Markdown así:
+*   **Átomo:** El ID Principal (ej. `[ID-05] Wealth-Filter`).
+*   **Electrones:** Las propiedades dentro del ID.
+    *   `Generación:` -> Renderiza como "Revenue Stream".
+    *   `Ahorro:` -> Renderiza como "Cost Reduction".
+
+---
+
+## 5. Tech Stack (Web App)
+- **Frontend:** Next.js 14 (App Router).
+- **UI Library:** Tailwind CSS + Framer Motion (Animaciones).
+- **Data Source:** Supabase (Espejo de Archivos Markdown).
+- **Auth:** Supabase Auth (Darias biometric).
+
+---
+**Status:** DEFINITION READY
+**Next Step:** Prototipado en v0/Stitch.

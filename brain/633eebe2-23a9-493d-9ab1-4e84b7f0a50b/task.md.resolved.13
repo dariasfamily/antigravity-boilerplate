@@ -1,0 +1,12 @@
+# Task: Set up NotebookLM Integration
+
+- [x] Research existing NotebookLM integration or config
+- [x] Create folder for NotebookLM notebooks
+- [x] Determine authentication method (Token/Key vs Manual)
+- [ ] [/] Implement automated sync script (Unofficial API)
+    - [x] Install dependencies
+    - [x] Create script (Updated for Full Cookie Header)
+    - [ ] Configure CLI-based authentication
+    - [ ] Update script to use stored credentials
+    - [ ] Run sync and verify
+- [ ] [ ] Specific workflow for syncing/updating notebooks

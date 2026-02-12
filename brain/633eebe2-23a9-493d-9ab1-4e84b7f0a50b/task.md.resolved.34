@@ -1,0 +1,55 @@
+# Task: Auditoría Completa de MCP Servers
+
+## Objetivo
+Auditar los 12 MCP servers uno por uno, probar sus tools, y crear configuración final funcional.
+
+## Checklist de Auditoría
+
+### Fase 1: Preparación
+- [x] Restaurar todos los 12 servidores del backup
+- [x] Deshabilitar todos (`"disabled": true`)
+- [x] Reiniciar AXON
+- [x] Verificar errores (Encontrados: 8 servidores en rojo en la parte inferior de la lista)
+
+### Fase 2: Grupo 1 - Alta Prioridad (Autenticación Configurada)
+- [ ] **notebooklm** - Probar list_notebooks, get_notebook, list_sources
+- [ ] **notion** - Probar list_databases, query_database, create_page
+- [ ] **zapier** - Probar list_zaps, get_zap
+- [ ] **make** - Probar list_scenarios, get_scenario
+
+### Fase 3: Grupo 2 - Media Prioridad (Autenticación Parcial)
+- [ ] **github** - Probar list_repos, get_repo, list_issues
+- [ ] **rube_mcp** - Probar tools disponibles
+- [ ] **perplexity** - Probar search
+- [ ] **supabase** - Probar list_tables, query
+- [ ] **vercel** - Probar list_projects, get_project
+
+### Fase 4: Grupo 3 - Baja Prioridad (Sin Configuración)
+- [ ] **cloudrun** - Verificar si requiere configuración adicional
+- [ ] **firebase-mcp-server** - Verificar si requiere configuración adicional
+- [ ] **gmp-code-assist** - Verificar si requiere configuración adicional
+
+### Fase 5: Finalización
+- [ ] Crear [mcp_audit_log.md](file:///C:/Users/daria/.gemini/AXON/brain/633eebe2-23a9-493d-9ab1-4e84b7f0a50b/mcp_audit_log.md) con resultados
+- [ ] Crear `mcp_servers_status.md` con estado final
+- [ ] Actualizar [mcp_config.json](file:///C:/Users/daria/.gemini/AXON/mcp_config.json) con solo servidores funcionales
+- [ ] Actualizar [recommendations.md](file:///C:/Users/daria/.gemini/AXON/brain/633eebe2-23a9-493d-9ab1-4e84b7f0a50b/recommendations.md) con hallazgos
+
+### Fase 6: NotebookLM HQ
+- [x] Crear estructura `hive/integrations/notebooklm`
+- [x] Inicializar [registry.json](file:///C:/Users/daria/.gemini/AXON/hive/integrations/notebooklm/registry.json) con los 27 notebooks detectados
+- [x] Crear carpetas de `projects`, `backups` y `scripts`
+
+## Proceso por Servidor
+1. Habilitar solo ese servidor
+2. Reiniciar AXON
+3. Probar 2-3 tools principales
+4. Documentar resultado
+5. Deshabilitar servidor
+6. Continuar con siguiente
+
+## Estado Actual
+- **Fase:** Auditoría (Certificación de Activos)
+- **Servidor actual:** Certificación Colectiva
+- **Servidores certificados:** 4 (GitHub, Firebase, GMP, NotebookLM)
+- **Servidores en túnel:** 8 (Problemáticos/Pendientes)

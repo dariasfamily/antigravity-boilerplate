@@ -1,0 +1,22 @@
+﻿# Implementation Plan - Refresh Credentials
+
+## Goal Description
+Update [mcp_config.json](file:///C:/Users/daria/.gemini/AXON/mcp_config.json) with valid credentials for Make.com and Rube to resolve 401 Unauthorized errors.
+
+## User Review Required
+> [!IMPORTANT]
+> I need you to provide the **fresh** credentials. I cannot generate them for you.
+
+## Steps
+
+### 1. Make.com
+-   **Action**: User provides new webhook/MCP URL.
+-   **Config**: Update the URL in `args` of `make` server.
+
+### 2. Rube
+-   **Action**: User provides new API Key.
+-   **Config**: Update `RUBE_API_KEY` in `env` of `rube_mcp` server.
+
+## Verification
+-   Run [debug-mcp-bridge.js](file:///C:/Users/daria/.gemini/AXON/scratch/debug-mcp-bridge.js) with new credentials.
+-   Expect `Connected to SSE stream` instead of 401.

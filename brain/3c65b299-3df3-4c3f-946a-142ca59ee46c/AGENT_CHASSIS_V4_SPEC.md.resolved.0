@@ -1,0 +1,171 @@
+# 🛡️ AGENT CHASSIS V4.0 (THE GOLDEN TEMPLATE)
+**Objective**: Enforce "The Nucleus" V4.2 Standards at the Code Level.
+**Inheritance**: All Agents (Orion, Calliope, Echo) MUST extend this Chassis.
+
+---
+
+## 1. THE CONTRACT (TypeScript Interfaces)
+*Mirroring the V4.2 Database Enums strictness.*
+
+```typescript
+// Enums matching DB "ag_agent_registry"
+export enum AgentPhase {
+    PLANNING = 'PLANNING',
+    RESEARCH = 'RESEARCH',
+    SCRIPTING = 'SCRIPTING',
+    PRODUCTION = 'PRODUCTION',
+    AUDIT = 'AUDIT'
+}
+
+export enum ValidationStatus {
+    PENDING = 'PENDING',
+    PASSED = 'PASSED',
+    AUTO_CORRECTED = 'AUTO_CORRECTED',
+    REJECTED = 'REJECTED'
+}
+
+// The "Money" Type (No Floats allowed)
+export type Money = {
+    amount: string; // "10.0000" (Serialized Decimal)
+    currency: 'USD';
+};
+
+// The "Triple Justification" Object
+export interface LogicJustification {
+    identity_based: string; // "Aligned with Orion Persona..."
+    knowledge_based: string; // "Citing NotebookLM source..."
+    metric_based: string; // "Score 85 > Threshold 80"
+}
+```
+
+---
+
+## 2. THE CHASSIS (Abstract Base Class)
+*The "Skeleton" that every agent must inhabit.*
+
+```typescript
+export abstract class AgentChassis<TInput, TOutput> {
+    
+    // 1. IDENTITY MODULE (Loaded from DB Registry)
+    protected readonly agentId: string;
+    protected readonly version: string;
+    protected readonly phase: AgentPhase;
+
+    constructor(identity: { id: string; version: string; phase: AgentPhase }) {
+        this.agentId = identity.id;
+        this.version = identity.version;
+        this.phase = identity.phase;
+    }
+
+    /**
+     * THE CORE LOOP
+     * Orchestrates the Thinking -> Justifying -> Checking -> Saving flow.
+     * This method is FINAL and cannot be overridden.
+     */
+    public async execute(session: SystemContext): Promise<StandardEnvelope<TOutput>> {
+        
+        // Step 1: Ingest & Validate Input w/ Zod Schema
+        const validatedInput = this.validateInput(session.input);
+
+        // Step 2: The "Thinking" (Abstract - Child implements this)
+        let rawResult = await this.coreLogic(validatedInput);
+
+        // Step 3: The "Mega Audit" (Self-Evaluation)
+        const evaluation = await this.selfEvaluate(rawResult);
+
+        // Step 4: Auto-Correction Loop (If needed)
+        if (!evaluation.passed) {
+            console.log(`[${this.agentId}] Validation Failed. Attempting Auto-Correction...`);
+            rawResult = await this.autoCorrect(rawResult, evaluation.feedback);
+        }
+
+        // Step 5: Triple Justification (Mandatory)
+        const justification = await this.justifyDecision(rawResult);
+
+        // Step 6: Persist to "The Nucleus" (DB Transaction)
+        await this.persistState(session.sessionId, rawResult, justification);
+
+        return this.wrapOutput(rawResult, justification);
+    }
+
+    // --- ABSTRACT METHODS (The "Brain" the Agent must provide) ---
+    
+    protected abstract coreLogic(input: TInput): Promise<TOutput>;
+    
+    protected abstract selfEvaluate(output: TOutput): Promise<{ passed: boolean; feedback?: string }>;
+    
+    protected abstract autoCorrect(previous: TOutput, feedback?: string): Promise<TOutput>;
+
+    // --- ENFORCED UTILITIES ---
+
+    /**
+     * Enforces the 3-Point Check before returning
+     */
+    protected async justifyDecision(output: TOutput): Promise<LogicJustification> {
+        // Implementation that calls LLM to generate the 3 reasons
+        // logic...
+        return {
+            identity_based: "...",
+            knowledge_based: "...",
+            metric_based: "..."
+        };
+    }
+}
+```
+
+---
+
+## 3. THE ENVELOPE (Standard Output)
+*Every Agent returns exactly this shape.*
+
+```typescript
+export interface StandardEnvelope<T> {
+    meta: {
+        agent_id: string;
+        agent_version: string;
+        timestamp: string;
+        trace_id: string; // For Distributed Tracing
+    };
+    data: T; // The Payload (OrionManifest, Script, etc)
+    audit: {
+        status: ValidationStatus;
+        justification: LogicJustification;
+        correction_log?: string[]; // "Changed Duration from 15s to 30s"
+    };
+    financials?: {
+        est_cost: Money;
+        est_revenue: Money;
+    };
+}
+```
+
+---
+
+## 4. EXAMPLE IMPLEMENTATION: `OrionV4`
+
+```typescript
+export class OrionV4 extends AgentChassis<OrionIngest, OrionManifest> {
+    
+    constructor() {
+        super({ id: 'ORION_V3_4', version: '4.0.0', phase: AgentPhase.PLANNING });
+    }
+
+    protected async coreLogic(input: OrionIngest): Promise<OrionManifest> {
+        // Orion's specific logic goes here...
+        // ...
+    }
+
+    protected async selfEvaluate(output: OrionManifest): Promise<{ passed: boolean; feedback?: string }> {
+        // "Does this output match the User's Budget?"
+        // "Is the Viral Score > 80?"
+        // ...
+        return { passed: true };
+    }
+
+    protected async autoCorrect(previous: OrionManifest, feedback: string): Promise<OrionManifest> {
+        // "Re-roll the Hooks"
+        // "Adjust the Visual Style"
+        // ...
+    }
+}
+```

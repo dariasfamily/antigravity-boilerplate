@@ -1,0 +1,99 @@
+﻿# NotebookLM Integration Walkthrough
+
+## ðŸŽ¯ Objetivo
+Configurar sincronizaciÃ³n automÃ¡tica de cuadernos de NotebookLM al proyecto local.
+
+## âœ… Lo que se completÃ³
+
+### 1. Estructura de Carpetas
+CreÃ© la carpeta [notebooklm/](file:///c:/Users/daria/.gemini/AXON/workspaces/Proyecto%20MENISCO/dashboard-v3/notebooklm) en la raÃ­z del proyecto con:
+- [README.md](file:///c:/Users/daria/.gemini/AXON/workspaces/Proyecto%20MENISCO/dashboard-v3/README.md) - DocumentaciÃ³n de uso
+- [SETUP_GUIDE.md](file:///c:/Users/daria/.gemini/AXON/workspaces/Proyecto%20MENISCO/dashboard-v3/notebooklm/SETUP_GUIDE.md) - GuÃ­a de configuraciÃ³n manual
+- `exports/` - Carpeta para almacenar notebooks descargados
+
+### 2. Scripts de SincronizaciÃ³n
+
+#### [scripts/sync_notebooklm.py](file:///c:/Users/daria/.gemini/AXON/workspaces/Proyecto%20MENISCO/dashboard-v3/scripts/sync_notebooklm.py)
+Script principal que:
+- Lee credenciales de `~/.notebooklm/storage_state.json`
+- Se conecta a NotebookLM usando la librerÃ­a `notebooklm-py`
+- Lista todos tus notebooks
+- (Futuro) Descarga contenido a `notebooklm/exports/`
+
+### 3. Dependencias Instaladas
+```bash
+pip install notebooklm-py
+pip install playwright
+pip install python-dotenv
+```
+
+## âš ï¸ DesafÃ­o: AutenticaciÃ³n
+
+### Problema Encontrado
+Google bloquea navegadores automatizados (Playwright/Selenium) con el error:
+> "This browser or app may not be secure"
+
+### Intentos Realizados
+1. âŒ Cookies manuales desde DevTools â†’ Expiran rÃ¡pidamente
+2. âŒ Script Playwright con Chromium â†’ Bloqueado por Google
+3. âŒ Script Playwright con Chrome real â†’ Error de compatibilidad Windows
+4. âŒ CLI oficial `notebooklm` â†’ No existe en el paquete
+
+## âœ… SoluciÃ³n Final: AutenticaciÃ³n Manual
+
+### OpciÃ³n Recomendada: Exportar Cookies con ExtensiÃ³n
+
+1. **Instala una extensiÃ³n de cookies en Chrome:**
+   - [EditThisCookie](https://chrome.google.com/webstore/detail/editthiscookie/fngmhnnpilhplaeedifhccceomclgfbg)
+   - [Cookie-Editor](https://chrome.google.com/webstore/detail/cookie-editor/hlkenndednhfkekhgcdicdfddnkalmdm)
+
+2. **Exporta las cookies:**
+   - Ve a https://notebooklm.google.com/ (asegÃºrate de estar logueado)
+   - Abre la extensiÃ³n
+   - Exporta todas las cookies como JSON
+
+3. **Guarda el archivo:**
+   - Crea la carpeta: `C:\Users\daria\.notebooklm\`
+   - Guarda el JSON como: `storage_state.json`
+   - Formato esperado:
+   ```json
+   {
+     "cookies": [
+       {"name": "SID", "value": "...", "domain": ".google.com"},
+       {"name": "__Secure-1PSID", "value": "...", "domain": ".google.com"},
+       ...
+     ]
+   }
+   ```
+
+4. **Ejecuta el sync:**
+   ```bash
+   python scripts/sync_notebooklm.py
+   ```
+
+### Mantenimiento
+- Las cookies expiran cada ~30 dÃ­as
+- Cuando el script falle con "Authentication expired", repite el proceso de exportaciÃ³n
+
+## ðŸ“ Archivos Creados
+
+| Archivo | PropÃ³sito |
+|---------|-----------|
+| [notebooklm/README.md](file:///c:/Users/daria/.gemini/AXON/workspaces/Proyecto%20MENISCO/dashboard-v3/notebooklm/README.md) | Instrucciones de uso |
+| [notebooklm/SETUP_GUIDE.md](file:///c:/Users/daria/.gemini/AXON/workspaces/Proyecto%20MENISCO/dashboard-v3/notebooklm/SETUP_GUIDE.md) | GuÃ­a detallada de configuraciÃ³n |
+| [scripts/sync_notebooklm.py](file:///c:/Users/daria/.gemini/AXON/workspaces/Proyecto%20MENISCO/dashboard-v3/scripts/sync_notebooklm.py) | Script de sincronizaciÃ³n |
+| [scripts/login_notebooklm.py](file:///c:/Users/daria/.gemini/AXON/workspaces/Proyecto%20MENISCO/dashboard-v3/scripts/login_notebooklm.py) | Script de login (no funcional por bloqueo de Google) |
+
+## ðŸš€ PrÃ³ximos Pasos
+
+1. **Exporta las cookies manualmente** siguiendo la guÃ­a arriba
+2. **Prueba el sync:** `python scripts/sync_notebooklm.py`
+3. **Verifica que liste tus notebooks**
+4. **(Opcional) Mejora futura:** Implementar descarga automÃ¡tica de contenido
+
+## ðŸ’¡ Lecciones Aprendidas
+
+- Google tiene protecciones muy estrictas contra automatizaciÃ³n
+- Las cookies son la forma mÃ¡s confiable de autenticaciÃ³n para scripts
+- La librerÃ­a `notebooklm-py` funciona bien una vez autenticado
+- Playwright no puede evadir la detecciÃ³n de Google en este caso

@@ -1,0 +1,22 @@
+﻿# Debugging MCP Server Connections
+
+- [x] Identify the source of the connection errors <!-- id: 0 -->
+    - [x] Make.com (Timeout -> Fixed with Bridge)
+    - [x] Zapier (Timeout -> Fixed with Bridge)
+    - [x] NotebookLM (Timeout -> Config Updated)
+    - [x] Rube (405 -> Fixed with Bridge, now 401 Auth)
+- [x] Locate the MCP configuration file <!-- id: 1 -->
+    - [x] Search in `.gemini/AXON` <!-- id: 6 -->
+- [x] Verify Server Configurations <!-- id: 2 -->
+    - [x] Make.com URL and headers <!-- id: 9 -->
+    - [x] Zapier URL and headers <!-- id: 10 -->
+    - [x] Rube URL and headers <!-- id: 11 -->
+    - [x] NotebookLM local command <!-- id: 12 -->
+- [x] Test connections individually <!-- id: 3 -->
+- [x] Implement fixes <!-- id: 4 -->
+    - [x] Create [debug-mcp-bridge.js](file:///C:/Users/daria/.gemini/AXON/scratch/debug-mcp-bridge.js)
+    - [x] Update [mcp_config.json](file:///C:/Users/daria/.gemini/AXON/mcp_config.json)
+- [x] Verify all servers are connected <!-- id: 5 -->
+    - [x] Zapier: Success
+    - [x] Make: 401 (Auth required, but connection works)
+    - [x] Rube: 401 (Auth required, but connection works)

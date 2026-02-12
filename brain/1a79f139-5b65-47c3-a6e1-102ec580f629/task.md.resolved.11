@@ -1,0 +1,6 @@
+# Task: Research and Expand Skills
+
+- [ ] Research `skills.sh` total volume and "download all" feasibility <!-- id: 15 -->
+- [ ] Investigate `npx skills find` or browse capabilities <!-- id: 16 -->
+- [ ] Explain registry model to user <!-- id: 17 -->
+- [ ] Create/Update `/skills` workflow to support search/discovery <!-- id: 18 -->

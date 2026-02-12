@@ -1,0 +1,21 @@
+﻿# Walkthrough: EGERIA Signature Update (Secretary Activation)
+
+EGERIA ha sido actualizada con protocolos de SecretarÃ­a Ejecutiva y GestiÃ³n de Conocimiento Proactiva.
+
+## Cambios Realizados
+
+### ðŸ›ï¸ Infraestructura de Memoria
+- **Libro Mayor de Conocimiento**: Registrado en [KNOWLEDGE_LEDGER.md](file:///c:/Users/daria/.gemini/AXON/hive/agents/egeria/KNOWLEDGE_LEDGER.md). Este archivo rastrearÃ¡ cada documento que registres.
+- **Directorio de Notas**: Creado en `hive/agents/egeria/notes/` para fragmentos estratÃ©gicos y observaciones rÃ¡pidas.
+- **ConfiguraciÃ³n Core**: Actualizada en [config.json](file:///c:/Users/daria/.gemini/AXON/hive/agents/egeria/config.json) con las nuevas rutas y responsabilidades.
+
+### ðŸ“ Protocolos Operativos
+- **Prompt de GestiÃ³n**: Se ha implementado un nuevo protocolo en [knowledge_management.md](file:///c:/Users/daria/.gemini/AXON/hive/agents/egeria/prompts/knowledge_management.md) que dicta cÃ³mo Egeria debe procesar, resumir y archivar la informaciÃ³n.
+
+## VerificaciÃ³n
+- [x] Directorio `notes/` verificado.
+- [x] Integridad del Ledger verificada con entradas iniciales.
+- [x] ConfiguraciÃ³n de agente validada.
+
+---
+**EGERIA:** *"Lista para recibir tus directivas, Darias. Â¿QuÃ© deseas que registre primero?"*

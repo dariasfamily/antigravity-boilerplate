@@ -1,0 +1,42 @@
+﻿# Block 2.4: Modelo de ImplementaciÃ³n (OIM) - FASE 2
+
+## Metadata
+- **Plan:** v4.0
+- **SecciÃ³n:** IV. Modelo de ImplementaciÃ³n (Arquitectura TÃ©cnica)
+- **Timestamp:** 2026-02-09T22:35:00-05:00
+- **Estado:** completed
+- **SesiÃ³n ID:** afda43d1-d292-4b66-b058-4ec943124741
+
+## ðŸ› ï¸ Stack TecnolÃ³gico Maestro
+
+### 1. Frontend (Command Center)
+- **Framework:** Next.js 16.1.6 (App Router).
+- **Core:** React 19.2.3.
+- **Styling:** Tailwind CSS 4.0 + Vanilla CSS (Aesthetics Priority).
+- **Hosting:** Vercel (ConfiguraciÃ³n mediante MCP).
+
+### 2. Backend & Persistencia
+- **DB:** Supabase Postgres (Hospedaje de tablas de Wealth, Brand, Life).
+- **Auth:** Supabase SSR Auth.
+- **Edge Functions:** Deno-based (Para triggers de automatizaciÃ³n).
+
+### 3. Capa de Inteligencia (Hive)
+- **Engine:** Google Gemini (AXON Mode).
+- **Contexto Externo:** NotebookLM (Doble cerebro v3/v4).
+- **MCP Servers:** Supabase, Stitch, Cloud Run (ConfiguraciÃ³n en [mcp_config.json](file:///C:/Users/daria/.gemini/AXON/mcp_config.json)).
+
+## ðŸ“¡ Protocolos de IntercomunicaciÃ³n
+
+### SMP v1.1 (System Maintenance & Production)
+1. **Signal Files:** Uso de archivos `.signal` o actualizaciones en [KNOWLEDGE_LEDGER.md](file:///C:/Users/daria/.gemini/AXON/hive/KNOWLEDGE_LEDGER.md) para notificar cambios de estado entre agentes.
+2. **Report to HQ:** Obligatorio para todos los agentes despuÃ©s de cada tarea significativa.
+3. **Double Verification:** Todo asset visual/sonoro debe pasar por ARGUS antes de ser marcado como `final`.
+
+## ðŸ—ï¸ Estrategia de ResoluciÃ³n de Deuda TÃ©cnica
+
+- **MigraciÃ³n Fractal:** El cÃ³digo en `src/modules` debe dejar de ser boilerplate y ser "poblado" mediante pares Agente-Human (Pair Programming).
+- **Skill Forge:** Re-activar y documentar las 701 skills ocultas mediante un proceso de batching liderado por PULSAR.
+- **Registry Sync:** Automatizar la sincronizaciÃ³n entre [registry.json](file:///C:/Users/daria/.gemini/AXON/hive/agents/registry.json) y el sistema fÃ­sico mediante un script de mantenimiento en EGERIA.
+
+---
+**Firma:** AXON System Kernel (SesiÃ³n 2.4)

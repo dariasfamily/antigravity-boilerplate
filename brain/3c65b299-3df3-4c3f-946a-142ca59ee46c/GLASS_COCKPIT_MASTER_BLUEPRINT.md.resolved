@@ -1,0 +1,124 @@
+# 💎 THE GLASS COCKPIT: MASTER BLUEPRINT (V3.0)
+> **Philosophy**: "A Visualization of the Thinking Process."
+> **Goal**: 1:1 Correlation between Backend Data and Frontend Pixels.
+
+---
+
+## 🏗️ 1. GLOBAL SHELL (THE OS)
+**Backend Source**: `ag_sessions` (Table) & [SystemContext](file:///C:/Users/daria/.gemini/AXON/scratch/AXON-boilerplate/src/types/agent_types.ts#137-176) (RAM).
+
+### 1.1 The Header (Status Bar)
+| Element | Backend Field | Component | Visual Logic |
+| :--- | :--- | :--- | :--- |
+| **System Identity** | Constant | `AppHeader` | `AXON OS v2.1` |
+| **Session ID** | `session_id` | `SessionBadge` | Displays Current UUID tail (e.g., `A7X-99`). Click to copy full UUID. |
+| **Active Brain** | `active_agent` | `AgentStatusDock` | 4 Dots (Orion, Calliope, Links, Nexus). Active one pulses. |
+| **Wallet** | `accumulated_cost` | `CostTicker` | `$0.0341` (Red if > $1.00/session). Updates via Realtime. |
+| **System Health** | `current_status` | `HealthIndicator` | `ACTIVE` (Green Pulse) / `ERROR` (Red Blink). |
+
+### 1.2 The Navigation (Side/Bottom)
+*Context-Aware Menu*
+- **Dashboard**: "Control Plane" (Active)
+- **Nucleus**: "Database/Logs" (`/admin/nucleus`)
+- **Assets**: "File System" (`ag_assets`)
+
+---
+
+## 🌠 2. ORION MODULE (THE STRATEGIST)
+**Backend Source**: [OrionLogic.ts](file:///C:/Users/daria/.gemini/AXON/scratch/AXON-boilerplate/src/agents/orion/OrionLogic.ts)
+
+### 2.1 INPUT: The Command Center ([OrionIngest](file:///C:/Users/daria/.gemini/AXON/scratch/AXON-boilerplate/src/types/agent_types.ts#16-42))
+*Mode: Idle*
+| Input Field | UI Component | UI Attributes (Premium) |
+| :--- | :--- | :--- |
+| `topic_keywords` | `MatrixInput` | Chips with "Glow" effect. Enter = "Add Vector". |
+| `analysis_mode` | `ModeToggle` | Segmented Control: `Target` (Scope Icon) vs `Exploration` (Compass Icon). |
+| `target_platform` | `PlatformGrid` | Cards: Grid of logos (YT, TK, LI). Selected has heavy border + glow. |
+| `duration_category` | `TimeSlider` | Range Slider: "Short (<60s)" to "Deep (>3m)". |
+| `tone` | `ToneKnob` | Circular Knob or Rotary Dial: "Authoritative" ↔️ "Gonzo". |
+| `budget_tier` | `BudgetSwitch` | 3-State Toggle: `Bootstrapped` | `Funded` | `Empire`. |
+
+### 2.2 PROCESS: The Neural Scan
+*Mode: Processing*
+- **Animation**: "Radar Scan" overlay on the Input Matrix.
+- **Micro-Copy**: Cycling log lines: "Scraping Trends...", "Calculating Virality...", "Auditing Risks...".
+- **Sound**: Subtle "Hum" increasing in pitch (Optional).
+
+### 2.3 OUTPUT: The Manifest Deck ([OrionManifest](file:///C:/Users/daria/.gemini/AXON/scratch/AXON-boilerplate/src/types/agent_types.ts#57-106))
+*Mode: Completed*
+**Visual Metaphor**: "Trading Cards" (High Value Assets).
+
+| Data Point | UI Element | Design Specs |
+| :--- | :--- | :--- |
+| `predicted_virality` | `ViralityGauge` | Circular Progress with Gradient (Red->Green). Inner Text: "8.4". |
+| `trend_direction` | `TrendArrow` | Animated SVG. Up/Right/Down. |
+| `title_variations` | `TitleCarousel` | Horizontal Scroll. Selected title gets "Gold Border". |
+| `hooks` (Primary) | `HookSpotlight` | Typing Effect text. "The Hook". |
+| `estimated_rpm` | `ProfitBadge` | Green Pill: "$14.50 RPM". |
+| `validation_score` | `ConfidenceBar` | Small bar under the RPM. |
+
+---
+
+## ✍️ 3. CALLIOPE MODULE (THE CREATOR)
+**Backend Source**: [CalliopeLogic.ts](file:///C:/Users/daria/.gemini/AXON/scratch/AXON-boilerplate/src/agents/calliope/CalliopeLogic.ts)
+
+### 3.1 INPUT: The Handoff ([CalliopeIngest](file:///C:/Users/daria/.gemini/AXON/scratch/AXON-boilerplate/src/types/agent_types.ts#181-185))
+*Mode: Idle (Waiting for Orion)*
+- **Visual**: "Empty State" with a "Slot" design.
+- **Action**: Drag & Drop an Orion Manifest Card into the "Creator Slot" (or Auto-Fill).
+
+### 3.2 OUTPUT: The Script Editor ([CalliopeOutput](file:///C:/Users/daria/.gemini/AXON/scratch/AXON-boilerplate/src/types/agent_types.ts#186-197))
+*Mode: Completed*
+**Visual Metaphor**: "Screenwriter's Terminal".
+
+| Data Point | UI Element | Design Specs |
+| :--- | :--- | :--- |
+| `final_script` | `MarkdownEditor` | Monospace Font (JetBrains Mono). Syntax Highlighting for `**visuals**`. |
+| `scenes` | `StoryboardRail` | Left Sidebar. Vertical strip of thumbnails (or placeholders). |
+| `segments.visual` | `VisualCue` | In-line Block with "Eye" icon. Blue text. |
+| `segments.audio` | `AudioCue` | In-line Block with "Wave" icon. Orange text. |
+| `estimated_duration`| [Timeline](file:///C:/Users/daria/.gemini/AXON/scratch/AXON-boilerplate/src/utils/orion_logic.ts#37-70) | Bottom sticky bar. Shows "00:58 / 01:00". |
+
+---
+
+## 🛡️ 4. THE NUCLEUS (ADMIN VAULT)
+**Backend Source**: [THE_NUCLEUS_SCHEMA.md](file:///C:/Users/daria/.gemini/AXON/brain/3c65b299-3df3-4c3f-946a-142ca59ee46c/THE_NUCLEUS_SCHEMA.md)
+
+### 4.1 Live Trace Inspector (`ag_logic_trace`)
+*Real-time feed of the "Brain"*
+| Column | Visual |
+| :--- | :--- |
+| `trace_id` | `HashPill` (Truncated `a7f3...`). Hover = Full. |
+| `decision_type` | `ActionIcon` (e.g., Gavel for `SAFETY_GATE`). |
+| `confidence` | `HeatmapCell` (Green = 1.0, Red = 0.0). |
+| `justification` | `Accordion` (Identity, Math, Knowledge). |
+
+### 4.2 Memory Timeline (`ag_agent_memory`)
+*Session History*
+- **Visual**: Vertical "Git Graph" styled timeline.
+- **Nodes**: Each `memory_snapshot` is a commit node.
+- **Diff**: Click node to see JSON Diff (`diff_log`) side-by-side.
+
+---
+
+## 🎨 5. AESTHETICS & MECHANICS
+**Theme**: "Cyber-Physical" (Glass, Neon, Dark Metal).
+
+### 5.1 The Styles
+- **Glass**: `bg-slate-900/80 backdrop-blur-md border-white/5`
+- **Neon Blue**: `text-blue-400 shadow-[0_0_15px_rgba(59,130,246,0.5)]`
+- **Neon Purple**: `text-purple-400 shadow-[0_0_15px_rgba(168,85,247,0.5)]`
+- **Danger**: `text-red-500 shadow-[0_0_15px_rgba(239,68,68,0.5)]`
+
+### 5.2 Micro-Interactions
+- **Hover**: Elements lift (`scale-105`) and glow brighter.
+- **Click**: Tactile "Press" (`scale-95`).
+- **Load**: "Scanlines" overlay during async calls.
+
+---
+
+## 🚀 EXECUTION PLAN
+1.  **Refine OrionModule**: Add the Matrix, Sliders, and "Manifest Card" visualization.
+2.  **Refine CalliopeModule**: Build the Split-Pane script editor.
+3.  **Build Nucleus Panel**: Create the "Live Trace" table using `ag_logic_trace`.
+4.  **Polish**: Apply the "Cyber-Physical" CSS tokens globally.

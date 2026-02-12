@@ -1,0 +1,8 @@
+# Task: List Available Agents
+
+- [x] List contents of `hive/agents` <!-- id: 9 -->
+- [x] Read [hive/AGENT_STATUS_REPORT.md](file:///c:/Users/daria/.gemini/AXON/hive/AGENT_STATUS_REPORT.md) (if exists) <!-- id: 10 -->
+- [x] Present agent list to user <!-- id: 11 -->
+- [x] Read datasheets for Nexus and Planner <!-- id: 12 -->
+- [x] Update [hive/AGENT_STATUS_REPORT.md](file:///c:/Users/daria/.gemini/AXON/hive/AGENT_STATUS_REPORT.md) with missing agents <!-- id: 13 -->
+- [x] Verify complete agent list (9/9) <!-- id: 14 -->

@@ -1,0 +1,103 @@
+# MCP Servers Audit Log
+
+## Auditoría Iniciada
+**Fecha:** 2026-02-08 14:38
+**Objetivo:** Probar todos los 12 MCP servers individualmente
+
+## Fase 1: Preparación ✅
+
+### Paso 1.1: Restaurar Configuración Completa
+- **Timestamp:** 14:38
+- **Acción:** Restaurados 12 servidores del backup
+- **Estado:** Todos deshabilitados (`"disabled": true`)
+- **Resultado:** ✅ Configuración restaurada
+
+### Lista de Servidores Restaurados:
+1. supabase - Deshabilitado
+2. vercel - Deshabilitado
+3. rube_mcp - Deshabilitado
+4. github - Deshabilitado
+5. perplexity - Deshabilitado
+6. notebooklm - Deshabilitado
+7. zapier - Deshabilitado
+8. make - Deshabilitado
+9. notion - Deshabilitado
+10. cloudrun - Deshabilitado
+11. firebase-mcp-server - Deshabilitado
+12. gmp-code-assist - Deshabilitado
+
+### Paso 1.2: Reiniciar AXON
+- **Acción:** Esperando reinicio del usuario
+- **Verificación esperada:** 0 errores en la lista de MCP servers
+
+---
+
+## Fase 2: Auditoría Individual (Pendiente)
+
+### Servidor 1/12: notebooklm
+- **Estado:** Pendiente
+- **Tools a probar:** list_notebooks, get_notebook, list_sources
+- **Resultado:** TBD
+
+### Servidor 2/12: notion
+- **Estado:** Pendiente
+- **Tools a probar:** list_databases, query_database
+- **Resultado:** TBD
+
+### Servidor 3/12: zapier
+- **Estado:** Pendiente
+- **Tools a probar:** list_zaps
+- **Resultado:** TBD
+
+### Servidor 4/12: make
+- **Estado:** Pendiente
+- **Tools a probar:** list_scenarios
+- **Resultado:** TBD
+
+### Servidor 5/12: github
+- **Estado:** Pendiente
+- **Tools a probar:** list_repos, list_issues
+- **Resultado:** TBD
+
+### Servidor 6/12: rube_mcp
+- **Estado:** Pendiente
+- **Tools a probar:** TBD
+- **Resultado:** TBD
+
+### Servidor 7/12: perplexity
+- **Estado:** Pendiente
+- **Tools a probar:** search
+- **Resultado:** TBD
+
+### Servidor 8/12: supabase
+- **Estado:** Pendiente
+- **Tools a probar:** list_tables
+- **Resultado:** TBD
+
+### Servidor 9/12: vercel
+- **Estado:** Pendiente
+- **Tools a probar:** list_projects
+- **Resultado:** TBD
+
+### Servidor 10/12: cloudrun
+- **Estado:** Pendiente
+- **Tools a probar:** list_services
+- **Resultado:** TBD
+
+### Servidor 11/12: firebase-mcp-server
+- **Estado:** Pendiente
+- **Tools a probar:** TBD
+- **Resultado:** TBD
+
+### Servidor 12/12: gmp-code-assist
+- **Estado:** Pendiente
+- **Tools a probar:** TBD
+- **Resultado:** TBD
+
+---
+
+## Resumen de Progreso
+- **Servidores auditados:** 0/12
+- **Servidores funcionales:** TBD
+- **Servidores con errores:** TBD
+- **Tiempo total:** TBD

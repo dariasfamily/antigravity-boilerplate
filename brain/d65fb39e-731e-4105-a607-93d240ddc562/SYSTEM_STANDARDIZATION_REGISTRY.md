@@ -1,0 +1,38 @@
+﻿# SYSTEM STANDARDIZATION REGISTRY (SSR)
+**Status:** Active
+**Last Updated:** 2026-02-01
+
+This registry is the **Source of Truth** for the operational state, location, and standardization of all agents within the AXON Ecosystem.
+
+---
+
+## ðŸ§© AGENT REGISTRY
+
+### 1. AGENT ORION (Analytic Engine)
+- **Version:** 4.0 (Final MBSE)
+- **Role:** Research, Validation, Pre-Production Arch.
+- **Definition Path:** [`ORION_AGENT_DEFINITION.md`](file:///C:/Users/daria/.gemini/AXON/brain/d65fb39e-731e-4105-a607-93d240ddc562/ORION_AGENT_DEFINITION.md)
+- **Operational Types:** `src/types/agent_types.ts`
+- **Schemas:**
+    - Input: `OrionIngest` (P.O.S.E. Framework)
+    - Output: `OrionManifest` (Blueprints)
+- **Communication Protocol:** DAG Protocol A (Calliope) & B (Wealth).
+- **Control & Logs:** [`ORION_OPS_CONTROL.md`](file:///C:/Users/daria/.gemini/AXON/brain/d65fb39e-731e-4105-a607-93d240ddc562/ORION_OPS_CONTROL.md)
+- **Backup Location:** `brain/backups/orion/`
+
+---
+
+## ðŸ“ STANDARDIZATION STANDARDS
+
+### Data Compliance
+All agents must interact via typed Interfaces defined in `src/types/agent_types.ts`. No loose JSON passing.
+
+### Evaluation Protocol
+Every agent run must generate an `AgentEvaluation` object containing:
+1.  **Adherence Score:** ( Did it follow the Definition?)
+2.  **Self-Correction:** (Did it detect a gap?)
+3.  **Resource Delta:** (Tokens/Time consumed).
+
+### Backup Protocol
+Core definition files must be backed up after every major version bump.
+- **Command:** `cp brain/GUID/AGENT_DEF.md brain/backups/AGENT_DEF_vX.md`

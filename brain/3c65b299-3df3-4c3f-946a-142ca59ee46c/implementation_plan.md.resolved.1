@@ -1,0 +1,30 @@
+
+# Implementation Plan: Orion Dashboard Integration
+
+## Goal
+Connect the verified "Sealed Runner" logic (Backend) to the Dashboard V3 UI (Frontend), enabling users to trigger Orion and view results natively.
+
+## User Review Required
+> [!IMPORTANT]
+> This moves Orion from "Simulation Mode" to "Production Mode". 
+> The `/api/test/runner` route will be migrated to `/api/agents/orion/run`.
+
+## Proposed Changes
+
+### 1. API Layer (Backend)
+*   **[NEW]** `src/app/api/agents/orion/run/route.ts` - Production-ready route incorporating the logic from the test route.
+*   **[DELETE]** [src/app/api/test/runner/route.ts](file:///C:/Users/daria/.gemini/AXON/scratch/AXON-boilerplate/src/app/api/test/runner/route.ts) - Cleanup after migration.
+
+### 2. Frontend Components (Dashboard)
+*   **[MODIFY]** `src/components/dashboard/AgentControlPanel.tsx` - Enhance to support dynamic "Run" state and result display (Artifact preview).
+*   **[MODIFY]** [src/app/dashboard/page.tsx](file:///C:/Users/daria/.gemini/AXON/scratch/AXON-boilerplate/src/app/dashboard/page.tsx) - Update [handleOneAction](file:///C:/Users/daria/.gemini/AXON/scratch/AXON-boilerplate/src/app/dashboard/page.tsx#32-53) to call the real API instead of just updating state.
+
+### 3. State Management
+*   **[MODIFY]** `src/context/AgentContext.tsx` - Add `lastExecutionResult` to the state to persist the JSON output for the [ContextInspector](file:///C:/Users/daria/.gemini/AXON/scratch/AXON-boilerplate/src/components/dashboard/ContextInspector.tsx#5-91).
+
+## Verification Plan
+### Manual Verification
+1.  **Trigger**: Click "Start" on Orion Panel in Dashboard.
+2.  **Observe**: Status changes to "Analyzing...".
+3.  **Result**: JSON Result appears in [ContextInspector](file:///C:/Users/daria/.gemini/AXON/scratch/AXON-boilerplate/src/components/dashboard/ContextInspector.tsx#5-91) (Live) and basic stats update in the UI.
+4.  **Network**: Verify POST request to `/api/agents/orion/run` returns 200 OK with Trace ID.

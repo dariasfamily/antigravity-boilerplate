@@ -1,0 +1,15 @@
+# Debugging MCP Credentials
+
+- [x] Obtain new Make.com MCP URL <!-- id: 0 -->
+    - [x] Tested `9600...` (401)
+    - [x] Tested `6b4c...` (401)
+    - [x] Tested New Token `291c...` with correct zone `us2.make.com` -> **SUCCESS** \u2705
+- [x] Research Make.com MCP Auth <!-- id: 4 -->
+- [x] Research Rube.app Auth Error <!-- id: 5 -->
+    - [x] Identified session issue
+    - [ ] Wait for user to relogin/provide key
+- [ ] Research New User Resources <!-- id: 6 -->
+    - [ ] Read Skywork Rube Guide
+    - [ ] Read Composio Articles
+    - [ ] Evaluate Composio as alternative
+- [ ] Verify Rube Connection <!-- id: 3 -->

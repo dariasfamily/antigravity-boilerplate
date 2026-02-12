@@ -1,0 +1,6 @@
+# Task: Analyze and Document Agent Orion
+
+- [ ] Search codebase for existing Orion definitions (types, logic, skills) <!-- id: 0 -->
+- [ ] Analyze Input/Output flow for Orion <!-- id: 1 -->
+- [ ] Create detailed "Anatomy of Orion" artifact answering user questions <!-- id: 2 -->
+- [ ] Verify Orion's control logic and skill integration <!-- id: 3 -->

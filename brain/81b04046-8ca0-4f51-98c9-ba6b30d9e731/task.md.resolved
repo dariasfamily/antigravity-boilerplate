@@ -1,0 +1,20 @@
+﻿# Task: Connect AXON to NotebookLM, Zapier, Notion, and Make
+
+- [x] Connect NotebookLM <!-- id: 0 -->
+    - [x] Install `notebooklm-mcp-server`
+    - [x] Configure [mcp_config.json](file:///C:/Users/daria/.gemini/AXON/mcp_config.json)
+    - [x] Authenticate
+    - [x] Verify
+- [x] Connect Notion <!-- id: 1 -->
+    - [x] Install `@notionhq/notion-mcp-server`
+    - [x] Obtain Notion Integration Token (User Input)
+    - [x] Update [mcp_config.json](file:///C:/Users/daria/.gemini/AXON/mcp_config.json)
+- [x] Connect Zapier <!-- id: 2 -->
+    - [x] Obtain Zapier MCP URL (User Input)
+    - [x] Configure `mcp-remote` in [mcp_config.json](file:///C:/Users/daria/.gemini/AXON/mcp_config.json)
+- [x] Connect Make <!-- id: 3 -->
+    - [x] Obtain Make MCP URL (User Input)
+    - [x] Configure `mcp-remote` in [mcp_config.json](file:///C:/Users/daria/.gemini/AXON/mcp_config.json)
+- [ ] Debug Vercel MCP <!-- id: 4 -->
+    - [ ] Identify correct Vercel MCP package
+    - [ ] Configure [mcp_config.json](file:///C:/Users/daria/.gemini/AXON/mcp_config.json) for Vercel

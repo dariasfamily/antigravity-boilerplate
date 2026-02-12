@@ -1,0 +1,107 @@
+# Walkthrough: Orion Agent V4 "Sealed Runner" Verification
+
+## Goal
+Verify the "Diamond Cut" architecture, ensuring Agents are executed via the secure `AgentRunner` chassis, enforcing Nucleus V5.3 schema constraints, W3C Tracing, and Triple Justification.
+
+## Changes Implemented
+
+### 1. The Sealed Runner (`src/core/AgentRunner.ts`)
+*   **Composition over Inheritance**: `AgentRunner` is a final static class.
+*   **Atomic Persistence**: Writes `ag_agent_memory`, `ag_logic_trace`, and `ag_control_events` in a single transaction.
+*   **W3C Enforcement**: Auto-generates `trace_id` and `span_id`.
+
+### 2. Orion V4 Logic (`src/agents/orion/OrionLogic.ts`)
+*   **Pure Logic**: Implements `AgentLogic` interface.
+*   **Decoupled**: No DB calls inside the logic; only returns data envelopes.
+*   **Self-Auditing**: Implements `evaluate()` and `justify()` methods.
+
+### 3. Nucleus Hardening (V5.3)
+*   **RLS Policies**: Verified "Forensic-Grade" policies for all tables.
+*   **Idempotency**: Schema migration scripts are re-runnable.
+
+## Verification Results
+
+### End-to-End Test (`/api/test/runner`)
+Exposed a POST/GET route to simulate a full execution cycle.
+
+#### Input
+*   **Trigger**: User Prompt ("AI Automation")
+*   **Constraints**: Medium Form, YouTube, Tech Niche.
+
+#### Output (Success JSON)
+```json
+{
+  "status": "SUCCESS",
+  "message": "Sealed Runner Execution Complete",
+  "envelope": {
+    "success": true,
+    "data": {
+      "candidates": [
+        {
+          "meta": {
+             "id": "man_1769989744206",
+             "status": "APPROVED",
+             "predicted_virality": 9.2
+          },
+          "production_audit": { "budget_compliant": true }
+        }
+      ]
+    },
+    "meta": {
+      "trace_id": "7f359b97ad51ef687ecf31dbd9601520",
+      "agent_id": "ORION_V3_4",
+      "timestamp": "2026-02-01T23:49:04.414Z"
+    },
+    "audit": {
+      "evaluation_passed": true,
+      "confidence_score": 0.95
+    }
+  }
+}
+```
+
+### Key Observations
+1.  **Trace ID Generated**: `7f359b97ad51ef687ecf31dbd9601520` (Valid W3C).
+2.  **Financial Integrity**: `estimated_rpm: 20` (Integer/String passed validation).
+3.  **High Confidence**: Score 0.95 indicates robust logic performance.
+
+The **Sealed Runner Pattern** is operational. Orion is no longer a standalone script but a managed component of the AXON System.
+
+<br>
+
+# Phase 5: Glass Cockpit Implementation (UI V3.0)
+
+## Goal
+Implement the "Glass Cockpit" design philosophy—a data-dense, dark-mode, high-fidelity interface that visually mirrors the backend's "Sealed Runner" architecture.
+
+## 1. Global Shell (V3)
+*   **Identity**: "AXON OS V3.0.0 // Glass Cockpit".
+*   **Session Trace**: Badge displaying active `session_id`.
+*   **Active Dock**: Real-time status indicators for ORION, CALLIOPE, THALIA, APOLLO.
+*   **Kill Switch**: "Reset" functionality for emergency overrides.
+
+## 2. Orion Module ("The Strategist")
+*   **Input**: Matrix Keywords, Brand Tone Dial, Platform Grid.
+*   **Output (Manifest Deck)**:
+    *   **Virality Gauge**: Visual ring indicating predicted score (0-10).
+    *   **Hook Testing**: Top 3 generated hooks displayed card-style.
+    *   **Tactics**: JSON Data visualized as tags.
+
+## 3. Calliope Module ("The Creator")
+*   **Split View**:
+    *   **Left Rail (Storyboard)**: Visual sequence of scenes with timing cues.
+    *   **Main Editor**: Markdown-formatted script display.
+*   **Timeline**: Bottom bar visualization of total estimated duration.
+*   **State Machine**:
+    *   **Idle**: Dropzone for Manifest Handoff.
+    *   **Processing**: Neural "Shimmer" animation.
+    *   **Completed**: Full Editor UI.
+
+## 4. Nucleus Panel ("The Black Box")
+*   **Live Trace**: Replaced static logs with `NucleusPanel`.
+*   **Data Stream**: Connects to `activity_log` in `SystemContext`.
+*   **Columns**: Trace ID | Agent | Action Vector | Confidence | Signal.
+
+## Next Steps
+*   **Visual Verification**: User to load Dashboard and verify responsive layout.
+*   **End-to-End Run**: Execute "Neural Scan" -> "Generate Script" flow via UI.

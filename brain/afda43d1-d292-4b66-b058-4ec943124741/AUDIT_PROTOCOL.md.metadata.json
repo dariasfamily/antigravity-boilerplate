@@ -1,0 +1,5 @@
+{
+  "artifactType": "ARTIFACT_TYPE_OTHER",
+  "summary": "Protocolo anti-fuga de datos para la ejecución de auditorías del sistema de agentes. Define 7 principios fundamentales (persistencia inmediata, idempotencia, trazabilidad, versionado, checkpointing, sin síntesis, modularidad), estructura de bloques, flujo de ejecución, mecanismos de recuperación, y criterios de validación.",
+  "updatedAt": "2026-02-10T01:31:12.729691300Z"
+}

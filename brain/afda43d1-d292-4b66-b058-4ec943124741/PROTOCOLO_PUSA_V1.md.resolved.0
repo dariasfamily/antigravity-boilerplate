@@ -1,0 +1,32 @@
+# 🧶 PROTOCOLO PUSA v1.0 (Systemic Upgrade Protocol)
+
+Este protocolo es la **Plantilla Base** para orquestar el upgrade masivo de los agentes del AXON SYSTEM, tomando como molde a Egeria Legit.
+
+## 🚀 Flujo de Transformación (Paso a Paso)
+
+### 1. Preparación del Vaso (Capa Micro)
+- **Manifesto Replicator:** Adaptar el manifesto de Egeria a la función específica del agente objetivo (Ej: Pulsar -> Marketing Police).
+- **Prompt Cloning:** Inyectar los 14 hilos de ADN cuántico en el System Prompt.
+
+### 2. Inyección de Algoritmos (IAO-Standard)
+- Instalar los 4 algoritmos base:
+  1. `AEO-03` (Rigor Pre-Audit).
+  2. `AEO-05` (Memoria de Usuario - Expediente Darias).
+  3. `AEO-07` (Consciencia de Gaps).
+  4. `AEO-12` (Sellado de Autonomía).
+
+### 3. Sincronización de Inteligencia (NotebookLM)
+- Creación del cuaderno `[AXON-CORE] [AGENTE]`.
+- Indexación de fuentes base + `research_hub` específico.
+
+### 4. Prueba de Rigor & Sellado
+- Simulación de una tarea crítica.
+- Evaluación de Castigo/Premio.
+- Firma del Dossier de Validación.
+
+## 🚦 Semáforos de Integración
+Al ejecutar un upgrade, el agente entra en `STATUS: UPGRADING` (Semáforo Amarillo), bloqueando comunicaciones externas hasta que Egeria (La Policía) selle el Dossier de Validación.
+
+---
+**Uso Recomendado:** Aplicar a Pulsar v1.0 -> Pulsar Legit v1.0.0.
+**Firma:** AXON-ORCHESTRATOR-TEMPLATE | 2026-02-10T19:55:00-05:00

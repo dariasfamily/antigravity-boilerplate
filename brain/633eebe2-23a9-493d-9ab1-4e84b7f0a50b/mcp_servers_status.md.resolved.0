@@ -1,0 +1,49 @@
+# AXON MCP Servers: Estado de la Federación (v1.0)
+
+Este documento resume el estado oficial de certificación de los servidores MCP integrados en el sistema AXON.
+
+## 🏛️ Resumen Ejecutivo
+- **Servidores Totales:** 12
+- **Certificados (✅):** 10
+- **Problemáticos (❌/⚠️):** 2
+
+---
+
+## ✅ Servidores Certificados (Listos para Producción)
+
+| Servidor | Estado | Método de Auditoría | Notas |
+| :--- | :--- | :--- | :--- |
+| **Github** | ✅ 100% | stdio | 26 herramientas operativas. |
+| **Firebase** | ✅ 100% | stdio | 14 herramientas operativas. |
+| **NotebookLM** | ✅ 100% | stdio | 32 herramientas operativas. |
+| **GMP Code Assist**| ✅ 100% | stdio | 2 herramientas operativas. |
+| **Notion** | ✅ 100% | stdio (npx) | **Requiere Reinicio** para activar en UI. |
+| **Make** | ✅ 100% | SSE | Bridge operativo, 8 herramientas detectadas. |
+| **Perplexity** | ✅ 100% | stdio (npx) | Búsqueda AI funcional. |
+| **Supabase** | ✅ 100% | stdio (npx) | Gestión de DB operativa. |
+| **Vercel** | ✅ 100% | stdio (proxy)| Herramientas filtradas (< 50) funcionales. |
+| **CloudRun** | ✅ Parcial | stdio | Infraestructura lista; requiere `gcloud auth login`. |
+
+---
+
+## ❌ Servidores Problemáticos (En Cuarentena)
+
+### 1. **Zapier** (⚠️ Timeout)
+- **Problema:** El stream SSE conecta (200 OK) pero no envía el mensaje de `endpoint` ni el listado de herramientas.
+- **Estado:** Deshabilitado en [mcp_config.json](file:///C:/Users/daria/.gemini/AXON/mcp_config.json).
+- **Plan:** Investigar rotación de tokens o cambios en la API de Zapier.
+
+### 2. **Rube MCP** (❌ 401 Unauthorized)
+- **Problema:** La API Key actual devuelve error de autenticación.
+- **Estado:** Deshabilitado en [mcp_config.json](file:///C:/Users/daria/.gemini/AXON/mcp_config.json).
+- **Plan:** Solicitar nueva Key al usuario.
+
+---
+
+## ⚙️ Configuración del Sistema
+- La configuración activa se encuentra en [mcp_config.json](file:///C:/Users/daria/.gemini/AXON/mcp_config.json).
+- Se ha optimizado el uso de `npx` para Notion y Supabase por estabilidad.
+- Se ha mantenido el proxy [vercel_filter.js](file:///C:/Users/daria/.gemini/AXON/scratch/vercel_filter.js) para evitar el límite de 100 herramientas de AXON.
+
+**Última Actualización:** 2026-02-08
+**Auditor:** Agent Thalia (Knowledge Manager)

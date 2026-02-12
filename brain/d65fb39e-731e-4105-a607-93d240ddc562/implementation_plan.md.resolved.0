@@ -1,0 +1,28 @@
+﻿# Implementation Plan - Agent ORION Definition
+
+## Goal Description
+Create a comprehensive definition for **Agent ORION** (Analytic/Investigative Agent) by synthesizing multiple sources of input provided by the user. This definition will serve as the "Source of Truth" for this agent within the multi-agent ecosystem.
+
+## User Review Required
+- Confirmation that the integration of the "Elite Screenwriter" audit points into the Analytic Agent's knowledge base is correct (as requested: "Integrate all... specifically the 3 JSON structures faithfully").
+
+## Proposed Changes
+
+### Brain / Documentation
+#### [NEW] [ORION_AGENT_DEFINITION.md](file:///C:/Users/daria/.gemini/AXON/brain/d65fb39e-731e-4105-a607-93d240ddc562/ORION_AGENT_DEFINITION.md)
+- **Role & Purpose**: Define Orion as the Research/Analytic engine.
+- **Knowledge Architecture**:
+    - **Block A (Cognitive Nucleus)**: Psychology, Narrative Structure, Hooks, Viral Metrics.
+    - **Block B (Strategic/Technical)**: Production, Editing, Trends, Case Studies.
+    - **Block C (Logistics/Viability)**: Pre-production, Brand Consistency.
+- **Operational Flow**:
+    - Usage in bootstrapping, scoring, and transfer.
+    - Rules for interaction with other agents (Evaluator, Generator, Critic).
+- **System Integration**:
+    - JSON schemas for interoperability.
+    - Input/Output specifications.
+
+## Verification Plan
+### Manual Verification
+- Verify that every JSON key/category from the user prompt is present in the final artifact.
+- Ensure the hierarchy is logical and "governs the structure of this agent".

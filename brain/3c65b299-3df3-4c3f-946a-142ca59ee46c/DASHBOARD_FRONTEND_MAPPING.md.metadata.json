@@ -1,0 +1,5 @@
+{
+  "artifactType": "ARTIFACT_TYPE_IMPLEMENTATION_PLAN",
+  "summary": "DASHBOARD_FRONTEND_MAPPING.md\nDetailed breakdown of backend fields to frontend components.\nIncludes:\n- Global Telemetry (Traces, Costs)\n- Orion Module (Inputs, Outputs, Rejected Ideas)\n- Calliope Module (Manifest Ingest, Script Output)\n- Audit Logs (Triple Justification)",
+  "updatedAt": "2026-02-02T00:14:01.708500300Z"
+}

@@ -1,0 +1,95 @@
+# Implementation Plan: NotebookLM Source Tagging System
+
+## Problema Identificado
+
+La API de NotebookLM tiene una limitación crítica:
+- `notebook_add_url` **auto-extrae** el título de la página web
+- No permite especificar títulos personalizados
+- Por lo tanto, **no es posible** añadir el prefijo "[G-Anti]" a fuentes URL directamente
+
+## User Review Required
+
+> [!WARNING]
+> **Limitación de la API de NotebookLM**
+> 
+> No es técnicamente posible renombrar fuentes URL en NotebookLM porque:
+> 1. No existe endpoint de "rename source"
+> 2. `add_url_source` auto-extrae títulos de las páginas web
+> 3. El único método con título personalizado es `add_text_source`
+>
+> **Opciones disponibles:**
+> 
+> **Opción A (Recomendada)**: Usar `add_text_source` para crear un "índice" con enlaces
+> - Crear una fuente de texto llamada `[G-Anti] REGISTRO_AXON`
+> - Contenido: Lista de todas las fuentes añadidas con sus URLs y timestamps
+> - **Ventaja**: Trazabilidad completa sin modificar fuentes originales
+> - **Desventaja**: Las fuentes originales no tienen el prefijo visible
+>
+> **Opción B**: Renombrar el notebook completo
+> - Añadir prefijo al título del notebook: `[G-Anti] {título_original}`
+> - **Ventaja**: Identificación clara de notebooks gestionados por AXON
+> - **Desventaja**: No identifica fuentes individuales
+>
+> **Opción C**: Aceptar limitación y solo usar registro
+> - Mantener documento `REGISTRO_AXON.txt` actualizado
+> - No intentar renombrar fuentes
+> - **Ventaja**: Más simple, no lucha contra la API
+> - **Desventaja**: Requiere abrir el registro para ver qué añadió AXON
+
+## Proposed Changes (Opción A - Recomendada)
+
+### Componente: NotebookLM Integration Protocol
+
+#### [NEW] `source_tagging_protocol.md`
+Protocolo estándar para todas las operaciones de AXON en NotebookLM:
+
+1. **Al añadir fuentes**: Siempre actualizar `REGISTRO_AXON`
+2. **Formato del registro**:
+   ```
+   # REGISTRO AXON
+   Notebook: {nombre}
+   ID: {notebook_id}
+   
+   ## {timestamp}
+   **Acción**: {añadir/eliminar/modificar}
+   **Agente**: {nombre_agente}
+   **Fuentes afectadas**:
+   - [G-Anti] {título} - {url} - ID: {source_id}
+   ```
+3. **Crear registro si no existe** en cada operación
+4. **Actualizar registro** añadiendo nueva entrada al final
+
+#### Script de implementación
+Crear función helper `update_AXON_registry()` que:
+1. Verifica si existe fuente con título "REGISTRO_AXON"
+2. Si existe, obtiene contenido actual
+3. Añade nueva entrada con timestamp
+4. Elimina fuente vieja
+5. Crea fuente nueva con contenido actualizado
+
+## Verification Plan
+
+### Automated Tests
+1. Ejecutar el test actual con el notebook de prueba:
+   ```python
+   # Verificar que el registro se creó
+   notebook = mcp_notebooklm_notebook_get(notebook_id="4cea8c11-3424-4fb9-8ab2-57e5b26dfc99")
+   sources = [s for s in notebook['sources'] if 'REGISTRO_AXON' in s['title']]
+   assert len(sources) == 1
+   ```
+
+2. Verificar contenido del registro:
+   ```python
+   content = mcp_notebooklm_source_get_content(source_id=sources[0]['id'])
+   assert '[G-Anti]' in content
+   assert all(url in content for url in test_urls)
+   ```
+
+### Manual Verification
+1. Abrir el notebook de prueba en NotebookLM web UI
+2. Verificar que existe una fuente llamada "REGISTRO_AXON"
+3. Abrir la fuente y confirmar que lista todas las 10 fuentes añadidas con:
+   - Prefijo [G-Anti]
+   - URLs correctas
+   - Timestamps
+   - IDs de fuente

@@ -1,0 +1,211 @@
+# Protocolo de Etiquetado de Fuentes NotebookLM
+**Versión**: 1.0  
+**Fecha**: 2026-02-09  
+**Estado**: ✅ Probado y Validado
+
+## Propósito
+Establecer un sistema de trazabilidad para todas las fuentes añadidas a NotebookLM por agentes de AXON.
+
+## Huella de AXON
+**Prefijo estándar**: `[G-Anti]`
+
+Este prefijo identifica inequívocamente que una fuente fue añadida por un agente del sistema AXON.
+
+---
+
+## Métodos de Implementación
+
+### Método 1: Browser Automation (Recomendado)
+**Cuándo usar**: Para renombrar fuentes URL existentes o añadir fuentes con títulos personalizados.
+
+**Ventajas**:
+- ✅ Bypass completo de limitaciones de API
+- ✅ Control total sobre títulos de fuentes
+- ✅ Funciona con cualquier tipo de fuente
+
+**Desventajas**:
+- ⚠️ Requiere sesión activa de Chrome
+- ⚠️ Más lento que API directa
+- ⚠️ Puede fallar por timeouts de red
+
+**Implementación**:
+```
+browser_subagent(
+    task="Rename sources in notebook {notebook_id} with [G-Anti] prefix",
+    ...
+)
+```
+
+**Flujo**:
+1. Abrir notebook en Chrome
+2. Para cada fuente:
+   - Click en menú "Más" (⋮)
+   - Click en "Cambiar nombre de la fuente"
+   - Añadir prefijo `[G-Anti] ` al título existente
+   - Guardar (Enter)
+3. Verificar cambios visualmente
+
+---
+
+### Método 2: Registro en REGISTRO_AXON
+**Cuándo usar**: Cuando no es posible renombrar fuentes directamente (limitaciones de API).
+
+**Ventajas**:
+- ✅ Funciona siempre (no depende de browser)
+- ✅ Trazabilidad completa con timestamps
+- ✅ Historial de cambios acumulativo
+
+**Desventajas**:
+- ⚠️ No marca visualmente las fuentes individuales
+- ⚠️ Requiere abrir el registro para ver qué añadió AXON
+
+**Implementación**:
+```python
+mcp_notebooklm_notebook_add_text(
+    notebook_id="{notebook_id}",
+    title="REGISTRO_AXON",
+    text="{contenido_del_registro}"
+)
+```
+
+---
+
+## Formato del Documento REGISTRO_AXON
+
+```markdown
+# REGISTRO AXON
+**Notebook**: {nombre_del_notebook}
+**Notebook ID**: {notebook_id}
+**URL**: https://notebooklm.google.com/notebook/{notebook_id}
+
+---
+
+## {timestamp} (YYYY-MM-DD HH:MM:SS TZ)
+**Acción**: {añadir/renombrar/eliminar/modificar}
+**Agente**: {nombre_del_agente}
+**Método**: {Browser Automation/API/Manual}
+
+### Fuentes Afectadas
+1. ✅ [G-Anti] {título_de_la_fuente}
+   - URL: {url}
+   - ID: {source_id}
+   - Notas: {información_adicional}
+
+---
+
+## {siguiente_timestamp}
+...
+```
+
+---
+
+## Flujo de Trabajo Estándar
+
+### Al Añadir Fuentes
+1. **Añadir fuente** usando método apropiado:
+   - [notebook_add_url](file:///C:/Users/daria/AppData/Roaming/Python/Python313/site-packages/notebooklm_mcp/server.py#325-345) para URLs
+   - [notebook_add_text](file:///C:/Users/daria/AppData/Roaming/Python/Python313/site-packages/notebooklm_mcp/server.py#347-372) para texto
+   - [notebook_add_drive](file:///C:/Users/daria/AppData/Roaming/Python/Python313/site-packages/notebooklm_mcp/server.py#374-428) para Google Drive
+   
+2. **Renombrar** (si es posible):
+   - Usar Browser Automation para añadir prefijo `[G-Anti]`
+   
+3. **Registrar** en REGISTRO_AXON:
+   - Crear documento si no existe
+   - Actualizar con nueva entrada timestamped
+   - Incluir: acción, agente, fuentes afectadas, URLs, IDs
+
+### Al Modificar Fuentes
+1. Registrar cambio en REGISTRO_AXON
+2. Incluir: qué se modificó, por qué, timestamp
+
+### Al Eliminar Fuentes
+1. Confirmar con usuario (si es crítico)
+2. Registrar eliminación en REGISTRO_AXON
+3. Incluir: razón de eliminación, timestamp
+
+---
+
+## Verificación
+
+### Checklist Post-Operación
+- [ ] Todas las fuentes nuevas tienen prefijo `[G-Anti]` (si se usó Browser Automation)
+- [ ] REGISTRO_AXON existe en el notebook
+- [ ] REGISTRO_AXON contiene entrada con timestamp actual
+- [ ] Entrada incluye: acción, agente, fuentes afectadas
+- [ ] URLs y IDs de fuentes están registrados
+
+### Comando de Verificación
+```python
+# Listar fuentes del notebook
+notebook = mcp_notebooklm_notebook_get(notebook_id="{notebook_id}")
+
+# Verificar prefijo [G-Anti]
+sources_with_prefix = [s for s in notebook['sources'] if '[G-Anti]' in s['title']]
+print(f"Fuentes etiquetadas: {len(sources_with_prefix)}")
+
+# Verificar registro
+registry = [s for s in notebook['sources'] if 'REGISTRO_AXON' in s['title']]
+assert len(registry) == 1, "REGISTRO_AXON no encontrado"
+```
+
+---
+
+## Casos de Uso Probados
+
+### ✅ Caso 1: Renombrado Masivo vía Browser
+- **Notebook**: [TEST] AXON Source Tagging System
+- **Fuentes**: 10 descubiertas vía research
+- **Resultado**: 9/10 renombradas exitosamente
+- **Método**: Browser Automation
+- **Fecha**: 2026-02-09
+
+### ✅ Caso 2: Creación de Registro
+- **Notebook**: [TEST] AXON Source Tagging System
+- **Método**: [notebook_add_text](file:///C:/Users/daria/AppData/Roaming/Python/Python313/site-packages/notebooklm_mcp/server.py#347-372)
+- **Resultado**: Documento REGISTRO_AXON creado exitosamente
+- **Fecha**: 2026-02-09
+
+---
+
+## Limitaciones Conocidas
+
+### API de NotebookLM
+1. **No existe endpoint de "rename source"**
+   - Workaround: Browser Automation
+
+2. **[notebook_add_url](file:///C:/Users/daria/AppData/Roaming/Python/Python313/site-packages/notebooklm_mcp/server.py#325-345) auto-extrae títulos**
+   - No permite títulos personalizados
+   - Workaround: Renombrar después vía Browser
+
+3. **Solo [notebook_add_text](file:///C:/Users/daria/AppData/Roaming/Python/Python313/site-packages/notebooklm_mcp/server.py#347-372) permite título personalizado**
+   - Usar para REGISTRO_AXON
+
+### Browser Automation
+1. **Timeouts de red pueden causar errores**
+   - Ejemplo: Fuente Fetch.ai eliminada accidentalmente
+   - Mitigación: Implementar retry logic
+
+2. **Requiere sesión activa de Chrome**
+   - Usuario debe estar logueado en NotebookLM
+
+---
+
+## Próximos Pasos
+
+### Mejoras Futuras
+- [ ] Implementar retry logic en Browser Automation
+- [ ] Crear función helper `update_AXON_registry()`
+- [ ] Añadir validación automática post-renombrado
+- [ ] Integrar con sistema de logging global de AXON
+
+### Integración con Otros Agentes
+- [ ] Documentar en Agent Datasheets
+- [ ] Añadir a Skills de cada agente
+- [ ] Crear workflow automatizado en `.agent/workflows/`
+
+---
+
+**Última actualización**: 2026-02-09  
+**Mantenedor**: AXON Core Team  
+**Contacto**: Darias (Owner)

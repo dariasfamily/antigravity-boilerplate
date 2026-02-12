@@ -1,0 +1,378 @@
+﻿# PLAN v4.0 - ReconstrucciÃ³n Completa del Sistema de Agentes
+
+**VersiÃ³n:** 4.0  
+**Tipo:** ReconstrucciÃ³n Completa  
+**Fecha:** 2026-02-09T20:27:30-05:00  
+**Nivel de Rigor:** FULL (ProducciÃ³n/Multi-Agente)  
+**Infraestructura:** OpciÃ³n A (Base ~92% confianza)  
+**Prerequisito:** Plan v3.0 completado
+
+---
+
+## ðŸŽ¯ PropÃ³sito
+
+Documentar **CÃ“MO funciona, POR QUÃ‰ se diseÃ±Ã³ asÃ­, CÃ“MO replicarlo** en el sistema de agentes AXON y proyecto **"Mayor Domo"** (MENISCO/dashboard-v3 + sistema de agentes global), permitiendo reconstrucciÃ³n al 100% por ingenieros o agentes IA.
+
+---
+
+## ðŸ“Š Resumen Ejecutivo
+
+| Aspecto | Detalle |
+|---------|---------|
+| **Secciones** | 14 (10 de v3.0 + 4 nuevas) |
+| **Bloques de ejecuciÃ³n** | 24 (14 de v3.0 + 10 nuevos) |
+| **Sesiones de trabajo** | 6 |
+| **Entregables** | 10 artefactos (6 de v3.0 + 4 nuevos) |
+| **Tiempo estimado** | 40-50 tool calls |
+| **Resultado** | EspecificaciÃ³n completa para reconstrucciÃ³n al 100% |
+
+---
+
+## ðŸ“‹ Secciones Adicionales (XI-XIV)
+
+### **XI. EspecificaciÃ³n del Sistema (SS v0 Global)**
+**PropÃ³sito:** Documentar la visiÃ³n, propÃ³sito y alcance del sistema completo.
+
+**Contenido:**
+- **PropÃ³sito del Sistema:**
+  - QuÃ© problema resuelve
+  - QuÃ© valor aporta
+  - Para quiÃ©n estÃ¡ diseÃ±ado
+- **VisiÃ³n:**
+  - Objetivos a corto plazo
+  - Objetivos a largo plazo
+  - ComercializaciÃ³n y monetizaciÃ³n
+- **Alcance:**
+  - QuÃ© hace el sistema
+  - QuÃ© NO hace el sistema
+  - LÃ­mites y fronteras
+- **Stakeholders:**
+  - Usuario principal (Darias)
+  - Usuarios futuros (clientes)
+  - Roles y permisos
+- **Casos de Uso Principales:**
+  - Escenarios de uso
+  - Flujos de trabajo tÃ­picos
+  - Interacciones entre agentes
+
+---
+
+### **XII. Requisitos del Sistema (SRS)**
+**PropÃ³sito:** Documentar requisitos funcionales y no funcionales del sistema.
+
+**Contenido:**
+- **Requisitos Funcionales (RF) por MÃ³dulo:**
+  - RF-001: [DescripciÃ³n]
+  - RF-002: [DescripciÃ³n]
+  - ...
+  - Agrupados por:
+    - Agentes
+    - Skills
+    - App Web
+    - Integraciones
+- **Requisitos No Funcionales (RNF):**
+  - Performance (tiempos de respuesta, throughput)
+  - Seguridad (autenticaciÃ³n, autorizaciÃ³n, cifrado)
+  - Escalabilidad (lÃ­mites, crecimiento)
+  - Disponibilidad (uptime, recuperaciÃ³n)
+  - Usabilidad (UX, accesibilidad)
+- **Casos de Uso Detallados:**
+  - Actores
+  - Precondiciones
+  - Flujo principal
+  - Flujos alternativos
+  - Postcondiciones
+- **Flujos de Datos End-to-End:**
+  - Diagramas de secuencia
+  - Mapeo de datos entre componentes
+  - Transformaciones de datos
+
+---
+
+### **XIII. Modelo de ImplementaciÃ³n (OIM)**
+**PropÃ³sito:** Documentar la arquitectura tÃ©cnica y decisiones de diseÃ±o.
+
+**Contenido:**
+- **Arquitectura TÃ©cnica Completa:**
+  - Diagrama de componentes
+  - Diagrama de deployment
+  - Stack tecnolÃ³gico (Next.js, Supabase, etc.)
+- **Decisiones de DiseÃ±o y Justificaciones:**
+  - Por quÃ© Next.js
+  - Por quÃ© Supabase
+  - Por quÃ© MCPs
+  - Trade-offs considerados
+- **Patrones de CÃ³digo:**
+  - Patrones de diseÃ±o utilizados
+  - Convenciones de cÃ³digo
+  - Estructura de archivos
+- **Protocolos de ComunicaciÃ³n entre Agentes:**
+  - CÃ³mo se comunican los agentes
+  - Formatos de mensajes
+  - APIs internas
+- **Configuraciones CrÃ­ticas:**
+  - ParÃ¡metros de performance
+  - LÃ­mites de recursos
+  - Timeouts y retries
+
+---
+
+### **XIV. Contexto de IntenciÃ³n (INT)**
+**PropÃ³sito:** Documentar la historia, evoluciÃ³n y decisiones del sistema.
+
+**Contenido:**
+- **Historia del Proyecto:**
+  - CuÃ¡ndo se iniciÃ³
+  - Hitos principales
+  - EvoluciÃ³n de la visiÃ³n
+- **Decisiones Clave Tomadas:**
+  - Decisiones de arquitectura
+  - Decisiones de tecnologÃ­a
+  - Decisiones de alcance
+  - Justificaciones y contexto
+- **Elementos Descartados y Por QuÃ©:**
+  - TecnologÃ­as consideradas y rechazadas
+  - Features descartadas
+  - Enfoques alternativos
+- **EvoluciÃ³n del Sistema:**
+  - Versiones anteriores
+  - Cambios mayores
+  - Lecciones aprendidas
+- **Contexto del Usuario (Darias):**
+  - Intenciones originales
+  - Prioridades actuales
+  - VisiÃ³n futura
+
+---
+
+## ðŸ”„ Bloques de EjecuciÃ³n Adicionales (15-24)
+
+### **Block 15: SS v0 Global - PropÃ³sito y VisiÃ³n**
+**SecciÃ³n:** XI  
+**Entrada:** DocumentaciÃ³n existente, conversaciones previas  
+**Proceso:**
+1. Analizar documentaciÃ³n existente (OPTIMAL_SYSTEM_DESIGN.md, master_plan.md)
+2. Inferir propÃ³sito del sistema
+3. Inferir visiÃ³n y objetivos
+4. Documentar sin sÃ­ntesis
+
+**Salida:** SS v0 Global - Parte 1 (PropÃ³sito y VisiÃ³n)
+
+---
+
+### **Block 16: SS v0 Global - Alcance y Stakeholders**
+**SecciÃ³n:** XI  
+**Entrada:** Resultados de Plan v3.0  
+**Proceso:**
+1. Analizar inventario de agentes y skills
+2. Inferir alcance del sistema
+3. Identificar stakeholders
+4. Documentar casos de uso principales
+
+**Salida:** SS v0 Global - Parte 2 (Alcance y Stakeholders)
+
+---
+
+### **Block 17: SRS - Requisitos Funcionales por MÃ³dulo**
+**SecciÃ³n:** XII  
+**Entrada:** Inventario de agentes, skills, app web  
+**Proceso:**
+1. Para cada agente, extraer requisitos funcionales
+2. Para cada skill, extraer requisitos funcionales
+3. Para la app web, extraer requisitos funcionales
+4. Asignar IDs (RF-001, RF-002, etc.)
+
+**Salida:** SRS - Parte 1 (Requisitos Funcionales)
+
+---
+
+### **Block 18: SRS - Requisitos No Funcionales**
+**SecciÃ³n:** XII  
+**Entrada:** Configuraciones, cÃ³digo fuente  
+**Proceso:**
+1. Analizar configuraciones de performance
+2. Analizar configuraciones de seguridad
+3. Inferir requisitos de escalabilidad
+4. Documentar RNF
+
+**Salida:** SRS - Parte 2 (Requisitos No Funcionales)
+
+---
+
+### **Block 19: SRS - Casos de Uso Detallados**
+**SecciÃ³n:** XII  
+**Entrada:** DocumentaciÃ³n de agentes, cÃ³digo fuente  
+**Proceso:**
+1. Identificar actores (usuarios, agentes)
+2. Documentar casos de uso principales
+3. Documentar flujos principales y alternativos
+4. Documentar precondiciones y postcondiciones
+
+**Salida:** SRS - Parte 3 (Casos de Uso)
+
+---
+
+### **Block 20: SRS - Flujos de Datos End-to-End**
+**SecciÃ³n:** XII  
+**Entrada:** CÃ³digo fuente, configuraciones  
+**Proceso:**
+1. Analizar flujos de datos entre componentes
+2. Crear diagramas de secuencia (Mermaid)
+3. Documentar transformaciones de datos
+4. Mapear APIs internas
+
+**Salida:** SRS - Parte 4 (Flujos de Datos)
+
+---
+
+### **Block 21: OIM - Arquitectura TÃ©cnica**
+**SecciÃ³n:** XIII  
+**Entrada:** CÃ³digo fuente, configuraciones  
+**Proceso:**
+1. Analizar stack tecnolÃ³gico
+2. Crear diagrama de componentes (Mermaid)
+3. Crear diagrama de deployment
+4. Documentar arquitectura completa
+
+**Salida:** OIM - Parte 1 (Arquitectura TÃ©cnica)
+
+---
+
+### **Block 22: OIM - Decisiones de DiseÃ±o**
+**SecciÃ³n:** XIII  
+**Entrada:** DocumentaciÃ³n existente, conversaciones previas  
+**Proceso:**
+1. Analizar decisiones de tecnologÃ­a
+2. Inferir justificaciones
+3. Documentar trade-offs
+4. Documentar patrones de cÃ³digo
+
+**Salida:** OIM - Parte 2 (Decisiones de DiseÃ±o)
+
+---
+
+### **Block 23: INT - Historia y EvoluciÃ³n**
+**SecciÃ³n:** XIV  
+**Entrada:** Conversaciones previas, git history  
+**Proceso:**
+1. Analizar conversaciones previas (si estÃ¡n disponibles)
+2. Analizar git history (si existe)
+3. Identificar hitos principales
+4. Documentar evoluciÃ³n del sistema
+
+**Salida:** INT - Parte 1 (Historia y EvoluciÃ³n)
+
+---
+
+### **Block 24: INT - Decisiones y Contexto**
+**SecciÃ³n:** XIV  
+**Entrada:** DocumentaciÃ³n existente, conversaciones previas  
+**Proceso:**
+1. Identificar decisiones clave
+2. Documentar elementos descartados
+3. Documentar contexto del usuario
+4. Documentar lecciones aprendidas
+
+**Salida:** INT - Parte 2 (Decisiones y Contexto)
+
+---
+
+## ðŸ“¦ Entregables Adicionales (7-10)
+
+### **7. SYSTEM_SPECIFICATION_v0.md** (SS v0 Global)
+EspecificaciÃ³n completa del sistema (propÃ³sito, visiÃ³n, alcance, stakeholders, casos de uso).
+
+### **8. SOFTWARE_REQUIREMENTS_SPECIFICATION.md** (SRS)
+Requisitos funcionales y no funcionales, casos de uso detallados, flujos de datos.
+
+### **9. OPERATIONAL_IMPLEMENTATION_MODEL.md** (OIM)
+Arquitectura tÃ©cnica, decisiones de diseÃ±o, patrones de cÃ³digo, protocolos de comunicaciÃ³n.
+
+### **10. INTENTION_CONTEXT.md** (INT)
+Historia del proyecto, decisiones clave, elementos descartados, evoluciÃ³n del sistema.
+
+---
+
+## ðŸ—“ï¸ Sesiones de Trabajo
+
+### **SesiÃ³n 2.1: EspecificaciÃ³n Global**
+- Block 15: SS v0 Global - PropÃ³sito y VisiÃ³n
+- Block 16: SS v0 Global - Alcance y Stakeholders
+- **Tiempo estimado:** 4-6 tool calls
+
+### **SesiÃ³n 2.2: Requisitos (Parte 1)**
+- Block 17: SRS - Requisitos Funcionales
+- Block 18: SRS - Requisitos No Funcionales
+- **Tiempo estimado:** 5-7 tool calls
+
+### **SesiÃ³n 2.3: Requisitos (Parte 2)**
+- Block 19: SRS - Casos de Uso Detallados
+- Block 20: SRS - Flujos de Datos End-to-End
+- **Tiempo estimado:** 5-7 tool calls
+
+### **SesiÃ³n 2.4: Modelo de ImplementaciÃ³n**
+- Block 21: OIM - Arquitectura TÃ©cnica
+- Block 22: OIM - Decisiones de DiseÃ±o
+- **Tiempo estimado:** 5-7 tool calls
+
+### **SesiÃ³n 2.5: Contexto de IntenciÃ³n**
+- Block 23: INT - Historia y EvoluciÃ³n
+- Block 24: INT - Decisiones y Contexto
+- **Tiempo estimado:** 4-6 tool calls
+
+### **SesiÃ³n 2.6: ConsolidaciÃ³n Final**
+- Ensamblar todos los entregables
+- Validar completitud
+- Generar Ã­ndice maestro
+- **Tiempo estimado:** 3-5 tool calls
+
+---
+
+## âœ… Criterios de Ã‰xito
+
+El Plan v4.0 se considera **completo** si:
+1. âœ… Los 24 bloques (14 de v3.0 + 10 de v4.0) estÃ¡n en estado `completed`
+2. âœ… Los 10 entregables existen y son vÃ¡lidos
+3. âœ… No hay datos sintetizados u omitidos
+4. âœ… Todos los checksums son correctos
+5. âœ… El paquete completo permite reconstruir ~95-100% del sistema
+6. âœ… Un ingeniero o agente IA puede reconstruir el sistema solo con estos artefactos
+
+---
+
+## ðŸ”— RelaciÃ³n con Plan v3.0
+
+El Plan v4.0 **extiende** el Plan v3.0:
+- **v3.0:** QUÃ‰ existe, DÃ“NDE estÃ¡, en QUÃ‰ estado (~60% reconstrucciÃ³n)
+- **v4.0:** CÃ“MO funciona, POR QUÃ‰ se diseÃ±Ã³ asÃ­, CÃ“MO replicarlo (~95% reconstrucciÃ³n)
+
+**Flujo:**
+1. Ejecutar Plan v3.0 (Inventario Forense)
+2. Revisar resultados de v3.0
+3. Ejecutar Plan v4.0 (ReconstrucciÃ³n Completa)
+4. Resultado: Paquete completo para reconstrucciÃ³n
+
+---
+
+## ðŸŽ¯ Uso de los Entregables
+
+### **Para Ingenieros:**
+1. Leer SS v0 Global â†’ Entender propÃ³sito y visiÃ³n
+2. Leer SRS â†’ Entender requisitos
+3. Leer OIM â†’ Entender arquitectura y decisiones
+4. Leer INT â†’ Entender contexto histÃ³rico
+5. Leer Inventario (v3.0) â†’ Ubicar archivos y componentes
+6. Reconstruir sistema
+
+### **Para Agentes IA:**
+1. Cargar todos los artefactos como contexto
+2. Generar cÃ³digo basado en especificaciones
+3. Validar contra requisitos
+4. Implementar segÃºn arquitectura
+
+---
+
+**Ãšltima actualizaciÃ³n:** 2026-02-09T20:27:30-05:00  
+**Estado:** Documentado, listo para ejecuciÃ³n  
+**Prerequisito:** Plan v3.0 completado  
+**PrÃ³ximo paso:** Esperar confirmaciÃ³n de Darias para iniciar FASE 2

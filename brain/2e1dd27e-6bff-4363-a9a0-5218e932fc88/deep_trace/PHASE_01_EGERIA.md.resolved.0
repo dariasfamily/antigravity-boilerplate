@@ -1,0 +1,106 @@
+# 🕵️ ELITE DEEP TRACE: PHASE 1 - EGERIA ("La Secre")
+**Role**: System Architect & Prime Administrator
+**Protocol**: Level 5 (Maximum Oversight)
+**Status**: 🔴 PENDING USER APPROVAL
+
+## 1. The Persona: "La Secre" (The Gatekeeper)
+Egeria is not just a "router". She is the **System's Chief of Staff**.
+*   **Access Level**: Root.
+*   **Knowledge Base**: Full access to `ag_agent_registry`, global `NotebookLM`, and `Project Memory`.
+*   **Authority**: Can reject requests, demand clarification, and halt system processes to protect integrity.
+*   **Relationship**: Devoted assistant to User (Admin), strict supervisor to other Agents.
+
+## 2. Ingestion Strategy (The "Reception Desk")
+
+### 2.1 The Interface (Dashboard Signal)
+When the user inputs: `"temas sobre uso y aplicaciones de IA modernos 2026"`
+
+**Dashboard Vis**:
+*   **State**: `EGERIA_INGESTING` 🟡
+*   **Message**: "Analyzing Admin Request... Validating Permissions... Loading Context..."
+*   **Security Lock**: System input is locked for other agents until Egeria releases the token.
+
+### 2.2 Micro-Step: Identity & Context Verification
+*   **Action**: Egeria queries `ag_users` table.
+*   **Logic**:
+    *   `IF user.role == 'ADMIN' THEN Proceed`
+    *   `ELSE Reject("Acceso Denegado")`
+*   **Context Retrieval**:
+    *   Query `NotebookLM` (Source: Brand Bible, Previous Session Logs).
+    *   *Question:* "Have we covered 'AI Applications 2026' before?"
+    *   *Result:* "No direct match. New Topic." -> **Tag**: `NOVELTY_HIGH`.
+
+## 3. The "Package" Assembly (Data Transformation)
+
+### 3.1 Parameter Expansion (The "Completeness Check")
+Egeria consults `ag_agent_registry` for **Planner's Requirements**:
+*   *Planner Input Schema*: `{ "task_description": string, "audit_scope": string }`
+
+**Egeria's Inference Engine**:
+1.  **Raw Input**: "temas sobre uso y aplicaciones de IA modernos 2026"
+2.  **Analysis**:
+    *   "temas" -> implied `Research`
+    *   "uso y aplicaciones" -> implied `Actionable Insights`
+    *   "modernos 2026" -> implied `Future Trends / Forecasting`
+3.  **Parameter Injection**:
+    *   `task_description` = "Generate a comprehensive foresight report on AI Utility and Application Trends for 2026, focusing on modernity and actionable use cases."
+    *   `audit_scope` = "Full System" (Because it touches Research, Writing, Art, and potentially Automation).
+    *   `priority` = "High" (Inferred from Admin direct input).
+
+### 3.2 Resource & Budget Check
+*   **API Tokens**: Check quota. "Sufficient for Deep Research?" -> YES.
+*   **Storage**: Check Drive. "Space for generated assets?" -> YES.
+
+## 4. The Output: Session Manifest V1
+
+**Artifact Generated**: `SESSION_MANIFEST_V1.json`
+```json
+{
+  "session_uuid": "sess-2026-02-08-ADMIN-001",
+  "owner_id": "user-darias-admin",
+  "intent_profile": {
+    "raw": "temas sobre uso y aplicaciones de IA modernos 2026",
+    "refined": "AI Trends & Applications Foresight 2026",
+    "category": "Strategic Research",
+    "novelty_score": 0.95
+  },
+  "downstream_params": {
+    "planner": {
+      "mode": "Architecture_Design",
+      "constraints": ["Must include Visuals", "Must include Audio Summary"]
+    },
+    "compliance": {
+      "level": "Strict",
+      "brand_safety": "High"
+    }
+  },
+  "system_state": {
+    "budget_status": "GREEN",
+    "previous_context_ref": null
+  },
+  "status": "AWAITING_APPROVAL"
+}
+```
+
+## 5. User Intervention Point (The "Red Phone") ☎️
+
+**Dashboard Signal**:
+*   **State**: `EGERIA_WAITING_FOR_USER` 🔴 (Blinking)
+*   **Notification**: "Session Manifest Ready. Review required."
+
+**User Options (The "Controls"):**
+1.  **[APPROVE]**: "Proceed to Planner." (Timer starts: 3...2...1)
+2.  **[MODIFY]**: Edit `refined_intent` or add `constraints`.
+    *   *Example Intervention*: User adds `"Exclude Military Applications"`.
+    *   *System Reaction*: Egeria updates Manifest -> `compliance.exclusions = ["Military"]`.
+3.  **[REJECT]**: "Cancel Session." (Egeria archives request as 'Aborted').
+
+## 6. Audit Log (The "Black Box")
+*   **Time**: 2026-02-08 20:XX:XX
+*   **Agent**: EGERIA
+*   **Action**: `MANIFEST_GENERATED`
+*   **Hash**: `sha256:7f8a...`
+*   **Report**: "Admin Darias initiated session. Context verified. Manifest constructed with 95% confidence."
+
+---
+**NEXT PHASE**: If Approved -> **PHASE 2: PLANNER (The Architect)**.

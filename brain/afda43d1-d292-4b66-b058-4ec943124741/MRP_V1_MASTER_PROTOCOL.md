@@ -1,0 +1,53 @@
+# 🦅 MRP v1.3: Master Refinement Protocol (AXON SYSTEM)
+
+## 0. Filosofía: Consciencia Orgánica y Democracia Crítica
+El perfeccionamiento en **AXON SYSTEM** no es un evento, es un **Hábito Natural** incrustado en el comportamiento de cada nódulo.
+- **Quantum Refinement Cycle:** Cada ajuste (micro a macro) se analiza, se registra, se evalúa, se mejora y se expande sistemáticamente. Cuerda a cuerda, nivel a nivel.
+- **Democracia con Análisis de Impacto:** Los acuerdos del Hive no son simples votos; requieren un **Análisis Crítico Pro** de consecuencias y efectos colaterales antes de oficializar una regla en el Kernel.
+- **Estándar Supremo:** Todo agente debe adherirse estrictamente al **AXON AGENT MASTER BLUEPRINT (v1.2.0)** para ser considerado legítimo.
+
+---
+
+## 🏗️ 1. Estructura de Directorios & Hábitos de Rigor
+```
+hive/agents/[agent-id]/
+├── manifesto.md              # Visión, Tono y Alineación (Darias)
+├── specification.v1.md       # Detalles técnicos, lógica y triggers
+├── registry.json             # Metadatos, Skills, NotebookID, Checksum
+├── toolbox/                  # CAJA DE HERRAMIENTAS (Pulido Micro)
+│   ├── skills_map.json       # Inventario verificado
+│   └── tool_health.md        # Análisis, evaluación y mejora de cada tool
+├── intelligence/             # Base de Conocimiento Viva
+│   ├── notebook_map.json     # Mapa de fuentes en NotebookLM
+│   └── research_hub/         # Descubrimiento proactivo de nuevas fuentes por gaps
+└── evolution/                # Módulos de Auto-Evolución
+    ├── self_study.log        # Registro de aprendizaje y expansión
+    ├── gap_detector.md       # Reporte de vacíos sistémicos/críticos
+    └── systemic_vote.json    # Democracia: Análisis de impacto y acuerdos
+```
+
+---
+
+## 🧠 2. Módulo de Auto-Evolución (SEM) & Investigación Proactiva
+Cada agente asume el hábito de elevar sus propias evaluaciones:
+1. **Gap-Driven Research:** El agente descubre fuentes nuevas en el web/externo para subsanar áreas de bajo desempeño o conocimiento pobre.
+2. **Quantum Polish Habit:** Proceso recursivo de auditoría de su propio cuaderno maestro, eliminando ruido y unificando criterios bajo estándares AXON.
+3. **Impact Verification:** Antes de proponer un cambio al Hive, el agente debe simular y documentar las consecuencias técnicas del mismo.
+
+---
+
+## 📊 3. Especificación de Metadatos (registry.json)
+```json
+{
+  "agent_id": "[ID]",
+  "version": "1.0.0",
+  "status": "operative",
+  "notebook_id": "UUID",
+  "last_self_study": "ISO-TIMESTAMP",
+  "skills": ["skill-id-1", "..."],
+  "checksum_master": "MD5"
+}
+```
+
+---
+**Firma:** AXON Kernel Authority

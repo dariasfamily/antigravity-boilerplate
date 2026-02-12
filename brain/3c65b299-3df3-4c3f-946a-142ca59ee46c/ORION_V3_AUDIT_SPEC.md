@@ -1,0 +1,181 @@
+# AUDITORÍA DE SISTEMA & ESPECIFICACIÓN ORION V3.0
+
+**Fecha:** 2026-02-01
+**Auditor:** AXON System
+**Objetivo:** Cross-validation de la arquitectura actual vs. Requerimientos de "Alta Definición" (V3).
+
+---
+
+## 1. ANÁLISIS DE BRECHAS (GAP ANALYSIS)
+
+He contrastado tu nueva definición (V3) con nuestro *Plan de Implementación V2* y los archivos actuales (`agent_types.ts`, `orion_logic.ts`).
+
+### 🔴 Puntos Ciegos y Omisiones Críticas (MISSING)
+Lo que **NO** está en el sistema actual ni en el plan V2, y debe ser integrado inmediatamente:
+
+1.  **Arquitectura de Contenido Anidada (`content_architecture`)**:
+    *   *Faltante:* No tenemos una estructura que separe `technical_constraints` (pacing, aspect_ratio) de `structure_template` (0-3s, 3-15s).
+    *   *Impacto:* Calliope recibiría instrucciones vagas ("Haz un video viral") en lugar de un plano técnico ("Corta cada 2s, usa Lo-fi beats").
+2.  **Lógica de "Pre-Producción y Viabilidad"**:
+    *   *Faltante:* El chequeo de `constraints` (Presupuesto vs. Idea). Orion actual podría proponer una "Persecución de coches" cuando el presupuesto es "Low (Stock)".
+    *   *Riesgo:* Generar guiones imposibles de producir.
+3.  **Ingeniería de Audio (Pre-Escritura)**:
+    *   *Faltante:* Definición explícita de `audio_landscape` y `sfx_cues` antes del guion.
+    *   *Ceguera:* Ignoramos el "Silent Scroll" (consumo sin audio). Falta exigir "Kinetic Typography".
+4.  **Anti-Patterns (Penalizaciones)**:
+    *   *Faltante:* Lógica para detectar "Trend Vertigo" (desviación >20% del nicho) o "Fluff Intro".
+    *   *Estado:* Orion actual no penaliza activamente estos errores, solo busca premios (hacks virales).
+5.  **KPIs Financieros Granulares**:
+    *   *Faltante:* `funnel_stage` (Discovery vs Trust) y `affiliate_potential`. Solo calculamos RPM básico.
+
+### 🟡 Incongruencias y Conflictos (CONFLICTS)
+Datos que existen pero chocan con la nueva definición:
+
+1.  **Escala de Puntuación**:
+    *   *Actual:* `confidence_score` (0.0 - 1.0).
+    *   *V3 Req:* `validation_score` (0.0-1.0) **Y** `predicted_virality_score` (1-10).
+    *   *Resolución:* Debemos separar la "Certeza Técnica" (0-1) del "Potencial Viral" (1-10).
+2.  **Estructura del Gancho (Hooks)**:
+    *   *Plan V2:* Array simple de strings.
+    *   *V3 Req:* `hook_strategy` (Tipo específico, ej: "Curiosity Gap") vinculado a un `structure_template` temporal (0-3s).
+3.  **Definición de Salida**:
+    *   *Plan V2:* Lista de candidatos (`CandidateBrief[]`).
+    *   *V3 Req:* Un objeto único `Orion_Manifest` altamente detallado ("Blueprints").
+    *   *Corrección:* Orion debe evaluar candidatos internamente pero emitir **UN** Manifiesto Maestro (o una lista de Manifiestos completos).
+
+### 🟢 Integrado Correctamente (MATCH)
+Lo que ya tenemos alineado:
+*   Marco **P.O.S.E.** (Reflejado en lógica).
+*   **Brand DNA** y **Niche Vertical**.
+*   Calculo base de **RPM**.
+
+---
+
+## 2. ORION V3.0: ESPECIFICACIÓN MAESTRA (THE BIBLE)
+
+Esta es la definición técnica final. No se omite nada.
+
+### 2.1 Esquema de Entrada (`OrionIngest`)
+Debe soportar la inyección total de contexto.
+
+```typescript
+// src/types/agent_types.ts
+
+export interface OrionIngest {
+    id: string; // req_uuid_v4
+    timestamp: string;
+    source_trigger: 'User_Prompt' | 'Trend_Alert' | 'System_Rotation';
+    
+    // El "Prompt" de Alta Definición
+    raw_input: {
+        topic_keywords: string[];
+        target_platform: 'YouTube Shorts' | 'TikTok' | 'LinkedIn Video' | 'YouTube Long';
+        
+        brand_profile: {
+            archetype: string; // "The Mentor Rebelde"
+            tone: string; // "Direct, Contrarian"
+            niche_vertical: string; // "Tech_Education"
+            objective_kpi: 'Discovery' | 'Trust' | 'Conversion'; // KPI del Sistema
+        };
+        
+        constraints: {
+            duration_target: string; // "60s"
+            production_budget: 'Low' | 'Mid' | 'High'; 
+            format_lock?: string; // "Talking Head"
+            has_human_face: boolean; // Faceless o no
+        };
+    };
+    
+    // Datos de Mercado (Opcional, si viene de Trend Alert)
+    market_context?: {
+        trend_velocity?: number;
+        competitor_saturation?: number;
+    };
+}
+```
+
+### 2.2 Esquema de Salida (`OrionManifest`)
+El "Blueprint" (Plano) para producción.
+
+```typescript
+export interface OrionManifest {
+    meta: {
+        id: string;
+        validation_score: number; // 0.0 - 1.0 (P.O.S.E.)
+        predicted_virality: number; // 1 - 10
+        status: 'APPROVED' | 'REJECTED_AUTO';
+    };
+
+    content_architecture: {
+        core_concept: {
+            title_variations: string[];
+            hook_strategy: string; // "Curiosity Gap", "Negativity Bias"
+            emotional_target: string; // "Empowerment", "Indignation"
+            format_archetype: string; // "The Innovator", "Walking Listicle"
+        };
+        
+        // Instrucciones Técnicas para Calliope
+        technical_constraints: {
+            pacing: string; // "Fast (Cut every 2s)"
+            audio_landscape: string; // "Lo-fi beats, SFX for transitions"
+            visual_style: string; // "Kinetic Typography + B-Roll"
+            aspect_ratio: "9:16" | "16:9";
+            silent_optimization: boolean; // Requiere textos en pantalla?
+        };
+        
+        // SEO Pack
+        seo_pack: {
+            primary_keywords: string[];
+            vertical_search_intent: string; // "Educational"
+        };
+        
+        // El Esqueleto Temporal (Richard Linklater Formula)
+        structure_template: {
+            segment_0_3s: string; // "Visual Pattern Interrupt (Hook)"
+            segment_3_15s: string; // "Value Proposition"
+            segment_15_45s: string; // "The Mechanism (Micro-Tension)"
+            segment_45_end: string; // "Twist + Payoff + CTA"
+        };
+    };
+
+    financial_projection: {
+        estimated_rpm: number;
+        monetization_focus: 'AdRevenue' | 'Affiliate' | 'Product';
+        funnel_stage: 'Discovery' | 'Trust';
+    };
+    
+    // Auditoría de Viabilidad (Nuevo Bloque C)
+    production_audit: {
+        budget_compliant: boolean;
+        brand_safe: boolean;
+        trend_vertigo_check: 'PASS' | 'FAIL'; // Desviación de nicho
+    };
+}
+```
+
+### 2.3 Lógica de Negocio Requerida (`orion_logic.ts`)
+
+Debemos implementar estas funciones exactas:
+
+1.  **`validatePose(input)`**:
+    *   Verifica Persona, Objetivo, Scope, Evidence.
+    *   Retorna `validation_score`.
+2.  **`analyzeAntiPatterns(idea, history)`**:
+    *   Detecta "Trend Vertigo" (chequeando historial de nichos).
+    *   Detecta "Fluff Intro" (palabras prohibidas al inicio).
+3.  **`selectFormatArchetype(budget, platform)`**:
+    *   Si `budget == Low` Y `no_face`, sugirió "Faceless Stock Montage", no "Cinematic Vlog".
+4.  **`designAudioLayer(platform)`**:
+    *   Si `platform == TikTok/Shorts`, activa `silent_optimization = true`.
+
+---
+
+## 3. CONCLUSIÓN Y SIGUIENTES PASOS
+
+El plan V2 es **insuficiente**. 
+Necesito autorización para descartar el plan V2 y ejecutar la **Implementación V3**, que incluye:
+1.  Reescribir `agent_types.ts` con el esquema V3 COMPLETO.
+2.  Reescribir `orion_logic.ts` incorporando los módulos de Anti-Patrones, Viabilidad y Audio.
+3.  Actualizar el script de simulación para generar un `Orion_Manifest` real (anidado y complejo).
+
+¿Procedo con la **Implementación V3**?

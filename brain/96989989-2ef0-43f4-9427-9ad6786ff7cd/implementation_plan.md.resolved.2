@@ -1,0 +1,37 @@
+# Plan de Estructuración del Conocimiento Activo (Knowledge UI)
+
+Este plan detalla la organización de los documentos de gobernanza que deben vivir en la sección de **Knowledge** de la interfaz de Antigravity para regir cada interacción en tiempo real.
+
+## Objetivo
+Transformar el "Cerebro" del sistema de archivos pasivos a un **Marco de Gobernanza Activo** que el agente consulte obligatoriamente.
+
+## Cambios Propuestos
+
+### 📂 1. Formalización de Protocolos (Nuevos Archivos)
+Se han extraído y creado los siguientes documentos en `/hive/protocols/`:
+- [NEW] [COC_v1.0.md](file:///C:/Users/daria/.gemini/antigravity/hive/protocols/COC_v1.0.md): Contrato de Operación Canónico.
+- [NEW] [INTENT_ENGINEERING_v3.md](file:///C:/Users/daria/.gemini/antigravity/hive/protocols/INTENT_ENGINEERING_v3.md): Marco FFRS + EET.
+
+### 🧩 2. Selección de "Knowledge Items" (Estructura de Gobierno)
+Proponemos una estructura dividida en **Gobernanza Estática** (reglas) y **Gobernanza Dinámica** (hilos de ejecución):
+
+| Categoría | Documento | Función en el Hilo de Ejecución |
+| :--- | :--- | :--- |
+| **Gobernanza** | [COC_v1.0.md](file:///C:/Users/daria/.gemini/antigravity/hive/protocols/COC_v1.0.md) | Garantizar trazabilidad y no-síntesis en cada respuesta. |
+| **Gobernanza** | [INTENT_ENGINEERING_v3.md](file:///C:/Users/daria/.gemini/antigravity/hive/protocols/INTENT_ENGINEERING_v3.md) | Aplicar motor FFRS + EET para validar lógica técnica. |
+| **Hilos (Estado)** | [NEW] [RTM_MASTER.md](file:///C:/Users/daria/.gemini/antigravity/hive/protocols/RTM_MASTER.md) | Matriz de Trazabilidad: Conecta tu intención con el código real. |
+| **Hilos (Ops)** | [NEW] [OIM_MASTER.md](file:///C:/Users/daria/.gemini/antigravity/hive/protocols/OIM_MASTER.md) | Define cómo se sincronizan y auditan los hilos de los agentes. |
+| **Hilos (Log)** | [KNOWLEDGE_LEDGER.md](file:///C:/Users/daria/.gemini/antigravity/hive/KNOWLEDGE_LEDGER.md) | Bitácora de logros: Asegura que el sistema recuerde qué se ha hecho. |
+| **Arquitectura** | [MODULAR_ARCHITECTURE_MAP.md](file:///C:/Users/daria/.gemini/antigravity/hive/MODULAR_ARCHITECTURE_MAP.md) | Mapa de responsabilidades para delegar correctamente. |
+
+### ⚙️ 3. Integración Estructural (The System Loop)
+Para que estos archivos no queden "fuera" del sistema:
+1.  **Actualización Recurrente:** Cada interacción exitosa actualizará `RTM_MASTER` y `KNOWLEDGE_LEDGER`.
+2.  **Consulta Obligatoria:** He configurado (en el manual de instrucciones internas) que el agente debe leer estos archivos de la sección Knowledge al inicio de cada turno.
+3.  **Auditoría Egeria:** EGERIA usará el `OIM_MASTER` para verificar que los hilos no se rompan entre sesiones.
+
+## Plan de Verificación
+
+### Verificación Manual
+- [ ] Verificar que los 5 documentos aparecen en la sección de "Knowledge" de la barra lateral.
+- [ ] Confirmar que el agente (tú) puede citar secciones del `COC_v1.0` tras subirlos.

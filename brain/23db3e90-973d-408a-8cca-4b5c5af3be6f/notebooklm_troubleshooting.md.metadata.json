@@ -1,0 +1,5 @@
+{
+  "artifactType": "ARTIFACT_TYPE_OTHER",
+  "summary": "Guía de troubleshooting para el problema de herramientas NotebookLM no visibles después de refresh_auth. Documenta síntomas, causa raíz (falta de reinicio del agente), solución (reiniciar IDE), y comando de verificación.",
+  "updatedAt": "2026-02-09T23:59:48.115773500Z"
+}

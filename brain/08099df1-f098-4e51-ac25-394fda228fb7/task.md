@@ -1,0 +1,25 @@
+# Task: Define Agent CALLIOPE Architecture & Systems Integration
+
+- [x] Analyze provided context and requirements for CALLIOPE <!-- id: 0 -->
+- [x] Create `CALLIOPE_DEFINITION.md` integrating all knowledge blocks <!-- id: 1 -->
+- [x] **Inter-Agent Protocols & Dashboard Spec** <!-- id: 10 -->
+- [x] **Dashboard Implementation** <!-- id: 19 -->
+    - [x] Update `src/types/agent_types.ts` with CALLIOPE schemas <!-- id: 20 -->
+    - [x] Create `StrategyRoom.tsx` (Orion View) <!-- id: 21 -->
+    - [x] Create `WriterRoom.tsx` (Calliope View) <!-- id: 22 -->
+    - [x] Create `AdminVault.tsx` <!-- id: 23 -->
+    - [x] Assemble `dashboard/page.tsx` <!-- id: 24 -->
+- [x] **Agent Standardization & HITL Integration** <!-- id: 25 -->
+    - [x] Update `agent_types.ts` with `AgentConfiguration` and `UniversalAgentState` <!-- id: 26 -->
+    - [x] Create generic `AgentControlPanel.tsx` with Timer/Config logic <!-- id: 27 -->
+    - [x] Refactor `WriterRoom.tsx` to use `AgentControlPanel` <!-- id: 28 -->
+    - [x] Refactor `StrategyRoom.tsx` to use `AgentControlPanel` <!-- id: 29 -->
+    - [x] **Create Data-Driven Architecture** <!-- id: 30 -->
+        - [x] Create `src/data/knowledge_base.ts` <!-- id: 31 -->
+        - [x] Update Definitions to reference Knowledge Base <!-- id: 32 -->
+        - [x] Create `ORION_AGENT_DEFINITION.md` <!-- id: 33 -->
+    - [x] **System Audit & Logging** <!-- id: 34 -->
+        - [x] Implement `AgentActivityRecord` in `agent_types.ts` <!-- id: 35 -->
+        - [x] Update `AgentContext.tsx` with `recordActivity` <!-- id: 36 -->
+        - [x] Connect `WriterRoom` and `StrategyRoom` to Context Log <!-- id: 37 -->
+- [ ] Notify User of Completion <!-- id: 9 -->

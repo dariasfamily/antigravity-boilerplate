@@ -1,0 +1,5 @@
+{
+  "artifactType": "ARTIFACT_TYPE_IMPLEMENTATION_PLAN",
+  "summary": "Plan para resolver la discrepacia visual de `workspace.json` en la barra lateral mediante un refresco forzado del sistema de archivos y comunicación técnica con el usuario.",
+  "updatedAt": "2026-02-12T01:14:57.554563700Z"
+}

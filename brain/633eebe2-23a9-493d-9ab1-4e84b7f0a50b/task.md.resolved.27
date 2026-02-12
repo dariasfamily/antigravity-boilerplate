@@ -1,0 +1,27 @@
+# Task: Diagnosticar y Resolver Errores de MCP Servers
+
+## Problema Actual
+Después de reiniciar AXON, varios MCP servers siguen mostrando errores (en rojo).
+
+## Servidores con Errores Conocidos
+
+### Basado en errores anteriores:
+1. **Make** - Timeout al conectar a SSE stream
+2. **NotebookLM** - Context deadline exceeded
+3. **Rube** - Error 401 (API key inválida)
+4. **Zapier** - Timeout al conectar
+5. **Firebase** - Error de conexión
+6. **Google Maps** - Error de conexión
+
+## Investigación en Progreso
+
+### Hipótesis:
+1. **Servidores deshabilitados aún se intentan cargar** - Posible bug en AXON
+2. **Configuración corrupta** - Algunos servidores tienen configuración inválida
+3. **Dependencias faltantes** - Scripts o módulos no instalados
+
+### Acciones a Tomar:
+1. Identificar exactamente qué servidores están en rojo
+2. Revisar logs de error específicos
+3. Eliminar servidores problemáticos del config (no solo deshabilitar)
+4. Mantener solo servidores funcionales

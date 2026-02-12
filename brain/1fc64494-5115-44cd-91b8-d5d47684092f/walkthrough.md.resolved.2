@@ -1,0 +1,30 @@
+# Supabase MCP Custom Bridge Walkthrough
+
+## Changes
+
+### 1. Created Custom Bridge Script
+I created a Node.js script at [C:/Users/daria/.gemini/AXON/scratch/mcp-bridge/index.js](file:///C:/Users/daria/.gemini/AXON/scratch/mcp-bridge/index.js) that:
+- Connects directly to the Supabase MCP SSE endpoint.
+- Uses the `eventsource` library to handle the connection.
+- Manually passes the `Authorization: Bearer` header, bypassing the OAuth logic that was causing `mcp-remote` to fail.
+
+### 2. Updated [mcp_config.json](file:///c:/Users/daria/.gemini/AXON/mcp_config.json)
+I updated the configuration to run this script instead of `mcp-remote`.
+
+```json
+/* mcp_config.json */
+"supabase": {
+    "command": "node",
+    "args": [
+        "C:/Users/daria/.gemini/AXON/scratch/mcp-bridge/index.js",
+        "https://mcp.supabase.com/mcp?project_ref=...",
+        "Bearer sb_secret_..."
+    ]
+}
+```
+
+## Verification Results
+
+### Manual Verification Required
+1.  **Restart**: Reload your window or restart your agent.
+2.  **Verify**: The Supabase tools should now be available without any OAuth validation errors.

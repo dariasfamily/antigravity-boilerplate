@@ -1,0 +1,77 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --axon-bg: #030014;
+  --axon-glass: rgba(255, 255, 255, 0.03);
+  --axon-glass-heavy: rgba(10, 10, 20, 0.7);
+  --axon-border: rgba(255, 255, 255, 0.1);
+  --axon-neon: #00f0ff;
+  --axon-purple: #bd00ff;
+  --axon-gold: #ffd700;
+  --axon-error: #ff0055;
+}
+
+body {
+  color: white;
+  background-color: var(--axon-bg);
+  background-image:
+    radial-gradient(circle at 50% 0%, rgba(189, 0, 255, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 0% 0%, rgba(0, 240, 255, 0.1) 0%, transparent 40%);
+  background-attachment: fixed;
+  font-family: 'Inter', monospace;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--axon-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--axon-neon);
+}
+
+/* Utilities */
+.glass-panel {
+  background: var(--axon-glass);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--axon-border);
+}
+
+.glass-panel-heavy {
+  background: var(--axon-glass-heavy);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-right: 1px solid var(--axon-border);
+}
+
+.neon-text {
+  text-shadow: 0 0 10px rgba(0, 240, 255, 0.5);
+}
+
+.animate-in {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

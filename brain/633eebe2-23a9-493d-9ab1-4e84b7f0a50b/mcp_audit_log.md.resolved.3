@@ -1,0 +1,65 @@
+# MCP Servers Audit Log
+
+## Auditoría Iniciada
+**Fecha:** 2026-02-08 14:38
+**Objetivo:** Probar todos los 12 MCP servers individualmente
+
+## Fase 1: Limpieza y Baseline ✅
+
+### Paso 1.1: Cirugía de Configuración
+- **Timestamp:** 15:00
+- **Acción:** Eliminados 8 servidores problemáticos del config.
+- **Estado:** 4 servidores basales mantenidos (Cloud Run, Firebase, GitHub, GMP).
+- **Resultado:** ✅ Configuración simplificada para auditoría controlada.
+
+### Lista de Servidores Restaurados:
+1. supabase - Deshabilitado
+2. vercel - Deshabilitado
+3. rube_mcp - Deshabilitado
+4. github - Deshabilitado
+5. perplexity - Deshabilitado
+6. notebooklm - Deshabilitado
+7. zapier - Deshabilitado
+8. make - Deshabilitado
+9. notion - Deshabilitado
+10. cloudrun - Deshabilitado
+11. firebase-mcp-server - Deshabilitado
+12. gmp-code-assist - Deshabilitado
+
+### Paso 1.2: Reiniciar AXON
+- **Timestamp:** 14:56
+- **Acción:** Usuario reinició AXON
+- **Verificación:** ✅ 0 errores en la lista de MCP servers
+- **Resultado:** ✅ Baseline establecido correctamente
+
+---
+
+## Fase 2: Auditoría Colectiva de Baseline (En Progreso)
+
+### Verificación de Servidores 1-4 (Cloud Run, Firebase, GitHub, GMP)
+- **Timestamp:** 15:00
+- **Estado:** 🔄 Probando tools.
+- **Acción:** Habilitados los 4 basales simultáneamente.
+- **Resultado:** Pendiente confirmar estabilidad.
+
+---
+
+## Fase 3: Auditoría Individual del Túnel (Pendiente)
+
+Añadir uno a uno los 8 servidores eliminados:
+1. **notebooklm** - Pendiente
+2. **notion** - Pendiente
+3. **zapier** - Pendiente
+4. **make** - Pendiente
+5. **rube_mcp** - Pendiente
+6. **supabase** - Pendiente
+7. **vercel** - Pendiente
+8. **perplexity** - Pendiente
+
+---
+
+## Resumen de Progreso
+- **Servidores auditados:** 0/12
+- **Servidores funcionales:** TBD
+- **Servidores con errores:** TBD
+- **Tiempo total:** TBD

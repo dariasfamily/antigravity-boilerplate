@@ -1,0 +1,5 @@
+{
+  "artifactType": "ARTIFACT_TYPE_OTHER",
+  "summary": "Log de ejecución inicial para el Plan v3.0. Registra cada bloque ejecutado con timestamp, estado, elementos procesados, errores y agente ejecutor. Permite trazabilidad completa de la auditoría.",
+  "updatedAt": "2026-02-10T01:34:26.996922500Z"
+}

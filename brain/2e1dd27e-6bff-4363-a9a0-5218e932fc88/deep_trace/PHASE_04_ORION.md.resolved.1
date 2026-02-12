@@ -1,0 +1,97 @@
+# 🕵️ ELITE DEEP TRACE: PHASE 4 - ORION ("The Analyst")
+**Role**: Intelligence Officer & Pattern Recognizer.
+**Protocol**: Level 5 (Maximum Oversight)
+**Dashboard State**: 🟢 `ORION_SCANNING` (Radar Sweep Animation)
+
+## 1. THE INPUT ARTIFACT (From Phase 3)
+**Interface: Pulsar -> Orion**
+Orion receives the **Prompt Matrix**. He executes the query.
+
+### 1.1 Structural Input Object
+```json
+{
+  "matrix_ref": "PMX-2026-02-08-001",
+  "source_mode": "HYBRID", // Web + NotebookLM
+  "depth_level": "DEEP_DIVE",
+  "prompts": [...] // From Pulsar
+}
+```
+
+## 2. THE PROCESS (Logic Kernel)
+
+### 2.1 Micro-Step: Execution (The Hunt)
+*   **Action**: Fire requests to `NotebookLM` (Internal Knowledge) and External Search (if enabled).
+*   **Parallel Threads**:
+    1.  *Thread A*: "Agentic Workflows 2026"
+    2.  *Thread B*: "Embodied AI 2026"
+
+### 2.2 Micro-Step: Data Structuring (The Parsing)
+*   **Input**: Unstructured Text / PDF Chunks.
+*   **Action**: Extract key entities.
+    *   *Trend*: "Multi-Agent Orchestration"
+    *   *Evidence*: "High adoption in Q4 2025."
+    *   *Confidence*: 92%.
+*   **Filtering**: Discard "Low Confidence" (<70%) or "Outdated" (<2025) data points.
+
+### 2.3 Micro-Step: Competitor/Gap Analysis
+*   **Action**: "Is this trend already saturated?"
+*   **Result**: " 'Chatbots' -> Saturated. 'Agentic Swarms' -> Rising Opportunity."
+
+## 3. THE OUTPUT INTERFACE (Orion -> Lyra)
+
+### 3.1 Intelligence Report V1
+```json
+{
+  "report_id": "INT-2026-02-08-001",
+  "status": "VERIFIED",
+  "trends": [
+    {
+      "id": "tr-01",
+      "name": "Agentic Swarms",
+      "momentum": "EXPLODING",
+      "relevance_score": 0.98,
+      "sources": ["NotebookLM:Doc_A", "Web:TechCrunch_2026"]
+    },
+    {
+      "id": "tr-02",
+      "name": "Voice-First Interfaces",
+      "momentum": "STABLE",
+      "relevance_score": 0.85
+    }
+  ],
+  "bloat_removed": "25kb of irrelevant data discarded."
+}
+```
+
+## 4. DASHBOARD SIGNALS & CONTROL
+
+### 4.1 Status Indicators
+*   **Led Color**: 🟢 **GREEN (Sweep)** = `SCANNING`.
+*   **Message**: "Scanning Sources... 25 High-Value Signals Detected."
+*   **Timer**: `15s` Count Down (Auto-Proceed).
+*   **Visual Panels**:
+    1.  **Source Graph**: Network view of finding connections.
+    2.  **Confidence Heatmap**: Red (Dubious) to Green (Verified).
+    3.  **Live Feed**: Scrolling titles of ingested articles.
+
+### 4.2 User Intervention Controls ("The Intel Check")
+*   **Trigger**: Orion finishes Report. State -> 🟠 `WAITING_APPROVAL`.
+*   **Checkpoint Rule**: Auto-Pause if "Critical Contradiction" found in data.
+1.  **[APPROVE]** (Green): Lock Intelligence. Send to Lyra.
+2.  **[MODIFY]** (Yellow): Delete/Prioritize Trends manually.
+    *   *Action*: Drag "Voice-First" to "Ignored" bin.
+3.  **[EXPAND]**: "Dig deeper on 'Agentic Swarms'." -> Re-trigger Orion loop on specific node.
+
+## 5. AUDIT LOG (The "Black Box" - 5 Levels)
+
+| Level | Type | Message | Hash |
+| :--- | :--- | :--- | :--- |
+| **L1** | **IDENTITY** | `Orion Researching via Gemini Pro.` | `d5e6...` |
+| **L2** | **RESOURCE** | `Search Cost: $0.12. Duration: 45s.` | `f7g8...` |
+| **L3** | **DECISION** | `Filter Applied: Discarded 15 trends (Confidence < 70%).` | `h9i0...` |
+| **L4** | **DATA** | `Extracted 2 Core Trends. 5 Citations.` | `j1k2...` |
+| **L5** | **STATE** | `Transition: SCANNING -> REPORT_READY.` | `l3m4...` |
+
+---
+**NEXT**: **PHASE 5: LYRA (The Soul)**
+*Dependency*: User Approval of Intelligence Report.

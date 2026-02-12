@@ -1,0 +1,36 @@
+﻿# Implementation Plan: Activating EGERIA Knowledge Management
+
+This plan outlines the steps to enable EGERIA to "take notes and register documents" as directed by Darias. This will transform Egeria from a knowledge manager to a proactive knowledge acquisition engine.
+
+## Proposed Changes
+
+### ðŸ›ï¸ Egeria (Hive)
+
+#### [MODIFY] [config.json](file:///c:/Users/daria/.gemini/AXON/hive/agents/egeria/config.json)
+- Add `ledger_path` and `notes_path` to the core configuration.
+- Update responsibilities to include proactive note-taking and document registration.
+
+#### [NEW] [KNOWLEDGE_LEDGER.md](file:///c:/Users/daria/.gemini/AXON/hive/agents/egeria/KNOWLEDGE_LEDGER.md)
+- Initialize a master index file to track registered documents and consolidated notes.
+- Include columns for: `Date`, `Type`, `ID`, `Description`, and `Path`.
+
+#### [NEW] [knowledge_management.md](file:///c:/Users/daria/.gemini/AXON/hive/agents/egeria/prompts/knowledge_management.md)
+- Define the procedural prompt for Egeria to handle knowledge acquisition.
+- Ensure the prompt enforces the "Income Factory" philosophy and "No Placeholders" rule.
+
+#### [MODIFY] [README.md](file:///c:/Users/daria/.gemini/AXON/hive/agents/egeria/README.md)
+- Document the new `KNOWLEDGE_LEDGER` and `notes/` capabilities in the agent's manual.
+
+---
+
+## Verification Plan
+
+### Automated Verification
+- I will run a script to:
+    1. Verify [config.json](file:///c:/Users/daria/.gemini/AXON/hive/agents/egeria/config.json) syntax.
+    2. Check that `KNOWLEDGE_LEDGER.md` exists and has the correct header.
+    3. Check that the `notes/` directory exists.
+
+### Manual Verification
+1.  **Direct Test**: Ask Egeria to "Register this implementation plan as a core directive".
+2.  **Validation**: Verify that a new entry appears in the `KNOWLEDGE_LEDGER.md` and a summary note is created in `notes/`.

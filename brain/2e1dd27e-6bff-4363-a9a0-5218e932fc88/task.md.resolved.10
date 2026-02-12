@@ -1,0 +1,10 @@
+# Task: Integrity Check & Branding Separation
+
+- [x] Save M0-M9 specification to Notebook ("Agencia de Contenido") <!-- id: 10 -->
+- [x] Map M0-M9 skills to Agents (Egeria, Orion, Calliope, Argus, Pulsar) <!-- id: 11 -->
+- [x] Create [hive/MODULAR_ARCHITECTURE_MAP.md](file:///c:/Users/daria/.gemini/AXON/hive/MODULAR_ARCHITECTURE_MAP.md) artifact <!-- id: 12 -->
+- [x] Update [src/types/agent_types.ts](file:///c:/Users/daria/.gemini/AXON/workspaces/Proyecto%20MENISCO/dashboard-v3/src/types/agent_types.ts) with new interfaces (Idea, Trend, Score) <!-- id: 13 -->
+- [ ] **Define Agent "LYRA" (Brand DNA)** <!-- id: 18 -->
+    - [ ] Create `TECHNICAL_DATASHEET_LYRA.md`
+    - [ ] Add to Registry and Seeds
+- [ ] Notify User with Mapping Report and Questionnaire (A-E) <!-- id: 15 -->

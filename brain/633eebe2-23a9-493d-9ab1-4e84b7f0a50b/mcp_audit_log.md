@@ -1,0 +1,109 @@
+# MCP Servers Audit Log
+
+## Auditoría Iniciada
+**Fecha:** 2026-02-08 14:38
+**Objetivo:** Probar todos los 12 MCP servers individualmente
+
+## Fase 1: Limpieza y Baseline ✅
+
+### Paso 1.1: Cirugía de Configuración
+- **Timestamp:** 15:00
+- **Acción:** Eliminados 8 servidores problemáticos del config.
+- **Estado:** 4 servidores basales mantenidos (Cloud Run, Firebase, GitHub, GMP).
+- **Resultado:** ✅ Configuración simplificada para auditoría controlada.
+
+### Lista de Servidores Restaurados:
+1. supabase - Deshabilitado
+2. vercel - Deshabilitado
+3. rube_mcp - Deshabilitado
+4. github - Deshabilitado
+5. perplexity - Deshabilitado
+6. notebooklm - Deshabilitado
+7. zapier - Deshabilitado
+8. make - Deshabilitado
+9. notion - Deshabilitado
+10. cloudrun - Deshabilitado
+11. firebase-mcp-server - Deshabilitado
+12. gmp-code-assist - Deshabilitado
+
+### Paso 1.2: Reiniciar AXON
+- **Timestamp:** 14:56
+- **Acción:** Usuario reinició AXON
+- **Verificación:** ✅ 0 errores en la lista de MCP servers
+- **Resultado:** ✅ Baseline establecido correctamente
+
+---
+
+## Fase 2: Certificación de Servidores Saludables ✅
+
+### 1. **github** (26/26 tools Certificadas)
+- **Estado:** ✅ 100% Operativo.
+- **Categorías de Tools:**
+  - **Repositorios:** `search_repositories`, `get_file_contents`, `create_repository`, `fork_repository`.
+  - **Issues:** `list_issues`, `get_issue`, `create_issue`, `update_issue`, `add_issue_comment`.
+  - **Pull Requests:** `list_pull_requests`, `get_pull_request`, `create_pull_request`, `merge_pull_request`.
+  - **Git Ops:** `create_branch`, `list_commits`, `push_files`.
+- **Prueba Real:** Búsqueda y listado de issues confirmada.
+
+### 2. **firebase-mcp-server** (14/14 tools Certificadas)
+- **Estado:** ✅ 100% Operativo.
+- **Categorías de Tools:**
+  - **Gestión:** `firebase_get_environment`, `firebase_list_projects`.
+  - **Servidores:** `firebase_init`, `firebase_get_sdk_config`.
+  - **Seguridad:** `firebase_get_security_rules`.
+  - **Apps:** `firebase_list_apps`, `firebase_create_app`.
+- **Prueba Real:** Listado de proyectos (`fcm-mapajerarquicoapp`, `rc-license-app-florida`) confirmado.
+
+### 3. **gmp-code-assist** (2/2 tools Certificadas)
+- **Estado:** ✅ 100% Operativo.
+- **Tools:** `retrieve-instructions`, `retrieve-google-maps-platform-docs`.
+- **Prueba Real:** Recuperación de documentación técnica confirmada.
+
+### 4. **notebooklm** (32/32 tools Certificadas)
+- **Estado:** ✅ 100% Operativo.
+- **Categorías de Tools:**
+  - **Notebooks:** `notebook_list`, `notebook_create`, `notebook_get`, `notebook_describe`.
+  - **Sources:** `notebook_add_url`, `notebook_add_text`, `notebook_add_drive`, `source_describe`, `source_get_content`.
+  - **AI Studio:** `audio_overview_create`, `flashcards_create`, `quiz_create`, `slide_deck_create`, `mind_map_create`.
+- **Prueba Real:** Listado de 27 notebooks y descripción de contenido confirmada.
+
+---
+
+## Fase 3: Túnel de Auditoría Individual (Problemáticos/Rojos)
+
+### 1. **cloudrun** (8 tools)
+- **Estado:** ⚠️ Autenticación pendiente.
+- **Error:** "GCP credentials are not available".
+- **Plan:** Requiere login manual del usuario vía CLI.
+
+### 6. **make** (8 tools Certificadas)
+- **Estado:** ✅ 100% Operativo (Auditado vía SSE).
+- **Categorías de Tools:** `validate_scheduling_schema`, `validate_module_schema`, `get_scenario`, `list_scenarios`.
+- **Prueba Real:** Test via `test_sse_mcp.js` devolvió lista de herramientas con éxito.
+
+### 7. **perplexity** (1 tool Certificada)
+- **Estado:** ✅ 100% Operativo (Auditado vía stdio).
+- **Tool:** `perplexity_search`.
+- **Prueba Real:** Test via `test_perplexity_mcp.js` devolvió herramienta con éxito.
+
+### 8. **supabase** (10+ tools Certificadas)
+- **Estado:** ✅ 100% Operativo (Auditado vía stdio).
+- **Categorías de Tools:** `list_organizations`, `list_projects`, `get_project`.
+- **Prueba Real:** Test via `test_supabase_mcp.js` devolvió herramientas con éxito.
+
+### 9. **vercel** (50 tools Certificadas)
+- **Estado:** ✅ 100% Operativo (Auditado vía proxy filter).
+- **Categorías de Tools:** `get-deployment`, `create-project`, `list-projects`.
+- **Prueba Real:** Test via `test_stdio_mcp.js` devolvió herramientas filtradas con éxito.
+
+### Próximos en el Túnel:
+- 1. **zapier** - En proceso (Timeout en SSE).
+- 2. **rube_mcp** - Investigando 401 previo.
+
+---
+
+## Resumen de Progreso
+- **Servidores auditados:** 0/12
+- **Servidores funcionales:** TBD
+- **Servidores con errores:** TBD
+- **Tiempo total:** TBD

@@ -1,0 +1,343 @@
+# Protocolo de Etiquetado de Fuentes NotebookLM v2.0
+**Versión**: 2.0  
+**Fecha**: 2026-02-09  
+**Estado**: ✅ Actualizado con Sistema Modular
+
+## Cambios en v2.0
+- ✅ Añadido sistema de módulos `[MOD-X]`
+- ✅ Identificación de agente responsable
+- ✅ Formato estándar basado en notebook ChatGPT
+- ✅ Soporte para agrupación y selección granular
+
+---
+
+## Propósito
+Establecer un sistema de trazabilidad modular para todas las fuentes añadidas a NotebookLM por agentes de AXON, permitiendo:
+- Identificación del agente responsable
+- Agrupación por módulos temáticos
+- Selección granular de fuentes para consultas
+
+---
+
+## Formato de Huella Estándar
+
+### Estructura General
+```
+[MOD-X AGENTE] Título de la Fuente
+```
+
+### Componentes
+
+#### 1. Número de Módulo (MOD-X)
+- **Formato**: `MOD-1`, `MOD-2`, `MOD-3`, etc.
+- **Propósito**: Agrupar fuentes relacionadas por tema/fase
+- **Ejemplo**: `MOD-1 NUCLEO`, `MOD-2 ESTRUCTURA`, `MOD-3 VOLUMEN`
+
+#### 2. Nombre del Agente
+- **Formato**: Nombre corto del agente en MAYÚSCULAS
+- **Opciones**: `EGERIA`, `ORION`, `CALLIOPE`, `ARGUS`, `PULSAR`, `PLANNER`, `THALIA`, `APOLLO`, `NEXUS`
+- **Ejemplo**: `ORION`, `CALLIOPE`
+
+#### 3. Categoría Temática (Opcional)
+- **Formato**: Abreviatura descriptiva
+- **Ejemplo**: `AS` (Arquitectura de Software), `IAG` (IA Generativa), `CGC` (Ciberseguridad y Gobernanza)
+
+### Ejemplos Completos
+
+**Formato Básico**:
+```
+[MOD-1 ORION] Market Intelligence Report on AI Agents
+[MOD-2 CALLIOPE] Content Strategy Framework
+[MOD-3 ARGUS] Quality Assurance Checklist
+```
+
+**Formato con Categoría**:
+```
+[MOD-2 PLANNER - AS] Domain-Driven Design Patterns
+[MOD-4 ORION - IAG] LLM Architecture Survey
+[MOD-5 ARGUS - CGC] GDPR Compliance Guidelines
+```
+
+**Formato para Documentos Maestros**:
+```
+[MOD-1 FULL NUCLEO] ALL SOURCES - Compiled by EGERIA
+[MOD-2 FULL ESTRUCTURA] Software Architecture Foundations
+```
+
+---
+
+## Estándar de Nomenclatura por Tipo
+
+### Fuentes de Investigación (Research)
+```
+[MOD-X AGENTE - CATEGORIA] Título Original de la Fuente
+```
+
+### Documentos Generados (Reports, Notes)
+```
+[MOD-X AGENTE] Tipo de Documento: Título Descriptivo
+```
+Ejemplos:
+- `[MOD-1 ORION] Report: Market Analysis Q1 2026`
+- `[MOD-2 CALLIOPE] Note: Content Calendar Strategy`
+
+### Documentos de Registro
+```
+REGISTRO_AXON
+```
+(Sin prefijo modular, siempre con este nombre exacto)
+
+---
+
+## Workflow de Etiquetado
+
+### Paso 1: Determinar Módulo
+Antes de añadir fuentes, definir:
+- ¿A qué módulo/fase pertenece este grupo de fuentes?
+- ¿Cuál es el número de módulo apropiado?
+
+### Paso 2: Identificar Agente
+- ¿Qué agente está ejecutando la acción?
+- Usar nombre corto oficial del agente
+
+### Paso 3: Aplicar Formato
+**Opción A - Browser Automation** (Recomendado para renombrado):
+```javascript
+// Para cada fuente
+nuevo_titulo = `[MOD-${modulo_num} ${agente_nombre}] ${titulo_original}`
+```
+
+**Opción B - API** (Solo para fuentes de texto):
+```python
+mcp_notebooklm_notebook_add_text(
+    notebook_id=notebook_id,
+    title=f"[MOD-{modulo_num} {agente_nombre}] {titulo}",
+    text=contenido
+)
+```
+
+### Paso 4: Actualizar Registro
+Añadir entrada en `REGISTRO_AXON`:
+```markdown
+## {timestamp}
+**Acción**: Añadidas {N} fuentes al MOD-{X}
+**Agente**: {AGENTE_NOMBRE}
+**Módulo**: MOD-{X} - {Descripción del Módulo}
+
+### Fuentes Añadidas
+1. [MOD-{X} {AGENTE}] {Título}
+   - URL: {url}
+   - ID: {source_id}
+```
+
+---
+
+## Sistema de Módulos
+
+### Definición de Módulos
+Cada notebook puede tener su propia estructura modular. Ejemplos:
+
+**Notebook de Ingeniería**:
+- `MOD-1 NUCLEO` - Fundamentos y estándares
+- `MOD-2 ESTRUCTURA` - Arquitectura de software
+- `MOD-3 VOLUMEN` - Datos y sistemas distribuidos
+- `MOD-4 MOTOR` - IA Generativa y LLMs
+- `MOD-5 ESCUDO` - Seguridad y compliance
+- `MOD-6 MENTE` - Lógica y epistemología
+
+**Notebook de Marketing**:
+- `MOD-1 RESEARCH` - Investigación de mercado
+- `MOD-2 STRATEGY` - Estrategia de contenido
+- `MOD-3 EXECUTION` - Implementación
+- `MOD-4 ANALYTICS` - Métricas y análisis
+
+### Beneficios del Sistema Modular
+1. **Selección Granular**: Activar/desactivar módulos completos en consultas
+2. **Organización Visual**: Fuentes agrupadas por tema
+3. **Trazabilidad**: Saber qué agente trabajó en qué módulo
+4. **Escalabilidad**: Fácil añadir nuevos módulos sin reorganizar
+
+---
+
+## Selección de Fuentes para Consultas
+
+### Consulta por Módulo
+```python
+# Consultar solo MOD-1 y MOD-2
+sources_mod_1_2 = [s for s in sources if 'MOD-1' in s['title'] or 'MOD-2' in s['title']]
+source_ids = [s['id'] for s in sources_mod_1_2]
+
+mcp_notebooklm_notebook_query(
+    notebook_id=notebook_id,
+    query="¿Cuáles son los fundamentos de arquitectura?",
+    source_ids=source_ids
+)
+```
+
+### Consulta por Agente
+```python
+# Consultar solo fuentes de ORION
+sources_orion = [s for s in sources if 'ORION' in s['title']]
+source_ids = [s['id'] for s in sources_orion]
+
+mcp_notebooklm_notebook_query(
+    notebook_id=notebook_id,
+    query="¿Qué insights de mercado tenemos?",
+    source_ids=source_ids
+)
+```
+
+### Consulta Combinada
+```python
+# MOD-4 + ORION
+sources_filtered = [s for s in sources if 'MOD-4' in s['title'] and 'ORION' in s['title']]
+```
+
+---
+
+## Implementación con Browser Automation
+
+### Script de Renombrado Modular
+```python
+def rename_sources_modular(notebook_id, module_num, agent_name, sources):
+    """
+    Renombra fuentes con formato modular usando browser automation
+    
+    Args:
+        notebook_id: ID del notebook
+        module_num: Número de módulo (1, 2, 3...)
+        agent_name: Nombre del agente (ORION, CALLIOPE, etc.)
+        sources: Lista de fuentes a renombrar
+    """
+    for source in sources:
+        old_title = source['title']
+        new_title = f"[MOD-{module_num} {agent_name}] {old_title}"
+        
+        # Browser automation para renombrar
+        browser_subagent(
+            task=f"Rename source '{old_title}' to '{new_title}' in notebook {notebook_id}",
+            ...
+        )
+```
+
+---
+
+## Integración con Notion MCP
+
+> [!NOTE]
+> **Estado de Notion MCP**: No instalado actualmente
+> 
+> Para añadir Notion MCP:
+> 1. Instalar: `npm install -g @notionhq/client`
+> 2. Configurar en [mcp_config.json](file:///C:/Users/daria/.gemini/AXON/mcp_config.json)
+> 3. Obtener API key de Notion
+> 4. Habilitar integración
+
+**Uso futuro con Notion**:
+- Sincronizar REGISTRO_AXON con base de datos Notion
+- Dashboard de módulos y fuentes
+- Tracking de agentes y sus contribuciones
+
+---
+
+## Casos de Uso
+
+### Caso 1: Research Multi-Módulo
+```
+Agente: ORION
+Tarea: Investigar arquitecturas de IA
+
+Módulos:
+- MOD-1: Fundamentos de ML
+- MOD-2: Arquitecturas Transformer
+- MOD-3: Multi-Agent Systems
+
+Nomenclatura:
+[MOD-1 ORION] Introduction to Machine Learning
+[MOD-2 ORION] Attention Is All You Need
+[MOD-3 ORION] Multi-Agent Coordination Protocols
+```
+
+### Caso 2: Proyecto Colaborativo
+```
+Notebook: "Product Launch Strategy"
+
+Agentes y Módulos:
+- MOD-1 ORION: Market Research
+- MOD-2 CALLIOPE: Content Strategy
+- MOD-3 THALIA: Visual Assets
+- MOD-4 ARGUS: Quality Review
+
+Permite:
+- Consultar solo research de ORION
+- Revisar solo contenido de CALLIOPE
+- Auditar todo con ARGUS
+```
+
+---
+
+## Checklist de Implementación
+
+### Para Cada Sesión de Research
+- [ ] Definir número de módulo
+- [ ] Identificar agente responsable
+- [ ] Aplicar formato `[MOD-X AGENTE]` a todas las fuentes
+- [ ] Actualizar REGISTRO_AXON
+- [ ] Verificar nomenclatura consistente
+
+### Para Consultas
+- [ ] Identificar módulos relevantes
+- [ ] Filtrar source_ids por módulo/agente
+- [ ] Documentar criterio de selección en query
+
+---
+
+## Migración de Notebooks Existentes
+
+### Notebooks Sin Sistema Modular
+**Opción 1**: Mantener como está, aplicar solo a fuentes nuevas
+**Opción 2**: Renombrar todo con `MOD-0` (módulo legacy)
+**Opción 3**: Reorganizar completamente por módulos
+
+### Recomendación
+Para notebooks existentes grandes (>50 fuentes):
+- Usar `MOD-0 LEGACY` para fuentes antiguas
+- Empezar MOD-1, MOD-2... para fuentes nuevas
+
+---
+
+## Herramientas y Skills
+
+### Skill Recomendada: `notebooklm-batch-rename`
+**Ubicación**: `.agent/skills/notebooklm-batch-rename/SKILL.md`
+
+**Funcionalidad**:
+- Renombrado masivo por módulo
+- Detección automática de agente
+- Validación de formato
+- Actualización de registro
+
+**Estado**: 🔴 Pendiente de creación
+
+---
+
+## Métricas de Calidad
+
+### Indicadores de Buena Nomenclatura
+- ✅ 100% de fuentes tienen prefijo modular
+- ✅ Agente identificado en cada fuente
+- ✅ REGISTRO_AXON actualizado
+- ✅ Módulos claramente diferenciados
+
+### Indicadores de Mala Nomenclatura
+- ❌ Fuentes sin prefijo
+- ❌ Mezcla de formatos
+- ❌ Módulos sin definir
+- ❌ Registro desactualizado
+
+---
+
+**Última actualización**: 2026-02-09  
+**Versión**: 2.0  
+**Mantenedor**: AXON Core Team  
+**Contacto**: Darias (Owner)

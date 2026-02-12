@@ -1,0 +1,63 @@
+# Task: Configurar MCP Servers
+
+## ✅ COMPLETADO
+
+### Cambios Realizados
+- [x] Todos los MCP servers deshabilitados por defecto
+- [x] Errores de lint corregidos
+- [x] Guía completa creada ([MCP_SERVERS_GUIDE.md](file:///C:/Users/daria/.gemini/AXON/MCP_SERVERS_GUIDE.md))
+- [x] Configuración verificada
+
+### Estado Actual
+**Archivo:** [C:\Users\daria\.gemini\AXON\mcp_config.json](file:///C:/Users/daria/.gemini/AXON/mcp_config.json)
+
+**Todos los servidores deshabilitados:**
+- ✅ notebooklm - `"disabled": true`
+- ✅ zapier - `"disabled": true`
+- ✅ make - `"disabled": true`
+- ✅ notion - `"disabled": true`
+- ✅ rube_mcp - `"disabled": true`
+- ✅ github - `"disabled": true`
+- ✅ perplexity - `"disabled": true`
+- ✅ supabase - `"disabled": true`
+- ✅ vercel - `"disabled": true`
+- ✅ cloudrun - `"disabled": true`
+- ✅ firebase-mcp-server - `"disabled": true`
+- ✅ gmp-code-assist - `"disabled": true`
+
+### Errores Reportados (Normales)
+Los errores que viste son de la sesión anterior de AXON:
+- Make - Timeout (esperado, estaba habilitado antes)
+- NotebookLM - Timeout (esperado, estaba habilitado antes)
+- Rube - 401 Error (esperado, API key inválida)
+- Zapier - Timeout (esperado, estaba habilitado antes)
+
+**Estos errores desaparecerán** al reiniciar AXON.
+
+## 🎯 Próximos Pasos
+
+### 1. Reiniciar AXON
+- Cierra AXON completamente
+- Vuelve a abrirlo
+- Los errores desaparecerán
+
+### 2. Habilitar Solo los MCP que Necesites
+Edita [mcp_config.json](file:///C:/Users/daria/.gemini/AXON/mcp_config.json) y cambia `"disabled": true` a `"disabled": false` para:
+
+**Recomendado para empezar:**
+- `notebooklm` - Para trabajar con tus notebooks
+
+**Opcional según necesidad:**
+- `notion` - Si usas Notion
+- `zapier` - Para automatizaciones
+- `make` - Para workflows complejos
+
+### 3. Probar NotebookLM
+Una vez habilitado y reiniciado:
+```
+"Lista mis notebooks de NotebookLM"
+```
+
+## 📚 Recursos
+- [MCP_SERVERS_GUIDE.md](file:///C:/Users/daria/.gemini/AXON/MCP_SERVERS_GUIDE.md) - Guía completa de cada servidor
+- [mcp_config.json](file:///C:/Users/daria/.gemini/AXON/mcp_config.json) - Configuración actual

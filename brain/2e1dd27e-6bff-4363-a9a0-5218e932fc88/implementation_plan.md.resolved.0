@@ -1,0 +1,26 @@
+# Harmonization Plan: NUCLEUS V5.3 Schema & Agent Definitions
+
+## Goal Description
+Analyze the "THE NUCLEUS V5.3" SQL schema provided by the user and harmonize it with the existing agent definitions found in the `dashboard-v3` workspace. This involves verifying that all agents (Egeria, Pulsar, Orion, Calliope, Argus, Planner) are correctly defined according to the new schema and reporting any discrepancies.
+
+## User Review Required
+- Confirmation of identified agent definitions location.
+- Approval of proposed updates to agent registry files to match V5.3 schema.
+
+## Proposed Changes
+### Analysis Phase
+1.  **Schema Breakdown**: Parse the provided SQL to extract:
+    -   `ag_agent_registry` columns and constraints.
+    -   `ag_session_phase` enum values.
+    -   `ag_agent_status` enum values.
+2.  **Agent Discovery**: Locate agent definitions in `dashboard-v3` (likely in `src/agents`, `config`, or database seed files).
+3.  **Gap Analysis**: Compare existing agent properties (name, role, phases, config) against the V5.3 schema requirements.
+
+### Harmonization Phase (Planned)
+1.  **Update Agent Definitions**: Modify identified JSON/TS files to align with V5.3 structure.
+2.  **Generate SQL Updates**: Create a `harmonized_seeds.sql` script to update the `ag_agent_registry` with correct agent data.
+
+## Verification Plan
+### Automated Verification
+- **Schema Validation**: Use a script to validate that generated JSON/SQL matches the V5.3 schema constraints (e.g., checking enum values).
+- **Consistency Check**: Verify that all agents in the "Hive" or known lists are present in the final registry.

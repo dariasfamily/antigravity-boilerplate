@@ -1,0 +1,14 @@
+# Debugging MCP Credentials
+
+- [x] Obtain new Make.com MCP URL <!-- id: 0 -->
+    - [x] Ask user to generate/copy new URL
+    - [x] Tested `9600...` (401)
+    - [x] Tested `6b4c...` (401)
+    - [/] Testing New Token `291c...` with correct zone `us2.make.com`
+- [x] Research Make.com MCP Auth <!-- id: 4 -->
+    - [x] Analyzed official docs (SSE URL format confirmed)
+- [x] Research Rube.app Auth Error <!-- id: 5 -->
+    - [x] Identified session issue
+    - [ ] Wait for user to relogin/provide key (Skipping for now to fix Make)
+- [/] Verify Make.com Connection <!-- id: 2 -->
+- [ ] Verify Rube Connection <!-- id: 3 -->

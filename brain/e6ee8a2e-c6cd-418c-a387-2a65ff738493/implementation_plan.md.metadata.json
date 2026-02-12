@@ -1,0 +1,5 @@
+{
+  "artifactType": "ARTIFACT_TYPE_IMPLEMENTATION_PLAN",
+  "summary": "Implement Agent ECHO into the system type definitions and context provider. Create a comprehensive manual for ECHO to be used in NotebookLM.",
+  "updatedAt": "2026-02-01T07:35:10.294928600Z"
+}

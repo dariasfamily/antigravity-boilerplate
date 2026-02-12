@@ -1,0 +1,5 @@
+{
+  "artifactType": "ARTIFACT_TYPE_TASK",
+  "summary": "Define and implement Agent ECHO, following the standardized architecture of ORION and CALLIOPE, including its specific functions, schema, and NotebookLM integration.",
+  "updatedAt": "2026-02-01T07:34:25.157791600Z"
+}

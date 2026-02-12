@@ -1,0 +1,27 @@
+# Rube MCP Configuration Fix Walkthrough
+
+## Changes
+
+### 1. Updated [mcp_config.json](file:///c:/Users/daria/.gemini/AXON/mcp_config.json)
+I updated the `rube_mcp` configuration to use the `mcp-remote` bridge instead of the interactive setup tool. This allows the MCP client to connect directly to the Rube server over stdio.
+
+```json
+/* mcp_config.json */
+"rube_mcp": {
+    "command": "npx",
+    "args": [
+        "-y",
+        "mcp-remote",
+        "https://rube.app/mcp"
+    ],
+    // ...
+}
+```
+
+## Verification Results
+
+### Manual Verification Required
+Since this is a configuration change for the MCP server process itself, you need to restart your MCP client (or reload the window/restart the agent) for the changes to take effect.
+
+1.  **Restart**: Reload your environment.
+2.  **Verify**: The error `calling "initialize": EOF` should no longer appear, and Rube tools should be available.

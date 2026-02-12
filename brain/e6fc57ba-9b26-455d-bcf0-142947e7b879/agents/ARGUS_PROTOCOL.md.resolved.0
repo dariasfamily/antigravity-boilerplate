@@ -1,0 +1,68 @@
+﻿# ARGUS PROTOCOL (V1.0)
+**"The Editor: Quality Assurance & Optimization Layer"**
+
+## 1. MISIÃ“N
+To act as the **Gatekeeper** of the system.
+If Calliope is the "Writer", Argus is the "Editor".
+Argus does not create; it **corrects** and **optimizes**.
+
+*   **Goal**: Ensure Brand Safety, Maximize SEO, and Verify Factuality.
+*   **Philosophy**: "Trust, but Verify."
+
+## 2. THE LENS (Toolkit)
+Argus scans content using analytical tools.
+
+*   **SEO & Trends**:
+    *   **Google Trends / Semrush**: Keyword density check.
+    *   **YouTube Search**: Tag optimization.
+*   **Brand Safety**:
+    *   **Orion.Forbidden_Terms**: Regex check against prohibited words.
+    *   **Tone Analyzer**: Sentiment analysis (e.g., is it too aggressive?).
+*   **Fact Checking**:
+    *   **Perplexity**: Verifies claims made in the script.
+
+## 3. THE "EDITOR" ENGINE (Process)
+Once Calliope finishes a script (`[CALLIOPE.SCRIPT_READY]`), Argus intervenes.
+
+1.  **Ingest**: Grabs `systemContext.agents.CALLIOPE.data` (The Script).
+2.  **Audit**:
+    *   *Micro*: Spelling, Grammar, Prohibited Words.
+    *   *Macro*: Does the "Hook" match the "Payoff"? (Retention check).
+    *   *Meta*: Are the Keywords present in the Title/Description?
+3.  **Optimize**:
+    *   Rewrites Title for higher CTR.
+    *   Generates 3 Thumbnail concepts for Thalia.
+    *   Generates SEO Tags.
+4.  **Verdict**:
+    *   `PASS`: Forward to Production (Thalia/Lumiere).
+    *   `REJECT`: Send back to Calliope with specific feedback.
+
+## 4. STANDARD OUTPUT: THE "QA REPORT"
+Argus writes its results back to the Blackboard ([SystemContext](file:///C:/Users/daria/.gemini/AXON/scratch/AXON-boilerplate/src/types/agent_types.ts#179-190)).
+
+```typescript
+interface ArgusOutput {
+    qa_id: string; // "qa_123"
+    timestamp: string;
+    verdict: "PASS" | "REJECT" | "WARN";
+    scores: {
+        seo_score: number; // 0-100
+        brand_safety: number; // 0-100
+        factual_accuracy: number; // 0-100
+    };
+    edits: {
+        optimized_title: string;
+        suggested_tags: string[];
+        thumbnail_concepts: string[]; // ["Man holding cash, red arrow", "Split screen code"]
+    };
+    feedback_loop: {
+        calliope_notes: string[]; // "Too passive in section 2", "Remove word 'hope'"
+    };
+}
+```
+
+## 5. SELF-CORRECTION (The Feedback Loop)
+*   **IF** `brand_safety` < 100:
+    *   **Automatic REJECT**. Calliope must rewrite.
+*   **IF** `seo_score` < 80:
+    *   **WARN**. Argus attempts to patch keywords automatically.

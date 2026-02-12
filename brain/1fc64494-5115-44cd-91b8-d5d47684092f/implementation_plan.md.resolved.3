@@ -1,0 +1,23 @@
+# Custom Supabase MCP Bridge
+
+`mcp-remote` is incorrectly attempting OAuth discovery. We will replace it with a lightweight Node.js script that bridges standard I/O to the Supabase SSE endpoint using the provided API key.
+
+## Proposed Changes
+
+### 1. Create Bridge Script
+#### [NEW] [mcp-bridge/index.js](file:///C:/Users/daria/.gemini/AXON/scratch/mcp-bridge/index.js)
+- Use `eventsource` to connect to Supabase.
+- Forward SSE events to stdout (JSON-RPC).
+- Read stdin (JSON-RPC), extract `endpoint` from SSE init, and POST requests to it.
+
+### 2. Configuration
+#### [MODIFY] [mcp_config.json](file:///c:/Users/daria/.gemini/AXON/mcp_config.json)
+- Update `supabase` entry to run `node C:/Users/daria/.gemini/AXON/scratch/mcp-bridge/index.js` with arguments.
+
+## Dependencies
+- `eventsource`
+- `undici` (or native fetch)
+
+## Verification
+- Restart MCP client.
+- Verify Supabase tools appear.

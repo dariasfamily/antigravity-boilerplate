@@ -1,0 +1,39 @@
+﻿# Task: Creating Agent PULSAR (Prompt Specialist)
+**Protocol:** Standardized Recursive Refinement (DOH v1.1)
+
+- [x] Phase 0: Workflow & Infrastructure <!-- id: 10 -->
+    - [x] Create standardized workflow [.agent/workflows/pulsar.md](file:///c:/Users/daria/.gemini/AXON/.agent/workflows/pulsar.md) <!-- id: 11 -->
+    - [x] Initialize directory `hive/agents/pulsar` <!-- id: 12 -->
+- [x] Phase 1: Semantic Foundation (LITE 3.2) <!-- id: 20 -->
+    - [x] Apply mirrored [lite_3.2.md](file:///c:/Users/daria/.gemini/AXON/hive/agents/egeria/knowledge_mirror/seeds/lite_3.2.md) to define high-level intent <!-- id: 21 -->
+    - [x] Validate against Notebook "IngenierÃ­a de Prompts" (Initial Scan) <!-- id: 22 -->
+- [x] Phase 2: Structural Formalization (FULL 3.2) <!-- id: 30 -->
+    - [x] Apply mirrored [full_3.2.md](file:///c:/Users/daria/.gemini/AXON/hive/agents/egeria/knowledge_mirror/seeds/full_3.2.md) to build the core architecture <!-- id: 31 -->
+    - [x] Enrich FULL modules with RAW content from the 6 Prompt sources <!-- id: 32 -->
+    - [x] Certification & Audit Marks (GAP v1.0) <!-- id: 33 -->
+- [x] Phase 3: Hybrid Orchestration (DOH v1.0) <!-- id: 40 -->
+    - [x] Determine rigor levels for each component (Reasoning vs UI) <!-- id: 41 -->
+    - [x] Final polish using NotebookLM Chat for specific gaps <!-- id: 42 -->
+    - [x] Certification & Audit Marks (GAP v1.0) <!-- id: 43 -->
+- [x] Phase 4: Final Deployment <!-- id: 50 -->
+    - [x] Generate [pulsar/config.json](file:///c:/Users/daria/.gemini/AXON/hive/agents/pulsar/config.json) and [system_prompt.md](file:///c:/Users/daria/.gemini/AXON/hive/agents/pulsar/system_prompt.md) <!-- id: 51 -->
+    - [x] Register PULSAR in the Global Registry <!-- id: 52 -->
+- [x] Phase 5: Final Synthesis & Ecosystem Integration <!-- id: 60 -->
+- [x] Phase 6: Standardization & Strengthening (PULSAR v1.1) <!-- id: 70 -->
+    - [x] Create [ACP_v1.0_STANDARD.md](file:///c:/Users/daria/.gemini/AXON/hive/agents/egeria/knowledge_mirror/seeds/ACP_v1.0_STANDARD.md) <!-- id: 71 -->
+    - [x] Analyze NotebookLM for advanced decision logic <!-- id: 72 -->
+    - [x] Apply "Fast-Path" latency optimization to PULSAR <!-- id: 73 -->
+    - [x] Implement `experience-learner` skill <!-- id: 74 -->
+    - [x] Update [FINAL_SSv0_PULSAR.md](file:///c:/Users/daria/.gemini/AXON/hive/agents/pulsar/FINAL_SSv0_PULSAR.md) and [system_prompt.md](file:///c:/Users/daria/.gemini/AXON/hive/agents/pulsar/system_prompt.md) <!-- id: 75 -->
+    - [x] Final Audit GAP v1.0 <!-- id: 76 -->
+    - [x] Sync Knowledge to NotebookLM (Close Loop) <!-- id: 77 -->
+- [x] Phase 7: System Maintenance Operationalization (The Living Hive) <!-- id: 80 -->
+    - [x] Create [SMP_v1.0.md](file:///c:/Users/daria/.gemini/AXON/hive/agents/egeria/protocols/SMP_v1.0.md) (System Maintenance Protocol) <!-- id: 81 -->
+    - [x] Create `system-orchestrator` skill for Egeria <!-- id: 82 -->
+    - [x] Create [.agent/workflows/system-maintenance.md](file:///c:/Users/daria/.gemini/AXON/.agent/workflows/system-maintenance.md) <!-- id: 83 -->
+    - [x] Update [agents_registry.md](file:///c:/Users/daria/.gemini/AXON/hive/agents/agents_registry.md) with Egeria's new role <!-- id: 84 -->
+- [/] Phase 8: Mandatory Knowledge Reporting (The Feedback Loop) <!-- id: 90 -->
+    - [ ] Update SMP v1.0 with MRP (Mandatory Reporting Protocol) <!-- id: 91 -->
+    - [ ] Create Global Skill `report-to-hq` <!-- id: 92 -->
+    - [ ] Create Inbox directory for Egeria <!-- id: 93 -->
+    - [ ] Test reporting flow with PULSAR <!-- id: 94 -->

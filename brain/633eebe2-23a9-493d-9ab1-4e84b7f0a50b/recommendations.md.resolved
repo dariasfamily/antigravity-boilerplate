@@ -1,0 +1,160 @@
+# NotebookLM MCP Integration - Recomendaciones Finales
+
+## 🎯 Solución Implementada
+
+### Problema Raíz Identificado
+**AXON carga TODOS los MCP servers del config, incluso los deshabilitados.**
+
+Esto causa:
+- ❌ Errores de conexión visibles en la UI
+- ❌ Tiempo de inicio lento
+- ❌ Consumo innecesario de recursos
+- ❌ Logs llenos de errores
+
+### Solución Aplicada
+**Eliminar servidores problemáticos del config** en lugar de solo deshabilitarlos.
+
+**Antes:** 12 servidores (11 deshabilitados, 1 habilitado)
+**Ahora:** 2 servidores (NotebookLM habilitado, Notion deshabilitado)
+
+## 📁 Archivos Modificados
+
+### 1. [mcp_config.json](file:///C:/Users/daria/.gemini/AXON/mcp_config.json) (Configuración Activa)
+```json
+{
+  "mcpServers": {
+    "notebooklm": {
+      "command": "C:/Users/daria/AppData/Roaming/Python/Python313/Scripts/notebooklm-mcp.exe",
+      "args": [],
+      "disabled": false,
+      "env": {}
+    },
+    "notion": {
+      "command": "node",
+      "args": [
+        "C:/Users/daria/.gemini/AXON/scratch/node_modules/@notionhq/notion-mcp-server/bin/cli.mjs"
+      ],
+      "env": {
+        "NOTION_API_KEY": "ntn_..."
+      },
+      "disabled": true
+    }
+  }
+}
+```
+
+### 2. [mcp_config.backup.json](file:///C:/Users/daria/.gemini/AXON/mcp_config.backup.json) (Backup Completo)
+Contiene todos los 12 servidores originales para referencia futura.
+
+## 🔧 Cómo Añadir Más Servidores
+
+Cuando necesites otro servidor:
+
+1. **Copia la configuración** desde [mcp_config.backup.json](file:///C:/Users/daria/.gemini/AXON/mcp_config.backup.json)
+2. **Pégala en [mcp_config.json](file:///C:/Users/daria/.gemini/AXON/mcp_config.json)**
+3. **Configura `"disabled": false`** solo si lo vas a usar inmediatamente
+4. **Reinicia AXON**
+
+**Ejemplo - Añadir Zapier:**
+```json
+{
+  "mcpServers": {
+    "notebooklm": { ... },
+    "notion": { ... },
+    "zapier": {
+      "command": "node",
+      "args": [
+        "C:/Users/daria/.gemini/AXON/scratch/debug-mcp-bridge.js",
+        "https://mcp.zapier.com/api/v1/connect?token=..."
+      ],
+      "env": {},
+      "disabled": false  // Solo si lo vas a usar YA
+    }
+  }
+}
+```
+
+## ⚡ Mejoras de Rendimiento
+
+### Antes
+- **Tiempo de inicio:** ~30-45 segundos
+- **Errores en logs:** 6-8 errores de conexión
+- **Servidores en config:** 12
+
+### Después (Esperado)
+- **Tiempo de inicio:** ~10-15 segundos
+- **Errores en logs:** 0
+- **Servidores en config:** 2
+
+## 📋 Checklist de Autenticación NotebookLM
+
+- [x] Ejecutar `notebooklm-mcp-auth.exe`
+- [x] Extraer 23 cookies + CSRF token + Session ID
+- [x] Guardar en [C:\Users\daria\.notebooklm-mcp\auth.json](file:///Users/daria/.notebooklm-mcp/auth.json)
+- [x] Configurar en [mcp_config.json](file:///C:/Users/daria/.gemini/AXON/mcp_config.json) con `disabled: false`
+- [ ] Reiniciar AXON
+- [ ] Probar: "Lista mis notebooks de NotebookLM"
+
+## 🎓 Lecciones Aprendidas
+
+### 1. Deshabilitar ≠ No Cargar
+En AXON, `"disabled": true` NO previene que el servidor intente conectarse.
+**Solución:** Eliminar del config si no se usa.
+
+### 2. Autenticación de NotebookLM
+Google en 2026 requiere navegador real, no solo cookies.
+**Solución:** Usar `notebooklm-mcp-auth` que usa Chrome DevTools Protocol.
+
+### 3. Configuración Minimalista
+Menos servidores = inicio más rápido y menos errores.
+**Solución:** Solo añadir servidores cuando realmente se necesiten.
+
+### 4. Backup de Configuración
+Útil tener backup antes de hacer cambios drásticos.
+**Solución:** [mcp_config.backup.json](file:///C:/Users/daria/.gemini/AXON/mcp_config.backup.json) con configuración completa.
+
+## 🚀 Próximos Pasos
+
+1. **Reiniciar AXON** para aplicar la configuración limpia
+2. **Verificar** que no hay errores en rojo
+3. **Probar NotebookLM:** "Lista mis notebooks de NotebookLM"
+4. **Documentar** tiempo de inicio y rendimiento
+5. **Añadir servidores** solo cuando sean necesarios
+
+## 📊 Servidores Disponibles (en Backup)
+
+| Servidor | Estado | Autenticación | Uso |
+|----------|--------|---------------|-----|
+| **notebooklm** | ✅ Activo | ✅ Configurada | Gestión de notebooks |
+| **notion** | 💤 Backup | ✅ Configurada | Bases de datos |
+| zapier | 💤 Backup | ⚠️ Requiere validación | Automatización |
+| make | 💤 Backup | ⚠️ Requiere validación | Workflows |
+| github | 💤 Backup | ⚠️ Token inválido | Repos y PRs |
+| rube | 💤 Backup | ❌ API key inválida | [Uso desconocido] |
+| supabase | 💤 Backup | ⚠️ Requiere validación | Base de datos |
+| vercel | 💤 Backup | ⚠️ Requiere validación | Deployments |
+| perplexity | 💤 Backup | ⚠️ Requiere validación | Búsqueda IA |
+| cloudrun | 💤 Backup | ❌ No configurado | Google Cloud |
+| firebase | 💤 Backup | ❌ No configurado | Firebase |
+| gmp-code-assist | 💤 Backup | ❌ No configurado | Google Maps |
+
+## 🔍 Troubleshooting
+
+### Si NotebookLM no funciona después del reinicio:
+1. Verificar que `notebooklm-mcp.exe` existe
+2. Ejecutar `notebooklm-mcp-auth.exe` nuevamente
+3. Verificar [C:\Users\daria\.notebooklm-mcp\auth.json](file:///Users/daria/.notebooklm-mcp/auth.json) existe
+4. Revisar logs de AXON
+
+### Si quieres añadir un servidor y falla:
+1. Verificar que la autenticación está configurada
+2. Probar el comando manualmente en terminal
+3. Revisar logs de error específicos
+4. Si sigue fallando, dejarlo en backup y usar solo cuando sea crítico
+
+## 📝 Notas Finales
+
+- **Configuración limpia** es mejor que configuración completa con errores
+- **Lazy loading** de servidores mejora la experiencia
+- **Backup siempre** antes de cambios mayores
+- **Documentar** cada servidor que añadas (propósito, autenticación, uso)

@@ -1,0 +1,104 @@
+{
+    "mcpServers": {
+        "supabase": {
+            "command": "npx",
+            "args": [
+                "-y",
+                "@supabase/mcp-server-supabase@latest",
+                "--access-token",
+                "sbp_4f9e7936d3368c9a54c9d4f4e3a97d7494382d3f"
+            ],
+            "disabled": true
+        },
+        "vercel": {
+            "command": "node",
+            "args": [
+                "C:/Users/daria/.gemini/AXON/scratch/vercel_filter.js",
+                "hDo3Q2tKt54UbZn3ifgmFzUy"
+            ],
+            "disabled": true
+        },
+        "rube_mcp": {
+            "command": "node",
+            "args": [
+                "C:/Users/daria/.gemini/AXON/scratch/debug-mcp-bridge.js",
+                "https://rube.app/mcp",
+                "$RUBE_API_KEY",
+                "Rube-Api-Key"
+            ],
+            "env": {
+                "RUBE_API_KEY": "ak_MZIW2r2loez7Tee501sg"
+            },
+            "disabled": true
+        },
+        "github": {
+            "command": "node",
+            "args": [
+                "C:/Users/daria/.gemini/AXON/scratch/node_modules/@modelcontextprotocol/server-github/dist/index.js"
+            ],
+            "env": {
+                "GITHUB_PERSONAL_ACCESS_TOKEN": "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"
+            },
+            "disabled": true
+        },
+        "perplexity": {
+            "command": "npx",
+            "args": [
+                "-y",
+                "@perplexity-ai/mcp-server"
+            ],
+            "env": {
+                "PERPLEXITY_API_KEY": "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"
+            },
+            "disabled": true
+        },
+        "zapier": {
+            "command": "node",
+            "args": [
+                "C:/Users/daria/.gemini/AXON/scratch/debug-mcp-bridge.js",
+                "https://mcp.zapier.com/api/v1/connect?token=OTgxYTA3OWMtZTRiOC00OGEzLWI2YTItOTk2ODU4ODE4NWRlOnhMTXgrQldXZUxuai9vbkp6ek5zZkFoNkpLK1k1L0pmSm1WczJEc3BDSGc9"
+            ],
+            "env": {},
+            "disabled": true
+        },
+        "make": {
+            "command": "node",
+            "args": [
+                "C:/Users/daria/.gemini/AXON/scratch/debug-mcp-bridge.js",
+                "https://us2.make.com/mcp/u/291c8e1c-c2a0-431b-899b-8d340fdf3629/sse"
+            ],
+            "env": {},
+            "disabled": true
+        },
+        "cloudrun": {
+            "command": "npx",
+            "args": [
+                "-y",
+                "@google-cloud/cloud-run-mcp"
+            ],
+            "env": {},
+            "disabled": true
+        },
+        "firebase-mcp-server": {
+            "command": "npx",
+            "args": [
+                "-y",
+                "firebase-tools@latest",
+                "mcp"
+            ],
+            "env": {},
+            "disabled": true
+        },
+        "gmp-code-assist": {
+            "command": "npx",
+            "args": [
+                "-y",
+                "@googlemaps/code-assist-mcp@latest"
+            ],
+            "env": {
+                "SOURCE": "AXON"
+            },
+            "disabled": true
+        }
+    }
+}

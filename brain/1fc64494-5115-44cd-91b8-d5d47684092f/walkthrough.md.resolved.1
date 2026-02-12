@@ -1,0 +1,26 @@
+# Supabase MCP Configuration Walkthrough
+
+## Changes
+
+### 1. Updated [mcp_config.json](file:///c:/Users/daria/.gemini/AXON/mcp_config.json)
+I added the `supabase` server configuration using the `mcp-remote` bridge to connect to the Supabase MCP endpoint with your credentials.
+
+```json
+/* mcp_config.json */
+"supabase": {
+    "command": "npx",
+    "args": [
+        "-y",
+        "mcp-remote",
+        "--header",
+        "Authorization: Bearer sb_secret_...",
+        "https://mcp.supabase.com/mcp?project_ref=..."
+    ]
+}
+```
+
+## Verification Results
+
+### Manual Verification Required
+1.  **Restart**: Reload your window or restart your agent.
+2.  **Verify**: Check that you can access Supabase tools (or simply that no errors occur on startup).

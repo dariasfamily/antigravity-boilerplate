@@ -1,0 +1,43 @@
+# 🛤️ AXON CONTEXT RAIL PROTOCOL (ARP-V2)
+**Version:** 2.0 (L-6 Compliant)
+**Status:** ACTIVE
+
+## 1. The Core Problem
+Agents default to "Consultant Mode" (Ideation) when "Factory Mode" (Execution) is required.
+**Solution:** The "Context Rail" — A persistent, immutable JSON object that travels with every prompt, ensuring the original **User Intent** is never lost.
+
+## 2. The Context Object (The Rail)
+Every interaction between Gaia and an Agent MUST include this header:
+
+```json
+{
+  "MISSION_ID": "UUID-V4",
+  "PRIMARY_OBJECTIVE": "Build video editor resources",
+  "MODE": "EXECUTION", // Options: IDEATION, EXECUTION, AUDIT
+  "CONSTRAINTS": [
+    "No generic advice",
+    "Production-ready code only",
+    "Use defined Style Guide"
+  ],
+  "OUTPUT_FORMAT": "FILE_ARTIFACTS" 
+}
+```
+
+## 3. Thread Enforcement
+The **Context Rail** is enforced by Gaia (SystemChat) at the input level.
+
+### Scenario A: "Give me ideas"
+*   `MODE`: **IDEATION**
+*   **Flow:** User -> Orion (Brainstorm) -> User.
+
+### Scenario B: "Build me a video editor"
+*   `MODE`: **EXECUTION**
+*   **Flow:** User -> Planner (Architecture) -> Hephaestus (Code) -> Thalia (UI) -> User.
+*   **Constraint:** If an agent tries to "suggest" instead of "build," Gaia rejects the output.
+
+## 4. Implementation in [SystemChat](file:///C:/Users/daria/.gemini/antigravity/src/components/SystemChat.tsx#6-93)
+The chat interface must allow the user to toggle between **CONSULT** (Chat) and **BUILD** (Task) modes, or infer it from the command.
+
+## 5. Drift Correction
+If the system detects deviation (e.g., generating text instead of code), it triggers the **"Course Correction"** interrupt:
+> *"Attention Agent: Output Validation Failed. You are in EXECUTION mode. Stop chatting, start coding."*

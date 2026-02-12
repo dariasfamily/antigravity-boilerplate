@@ -1,0 +1,106 @@
+﻿# Block 00.7 - Cuadernos NotebookLM para AuditorÃ­a
+
+**Block ID:** block_00_7_notebooklm  
+**Timestamp Inicio:** 2026-02-09T20:46:42-05:00  
+**Estado:** in-progress  
+**Agente:** AXON  
+
+---
+
+## Objetivo
+
+Crear 2 cuadernos en NotebookLM con sus notas iniciales para soportar la auditorÃ­a del sistema de agentes.
+
+---
+
+## Cuadernos a Crear
+
+### **Cuaderno 1: [AUDIT] Plan v3.0 - Inventario Forense**
+
+**DescripciÃ³n:** Cuaderno para documentar y consultar el inventario forense del sistema de agentes.
+
+**Notas a crear:**
+
+#### Nota 1: `[PLAN] Audit Plan v3.0 - EspecificaciÃ³n Completa`
+- **Tipo:** Text
+- **Contenido:** Contenido completo de `PLAN_v3_SPECIFICATION.md`
+- **PropÃ³sito:** Consultar especificaciÃ³n del plan durante ejecuciÃ³n
+
+#### Nota 2: `[PROTOCOL] Protocolo de EjecuciÃ³n por Bloques`
+- **Tipo:** Text
+- **Contenido:** Contenido completo de `AUDIT_PROTOCOL.md`
+- **PropÃ³sito:** Referencia del protocolo anti-fuga durante ejecuciÃ³n
+
+#### Nota 3: `[CHECKPOINT] Estado de EjecuciÃ³n v3.0`
+- **Tipo:** Text
+- **Contenido:** Estado actual del checkpoint (se actualizarÃ¡ periÃ³dicamente)
+- **PropÃ³sito:** Tracking de progreso en tiempo real
+
+---
+
+### **Cuaderno 2: [AUDIT] Plan v4.0 - ReconstrucciÃ³n Completa**
+
+**DescripciÃ³n:** Cuaderno para documentar y consultar la reconstrucciÃ³n completa del sistema.
+
+**Notas a crear:**
+
+#### Nota 1: `[PLAN] Audit Plan v4.0 - EspecificaciÃ³n Completa`
+- **Tipo:** Text
+- **Contenido:** Contenido completo de `PLAN_v4_SPECIFICATION.md`
+- **PropÃ³sito:** Consultar especificaciÃ³n del plan durante ejecuciÃ³n
+
+#### Nota 2: `[PROTOCOL] Protocolo de EjecuciÃ³n por Bloques`
+- **Tipo:** Text
+- **Contenido:** Contenido completo de `AUDIT_PROTOCOL.md` (mismo que v3.0)
+- **PropÃ³sito:** Referencia del protocolo anti-fuga durante ejecuciÃ³n
+
+#### Nota 3: `[CHECKPOINT] Estado de EjecuciÃ³n v4.0`
+- **Tipo:** Text
+- **Contenido:** Estado actual del checkpoint (se actualizarÃ¡ periÃ³dicamente)
+- **PropÃ³sito:** Tracking de progreso en tiempo real
+
+---
+
+## Proceso de CreaciÃ³n
+
+### Paso 1: Crear Cuaderno 1
+1. Navegar a NotebookLM
+2. Crear nuevo cuaderno: `[AUDIT] Plan v3.0 - Inventario Forense`
+3. Agregar 3 notas de texto con contenido especificado
+
+### Paso 2: Crear Cuaderno 2
+1. Crear nuevo cuaderno: `[AUDIT] Plan v4.0 - ReconstrucciÃ³n Completa`
+2. Agregar 3 notas de texto con contenido especificado
+
+### Paso 3: Registrar IDs
+1. Capturar notebook_id de cada cuaderno
+2. Capturar source_id de cada nota
+3. Guardar en registro local
+
+---
+
+## Archivos Fuente
+
+Los siguientes archivos locales se usarÃ¡n como contenido:
+
+1. [PLAN_v3_SPECIFICATION.md](file:///C:/Users/daria/.gemini/AXON/brain/afda43d1-d292-4b66-b058-4ec943124741/plan_v3/PLAN_v3_SPECIFICATION.md)
+2. [PLAN_v4_SPECIFICATION.md](file:///C:/Users/daria/.gemini/AXON/brain/afda43d1-d292-4b66-b058-4ec943124741/plan_v4/PLAN_v4_SPECIFICATION.md)
+3. [AUDIT_PROTOCOL.md](file:///C:/Users/daria/.gemini/AXON/brain/afda43d1-d292-4b66-b058-4ec943124741/AUDIT_PROTOCOL.md)
+4. [PLAN_v3_CHECKPOINT.json](file:///C:/Users/daria/.gemini/AXON/brain/afda43d1-d292-4b66-b058-4ec943124741/plan_v3/PLAN_v3_CHECKPOINT.json)
+5. [PLAN_v4_CHECKPOINT.json](file:///C:/Users/daria/.gemini/AXON/brain/afda43d1-d292-4b66-b058-4ec943124741/plan_v4/PLAN_v4_CHECKPOINT.json)
+
+---
+
+## ValidaciÃ³n
+
+- [ ] Cuaderno 1 creado
+- [ ] Cuaderno 1 tiene 3 notas
+- [ ] Cuaderno 2 creado
+- [ ] Cuaderno 2 tiene 3 notas
+- [ ] IDs registrados
+- [ ] Contenido verificado
+
+---
+
+**Estado:** EspecificaciÃ³n completa, listo para ejecuciÃ³n  
+**PrÃ³ximo paso:** Usar browser automation para crear cuadernos

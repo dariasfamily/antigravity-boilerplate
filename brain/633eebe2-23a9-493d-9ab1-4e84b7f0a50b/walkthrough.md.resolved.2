@@ -1,0 +1,251 @@
+﻿# NotebookLM Integration - Walkthrough Final
+
+## ðŸŽ¯ Objetivo
+Configurar sincronizaciÃ³n automÃ¡tica de NotebookLM al proyecto local usando la librerÃ­a `notebooklm-py`.
+
+## âœ… Lo que se logrÃ³
+
+### 1. Estructura del Proyecto
+- âœ… Carpeta `notebooklm/` creada
+- âœ… Script [scripts/sync_notebooklm.py](file:///c:/Users/daria/.gemini/AXON/workspaces/Proyecto%20MENISCO/dashboard-v3/scripts/sync_notebooklm.py) implementado
+- âœ… Dependencias instaladas: `notebooklm-py` v0.3.2, [playwright](file:///C:/Users/daria/AppData/Roaming/Python/Python313/site-packages/notebooklm/cli/session.py#43-75), `python-dotenv`
+
+### 2. Intentos de AutenticaciÃ³n (CronologÃ­a Completa)
+
+#### âŒ Intento 1: Cookies desde Console (JavaScript)
+- MÃ©todo: `document.cookie` y `cookieStore.getAll()`
+- **Problema:** Solo accede a cookies no-HttpOnly
+- **Resultado:** Faltan cookies crÃ­ticas (`__Secure-1PSID`, `HSID`, `SSID`)
+
+#### âŒ Intento 2: Playwright Automatizado
+- MÃ©todo: Script Python con Playwright abriendo Chrome
+- **Problema:** Google bloquea con "This browser may not be secure"
+- **Resultado:** DetecciÃ³n de bot
+
+#### âŒ Intento 3: Playwright con Perfil Real de Chrome
+- MÃ©todo: Usar `channel="chrome"` con perfil del usuario
+- **Problema:** Error `$HOME environment variable is not set` en Windows
+- **Resultado:** Incompatibilidad de entorno
+
+#### âœ… Intento 4: EditThisCookie (ExtracciÃ³n Exitosa)
+- MÃ©todo: ExtensiÃ³n de Chrome para exportar todas las cookies
+- **Resultado:** âœ… 24 cookies extraÃ­das incluyendo HttpOnly
+- **Cookies obtenidas:**
+  - `SID`, `__Secure-1PSID`, `__Secure-3PSID`
+  - `HSID`, `SSID`, `APISID`, `SAPISID`
+  - Todas las cookies de sesiÃ³n y seguridad
+
+#### âŒ Intento 5: AutenticaciÃ³n con Cookies Completas
+- MÃ©todo: Usar cookies de EditThisCookie con `notebooklm-py`
+- **Problema:** Google redirige a login a pesar de cookies vÃ¡lidas
+- **Resultado:** La librerÃ­a no puede autenticarse vÃ­a HTTP requests
+
+#### âŒ Intento 6: CLI Login con Playwright
+- MÃ©todo: Usar funciÃ³n oficial `notebooklm login` de la librerÃ­a
+- **Problema:** "Target page, context or browser has been closed"
+- **Resultado:** Error de Playwright al guardar cookies
+
+## ðŸ” AnÃ¡lisis TÃ©cnico del Problema
+
+### Root Cause
+La librerÃ­a `notebooklm-py` tiene dos mÃ©todos de autenticaciÃ³n:
+
+1. **HTTP-based (con cookies):** Hace peticiones HTTP con cookies
+   - âŒ Google detecta que no es un navegador real
+   - âŒ Redirige a login incluso con cookies vÃ¡lidas
+   - âŒ Requiere headers adicionales que la librerÃ­a no envÃ­a
+
+2. **Playwright-based (navegador real):** Abre Chromium con Playwright
+   - âš ï¸ Funciona en teorÃ­a, pero tiene bugs en Windows
+   - âš ï¸ Error "browser has been closed" al guardar cookies
+   - âš ï¸ Requiere configuraciÃ³n especÃ­fica de entorno
+
+### Por quÃ© fallan las cookies
+
+```python
+# La librerÃ­a hace esto:
+async with httpx.AsyncClient() as client:
+    response = await client.get(
+        "https://notebooklm.google.com/",
+        headers={"Cookie": cookie_header},
+        follow_redirects=True,
+    )
+    # Google detecta que no es un navegador real
+    # â†’ Redirige a accounts.google.com/ServiceLogin
+```
+
+**Google requiere:**
+- User-Agent especÃ­fico de navegador
+- Headers de navegador completos (Accept, Accept-Language, etc.)
+- Comportamiento de navegador real (JavaScript, timing, etc.)
+- Posiblemente fingerprinting adicional
+
+## ðŸ“Š EstadÃ­sticas del Proceso
+
+| MÃ©trica | Valor |
+|---------|-------|
+| Tiempo total | ~3 horas |
+| Intentos de autenticaciÃ³n | 6 mÃ©todos diferentes |
+| Scripts creados | 8 archivos Python |
+| Cookies extraÃ­das | 24 (incluyendo HttpOnly) |
+| Dependencias instaladas | 4 paquetes |
+
+## ðŸ’¡ Soluciones Recomendadas
+
+### OpciÃ³n 1: Esperar Fix de la LibrerÃ­a (Recomendado)
+**AcciÃ³n:** Reportar el issue en GitHub de `notebooklm-py`
+
+**Pros:**
+- SoluciÃ³n oficial y mantenida
+- FuncionarÃ¡ para todos los usuarios
+
+**Contras:**
+- Tiempo de espera indeterminado
+- Requiere que el mantenedor lo arregle
+
+**Issue a reportar:**
+```
+Title: Playwright login fails on Windows with "browser has been closed" error
+
+Description:
+When running the login flow, Playwright successfully opens the browser 
+and the user can log in, but when pressing ENTER to save cookies, 
+the process fails with "Target page, context or browser has been closed".
+
+Environment:
+- OS: Windows 10/11
+- Python: 3.13
+- notebooklm-py: 0.3.2
+- Playwright: latest
+
+Steps to reproduce:
+1. Run login script
+2. Complete Google login in browser
+3. Press ENTER
+4. Error occurs
+```
+
+### OpciÃ³n 2: Workaround Manual (Temporal)
+**AcciÃ³n:** Exportar cookies periÃ³dicamente y actualizar manualmente
+
+**Pasos:**
+1. Cada vez que necesites sincronizar:
+   - Abre NotebookLM en Chrome
+   - Usa EditThisCookie para exportar cookies
+   - Guarda en `~/.notebooklm/storage_state.json`
+   - Ejecuta `python scripts/sync_notebooklm.py`
+
+**Pros:**
+- Funciona ahora mismo
+- No requiere esperar fixes
+
+**Contras:**
+- Manual y tedioso
+- Cookies expiran cada ~30 dÃ­as
+
+### OpciÃ³n 3: ImplementaciÃ³n Custom con Selenium
+**AcciÃ³n:** Crear script propio con Selenium en lugar de Playwright
+
+**CÃ³digo base:**
+```python
+from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
+import json
+
+options = Options()
+options.add_argument("user-data-dir=C:/Users/daria/.notebooklm/chrome_profile")
+
+driver = webdriver.Chrome(options=options)
+driver.get("https://notebooklm.google.com/")
+
+# Usuario se loguea manualmente
+input("Presiona ENTER cuando hayas logueado...")
+
+# Guardar cookies
+cookies = driver.get_cookies()
+with open("C:/Users/daria/.notebooklm/storage_state.json", "w") as f:
+    json.dump({"cookies": cookies}, f, indent=2)
+
+driver.quit()
+```
+
+**Pros:**
+- MÃ¡s control sobre el proceso
+- Selenium es mÃ¡s estable en Windows
+
+**Contras:**
+- Requiere instalar Selenium
+- MÃ¡s cÃ³digo custom a mantener
+
+### OpciÃ³n 4: API Directa (Avanzado)
+**AcciÃ³n:** Reverse-engineer la API de NotebookLM y hacer peticiones directas
+
+**Pros:**
+- Control total
+- No depende de librerÃ­as de terceros
+
+**Contras:**
+- Mucho trabajo de ingenierÃ­a inversa
+- Puede romperse con cambios de Google
+- Posiblemente viola ToS de Google
+
+## ðŸŽ¬ PrÃ³ximos Pasos Recomendados
+
+1. **Corto plazo (hoy):**
+   - Usar OpciÃ³n 2 (workaround manual) para sincronizar ahora
+   - Documentar el proceso para futuras sincronizaciones
+
+2. **Mediano plazo (esta semana):**
+   - Reportar issue en GitHub de `notebooklm-py`
+   - Intentar OpciÃ³n 3 (Selenium) si el workaround es muy tedioso
+
+3. **Largo plazo (prÃ³ximo mes):**
+   - Monitorear updates de `notebooklm-py`
+   - Considerar contribuir un fix si tienes tiempo
+
+## ðŸ“ Archivos Creados
+
+| Archivo | PropÃ³sito | Estado |
+|---------|-----------|--------|
+| [scripts/sync_notebooklm.py](file:///c:/Users/daria/.gemini/AXON/workspaces/Proyecto%20MENISCO/dashboard-v3/scripts/sync_notebooklm.py) | Script principal de sync | âœ… Listo (falta auth) |
+| [scripts/setup_notebooklm_cookies.py](file:///c:/Users/daria/.gemini/AXON/workspaces/Proyecto%20MENISCO/dashboard-v3/scripts/setup_notebooklm_cookies.py) | GuÃ­a interactiva manual | âš ï¸ Limitado |
+| [scripts/extract_notebooklm_cookies.py](file:///c:/Users/daria/.gemini/AXON/workspaces/Proyecto%20MENISCO/dashboard-v3/scripts/extract_notebooklm_cookies.py) | ExtracciÃ³n Playwright | âŒ Bloqueado |
+| [scripts/extract_cookies_devtools.py](file:///c:/Users/daria/.gemini/AXON/workspaces/Proyecto%20MENISCO/dashboard-v3/scripts/extract_cookies_devtools.py) | ExtracciÃ³n manual DevTools | âš ï¸ Incompleto |
+| [scripts/final_export_cookies.py](file:///c:/Users/daria/.gemini/AXON/workspaces/Proyecto%20MENISCO/dashboard-v3/scripts/final_export_cookies.py) | Wrapper EditThisCookie | âœ… Funciona |
+| [scripts/notebooklm_login.py](file:///c:/Users/daria/.gemini/AXON/workspaces/Proyecto%20MENISCO/dashboard-v3/scripts/notebooklm_login.py) | CLI login wrapper | âŒ Error Playwright |
+| [scripts/diagnose_auth.py](file:///c:/Users/daria/.gemini/AXON/workspaces/Proyecto%20MENISCO/dashboard-v3/scripts/diagnose_auth.py) | DiagnÃ³stico de auth | âœ… Ãštil para debug |
+| [notebooklm/SETUP_GUIDE.md](file:///c:/Users/daria/.gemini/AXON/workspaces/Proyecto%20MENISCO/dashboard-v3/notebooklm/SETUP_GUIDE.md) | DocumentaciÃ³n | âœ… Completa |
+
+## ðŸ”‘ Cookies ExtraÃ­das (Resumen)
+
+```json
+{
+  "cookies": [
+    {"name": "SID", "value": "g.a0006QgZ...", "httpOnly": false},
+    {"name": "__Secure-1PSID", "value": "g.a0006QgZ...", "httpOnly": true},
+    {"name": "__Secure-3PSID", "value": "g.a0006QgZ...", "httpOnly": true},
+    {"name": "HSID", "value": "Aghx8p0SD...", "httpOnly": true},
+    {"name": "SSID", "value": "ACaR3HjN8...", "httpOnly": true},
+    // ... 19 cookies mÃ¡s
+  ]
+}
+```
+
+âœ… **Todas las cookies necesarias fueron extraÃ­das exitosamente**
+âŒ **La librerÃ­a no puede usarlas para autenticarse vÃ­a HTTP**
+
+## ðŸ ConclusiÃ³n
+
+La integraciÃ³n de NotebookLM es **tÃ©cnicamente posible** pero estÃ¡ **bloqueada por limitaciones de la librerÃ­a `notebooklm-py`** en Windows. 
+
+**El problema NO es:**
+- âŒ Falta de cookies
+- âŒ Formato incorrecto de cookies
+- âŒ ConfiguraciÃ³n del proyecto
+
+**El problema ES:**
+- âœ… Bug en `notebooklm-py` con Playwright en Windows
+- âœ… DetecciÃ³n de bot por parte de Google en peticiones HTTP
+- âœ… Falta de headers completos de navegador en la librerÃ­a
+
+**RecomendaciÃ³n final:** Usar el workaround manual (OpciÃ³n 2) mientras se reporta y espera un fix oficial de la librerÃ­a.

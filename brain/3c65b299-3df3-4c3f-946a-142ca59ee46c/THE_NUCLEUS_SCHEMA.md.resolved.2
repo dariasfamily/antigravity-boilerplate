@@ -1,0 +1,225 @@
+# ⚛️ THE NUCLEUS: DEEP DATABASE SCHEMA (V4.2 IRONCLAD)
+**Objective**: "God View" Visibility with Financial Precision & Strict Standardization.
+**Target**: Supabase (PostgreSQL 15+).
+
+> [!IMPORTANT]
+> **STANDARDIZATION GUARANTEE**: This schema uses strict PostgreSQL `ENUM` types and `NUMERIC` fields. No "magic strings" or floating-point errors are allowed. The `ag_agent_registry` acts as the single source of truth for Agent Identity.
+
+---
+
+## 0. THE STANDARDS (Enums & Types)
+*Hard-coded Rules. If it's not here, it doesn't exist.*
+
+```sql
+-- 1. Platform Standard
+create type ag_platform_type as enum ('Desktop', 'Mobile_iOS', 'Mobile_Android', 'API_Headless');
+
+-- 2. Phase Standard (The Life Cycle)
+create type ag_session_phase as enum ('PLANNING', 'RESEARCH', 'SCRIPTING', 'PRODUCTION', 'AUDIT', 'PUBLISHING');
+
+-- 3. Agent Status Standard
+create type ag_agent_status as enum ('IDLE', 'ACTIVE', 'PAUSED', 'ERROR', 'SLEEPING');
+
+-- 4. Asset Types
+create type ag_asset_type as enum ('SCRIPT_MD', 'VIDEO_MP4', 'AUDIO_WAV', 'IMAGE_PNG', 'THUMBNAIL_JPG', 'METADATA_JSON');
+
+-- 5. Decision Types
+create type ag_decision_type as enum ('RANKING', 'HOOK_SELECTION', 'VISUAL_STYLE', 'TREND_ANALYSIS', 'SAFETY_GATE');
+```
+
+---
+
+## 1. CONTROL PLANE ("The Governance")
+*Who is allowed to exist? Who is doing what?*
+
+### Table: `ag_agent_registry` (The Identity Module)
+*The Single Source of Truth for Agent Definitions.*
+
+```sql
+create table ag_agent_registry (
+  id text primary key, -- 'ORION_V3_4' (Immutable Slug)
+  name text not null, -- 'Orion'
+  version text not null, -- '3.4.0'
+  role_description text, -- "Investment Analyst of Attention"
+  
+  -- Capabilities (What is it allowed to do?)
+  allowed_phases ag_session_phase[] not null,
+  config_schema jsonb, -- JSON Schema for valid configs
+  
+  created_at timestamptz default now()
+);
+
+-- RLS: Read-Only for Agents, Admin-Write only
+alter table ag_agent_registry enable row level security;
+```
+
+### Table: `ag_control_events` (The Event Backbone)
+*Immutable Command Log. Supports Replay & Undo.*
+
+```sql
+create table ag_control_events (
+  id bigint generated always as identity primary key,
+  session_id uuid references ag_sessions not null,
+  
+  -- The Command
+  command_type text check (command_type in ('START', 'PAUSE', 'RESUME', 'STOP', 'EDIT_MEMORY', 'ROLLBACK')),
+  payload jsonb, -- Arguments for the command
+  
+  -- Provenance
+  issued_by uuid references auth.users, -- Operador Humano o Sistema
+  
+  created_at timestamptz default now()
+);
+```
+
+---
+
+## 2. ORCHESTRATION LAYER
+*Real-Time Tracking with Financial Precision.*
+
+### Table: `ag_sessions`
+
+```sql
+create table ag_sessions (
+  id uuid primary key default uuid_generate_v4(),
+  user_id uuid references auth.users not null,
+  
+  -- Context Meta (Strict Typed)
+  platform ag_platform_type not null default 'Desktop',
+  location_iso char(2), -- 'US'
+  client_timestamp timestamptz, -- Hora del usuario
+  
+  -- The "Why"
+  trigger_reason text,
+  objective_goal text,
+  
+  -- Execution State
+  active_agent_id text references ag_agent_registry(id), -- Must be a registered agent
+  current_phase ag_session_phase default 'PLANNING',
+  status ag_agent_status default 'ACTIVE',
+  
+  -- Financials (EXACT PRECISION)
+  accumulated_cost numeric(10,4) default 0.0000, -- Supports fractions of cents
+  currency char(3) default 'USD',
+  
+  created_at timestamptz default now(),
+  updated_at timestamptz default now()
+);
+
+-- Trigger for updated_at
+create trigger update_ag_sessions_modtime
+    before update on ag_sessions
+    for each row execute procedure update_modified_column();
+```
+
+---
+
+## 3. INTELLIGENCE LAYER ("The Glass Box")
+*Partitioned, Redacted, and Traced.*
+
+### Table: `ag_agent_memory` (RAM Snapshots)
+*Partitioned by Day to survive scale.*
+
+```sql
+create table ag_agent_memory (
+  id bigint generated always as identity,
+  session_id uuid references ag_sessions not null,
+  agent_id text references ag_agent_registry(id) not null,
+  
+  -- The "Brain" Dump
+  memory_snapshot jsonb not null, 
+  -- CONSTRAINT: Secrets must be redacted (Application Layer check)
+  
+  -- Differential Update (Efficiency)
+  diff_log jsonb, -- Strict JSON Patch [RFC 6902]
+  
+  captured_at timestamptz default now()
+) partition by range (captured_at);
+
+-- Example Partition
+create table ag_agent_memory_y2026m02 partition of ag_agent_memory
+    for values from ('2026-02-01') to ('2026-03-01');
+```
+
+### Table: `ag_logic_trace` (Triple Justification)
+*Why? Based on What?*
+
+```sql
+create table ag_logic_trace (
+  id bigint generated always as identity primary key,
+  session_id uuid references ag_sessions not null,
+  agent_id text references ag_agent_registry(id) not null,
+  
+  -- Distributed Tracing
+  trace_id uuid default uuid_generate_v4(),
+  span_id text,
+  
+  -- Context
+  decision_type ag_decision_type not null,
+  input_snapshot_ref bigint, -- FK to ag_agent_memory(id) - "What I knew"
+  
+  -- The "Triple Justification"
+  justification_identity text, -- "Based on Orion Rules"
+  justification_knowledge text, -- "Based on NotebookLM Source"
+  justification_math text, -- "Viral Score 85 > 80"
+  
+  -- Quality
+  confidence_score numeric(3,2) check (confidence_score between 0.00 and 1.00),
+  auto_corrected boolean default false,
+  
+  created_at timestamptz default now()
+);
+```
+
+---
+
+## 4. ASSET LAYER ("The Vault")
+*ROI-Driven Inventory.*
+
+### Table: `ag_assets`
+
+```sql
+create table ag_assets (
+  id uuid primary key default uuid_generate_v4(),
+  session_id uuid references ag_sessions,
+  
+  -- Identity
+  title text not null,
+  asset_type ag_asset_type not null,
+  version int4 default 1,
+  
+  -- Ownership
+  created_by_agent text references ag_agent_registry(id),
+  strategic_goal text,
+  
+  -- Storage (RLS Protected Mapping)
+  storage_path text not null, -- 's3://bucket/...'
+  
+  -- Financial Performance (Numeric)
+  production_cost numeric(10,4) default 0.0000,
+  est_revenue_rpm numeric(10,4),
+  roi_actual numeric(10,4),
+  
+  created_at timestamptz default now()
+);
+```
+
+---
+
+## 5. FEEDBACK LAYER ("Evolution")
+
+### Table: `ag_social_metrics`
+
+```sql
+create table ag_social_metrics (
+  id bigint generated always as identity primary key,
+  asset_id uuid references ag_assets not null,
+  platform text,
+  
+  -- Exact Counts
+  views numeric(20,0), -- BigInt equivalent
+  likes numeric(20,0),
+  
+  captured_at timestamptz default now()
+);
+```

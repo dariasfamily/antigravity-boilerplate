@@ -1,0 +1,30 @@
+﻿# MCP Server Configuration
+
+- [x] Configure Rube MCP
+    - [x] Clean up garbage files
+    - [x] Fix [rube_mcp.json](file:///C:/Users/daria/.gemini/AXON/scratch/Dev/AXON-agents/shared-resources/mcp-configs/rube_mcp.json) to use HTTP driver
+    - [x] Verify connection (Confirmed working)
+- [x] Configure Supabase MCP
+    - [x] Obtain Project Ref
+    - [x] Obtain Service Role Key (Switched to PAT `sbp_...` for MCP access)
+    - [x] Update [supabase_mcp.json](file:///C:/Users/daria/.gemini/AXON/scratch/Dev/AXON-agents/shared-resources/mcp-configs/supabase_mcp.json) (Refactored to local [npx](file:///C:/Users/daria/.gemini/AXON/scratch/npx))
+    - [x] Verify connection (Confirmed working)
+- [x] Configure Vercel MCP
+    - [x] Research Vercel MCP auth (Access Token)
+    - [x] Create/Update [vercel_mcp.json](file:///C:/Users/daria/.gemini/AXON/scratch/Dev/AXON-agents/shared-resources/mcp-configs/vercel_mcp.json) (Refactored to local [npx](file:///C:/Users/daria/.gemini/AXON/scratch/npx))
+- [ ] Configure Social Media MCPs (Phase 2.3)
+    - [ ] Investigate Rube/Composio support for Twitter/LinkedIn
+    - [ ] Configure Twitter integration
+    - [ ] Configure LinkedIn integration
+    - [x] Configure Reddit integration
+- [ ] Configure Perplexity MCP (Phase 2.4)
+    - [x] Obtain Perplexity API Key
+    - [x] Create/Update `perplexity_mcp.json` (Added to global [mcp_config.json](file:///C:/Users/daria/.gemini/AXON/mcp_config.json))
+    - [x] Create/Update `perplexity_mcp.json` (Added to global [mcp_config.json](file:///C:/Users/daria/.gemini/AXON/mcp_config.json))
+    - [x] Verify connection (Configured global)
+- [x] Configure Google Workspace MCP (Phase 2.5)
+    - [x] Connect Drive account
+- [ ] Configure Gemini Pro API (Phase 3.1)
+    - [ ] Obtain Gemini API Key
+    - [ ] Configure `gemini_config.json` (or env var)
+    - [ ] Verify access

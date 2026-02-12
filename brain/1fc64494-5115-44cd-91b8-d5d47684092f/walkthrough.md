@@ -1,0 +1,31 @@
+# Vercel & Supabase MCP Configuration
+
+## Changes
+
+### 1. Fixed Supabase Bridge
+I patched the `mcp-bridge/index.js` script to fix the `TypeError: EventSource is not a constructor` error by correcting the import statement.
+
+### 2. Added Vercel Configuration
+I authorized the **Vercel MCP** by adding it to `mcp_config.json`, utilizing the same robust bridge script to bypass strict OAuth checks and ensuring a direct connection via your API token.
+
+```json
+/* mcp_config.json */
+"vercel": {
+    "command": "node",
+    "args": [
+        "path/to/mcp-bridge/index.js",
+        "https://mcp.vercel.com/sse",
+        "Bearer jK9ypDZe..."
+    ]
+}
+```
+
+## Verification Results
+
+### Manual Verification Required
+1.  **Restart**: Reload your window or fully restart the agent.
+2.  **Verify**:
+    - **Supabase**: Should now connect without errors.
+    - **Vercel**: Should appear in your tools list.
+
+You are now ready to use Vercel and Supabase tools!

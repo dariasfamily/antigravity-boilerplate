@@ -1,0 +1,47 @@
+# Configuración Maestra de Google AXON
+
+## Fase 1: Configuración Inicial Óptima
+- [x] 1.1 Verificar Instalación y Versión (Realizado: v1.15.8)
+- [x] 1.2 Configurar Política de Terminal (Saltado por usuario)
+- [x] 1.3 Configurar Modelo Principal (Saltado por usuario)
+- [x] 1.4 Estructura de Workspaces Modular (Creado)
+
+## Fase 2: Sistema de MCPs Esenciales
+- [x] 2.1 Instalar RUBE MCP (Manual requerido) - **FIXED**
+- [ ] 2.2 MCPs de Desarrollo (GitHub, Supabase, Vercel)
+    - [x] GitHub (Token recibido, Manual requerido)
+    - [x] Supabase (Pendiente) - **CONFIGURED**
+    - [x] Vercel (Pendiente) - **CONFIGURED**
+- [ ] 2.3 MCPs de Social Media (Twitter, LinkedIn, Reddit)
+- [ ] 2.4 Perplexity MCP
+- [ ] 2.5 Google Workspace MCP
+
+## Fase 3: Integración de APIs Pro
+- [ ] 3.1 Configurar Gemini Pro API
+- [ ] 3.2 Routing Inteligente
+- [ ] 3.3 Budgets y Rate Limits
+
+## Fase 4: Reglas Globales
+- [ ] 4.1 Crear Reglas Globales (GEMINI.md)
+- [ ] 4.2 Reglas por Workspace
+- [ ] 4.3 Workflows Reutilizables
+
+## Fase 5: Agentes Especializados
+- [ ] 5.1 Instagram Agent
+- [ ] 5.2 LinkedIn Agent
+- [ ] 5.3 TikTok/Reels Agent
+- [ ] 5.4 Twitter Agent
+- [ ] 5.5 YouTube Agent
+- [ ] 5.6 Orchestrator Agent
+
+## Fase 6: Stack de Desarrollo
+- [ ] 6.1 Frontend (Next.js)
+- [ ] 6.2 Backend (Supabase)
+- [ ] 6.3 Auth
+- [ ] 6.4 Pagos (Stripe)
+- [ ] 6.5 Deploy (Vercel)
+
+## Fase 7: Optimización
+- [ ] 7.1 Caching
+- [ ] 7.2 Routing Modelos
+- [ ] 7.3 Dashboard Costos

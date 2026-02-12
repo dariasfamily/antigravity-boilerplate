@@ -1,0 +1,146 @@
+# 🕵️ ORION V3.1: FULL SYSTEM FLOW AUDIT
+**Execution ID**: req_v3_audit_882
+**Timestamp**: 2026-02-01T14:48:12.882Z
+**Trigger**: User_Prompt
+
+## 1. INPUT MODELING & INGESTION
+Recibiendo `raw_input` del usuario y normalizando para el Agente Orion.
+
+```json
+{
+  "id": "req_v3_audit_882",
+  "source_trigger": "User_Prompt",
+  "raw_input": {
+    "topic_keywords": [ "AI Agents", "Future of Work", "Coding" ],
+    "analysis_mode": "Specific_Target",
+    "content_spec": {
+      "target_platform": "YouTube",
+      "content_format": "Long_Form",
+      "duration_category": "Medium (5-15m)",
+      "exact_duration_seconds": 600
+    },
+    "brand_profile": {
+      "archetype": "The Tech Visionary",
+      "tone": "Inspirational, Technical, Forward-Looking",
+      "niche_vertical": "Tech_Education",
+      "objective_kpi": "Trust"
+    },
+    "production_constraints": {
+      "budget_tier": "Mid (Prosumer)",
+      "has_human_talent": true
+    }
+  }
+}
+```
+> **System Note**: Input validado exitosamente contra [OrionIngest](file:///C:/Users/daria/.gemini/AXON/scratch/AXON-boilerplate/src/types/agent_types.ts#25-65) Schema V3.1.
+
+---
+
+## 2. PROCESSING CORE (The Brain)
+
+### 2.1 Trend Vertigo Analysis
+*   **Action**: Checking Topic keywords against 'Tech_Education' glossary.
+*   **Result**: **PASS** (Keywords 'AI', 'Coding' overlap with vertical).
+
+### 2.2 P.O.S.E. Validation Matrix
+*   **P**ersona (Niche defined?): **YES** (+0.25)
+*   **O**bjective (KPI defined?): **YES** (+0.25)
+*   **S**cope (Duration defined?): **YES** (+0.25) -> *Captured 'Medium (5-15m)'*
+*   **E**vidence (Market Data?): **YES** (+0.25)
+> **Total Validation Score**: **1.0 / 1.0 (PERFECT)**
+
+### 2.3 Financial & Spec Calculation
+*   **Base RPM** (Tech_Education): $18.00
+*   **Format Modifier** (Long_Form): x1.0 (No penalty)
+*   **Audio Logic**: Detected 'Medium Duration' + 'Inspirational' Tone -> Selected **"Cinematic, Clear Voiceover, Slow build"**.
+
+---
+
+## 3. FINAL AGENT OUTPUT (The Manifest)
+Este es el objeto JSON [OrionManifest](file:///C:/Users/daria/.gemini/AXON/scratch/AXON-boilerplate/src/types/agent_types.ts#66-120) definitivo enviado al bus de eventos.
+
+```json
+{
+  "meta": {
+    "id": "man_1738435740521",
+    "validation_score": 1,
+    "predicted_virality": 8.5,
+    "status": "APPROVED"
+  },
+  "content_architecture": {
+    "core_concept": {
+      "title_variations": [
+        "Why How AI Agents Replace Junior Devs is Dead",
+        "The Future of How AI Agents Replace Junior Devs"
+      ],
+      "hook_strategy": "Negativity Bias",
+      "emotional_target": "Empowerment",
+      "format_archetype": "Hybrid Visuals"
+    },
+    "technical_constraints": {
+      "pacing": "Narrative Flow",
+      "visual_style": "Kinetic Typography",
+      "aspect_ratio": "16:9",
+      "audio_landscape": "Cinematic, Clear Voiceover, Slow build",
+      "silent_optimization": false
+    },
+    "seo_pack": {
+      "primary_keywords": [ "How AI Agents Replace Junior Devs", "Guide", "2026" ],
+      "vertical_search_intent": "Education"
+    },
+    "structure_template": {
+      "segment_0_3s": "Visual Pattern Interrupt (Stop scrolling)",
+      "segment_3_15s": "The Problem (Agitation)",
+      "segment_15_45s": "The Logic (Mechanism)",
+      "segment_45_end": "The Twist + Hard CTA"
+    }
+  },
+  "financial_projection": {
+    "estimated_rpm": 18,
+    "monetization_focus": "AdRevenue",
+    "funnel_stage": "Trust"
+  },
+  "production_audit": {
+    "budget_compliant": true,
+    "brand_safe": true,
+    "trend_vertigo_check": "PASS"
+  }
+}
+```
+
+---
+
+## 4. SYSTEM STATE & DASHBOARD UPDATES
+Simulación de persistencia en Base de Datos y Sistema de Métricas.
+
+### 4.1 Dashboard Metrics (DB Row Insert)
+Se crea un registro en la tabla `agent_executions` para analytics.
+
+| Column | Value | Description |
+| :--- | :--- | :--- |
+| `orion_score` | **1.0** | Calidad de la Idea (0-1.0) |
+| `virality_idx` | **8.5** | Potencial Viral (1-10) |
+| `est_revenue` | **$18.00** | RPM Proyectado |
+| `latency_ms` | 24ms | Tiempo de Procesamiento |
+
+### 4.2 System Context Contribution
+El Agente Orion inyecta esto al `Global Context Object` para informar a Calliope y otros agentes.
+
+```json
+{
+  "agent": "ORION",
+  "contribution": "STRATEGIC_BRIEF",
+  "active_constraints": {
+    "pacing": "Narrative Flow",
+    "visual_style": "Kinetic Typography",
+    "aspect_ratio": "16:9",
+    "audio_landscape": "Cinematic, Clear Voiceover, Slow build",
+    "silent_optimization": false
+  },
+  "next_agent_hint": "CALLIOPE_SCRIPTING"
+}
+```
+
+---
+**Audit Verdict**:
+El sistema V3.1 ha procesado correctamente las **Restricciones de Tiempo Variables** (Medium Duration) y ha generado un Manifiesto coherente con la Personalidad de Marca "Tech Visionary".

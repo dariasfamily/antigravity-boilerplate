@@ -1,0 +1,141 @@
+# Plan de Auditoría: MCP Servers
+
+## Objetivo
+Auditar los 12 MCP servers individualmente, probar sus tools, y crear configuración final con solo servidores funcionales.
+
+## Metodología
+
+### Proceso por Servidor
+1. **Restaurar** servidor del backup
+2. **Habilitar** solo ese servidor
+3. **Reiniciar** AXON
+4. **Probar** herramientas principales
+5. **Documentar** resultado (✅ Funciona / ❌ Falla / ⚠️ Requiere config)
+6. **Decidir** si mantener habilitado, deshabilitado, o eliminar
+
+### Criterios de Evaluación
+- ✅ **Mantener Habilitado:** Funciona sin errores, tools responden
+- 💤 **Mantener Deshabilitado:** Funciona pero no se usa activamente
+- ❌ **Eliminar:** Errores persistentes, autenticación inválida, no se usará
+
+## Lista de Servidores a Auditar
+
+### Grupo 1: Servidores con Autenticación Configurada
+1. **notebooklm** - ✅ Auth configurada (`notebooklm-mcp-auth`)
+2. **notion** - ✅ Auth configurada (API key)
+3. **zapier** - ⚠️ Auth configurada (requiere validación)
+4. **make** - ⚠️ Auth configurada (requiere validación)
+
+### Grupo 2: Servidores con Autenticación Parcial
+5. **github** - ⚠️ Token configurado (puede estar expirado)
+6. **rube_mcp** - ⚠️ API key configurada (error 401 previo)
+7. **perplexity** - ⚠️ API key configurada (requiere validación)
+8. **supabase** - ⚠️ Token configurado (requiere validación)
+9. **vercel** - ⚠️ Token configurado (requiere validación)
+
+### Grupo 3: Servidores Sin Configuración
+10. **cloudrun** - ❌ No configurado
+11. **firebase-mcp-server** - ❌ No configurado
+12. **gmp-code-assist** - ❌ No configurado
+
+## Plan de Ejecución
+
+### Fase 1: Restaurar Configuración Base
+- Copiar todos los servidores del backup
+- Deshabilitar todos (`"disabled": true`)
+- Reiniciar AXON
+- Verificar: 0 errores
+
+### Fase 2: Auditar Grupo 1 (Alta Prioridad)
+**Servidor 1: notebooklm**
+- Habilitar
+- Reiniciar
+- Probar: `list_notebooks`, `get_notebook`, `list_sources`
+- Documentar resultado
+
+**Servidor 2: notion**
+- Habilitar
+- Reiniciar
+- Probar: `list_databases`, `query_database`, `create_page`
+- Documentar resultado
+
+**Servidor 3: zapier**
+- Habilitar
+- Reiniciar
+- Probar: `list_zaps`, `get_zap`
+- Documentar resultado
+
+**Servidor 4: make**
+- Habilitar
+- Reiniciar
+- Probar: `list_scenarios`, `get_scenario`
+- Documentar resultado
+
+### Fase 3: Auditar Grupo 2 (Media Prioridad)
+Repetir proceso para cada servidor:
+- github
+- rube_mcp
+- perplexity
+- supabase
+- vercel
+
+### Fase 4: Auditar Grupo 3 (Baja Prioridad)
+Repetir proceso para:
+- cloudrun
+- firebase-mcp-server
+- gmp-code-assist
+
+### Fase 5: Configuración Final
+- Habilitar solo servidores ✅
+- Deshabilitar servidores 💤
+- Eliminar servidores ❌
+- Crear documento de auditoría final
+
+## Registro de Auditoría
+
+Se creará [mcp_audit_log.md](file:///C:/Users/daria/.gemini/AXON/brain/633eebe2-23a9-493d-9ab1-4e84b7f0a50b/mcp_audit_log.md) con:
+- Timestamp de cada prueba
+- Servidor probado
+- Tools probadas
+- Resultado (✅/❌/⚠️)
+- Errores encontrados
+- Decisión final
+- Tiempo de carga
+
+## Entregables
+
+1. **mcp_config.json** - Configuración final optimizada
+2. **mcp_audit_log.md** - Registro completo de auditoría
+3. **mcp_servers_status.md** - Estado de cada servidor
+4. **recommendations.md** - Recomendaciones actualizadas
+
+## Verificación de Usuario
+
+Después de cada servidor auditado, se solicitará confirmación antes de continuar con el siguiente.
+
+## Estimación de Tiempo
+
+- Fase 1: 5 minutos
+- Fase 2: 20 minutos (4 servidores × 5 min)
+- Fase 3: 25 minutos (5 servidores × 5 min)
+- Fase 4: 15 minutos (3 servidores × 5 min)
+- Fase 5: 10 minutos
+
+**Total:** ~75 minutos
+
+## Inicio de Auditoría
+
+¿Proceder con Fase 1: Restaurar Configuración Base?
+## Fase 7: Evolución y Automatización (Thalia)
+
+### Objetivo
+Automatizar la gestión de conocimiento mediante un agente especializado y una skill compartida.
+
+### [NEW] Skill: [notebooklm_mastery](file:///C:/Users/daria/.gemini/AXON/hive/skills/notebooklm_mastery/SKILL.md)
+Documentación de procedimientos para inventariado, auditoría y sincronización.
+
+### [NEW] Agente: THALIA (Secretaria / CKO)
+Especializada en la orquestación de NotebookLM y el mantenimiento del HQ. Su rol es asegurar que la información esté siempre categorizada y disponible para ORION y CALLIOPE.
+
+#### [NEW] [thalia config](file:///C:/Users/daria/.gemini/AXON/hive/agents/thalia/config.json)
+Configuración de responsabilidades y habilidades de Thalia.

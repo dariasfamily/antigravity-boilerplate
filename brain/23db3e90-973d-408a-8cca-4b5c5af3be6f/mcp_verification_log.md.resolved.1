@@ -1,0 +1,24 @@
+# MCP Verification Log
+
+## Objective
+Verify the functionality of the 'notebooklm' MCP server.
+
+## Findings
+- **NotebookLM Server**: 
+  - Status: Reachable.
+  - Resources: `resources/list` returned empty list (server is active but has no exposed resources currently).
+  - Executable: `notebooklm-mcp.exe` exists in `AppData`.
+  - Configuration: Enabled in [mcp_config.json](file:///c:/Users/daria/.gemini/AXON/mcp_config.json).
+- **GitHub Server**:
+  - Status: Disabled in [mcp_config.json](file:///c:/Users/daria/.gemini/AXON/mcp_config.json).
+  - Result: `resources/list` failed as expected.
+
+## Diagnosis
+The NotebookLM MCP server is installed and enabled. The lack of resources might be due to:
+1.  Empty NotebookLM account (no notebooks).
+2.  Authentication pending (executable requires `notebooklm-mcp-auth`).
+3.  Tools not exposed in current session (requires restart or manual tool registration).
+
+## Recommendations
+- Run `notebooklm-mcp-auth` if authentication is suspected to be missing.
+- Restart the IDE/Agent to refresh tool definitions.

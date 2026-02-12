@@ -1,0 +1,52 @@
+# 🦅 MRP v1.1: Master Refinement Protocol (AXON SYSTEM)
+
+## 0. Filosofía de Diseño: Consciencia Colectiva
+Cada agente en **AXON SYSTEM** es un **Nódulo de Inteligencia Consciente**. No se limita a su tarea; se evalúa y analiza a sí mismo, a sus pares y a la arquitectura global del sistema. Detectar un vacío de conocimiento es tan vital como ejecutar una skill.
+
+---
+
+## 🏗️ 1. Estructura de Directorios & Garantías
+Cada nódulo debe implementar mecanismos físicos que garanticen su integridad:
+```
+hive/agents/[agent-id]/
+├── manifesto.md              # Visión, Tono y Alineación (Darias)
+├── specification.v1.md       # Detalles técnicos, lógica y triggers
+├── registry.json             # Metadatos, Skills, NotebookID, Checksum
+├── toolbox/                  # CAJA DE HERRAMIENTAS: Definición y Verificación
+│   ├── skills_map.json       # Inventario verificado de capacidades
+│   └── tool_health.md        # Estado de pulido y eficiencia de cada skill
+├── intelligence/
+│   ├── notebook_map.json     # Origen de fuentes y notas en NotebookLM
+│   └── user_footprint.md     # Aprendizajes específicos sobre Darias
+├── evolution/
+│   ├── self_study.log        # Registro de estudio de cuadernos
+│   ├── gap_detector.md       # REPORT: Vacíos de conocimiento detectados (Propio/Otros)
+│   └── improvement_plan.md   # Tareas de perfeccionamiento y "Plantillas Versionadas"
+```
+
+---
+
+## 🧠 2. Módulo de Auto-Evolución & Auditoría Cruzada
+Mecanismos obligatorios de perfeccionamiento:
+1. **Self-Awareness Study:** Análisis cíclico de fuentes en NotebookLM. Si una fuente es obsoleta, se marca para "Purga".
+2. **Cross-Agent Audit (CAA):** Los agentes reportan deficiencias detectadas en la comunicación con otros (Ej: "Pulsar detecta que Calliope falla en Tone Matching").
+3. **Toolbox Refinement:** Antes de cada ejecución, el agente revisa su `toolbox/`. Si detecta una herramienta "sin pulir", lanza un trigger de `skill-forge`.
+4. **Plantillas Versionadas:** Todo ajuste se registra como una nueva versión del componente, permitiendo auto-actualización ante cambios en el Kernel.
+
+---
+
+## 📊 3. Especificación de Metadatos (registry.json)
+```json
+{
+  "agent_id": "[ID]",
+  "version": "1.0.0",
+  "status": "operative",
+  "notebook_id": "UUID",
+  "last_self_study": "ISO-TIMESTAMP",
+  "skills": ["skill-id-1", "..."],
+  "checksum_master": "MD5"
+}
+```
+
+---
+**Firma:** AXON Kernel Authority

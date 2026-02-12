@@ -1,0 +1,11 @@
+# Task: Set up NotebookLM Integration
+
+- [x] Research existing NotebookLM integration or config
+- [x] Create folder for NotebookLM notebooks
+- [x] Determine authentication method (Manual cookie export)
+- [x] Implement sync script
+    - [x] Install dependencies (notebooklm-py, playwright)
+    - [x] Create sync script using stored credentials
+    - [x] Document manual authentication process
+- [ ] User action required: Export cookies manually
+- [ ] Verify sync works with exported cookies

@@ -1,0 +1,54 @@
+﻿# SYSTEM ARCHITECTURE V2: The Factory & The Studio
+
+**Objective:** Define the boundary between "Building the System" (Engineering) and "Operating the System" (Production).
+
+## 1. The Core Duality
+
+To answer the fundamental question: *"Does creation belong to another module?"*
+**Yes.** We must distinguish between **The Factory** (Logic) and **The Studio** (Creative Output).
+
+### ðŸ­ The Factory (Engineering Division)
+*   **Role**: Builds the "Robots" (Skills).
+*   **Output**: Python Scripts, Next.js Components, Database Schemas, API Integrations.
+*   **Agents**:
+    *   **Hephaestus**: The Chief Engineer.
+    *   **Oculus**: The Auditor.
+*   **Location**: `src/skills/*`, `src/automation/*`.
+
+### ðŸŽ¬ The Studio (Brand Division)
+*   **Role**: Uses the "Robots" to create **Assets**.
+*   **Output**: Videos, Blog Posts, Tweets, Music.
+*   **Agents**:
+    *   **Orion**: Uses *Google Docs* (connected by Factory).
+    *   **Lumiere**: Uses *Veo/Sora APIs* (connected by Factory).
+    *   **Calliope**: Uses *LLMs* (connected by Factory).
+*   **Location**: `NotebookLM` (Ideas), `Supabase: brand_content` (State), `Google Drive` (Files).
+
+---
+
+## 2. The Fractal Construction Protocol
+
+Every new capability follows this lifecycle:
+
+1.  **Forging (Factory Phase)**:
+    *   Hephaestus generates the [SKILL.md](file:///C:/Users/daria/.gemini/AXON/scratch/AXON-boilerplate/src/skills/skill_forge/SKILL.md) and [handler.py](file:///C:/Users/daria/.gemini/AXON/scratch/AXON-boilerplate/src/skills/hermes_agent/scripts/hermes_agent_handler.py).
+    *   Engineer (Me) implements the API logic (e.g., connect to Midjourney).
+    *   Oculus audits the code.
+
+2.  **Instrumentation (Studio Phase)**:
+    *   The Agent (e.g., Thalia) receives the "Tool" (Midjourney API).
+    *   The Agent connects to the "Brain" (NotebookLM) for instructions.
+    *   The Agent executes orders ("Create an image for this script").
+
+## 3. The "Neural Link" Governance
+*   **NotebookLM** is the *Strategic Layer* (The "Why").
+*   **Hermes** is the *Operational Layer* (The "How").
+*   **Supabase** is the *Memory Layer* (The "What").
+
+## 4. Audit & Improvement Plan (Current Status)
+*   **Structure**: Clean. `src/skills` is modular.
+*   **Gap 1 (Security)**: `wealth_assets` RLS is weak. **Fix**: Implement Service Role policies for Agents.
+*   **Gap 2 (Error Handling)**: Python scripts need robust retries for API reliability.
+*   **Gap 3 (Visibility)**: The Dashboard is "Read-Only". **Upgrade**: Add "Approve" buttons for content.
+
+**Conclusion**: The system is ready to spawn The Muse System. The "Creation" of content happens *inside* the Studio Agents, but the "Creation" of those Agents happens in The Factory.

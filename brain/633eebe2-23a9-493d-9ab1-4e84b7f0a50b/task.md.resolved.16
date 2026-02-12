@@ -1,0 +1,12 @@
+# Task: Set up NotebookLM Integration
+
+- [x] Research existing NotebookLM integration or config
+- [x] Create folder for NotebookLM notebooks
+- [x] Determine authentication method (CLI-based with stored credentials)
+- [ ] [/] Implement automated sync script
+    - [x] Install dependencies (notebooklm-py, playwright)
+    - [x] Create one-time login script (login_notebooklm.py)
+    - [x] Update sync script to use stored credentials
+    - [ ] Run one-time login to save credentials
+    - [ ] Verify sync works automatically
+- [ ] [ ] Document workflow for future syncs

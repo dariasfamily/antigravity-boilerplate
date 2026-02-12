@@ -1,0 +1,8 @@
+{
+    "api_key": "AIzaSyAw4LifjyvNQGcKK-EpJAVyND-d0s7UMPY",
+    "model": "gemini-2.0-pro-exp",
+    "temperature": 0.7,
+    "top_p": 0.95,
+    "top_k": 64,
+    "max_output_tokens": 8192
+}

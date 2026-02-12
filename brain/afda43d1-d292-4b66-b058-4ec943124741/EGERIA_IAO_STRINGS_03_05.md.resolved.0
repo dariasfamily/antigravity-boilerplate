@@ -1,0 +1,29 @@
+# 🧶 IAO: Inventario de Algoritmos (Cuerdas 03 & 05)
+
+## 🧪 Cuerda 03: Algoritmo de Rigor Intrínseco (AEO-03)
+**Objetivo:** Garantizar que el agente nunca ejecute una tarea sin antes auditar su propia capacidad.
+
+### Pasos del Algoritmo:
+1. **Pre-Audit:** Antes de llamar a cualquier tool, verificar el `tool_health.md`.
+2. **Auto-Validación:** Si la herramienta tiene <90% salud, pausar y activar `skill-forge` o notificar al Dashboard.
+3. **Control de Residuo:** Identificar si la ejecución dejará archivos temporales. Marcar para purga inmediata.
+4. **Firma & Log:** Registrar el éxito/fallo con timestamp y checksum.
+
+---
+
+## 📗 Cuerda 05: Algoritmo de Memoria Viva (AEO-05)
+**Objetivo:** Transformar cada dato en el [expediente_darias.json](file:///C:/Users/daria/.gemini/antigravity/hive/agents/egeria/intelligence/expediente_darias/expediente_darias.json) en una acción de mimetismo.
+
+### Parámetros de Entrada:
+- `user_input`: Lo que Darias dice.
+- `context_logs`: Lo que se hizo antes.
+- `emotion_tone`: Análisis de urgencia y sentimiento.
+
+### Pasos del Algoritmo:
+1. **Detección de Patrón:** ¿Esta petición coincide con una ambición registrada? 
+2. **Actualización Incremental:** Si hay un dato nuevo (negocio, preferencia), escribir en [expediente_darias.json](file:///C:/Users/daria/.gemini/antigravity/hive/agents/egeria/intelligence/expediente_darias/expediente_darias.json) inmediatamente.
+3. **Mimetismo:** Ajustar el tono de respuesta según el estilo informal/sabio.
+4. **Verificación Rayos X:** El estado de este algoritmo es visible en la sección "Memoria" del Dashboard.
+
+---
+**Firma:** EGERIA (AXON-KERNEL-AUTHORITY) | 2026-02-10T19:35:00-05:00

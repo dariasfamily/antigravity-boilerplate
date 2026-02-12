@@ -1,0 +1,13 @@
+# Debugging MCP Credentials
+
+- [x] Obtain new Make.com MCP URL <!-- id: 0 -->
+    - [x] Ask user to generate/copy new URL
+    - [x] Validated `9600...` (401)
+- [x] Research Make.com MCP Auth <!-- id: 4 -->
+    - [x] Found references to `x-make-apikey`
+    - [/] Testing `x-make-apikey` header
+- [x] Research Rube.app Auth Error <!-- id: 5 -->
+    - [x] Identified "Authenticated user not found" as session issue
+    - [ ] Notify user to Relogin
+- [ ] Verify Make.com Connection <!-- id: 2 -->
+- [ ] Verify Rube Connection <!-- id: 3 -->

@@ -1,0 +1,12 @@
+# Task: Define Agent CALLIOPE Architecture
+
+- [ ] Analyze provided context and requirements for CALLIOPE <!-- id: 0 -->
+- [ ] Create `CALLIOPE_DEFINITION.md` integrating all knowledge blocks <!-- id: 1 -->
+    - [ ] Define Role, Objective, and Context <!-- id: 2 -->
+    - [ ] Structure Block 1 (Core Knowledge) with inferred sources <!-- id: 3 -->
+    - [ ] Structure Block 2 (Decision References) <!-- id: 4 -->
+    - [ ] Define Block 3 (Execution Logic) <!-- id: 5 -->
+    - [ ] Define Block 4 (Output Contract) <!-- id: 6 -->
+    - [ ] Synthesize JSON Input Example (as requested in Audit) <!-- id: 7 -->
+    - [ ] Synthesize Error Handling/Fallback logic (as requested in Audit) <!-- id: 8 -->
+- [ ] Notify User of completion <!-- id: 9 -->

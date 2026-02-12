@@ -1,0 +1,45 @@
+﻿# SYSTEM REGISTRY (The Golden Record)
+
+**Purpose**: Defines the "Ideal State" of the AXON System. The Auditor (Oculus) compares Reality vs. Registry to trigger repairs.
+
+## 1. Active Agents (The Roster)
+
+| Agent ID | Role | Status Key | Health Check Method | Owner |
+| :--- | :--- | :--- | :--- | :--- |
+| `hephaestus` | Factory / Builder | `active_heph` | CLI: `generate_skill --version` | Engineering |
+| `oculus` | Auditor / Security | `active_ocu` | Log: [SYSTEM_STATE_LOG.md](file:///C:/Users/daria/.gemini/AXON/brain/e6fc57ba-9b26-455d-bcf0-142947e7b879/SYSTEM_STATE_LOG.md) (24h) | Engineering |
+| `hermes` | Messenger / Bus | `active_her` | n8n: `webhook_health` | Operations |
+| `orion` | Brand Strategist | `active_ori` | Doc: `Writers_Room_LOG` (Update <48h) | Brand |
+| `calliope` | Script Writer | `active_cal` | CLI: `python brand_calliope_handler.py` | Brand |
+| `echo` | Social Manager | `active_echo` | CLI: `python brand_echo_handler.py` | Brand |
+| `argus` | QA / Vision | `active_arg` | CLI: `python brand_argus_handler.py` | Brand |
+| `thalia` | Visual Artist | `active_tha` | CLI: `python brand_thalia_handler.py` | Brand |
+| `wealth` | Finance Manager | `active_fin` | Supabase: `wealth_assets` (Update <24h) | Finance |
+
+## 2. Infrastructure Endpoints
+
+| Service | Endpoint | Auth Method | Criticality |
+| :--- | :--- | :--- | :--- |
+| **Dashboard** | `http://localhost:3000` | Supabase Auth | High |
+| **Supabase** | `https://[proj].supabase.co` | Service Role Key | Critical |
+| **NotebookLM** | `Manual (URL)` | User Session | High |
+| **n8n** | `Local / Cloud` | Webhook Secret | Medium |
+
+## 3. Data Flow Contracts (Feedback Loops)
+
+### A. The Optimization Loop
+`Metric (Viewer Retention)` -> `Echo Agent` -> `Strategy Update` -> `Orion Agent` -> `New Content`.
+
+### B. The Correction Loop
+`Error Log (Python Exception)` -> `Oculus Agent` -> `Patch Proposal` -> `User Approval` -> `Hephaestus Fix`.
+
+## 4. Security Gates (The Lattice)
+
+*   **Level 0 (Public)**: None.
+*   **Level 1 (User)**: Dashboard View.
+*   **Level 2 (Commander)**: Pause/Resume Agents, Approve Budget.
+*   **Level 3 (Root)**: Create/Delete Agents (Terminal Access Only).
+
+---
+**Auto-Correction Protocol:**
+If `Step(Check)` fails `Criteria(Registry)`, execute `Action(Repair)`.

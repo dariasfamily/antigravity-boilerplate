@@ -1,0 +1,18 @@
+﻿# Task: Creating Agent PULSAR (Prompt Specialist)
+**Protocol:** Standardized Recursive Refinement (DOH v1.1)
+
+- [/] Phase 0: Workflow & Infrastructure <!-- id: 10 -->
+    - [x] Create standardized workflow `.agent/workflows/pulsar.md` <!-- id: 11 -->
+    - [ ] Initialize directory `hive/agents/pulsar` <!-- id: 12 -->
+- [ ] Phase 1: Semantic Foundation (LITE 3.2) <!-- id: 20 -->
+    - [ ] Apply mirrored [lite_3.2.md](file:///c:/Users/daria/.gemini/AXON/hive/agents/egeria/knowledge_mirror/seeds/lite_3.2.md) to define high-level intent <!-- id: 21 -->
+    - [ ] Validate against Notebook "IngenierÃ­a de Prompts" (Initial Scan) <!-- id: 22 -->
+- [ ] Phase 2: Structural Formalization (FULL 3.2) <!-- id: 30 -->
+    - [ ] Apply mirrored [full_3.2.md](file:///c:/Users/daria/.gemini/AXON/hive/agents/egeria/knowledge_mirror/seeds/full_3.2.md) to build the core architecture <!-- id: 31 -->
+    - [ ] Enrich FULL modules with RAW content from the 6 Prompt sources <!-- id: 32 -->
+- [ ] Phase 3: Hybrid Orchestration (DOH v1.0) <!-- id: 40 -->
+    - [ ] Determine rigor levels for each component (Reasoning vs UI) <!-- id: 41 -->
+    - [ ] Final polish using NotebookLM Chat for specific gaps <!-- id: 42 -->
+- [ ] Phase 4: Final Deployment <!-- id: 50 -->
+    - [ ] Generate `pulsar/config.json` and [system_prompt.md](file:///c:/Users/daria/.gemini/AXON/hive/agents/egeria/prompts/system_prompt.md) <!-- id: 51 -->
+    - [ ] Register PULSAR in the Global Registry <!-- id: 52 -->

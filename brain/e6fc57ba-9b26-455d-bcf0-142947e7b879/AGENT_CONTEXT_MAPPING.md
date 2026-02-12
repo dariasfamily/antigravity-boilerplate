@@ -1,0 +1,73 @@
+# AGENT CONTEXT MAPPING
+**"The Nervous System: Linking Tasks to Memory"**
+
+This document literally enumerates the tasks of each agent and maps them to the specific fields in the `SystemContext` object (`agent_types.ts`).
+
+---
+
+## 1. ORION (The Investigator)
+**Mission**: Synthesize Intelligence.
+
+| Task / Capability | Context Field (Target) | Data Type |
+| :--- | :--- | :--- |
+| **Topic Selection** | `agents.ORION.data.strategic_brief.topic` | `string` |
+| **Angle Definition** | `agents.ORION.data.strategic_brief.selected_angle` | `string` |
+| **Confidence Scoring** | `agents.ORION.data.confidence_score` | `number` (0-1) |
+| **Platform Targeting** | `agents.ORION.data.meta_data.target_platform` | `string[]` |
+| **Cognitive Validation** | `agents.ORION.data.research_core` | `Object` (P.O.S.E.) |
+| **Tactical Assets** | `agents.ORION.data.tactical_execution` | `Object` (Hooks, RPM) |
+| **Calliope Instructions** | `agents.ORION.data.calliope_instructions` | `Object` (Tone, Forbidden) |
+
+---
+
+## 2. CALLIOPE (The Writer)
+**Mission**: Engineer Attention.
+
+| Task / Capability | Context Field (Target) | Data Type |
+| :--- | :--- | :--- |
+| **Input Ingestion** | `agents.CALLIOPE.config.inputs.orion_brief` | `OrionOutput` |
+| **Title Generation** | `agents.CALLIOPE.data.metadata.title` | `string` |
+| **Format Selection** | `agents.CALLIOPE.data.metadata.format` | `string` (Reel/Short) |
+| **Quality Scoring** | `agents.CALLIOPE.data.metadata.vera_score` | `number` (0-100) |
+| **Hook Writing** | `agents.CALLIOPE.data.script_content.hook_block` | `Object` (Visual/Audio) |
+| **Value Delivery** | `agents.CALLIOPE.data.script_content.value_block` | `Object` |
+| **Payoff/CTA** | `agents.CALLIOPE.data.script_content.payoff_block` | `Object` |
+| **Self-Correction** | `agents.CALLIOPE.data.feedback_loop` | `Object` (Logs) |
+
+---
+
+## 3. ARGUS (The Gatekeeper)
+**Mission**: Audit & Optimize.
+
+| Task / Capability | Context Field (Target) | Data Type |
+| :--- | :--- | :--- |
+| **Input Auditing** | `agents.ARGUS.config.inputs.script` | `CalliopeOutput` |
+| **Final Verdict** | `agents.ARGUS.data.verdict` | `"PASS" / "REJECT" / "WARN"` |
+| **SEO Scoring** | `agents.ARGUS.data.scores.seo_score` | `number` |
+| **Safety Scoring** | `agents.ARGUS.data.scores.brand_safety` | `number` |
+| **Optimization** | `agents.ARGUS.data.edits` | `Object` (Titles/Tags) |
+| **Feedback Loop** | `agents.ARGUS.data.feedback_loop.calliope_notes` | `string[]` |
+
+---
+
+## 4. ECHO (The Broadcaster)
+**Mission**: Distribute & Amplify.
+
+| Task / Capability | Context Field (Target) | Data Type |
+| :--- | :--- | :--- |
+| **Input Ingestion** | `agents.ECHO.config.inputs.final_package` | `CalliopeOutput` (Post-Argus) |
+| **Platform Status** | `agents.ECHO.data.platforms` | `Object` (Twitter/YT/LinkedIn) |
+| **Performance Tracking** | `agents.ECHO.data.engagement_metrics` | `Object` (Views/CTR) |
+| **Distribution ID** | `agents.ECHO.data.distribution_id` | `string` |
+
+---
+
+## 5. SYSTEM GLOBAL CONTEXT
+**Mission**: Orchestration.
+
+| Task / Capability | Context Field (Target) | Data Type |
+| :--- | :--- | :--- |
+| **Agent Status Tracking** | `agents.[ID].status` | `AgentStatus` |
+| **Control Signals** | `agents.[ID].control_signal` | `"run" / "stop"` |
+| **Activity Logging** | `activity_log` | `AgentActivityRecord[]` |
+| **Global Variables** | `global_variables` | `Record<string, any>` |

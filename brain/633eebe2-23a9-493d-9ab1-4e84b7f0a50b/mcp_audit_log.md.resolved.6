@@ -1,0 +1,98 @@
+# MCP Servers Audit Log
+
+## Auditoría Iniciada
+**Fecha:** 2026-02-08 14:38
+**Objetivo:** Probar todos los 12 MCP servers individualmente
+
+## Fase 1: Limpieza y Baseline ✅
+
+### Paso 1.1: Cirugía de Configuración
+- **Timestamp:** 15:00
+- **Acción:** Eliminados 8 servidores problemáticos del config.
+- **Estado:** 4 servidores basales mantenidos (Cloud Run, Firebase, GitHub, GMP).
+- **Resultado:** ✅ Configuración simplificada para auditoría controlada.
+
+### Lista de Servidores Restaurados:
+1. supabase - Deshabilitado
+2. vercel - Deshabilitado
+3. rube_mcp - Deshabilitado
+4. github - Deshabilitado
+5. perplexity - Deshabilitado
+6. notebooklm - Deshabilitado
+7. zapier - Deshabilitado
+8. make - Deshabilitado
+9. notion - Deshabilitado
+10. cloudrun - Deshabilitado
+11. firebase-mcp-server - Deshabilitado
+12. gmp-code-assist - Deshabilitado
+
+### Paso 1.2: Reiniciar AXON
+- **Timestamp:** 14:56
+- **Acción:** Usuario reinició AXON
+- **Verificación:** ✅ 0 errores en la lista de MCP servers
+- **Resultado:** ✅ Baseline establecido correctamente
+
+---
+
+## Fase 2: Auditoría Colectiva y Profunda de Servidores Activos 🔄
+
+### 1. **github** (26 tools)
+- **Timestamp:** 15:05
+- **Estado:** ✅ Verificado.
+- **Tools Probadas:** `search_repositories` (detectado `AXON-boilerplate`).
+- **Resultado:** 100% Funcional. Todo el suite de herramientas de repositorios, issues y PRs está disponible.
+
+### 2. **firebase-mcp-server** (14 tools)
+- **Timestamp:** 15:06
+- **Estado:** ✅ Verificado.
+- **Tools Probadas:** `firebase_get_environment`, `firebase_list_projects`.
+- **Resultado:** Funcional. Autenticado como `hotelesverano@gmail.com`.
+
+### 3. **gmp-code-assist** (2 tools)
+- **Timestamp:** 15:07
+- **Estado:** ✅ Verificado.
+- **Tools Probadas:** `retrieve-instructions`, `retrieve-google-maps-platform-docs`.
+- **Resultado:** 100% Funcional. Capaz de recuperar documentación y guías de arquitectura.
+
+### 4. **cloudrun** (8 tools)
+- **Timestamp:** 15:08
+- **Estado:** ⚠️ Autenticación local requerida.
+- **Tools Probadas:** `list_projects`, `list_services`.
+- **Resultado:** El servidor responde, pero requiere `gcloud auth login` en la máquina local para interactuar con proyectos reales.
+
+### 5. **notebooklm** (32 tools)
+- **Timestamp:** 15:09
+- **Estado:** ✅ Verificado.
+- **Tools Probadas:** `notebook_list` (27 notebooks), `notebook_get`, `notebook_describe`.
+- **Resultado:** 100% Funcional. Acceso total a la base de conocimientos.
+
+---
+
+## Fase 3: Túnel de Auditoría Individual (Nuevos/Problemáticos)
+
+### 1. **notebooklm**
+- **Timestamp:** 15:05
+- **Estado:** ✅ Verificado.
+- **Tools Probadas:** `notebook_list`, `notebook_get`, `notebook_describe`, `source_list_drive`, [refresh_auth](file:///C:/Users/daria/AppData/Roaming/Python/Python313/site-packages/notebooklm/client.py#144-188).
+- **Resultado:** 100% Funcional (27 notebooks detectados).
+
+### 2. **notion**
+- **Timestamp:** 15:10
+- **Estado:** 🔄 Re-agregado al config.
+- **Acción:** Habilitado para auditoría.
+- **Resultado:** Pendiente reinicio y prueba de tools.
+2. **notion** - Pendiente
+3. **zapier** - Pendiente
+4. **make** - Pendiente
+5. **rube_mcp** - Pendiente
+6. **supabase** - Pendiente
+7. **vercel** - Pendiente
+8. **perplexity** - Pendiente
+
+---
+
+## Resumen de Progreso
+- **Servidores auditados:** 0/12
+- **Servidores funcionales:** TBD
+- **Servidores con errores:** TBD
+- **Tiempo total:** TBD

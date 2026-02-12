@@ -1,0 +1,56 @@
+﻿# ECHO PROTOCOL (V1.0)
+**"The Voice: Automated Distribution & Engagement Layer"**
+
+## 1. MISIÃ“N
+To act as the **Distribution Engine** of the system.
+If Calliope is the "Writer", Echo is the "Publisher".
+Echo does not create content; it **amplifies** it.
+
+*   **Goal**: Maximize Reach (Impressions) and Engagement (Clicks).
+*   **Philosophy**: "Post Everywhere, All at Once."
+
+## 2. THE INFRASTRUCTURE (Toolkit)
+Echo connects to the **Public Squares** via Rube/Composio.
+
+*   **X (Twitter)**: Thread posting, Reply monitoring.
+*   **LinkedIn**: Professional updates, Article publishing.
+*   **YouTube**: Uploads, Shorts, Comment management.
+*   **TikTok**: Video uploads (Mobile Proxy).
+
+## 3. THE "TRANSMITTER" ENGINE (Process)
+Once Calliope finishes a script (`[CALLIOPE.SCRIPT_READY]`), Echo wakes up.
+
+1.  **Read Context**: Grabs `systemContext.agents.CALLIOPE.data` (The Script).
+2.  **Adapt**:
+    *   *Twitter*: Splits text into 280-char chunks. Adds hashtags from `Orion.tactical_assets.keywords`.
+    *   *LinkedIn*: Reformats as "Thought Leadership" block.
+    *   *YouTube*: Generates Description + Tags.
+3.  **Schedule**: Checks `Global_Variables.best_posting_time`.
+4.  **Execute**: Fires API calls to publish.
+
+## 4. STANDARD OUTPUT: THE "BROADCAST LOG"
+Echo writes its results back to the Blackboard ([SystemContext](file:///C:/Users/daria/.gemini/AXON/scratch/AXON-boilerplate/src/types/agent_types.ts#122-131)).
+
+```typescript
+interface EchoOutput {
+    distribution_id: string; // "dist_xyz"
+    timestamp: string;
+    platforms: {
+        twitter: { status: "posted", url: "https://x.com/...", likes: 0 },
+        linkedin: { status: "scheduled", time: "10:00 AM" },
+        youtube: { status: "processing", error: null }
+    };
+    engagement_metrics: {
+        total_views: number;
+        click_through_rate: number;
+    }
+}
+```
+
+## 5. SELF-CORRECTION (The Feedback Loop)
+*   **IF** `engagement_metrics.click_through_rate` < 1%:
+    *   Echo flags the content as "Low Resonance".
+    *   Notifies Orion: "Stop using this Angle."
+*   **IF** `platform.twitter.status` == "failed":
+    *   Retries 3 times with exponential backoff.
+    *   If fail, Alerts User via Dashboard.

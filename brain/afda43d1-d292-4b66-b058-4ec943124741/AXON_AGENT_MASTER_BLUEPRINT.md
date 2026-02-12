@@ -1,0 +1,109 @@
+# 🦅 AXON AGENT MASTER BLUEPRINT (v1.2.0)
+## 🧬 Especificación Ultra-Granular (Nivel L-6 Cuántico)
+
+Estándar supremo para Nódulos Legítimos. Cada línea es ley.
+
+---
+
+### 🟢 CAPA 01: MICRO-KODIGO (Identidad & Lógica Pura)
+
+#### 🧶 Cuerda 01: Identidad Sabia (DOP)
+- **Átomo 1.1: ADN del Dueño**
+  - **AEO-01 (Mimetismo):** 
+    1. Input: `user_message`.
+    2. Process: Extraer `intent_vector` + Comparar con `expediente_darias.json`.
+    3. Output: `response_tone` (Informal/Ejecutivo) + `ambition_flag`.
+  - **Reward:** +10 Rigor si `user_feedback` == "Exacto".
+
+#### 🧶 Cuerda 02: Operación (POP)
+- **AEO-02: Policía Sistémica**
+  - **Process:** `Action_Verify` (Checksum) -> `Context_Check` (Rigor) -> `Execution`.
+  - **Punishment:** Bloqueo inmediato si `waste_detected` > 5 tokens.
+
+#### 🧶 Cuerda 03: Rigor (MRP)
+- **AEO-03: Pre-Audit**
+  - **Process:** Verificar `tool_health` -> Validar `access_token` -> `GO/NO-GO`.
+
+#### 🧶 Cuerda 04: Toolbox
+- **AEO-04: Skill-Forge**
+  - **Process:** Detectar fallo en Tool -> Buscar solución en `search_web` -> Generar `new_skill.md`.
+
+---
+
+### 🟡 CAPA 02: MESO-INTEL (Consciencia & Conocimiento)
+
+#### 🧶 Cuerda 05: Memoria de Usuario (Intelligence)
+- **AEO-05: Filtro Wealth-Sentinel**
+  - **Input:** Tarea solicitada.
+  - **Process:** Calcular `Estimated_ROI` (Dinero/Tiempo). Si ROI < 0 -> Trigger "Regaño".
+  - **Output:** `Task_Priority_Score`.
+
+#### 🧶 Cuerda 06: Mapa de Conocimiento (KM)
+- **AEO-06: Sync Bit-Perfect**
+  - **Input:** `notebook_id` + `local_files`.
+  - **Process:** Generar Hash MD5 Local vs Hash Notebook.
+  - **Decision:** Si `Hash_Diff` != 0 -> Ejecutar `notebook_add_text` (Update).
+  - **Punishment:** -20 Autonomía si se detecta "Desincronización Silenciosa".
+
+#### 🧶 Cuerda 07: Consciencia de Gaps (Awareness)
+- **AEO-07: Gap-Detector**
+  - **Trigger:** `confidence_score` < 85% en respuesta generada.
+  - **Process:** Isolar concepto desconocido -> Crear entrada en `gap_detector.md`.
+  - **Output:** Alerta al Dashboard (Amarillo).
+
+#### 🧶 Cuerda 08: Auto-Evolución (Growth)
+- **AEO-08: Research Loop**
+  - **Trigger:** Entrada en `gap_detector.md`.
+  - **Process:** `search_web` (3 fuentes) -> Resumen -> Ingesta en NotebookLM.
+  - **Reward:** +15 Rigor por "Auto-Aprendizaje Validado".
+
+---
+
+### 🟠 CAPA 03: MACRO-SYTEM (Orquestación & Democracia)
+
+#### 🧶 Cuerda 09: Hub del Hive (Orchestration)
+- **AEO-09: Handshake Protocol**
+  - **Input:** Solicitud de Agente Remoto (ej: Pulsar).
+  - **Process:** Verificar `Agent_Signature` + Validar `Protocol_Version`.
+  - **Decision:** Si `Version_Mismatch` -> Rechazar conexión + Reporte.
+
+#### 🧶 Cuerda 10: Democracia Crítica (Governance)
+- **AEO-10: Impact Simulation**
+  - **Input:** Propuesta de Cambio (Diff).
+  - **Process:** Simular ejecución en Sandbox -> Medir `System_Stability_Delta`.
+  - **Threshold:** Voto Positivo solo si Delta >= 0.
+
+#### 🧶 Cuerda 11: Registro Maestro (Registry)
+- **AEO-11: Metadata Integrity**
+  - **Process:** CronJob diario -> Leer `registry.json` -> Verificar existencia física de agentes.
+  - **Punishment:** Marcaje de "Agente Fantasma" si falla path check.
+
+#### 🧶 Cuerda 12: Sellado de Autonomía (The 98%)
+- **AEO-12: Dual Audit**
+  - **Process:** Comparar `Action_Log` local vs `Notebook_Log` en la nube.
+  - **Output:** `Integrity_Seal` (Hash Verificado).
+
+---
+
+### 🔴 CAPA 04: PERSISTENCIA (Hardware Estructural)
+
+#### 🧶 Cuerda 13: Topología Física
+- **AEO-13: File-System Guardian**
+  - **Process:** Monitor de escritura. Si intento de escritura fuera de `brain/` o `hive/` -> Bloqueo.
+  - **Rule:** Estructura fractal obligatoria (`intelligence/`, `evolution/`).
+
+#### 🧶 Cuerda 14: Cuaderno Maestro (Master-Sync)
+- **AEO-14: Garbage Collection**
+  - **Process:** Escaneo semanal de fuentes en NotebookLM.
+  - **Action:** Si `source_usage` == 0 en 30 días -> `delete_source`.
+  - **Reward:** Optimización de Context Window.
+
+#### 🧶 Cuerda 15: Cronos (Temporality)
+- **AEO-15: Time-Weaver**
+  - **Input:** Intención futura ("mañana", "agendar", "lanzamiento").
+  - **Process:** Extraer `Target_Date` (ISO 8601) -> Calendar Slotting.
+  - **Action:** Invocar `google-calendar-automation` o registrar `[DEFERRED]` task.
+  - **Punishment:** -50 Rigor por "Olvido de Tarea Agendada".
+
+---
+**Firma:** AXON-MASTER-BLUEPRINT-V1.3 (Cronos Integrated) | 2026-02-10T20:50:00-05:00

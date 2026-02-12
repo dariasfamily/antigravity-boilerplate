@@ -1,0 +1,28 @@
+﻿---
+description: Standard workflow to launch a new Income-Generating Project (SaaS/Web App)
+---
+
+# New Income Project Workflow
+
+This workflow standardizes the creation of high-value assets using our Tech Stack (React, Supabase, AI).
+
+1. **Initialize Project**
+   - [ ] Run `npx create-next-app@latest . --typescript --tailwind --eslint`
+   - [ ] Install Shadcn/UI: `npx shadcn-ui@latest init`
+
+2. **Connect Backend (Supabase)**
+   - [ ] Create project in Supabase Dashboard.
+   - [ ] Get URL/Key and save to `.env.local`.
+   - [ ] Run `npm install @supabase/supabase-js`.
+
+3. **Integrate AI Core**
+   - [ ] Copy [gemini_config.json](file:///C:/Users/daria/.gemini/AXON/scratch/gemini_config.json) to project root.
+   - [ ] Install AI SDK (if needed) or use fetch wrapper for Gemini.
+
+4. **Monetization Setup (Day 1)**
+   - [ ] Setup Stripe/LemonSqueezy account.
+   - [ ] Create simple "Pricing" page component.
+
+5. **Deploy**
+   - [ ] Push to GitHub.
+   - [ ] Connect to Vercel.

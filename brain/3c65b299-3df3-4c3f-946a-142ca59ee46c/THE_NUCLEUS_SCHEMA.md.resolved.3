@@ -1,0 +1,232 @@
+# ⚛️ THE NUCLEUS: DEEP DATABASE SCHEMA (V5.0 TITANIUM)
+**Objective**: Production-Grade Reliability, Partitioning Safe, and W3C Compliant.
+**Target**: Supabase (PostgreSQL 15+).
+
+> [!IMPORTANT]
+> **AUDIT FIXES IMPLEMENTED**:
+> 1.  **Partitioning**: used Composite PK [(captured_at, id)](file:///C:/Users/daria/.gemini/AXON/scratch/AXON-boilerplate/src/scripts/simulate_orion_v3.ts#54-55) to satisfy Postgres constraints.
+> 2.  **Tracing**: Switched to `char(32)`/`char(16)` for W3C OpenTelemetry compliance.
+> 3.  **Strictness**: `ag_command_type` Enum added.
+> 4.  **Security**: RLS explicitly enabled on ALL tables.
+
+---
+
+## 0. THE STANDARDS (Enums & Types)
+*Hard-coded Rules. No Magic Strings.*
+
+```sql
+-- 1. Platform & Environment
+create type ag_platform_type as enum ('Desktop', 'Mobile_iOS', 'Mobile_Android', 'API_Headless');
+
+-- 2. Phase Standard
+create type ag_session_phase as enum ('PLANNING', 'RESEARCH', 'SCRIPTING', 'PRODUCTION', 'AUDIT', 'PUBLISHING');
+
+-- 3. Agent Status
+create type ag_agent_status as enum ('IDLE', 'ACTIVE', 'PAUSED', 'ERROR', 'SLEEPING');
+
+-- 4. Asset Types
+create type ag_asset_type as enum ('SCRIPT_MD', 'VIDEO_MP4', 'AUDIO_WAV', 'IMAGE_PNG', 'THUMBNAIL_JPG', 'METADATA_JSON');
+
+-- 5. Decision Types
+create type ag_decision_type as enum ('RANKING', 'HOOK_SELECTION', 'VISUAL_STYLE', 'TREND_ANALYSIS', 'SAFETY_GATE');
+
+-- 6. Command Types (Fixed for Audit)
+create type ag_command_type as enum ('START', 'PAUSE', 'RESUME', 'STOP', 'EDIT_MEMORY', 'ROLLBACK');
+```
+
+---
+
+## 1. CONTROL PLANE ("The Governance")
+
+### Table: `ag_agent_registry` (The Identity Module)
+
+```sql
+create table ag_agent_registry (
+  id text primary key, -- 'ORION_V3_4'
+  name text not null,
+  version text not null,
+  role_description text,
+  allowed_phases ag_session_phase[] not null,
+  config_schema jsonb,
+  created_at timestamptz default now()
+);
+alter table ag_agent_registry enable row level security;
+```
+
+---
+
+## 2. ORCHESTRATION LAYER
+
+### Table: `ag_sessions`
+*Created BEFORE Events to satisfy FK constraints.*
+
+```sql
+create table ag_sessions (
+  id uuid primary key default gen_random_uuid(),
+  user_id uuid references auth.users not null,
+  
+  -- Context Meta
+  platform ag_platform_type not null default 'Desktop',
+  location_iso char(2),
+  client_timestamp timestamptz,
+  
+  -- The "Why"
+  trigger_reason text,
+  objective_goal text,
+  
+  -- Execution State
+  active_agent_id text references ag_agent_registry(id),
+  current_phase ag_session_phase default 'PLANNING',
+  current_status ag_agent_status default 'ACTIVE',
+  
+  -- Financials (Numeric Precision)
+  accumulated_cost numeric(10,4) default 0.0000,
+  currency char(3) default 'USD',
+  
+  created_at timestamptz default now(),
+  updated_at timestamptz default now()
+);
+alter table ag_sessions enable row level security;
+
+-- Trigger Function (Correct Syntax)
+create or replace function update_modified_column()
+returns trigger as $$
+begin
+    new.updated_at = now();
+    return new;
+end;
+$$ language plpgsql;
+
+create trigger update_ag_sessions_modtime
+    before update on ag_sessions
+    for each row execute function update_modified_column();
+```
+
+### Table: `ag_control_events` (The Event Backbone)
+
+```sql
+create table ag_control_events (
+  id bigint generated always as identity primary key,
+  session_id uuid references ag_sessions not null,
+  
+  -- Strict Command Typing
+  command_type ag_command_type not null, 
+  payload jsonb,
+  
+  issued_by uuid references auth.users,
+  created_at timestamptz default now()
+);
+alter table ag_control_events enable row level security;
+```
+
+---
+
+## 3. INTELLIGENCE LAYER ("The Glass Box")
+
+### Table: `ag_agent_memory` (RAM Snapshots)
+*Partitioned by Day. Uses Composite PK to allow partitioning.*
+
+```sql
+create table ag_agent_memory (
+  -- Composite Primary Key allows Partitioning
+  session_id uuid references ag_sessions not null,
+  agent_id text references ag_agent_registry(id) not null,
+  captured_at timestamptz default now(),
+  id bigint generated always as identity,
+  
+  -- The "Brain" Dump
+  memory_snapshot jsonb not null, 
+  diff_log jsonb, -- RFC 6902 JSON Patch
+  
+  primary key (captured_at, id)
+) partition by range (captured_at);
+
+alter table ag_agent_memory enable row level security;
+
+-- Example: Daily Partitions
+create table ag_agent_memory_2026_02_01 partition of ag_agent_memory
+    for values from ('2026-02-01') to ('2026-02-02');
+```
+
+### Table: `ag_logic_trace` (Triple Justification + W3C Tracing)
+
+```sql
+create table ag_logic_trace (
+  id bigint generated always as identity primary key,
+  session_id uuid references ag_sessions not null,
+  agent_id text references ag_agent_registry(id) not null,
+  
+  -- W3C Distributed Tracing Standards
+  trace_id char(32) not null, -- 32 hex chars
+  span_id char(16) not null, -- 16 hex chars
+  
+  -- Context
+  decision_type ag_decision_type not null,
+  
+  -- Partition-Aware Foreign Key (Composite)
+  input_snapshot_captured_at timestamptz,
+  input_snapshot_id bigint,
+  foreign key (input_snapshot_captured_at, input_snapshot_id) 
+    references ag_agent_memory (captured_at, id),
+  
+  -- The "Triple Justification"
+  justification_identity text,
+  justification_knowledge text,
+  justification_math text,
+  
+  confidence_score numeric(3,2) check (confidence_score between 0.00 and 1.00),
+  auto_corrected boolean default false,
+  
+  created_at timestamptz default now()
+);
+alter table ag_logic_trace enable row level security;
+```
+
+---
+
+## 4. ASSET LAYER ("The Vault")
+
+### Table: `ag_assets`
+
+```sql
+create table ag_assets (
+  id uuid primary key default gen_random_uuid(),
+  session_id uuid references ag_sessions,
+  
+  title text not null,
+  asset_type ag_asset_type not null,
+  version int4 default 1,
+  
+  created_by_agent text references ag_agent_registry(id),
+  strategic_goal text,
+  
+  storage_path text not null,
+  
+  production_cost numeric(10,4) default 0.0000,
+  est_revenue_rpm numeric(10,4),
+  roi_actual numeric(10,4),
+  
+  created_at timestamptz default now()
+);
+alter table ag_assets enable row level security;
+```
+
+---
+
+## 5. FEEDBACK LAYER ("Evolution")
+
+### Table: `ag_social_metrics`
+
+```sql
+create table ag_social_metrics (
+  id bigint generated always as identity primary key,
+  asset_id uuid references ag_assets not null,
+  platform text,
+  
+  views numeric(20,0),
+  likes numeric(20,0),
+  
+  captured_at timestamptz default now()
+);
+alter table ag_social_metrics enable row level security;
+```

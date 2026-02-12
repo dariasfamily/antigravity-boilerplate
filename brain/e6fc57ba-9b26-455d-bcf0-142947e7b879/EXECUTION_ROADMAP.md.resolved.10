@@ -1,0 +1,74 @@
+﻿# EXECUTION ROADMAP: FRACTAL SYSTEM (v2.0)
+
+Este roadmap estructura la construcciÃ³n del **AXON LifeOS** en niveles fractales.
+**Prioridad**: Construir la **DivisiÃ³n IngenierÃ­a (Fase 1)** como base para todo lo demÃ¡s.
+
+---
+
+## ðŸ—ï¸ Phase 1: DivisiÃ³n IngenierÃ­a (The Foundation)
+*Prerequisite for: ALL other phases.*
+
+### Level 2: The Infrastructure (The Factory)
+*   **Level 3 Modules**:
+    *   [x] **1.1 Boilerplate Core**: `AXON-boilerplate` repo (Next.js 14 + ShadCN).
+    *   [x] **1.2 Identity System**: Supabase Auth (Google/Email).
+    *   [x] **1.3 Database Core**: Supabase DB with automated RLS policies.
+    *   [x] **1.4 Deployment Pipeline**: GitHub Actions -> Vercel (CI/CD).
+
+### Level 2: Auto-Operations (The Nervous System)
+*   **Level 3 Modules**:
+    *   [x] **1.5 Automation Hub**: n8n local/cloud setup (Installed via npm).
+    *   [x] **1.6 Webhooks Center**: API Routes `/api/hooks` to trigger Agent actions.
+    *   [x] **1.7 The Auditor**: Script de validaciÃ³n post-deployment.
+    *   [x] **1.8 Evolution Engine**: [SYSTEM_STATE_LOG.md](file:///C:/Users/daria/.gemini/AXON/brain/e6fc57ba-9b26-455d-bcf0-142947e7b879/SYSTEM_STATE_LOG.md) (System Memory & Self-Audit History).
+
+---
+
+## ðŸ’° Phase 2: DivisiÃ³n Riqueza (The Engine)
+*Prerequisite: Phase 1 (Factory).*
+
+### Level 2: Monetization Core
+*   **Level 3 Modules**:
+    *   [x] **2.0 Wealth Brain**: Database Schema (Assets/Transactions).
+    *   [ ] **2.1 Stripe Connect**: Wrapper para pagos SaaS/One-off.
+    *   [ ] **2.2 Subscription Manager**: LÃ³gica de planes en DB.
+    *   [ ] **2.3 Financial Dashboard**: UI para ver MRR/Churn en tiempo real.
+
+---
+
+## ðŸ“¢ Phase 3: DivisiÃ³n Marca (The Voice)
+*Prerequisite: Phase 1 (Factory).*
+
+### Level 2: Content Engines
+*   **Level 3 Modules**:
+    *   [ ] **3.1 YouTube Agent**: Script de generaciÃ³n de guiones + Veo API.
+    *   [ ] **3.2 Social Bot Network**: PublicaciÃ³n automÃ¡tica en X/LinkedIn (via Rube).
+    *   [ ] **3.3 Brand Avatar**: Identidad visual generada por IA.
+
+---
+
+## â¤ï¸ Phase 4: DivisiÃ³n Vida (The Human)
+*Prerequisite: Phase 1 & 2 (Money buys time).*
+
+### Level 2: Bio-Optimization
+*   **Level 3 Modules**:
+    *   [ ] **4.1 Health Tracker**: Dashboard de mÃ©tricas corporales (Apple Health sync).
+    *   [ ] **4.2 Knowledge Base**: CuraciÃ³n automÃ¡tica de libros/papers (NotebookLM integration).
+
+---
+
+## âš–ï¸ Phase 5: DivisiÃ³n Legal (The Shield)
+*Prerequisite: Phase 2 (Assets to protect).*
+
+### Level 2: Compliance
+*   **Level 3 Modules**:
+    *   [ ] **5.1 Contract Generator**: Templates legales automÃ¡ticos.
+    *   [ ] **5.2 License Manager**: AuditorÃ­a de licencias de software.
+
+---
+
+## ðŸš€ Puesta en Marcha (Immediate Next Steps)
+Siguiendo la lÃ³gica "Foundation First", la acciÃ³n inmediata es:
+**Execute Phase 1 > Level 2 (Factory) > Level 3 (Boilerplate Core)**.
+1.  Inicializar Repositorio.
+2.  Configurar Stack Base.

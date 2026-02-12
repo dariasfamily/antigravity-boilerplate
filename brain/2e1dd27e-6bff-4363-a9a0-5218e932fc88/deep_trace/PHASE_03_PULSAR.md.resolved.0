@@ -1,0 +1,96 @@
+# 🕵️ ELITE DEEP TRACE: PHASE 3 - PULSAR ("The Translator")
+**Role**: Prompt Engineer & Model Gateway.
+**Protocol**: Level 5 (Maximum Oversight)
+**Dashboard State**: 🟣 `PULSAR_TRANSMUTING` (Fast Flicker)
+
+## 1. THE INPUT ARTIFACT (From Phase 2)
+**Interface: Planner -> Pulsar**
+Pulsar receives a specific node from the **Execution Blueprint**.
+*   **Task**: "PROMPT_OPTIMIZE"
+*   **Target**: "Refine 'AI Trends 2026' for Orion's Research Mode."
+
+### 1.1 Structural Input Object
+```json
+{
+  "blueprint_ref": "BP-2026-02-08-001",
+  "step_id": 1,
+  "target_agent": "ORION",
+  "intent_context": {
+    "raw": "temas sobre uso y aplicaciones de IA modernos 2026",
+    "constraints": ["FOCUS_UTILITY", "FOCUS_PRACTICAL"]
+  },
+  "model_config": {
+    "provider": "GEMINI_2_PRO",
+    "temperature": 0.7
+  }
+}
+```
+
+## 2. THE PROCESS (Logic Kernel)
+
+### 2.1 Micro-Step: Persona Injection
+*   **Action**: Select the optimal "System Prompt" for the target.
+*   **Selection**: Target is `ORION` (Analyst).
+*   **Persona**: "You are a Senior Technology Forecaster. Precision and citation are paramount."
+
+### 2.2 Micro-Step: Prompt Engineering (The Transmutation)
+*   **Input**: "temas sobre uso y aplicaciones de IA modernos..."
+*   **Technique**: Chain-of-Thought + Few-Shot.
+*   **Transformation**:
+    *   *From*: "Tell me about AI 2026"
+    *   *To*: "Analyze the trajectory of Generative AI applications for Q1-Q4 2026. Focus on: 1) Agentic Workflows, 2) Embodied AI, 3) Enterprise Automation. Exclude: Sci-Fi speculation."
+
+### 2.3 Micro-Step: Safety Wrap
+*   **Action**: Wrap the prompt in **Jailbreak Guards** (Reverse). Ensure the prompt doesn't trigger the target model's refusal mechanisms unnecessarily while maintaining strict safety.
+
+## 3. THE OUTPUT INTERFACE (Pulsar -> Orion)
+
+### 3.1 Prompt Matrix V1
+```json
+{
+  "matrix_id": "PMX-2026-02-08-001",
+  "target": "ORION",
+  "optimized_prompts": [
+    {
+      "id": "p1",
+      "role": "system",
+      "content": "You are a Senior Foresight Analyst..."
+    },
+    {
+      "id": "p2",
+      "role": "user",
+      "content": "Conduct a deep sweep on 'Applied AI 2026'..."
+    }
+  ],
+  "expected_tokens": 4000
+}
+```
+
+## 4. DASHBOARD SIGNALS & CONTROL
+
+### 4.1 Status Indicators
+*   **Led Color**: 🟣 **PURPLE (Flicker)** = `OPTIMIZING`.
+*   **Message**: "Engineering Prompts: 1 System, 1 User."
+*   **Visual**: Diff view showing Raw Input vs. Optimized Prompt.
+
+### 4.2 User Intervention Controls ("The Prompt Review")
+*   **Trigger**: Pulsar finishes Matrix. State -> 🟠 `WAITING_APPROVAL`.
+1.  **[APPROVE]**: Lock Prompts. Send to Orion.
+2.  **[MODIFY]**: User edits the Optimized Prompt directly.
+    *   *Example*: Change "Enterprise Automation" to "Creative Industries".
+    *   *System Reaction*: Pulsar re-validates token count.
+3.  **[REGENERATE]**: "Try a different Persona."
+
+## 5. AUDIT LOG (The "Black Box" - 5 Levels)
+
+| Level | Type | Message | Hash |
+| :--- | :--- | :--- | :--- |
+| **L1** | **IDENTITY** | `Pulsar activated by Planner Blueprint.` | `c4d5...` |
+| **L2** | **RESOURCE** | `Notional Cost: $0.00 (Internal Logic).` | `e6f7...` |
+| **L3** | **DECISION** | `Strategy: FORECASTER_PERSONA + COT_REASONING.` | `g8h9...` |
+| **L4** | **DATA** | `Prompt expansion: 10 words -> 150 words.` | `i0j1...` |
+| **L5** | **STATE** | `Transition: TRANSMUTING -> PROMPTS_READY.` | `k2l3...` |
+
+---
+**NEXT**: **PHASE 4: ORION (The Analyst)**
+*Dependency*: User Approval of Prompt Matrix.

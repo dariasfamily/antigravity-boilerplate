@@ -1,0 +1,46 @@
+# Task: Analyze and Document Agent Orion
+
+- [x] Search codebase for existing Orion definitions (types, logic, skills) <!-- id: 0 -->
+- [x] Analyze Input/Output flow for Orion <!-- id: 1 -->
+- [x] Create detailed "Anatomy of Orion" artifact answering user questions <!-- id: 2 -->
+- [x] Verify Orion's control logic and skill integration <!-- id: 3 -->
+- [x] Query NotebookLM for Orion metrics and query strategy <!-- id: 4 -->
+- [x] Refine Schema with detailed Content Specs (Duration, Format, Mode) <!-- id: 5 -->
+- [x] Implement V3 Logic in `orion_logic.ts` (Anti-Patterns, Audio Layer) <!-- id: 6 -->
+- [x] Create `simulate_orion_v3.ts` with complex inputs <!-- id: 7 -->
+- [x] Execute V3 Simulation and Validate Constraints <!-- id: 8 -->
+- [x] Refactor Logic: Dynamic Structure (Duration-based), 15+ Keywords, 3 Titles <!-- id: 9 -->
+- [x] Implement Workflow: Prompt Agent -> Top 10 Table -> Top 3 Manifests -> Context Update <!-- id: 10 -->
+- [x] Simulate Master Registry & Dashboard State Updates <!-- id: 11 -->
+- [x] Define `SystemContext` Schema: Inputs + Top 3 Manifests + Rejected Summary <!-- id: 15 -->
+- [x] Simulate creation of `SystemContext` Object in `simulate_orion_v3.ts` <!-- id: 16 -->
+- [x] Generate Audit Log showing separation of DB Record vs Context Object <!-- id: 17 -->
+- [x] Create `SYSTEM_ELEVATION_ANALYSIS.md`: Literal Checklist of User's "Titan" Requirements <!-- id: 18 -->
+- [x] Design `THE_NUCLEUS_SCHEMA.md` V5.0 Titanium (Expert Audit Compliant) <!-- id: 19 -->
+- [x] Update `SYSTEM_UPGRADE_ROADMAP.md` to V2 (Titan Edition) <!-- id: 20 -->
+- [x] Propose `AGENT_CHASSIS_V4_SPEC.md` (The Golden Template with Auto-Correction) <!-- id: 21 -->
+- [x] Refine Nucleus to V5.3 Diamond Cut (Idempotency, Nullable Diff, Triple Justification) <!-- id: 22 -->
+- [x] Implement `src/core/AgentRunner.ts` (Sealed Class Pattern) <!-- id: 23 -->
+- [x] Implement `src/core/InternalAffairs.ts` (Validators for Money & JSON Patch) <!-- id: 24 -->
+- [x] Refactor `OrionV4` to use Sealed Runner <!-- id: 25 -->
+- [ ] **Phase 3: Dashboard Integration (Orion V4)** <!-- id: 26 -->
+    - [x] Create Production Route `/api/agents/orion/run` <!-- id: 27 -->
+- [x] Update `AgentContext` to handle Execution Results <!-- id: 28 -->
+- [x] Wire `Dashboard/page.tsx` to call API <!-- id: 29 -->
+- [ ] Verify UI displays Results & Trace ID <!-- id: 30 -->
+- [x] **Phase 4: Calliope Agent (Copywriting)** <!-- id: 31 -->
+    - [x] Implement `CalliopeLogic.ts` (Sealed Class) <!-- id: 32 -->
+    - [x] Create `/api/agents/calliope/run` route <!-- id: 33 -->
+    - [x] Wire Calliope to Dashboard UI <!-- id: 34 -->
+- [/] **Phase 5: Dashboard V3 Redesign ("The Glass Cockpit")** <!-- id: 35 -->
+    - [x] Create `OrionModule` V1 (Prototype)
+    - [x] Create `CalliopeModule` V1 (Prototype)
+    - [x] **Wiring**: Connect Modules to Dashboard Logic (API)
+    - [/] **Orion V3 Upgrade** (Blueprint Compliance)
+        - [ ] Input: Matrix, Tone Dial, Platform Grid
+        - [ ] Output: Virality Gauge, Trading Cards
+    - [ ] **Global Shell**: Header with Trace/Session ID
+    - [x] Nucleus (Live Trace)
+    - [x] Telemetry (Real-time DB Stream)
+    - [x] Global Session Mgmt (Kill Switch)
+    - [x] Verify Dashboard V3 Integration

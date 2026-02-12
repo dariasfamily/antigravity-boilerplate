@@ -1,0 +1,42 @@
+﻿# Arquitectura del Sistema AXON (The Hive Mind)
+
+Este documento define la estructura modular, escalable y autÃ³noma del ecosistema AXON.
+
+## 1. FilosofÃ­a: "Hive Mind, Specialized Hands"
+El sistema opera bajo una premisa central: **MÃºltiples Agentes Especializados (Manos) comparten un Ãšnico Contexto Vivo (Cerebro).**
+
+*   **AutonomÃ­a**: Cada agente puede trabajar solo.
+*   **SincronÃ­a**: Todos leen y escriben en la misma memoria.
+*   **EvoluciÃ³n**: El sistema se re-escribe a sÃ­ mismo para mejorar.
+
+## 2. El NÃºcleo (The Brain)
+Es la fuente de verdad compartida. Todos los agentes (Dev, Social, Research) deben consultar esto antes de actuar.
+*   **UbicaciÃ³n**: `<AppData>/brain/<id>` (Sistema de Archivos) + Supabase (Memoria Estructurada).
+*   **Componentes**:
+    *   [GEMINI.md](file:///C:/Users/daria/.gemini/AXON/brain/e6fc57ba-9b26-455d-bcf0-142947e7b879/GEMINI.md): La ConstituciÃ³n y Reglas Globales.
+    *   [master_plan.md](file:///C:/Users/daria/.gemini/AXON/brain/e6fc57ba-9b26-455d-bcf0-142947e7b879/master_plan.md): El mapa de ruta estratÃ©gico.
+    *   `knowledge_base/`: Biblioteca de PDFs, Docs y guÃ­as tÃ©cnicas (NotebookLM).
+    *   `context_log/`: Registro de eventos para que los agentes sepan quÃ© hizo el otro.
+
+## 3. Los Agentes (The Workforce)
+MÃ³dulos independientes que ejecutan tareas especÃ­ficas.
+1.  **Orchestrator (Jefe)**: Lee el [task.md](file:///C:/Users/daria/.gemini/AXON/brain/e6fc57ba-9b26-455d-bcf0-142947e7b879/task.md) y asigna trabajo. Mantiene el orden.
+2.  **Builder (Dev)**: Especialista en Next.js/Supabase. Construye la "Income Factory".
+3.  **Researcher (Investigador)**: Usa Perplexity/NotebookLM para traer datos nuevos al `knowledge_base/`.
+4.  **Marketer (Difusor)**: Usa Rube/Veo para crear y publicar contenido.
+
+## 4. La FÃ¡brica (The Factory)
+El motor de producciÃ³n de activos.
+*   **AXON Boilerplate**: Un repositorio "Semilla" (Next.js + Supabase + Payments).
+*   **Input**: Ideas del usuario.
+*   **Output**: Apps/SaaS listas para monetizar.
+
+## 5. Protocolo de ComunicaciÃ³n (Nervous System)
+Â¿CÃ³mo hablan los agentes entre sÃ­?
+*   **Signal Files**: Archivos `.status` o entradas en Supabase que indican "Tarea Lista".
+    *   *Ejemplo*: El `Researcher` termina un informe y crea `research_done.signal`. El `Marketer` ve la seÃ±al y empieza a crear el video.
+*   **Shared Context Injection**: Cada agente recibe el [GEMINI.md](file:///C:/Users/daria/.gemini/AXON/brain/e6fc57ba-9b26-455d-bcf0-142947e7b879/GEMINI.md) al iniciar, garantizando alineaciÃ³n.
+
+## 6. Auto-Mejora (Evolution)
+*   **AuditorÃ­a**: Cada domingo (o fin de ciclo), el Orchestrator revisa `FACTORY_ORIGIN.md` y [task.md](file:///C:/Users/daria/.gemini/AXON/brain/e6fc57ba-9b26-455d-bcf0-142947e7b879/task.md).
+*   **MutaciÃ³n**: Si se encuentra una mejor herramienta (ej. Claude 5.0), se actualiza [GEMINI.md](file:///C:/Users/daria/.gemini/AXON/brain/e6fc57ba-9b26-455d-bcf0-142947e7b879/GEMINI.md) automÃ¡ticamente.

@@ -1,0 +1,21 @@
+# Task: Analyze and Document Agent Orion
+
+- [x] Search codebase for existing Orion definitions (types, logic, skills) <!-- id: 0 -->
+- [x] Analyze Input/Output flow for Orion <!-- id: 1 -->
+- [x] Create detailed "Anatomy of Orion" artifact answering user questions <!-- id: 2 -->
+- [x] Verify Orion's control logic and skill integration <!-- id: 3 -->
+- [x] Query NotebookLM for Orion metrics and query strategy <!-- id: 4 -->
+- [x] Refine Schema with detailed Content Specs (Duration, Format, Mode) <!-- id: 5 -->
+- [x] Implement V3 Logic in [orion_logic.ts](file:///C:/Users/daria/.gemini/AXON/scratch/AXON-boilerplate/src/utils/orion_logic.ts) (Anti-Patterns, Audio Layer) <!-- id: 6 -->
+- [x] Create [simulate_orion_v3.ts](file:///C:/Users/daria/.gemini/AXON/scratch/AXON-boilerplate/src/scripts/simulate_orion_v3.ts) with complex inputs <!-- id: 7 -->
+- [x] Execute V3 Simulation and Validate Constraints <!-- id: 8 -->
+- [x] Refactor Logic: Dynamic Structure (Duration-based), 15+ Keywords, 3 Titles <!-- id: 9 -->
+- [x] Implement Workflow: Prompt Agent -> Top 10 Table -> Top 3 Manifests -> Context Update <!-- id: 10 -->
+- [x] Simulate Master Registry & Dashboard State Updates <!-- id: 11 -->
+- [x] Define [SystemContext](file:///C:/Users/daria/.gemini/AXON/scratch/AXON-boilerplate/src/types/agent_types.ts#137-165) Schema: Inputs + Top 3 Manifests + Rejected Summary <!-- id: 15 -->
+- [x] Simulate creation of [SystemContext](file:///C:/Users/daria/.gemini/AXON/scratch/AXON-boilerplate/src/types/agent_types.ts#137-165) Object in [simulate_orion_v3.ts](file:///C:/Users/daria/.gemini/AXON/scratch/AXON-boilerplate/src/scripts/simulate_orion_v3.ts) <!-- id: 16 -->
+- [x] Generate Audit Log showing separation of DB Record vs Context Object <!-- id: 17 -->
+- [x] Create [SYSTEM_ELEVATION_ANALYSIS.md](file:///C:/Users/daria/.gemini/AXON/brain/3c65b299-3df3-4c3f-946a-142ca59ee46c/SYSTEM_ELEVATION_ANALYSIS.md): Literal Checklist of User's "Titan" Requirements <!-- id: 18 -->
+- [x] Design [THE_NUCLEUS_SCHEMA.md](file:///C:/Users/daria/.gemini/AXON/brain/3c65b299-3df3-4c3f-946a-142ca59ee46c/THE_NUCLEUS_SCHEMA.md) V4.2 (Strict Enums, Registry & Numeric Types) <!-- id: 19 -->
+- [ ] Update [SYSTEM_UPGRADE_ROADMAP.md](file:///C:/Users/daria/.gemini/AXON/brain/3c65b299-3df3-4c3f-946a-142ca59ee46c/SYSTEM_UPGRADE_ROADMAP.md) to V2 (Titan Edition) <!-- id: 20 -->
+- [ ] Propose "Agent Chassis V4" (The Golden Template with Auto-Correction) <!-- id: 21 -->

@@ -1,0 +1,67 @@
+{
+  "mcpServers": {
+    "supabase": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@supabase/mcp-server-supabase@latest",
+        "--access-token",
+        "sbp_4f9e7936d3368c9a54c9d4f4e3a97d7494382d3f"
+      ],
+      "disabled": false
+    },
+    "cloudrun": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@google-cloud/cloud-run-mcp"
+      ],
+      "env": {},
+      "disabled": true
+    },
+    "firebase-mcp-server": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "firebase-tools@latest",
+        "mcp"
+      ],
+      "env": {},
+      "disabled": true
+    },
+    "github": {
+      "command": "node",
+      "args": [
+        "C:/Users/daria/.gemini/AXON/scratch/node_modules/@modelcontextprotocol/server-github/dist/index.js"
+      ],
+      "env": {
+        "GITHUB_PERSONAL_ACCESS_TOKEN": "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"
+      },
+      "disabled": false
+    },
+    "gmp-code-assist": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@googlemaps/code-assist-mcp@latest"
+      ],
+      "env": {
+        "SOURCE": "AXON"
+      },
+      "disabled": true
+    },
+    "notebooklm": {
+      "command": "C:/Users/daria/AppData/Roaming/Python/Python313/Scripts/notebooklm-mcp.exe",
+      "args": [],
+      "disabled": false,
+      "env": {}
+    },
+    "stitch": {
+      "serverUrl": "https://stitch.googleapis.com/mcp",
+      "headers": {
+        "X-Goog-Api-Key": "AQ.Ab8RN6KlEckxNrzlOw4ImwYdRPcZK3KY8jG25V48I_0peFNzAQ"
+      },
+      "disabled": true
+    }
+  }
+}

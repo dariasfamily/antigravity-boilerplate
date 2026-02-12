@@ -1,0 +1,86 @@
+﻿# IMP_BRAND_DIVISION: The Content Engine Implementation Plan
+
+**Objective**: Establish the **Brand Division** to automate content strategy, creation, and distribution. This "Content Engine" will operate as a sub-hive within the AXON System.
+
+## 1. Governance & Agents (The Creative Triumvirate)
+
+We will deploy three specialized specialized skills (agents) following the Fractal Pattern:
+
+### ðŸŒŸ **Orion (The Strategist)**
+*   **Role**: Creative Director & Planner.
+*   **Responsibility**:
+    *   Maintains the "Brand Voice" (AXON Constitution).
+    *   Scans trends (via Perplexity/Google).
+    *   Generates the **Content Calendar**.
+    *   Issues "Creative Briefs" to Calliope.
+*   **Input**: `User Goal` (e.g., "Promote LifeOS"), `Trend Data`.
+*   **Output**: `Strategy_JSON`, `Content_Brief`.
+
+### ðŸŽ¨ **Calliope (The Creator)**
+*   **Role**: Senior Copywriter & Art Director.
+*   **Responsibility**:
+    *   Writes posts (Twitter Threads, LinkedIn Articles, Blog).
+    *   Generates image prompts (Midjourney/DALL-E) and video prompts (Veo/Sora).
+    *   Refines content based on feedback.
+*   **Input**: `Content_Brief` (from Orion).
+*   **Output**: `Draft_Content`, `Media_Assets`.
+
+### ðŸ“¡ **Echo (The Broadcaster)**
+*   **Role**: Social Media Manager & Analyst.
+*   **Responsibility**:
+    *   Publishes content to external platforms (Twitter, LinkedIn, YouTube) via **n8n**.
+    *   Listens for engagement (Replies/Quotes).
+    *   Aggregates metrics (Views, Likes).
+*   **Input**: `Final_Content`, `Schedule_Time`.
+*   **Output**: `Published_URL`, `Analytics_Report`.
+
+---
+
+## 2. Technical Architecture
+
+### Directory Structure
+```text
+src/
+  skills/
+    brand_orion/       # Strategy Skill
+    brand_calliope/    # Creation Skill
+    brand_echo/        # Distribution Skill
+```
+
+### Data Flow (The "Pipeline")
+The content lifecycle will be tracking in Supabase (`brand_content` table):
+1.  **Drafting**: Orion creates a row in `brand_content` (Status: `PLANNED`).
+2.  **Production**: Calliope reads `PLANNED` rows, generates text/media, updates row (Status: `REVIEW`).
+3.  **Approval**: User (Daria) approves via Dashboard (Status: `APPROVED`).
+4.  **Publishing**: Echo picks up `APPROVED` rows, sends to n8n (Status: `PUBLISHED`).
+
+### Database Schema (`brand_content`)
+*   [id](file:///C:/Users/daria/.gemini/AXON/installation_id): UUID
+*   `idea`: Text (The concept)
+*   `channel`: Enum (Twitter, LinkedIn, YouTube)
+*   `content_body`: Text (The final post)
+*   `media_url`: Text (Image/Video link)
+*   `status`: Enum (PLANNED, REVIEW, APPROVED, PUBLISHED)
+*   `metrics`: JSON (Views, Likes)
+
+---
+
+## 3. Integration Points
+
+*   **n8n**: Will handle the actual API calls to Twitter/LinkedIn to keep the Agent logic clean.
+    *   Workflow: `brand_publisher.json`
+*   **Supabase**: State management for the content pipeline.
+*   **Hermes**: Routing requests between Agents (e.g., Orion telling Calliope to start work).
+
+## 4. User Review Required
+> [!IMPORTANT]
+> **Approval Workflow**: We need to decide if Echo can *auto-publish* high-confidence content or if *all* content requires manual Dashboard approval. Defaulting to **Manual Approval** for V1.
+
+---
+
+## 5. Execution Steps
+1.  **Database**: Create `brand_content` table in Supabase.
+2.  **Skill Forge**: Generate `brand_orion`, `brand_calliope`, `brand_echo`.
+3.  **Logic**: Implement Python handlers for each.
+4.  **Automation**: Create n8n workflows for Twitter/LinkedIn publishing.
+5.  **UI**: Add "Content Studio" tab to the Dashboard.

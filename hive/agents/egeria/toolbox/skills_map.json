@@ -1,0 +1,58 @@
+{
+    "skills": [
+        {
+            "id": "notebooklm_mastery",
+            "name": "NotebookLM Mastery",
+            "status": "operative",
+            "health": 1.0,
+            "last_polish": "2026-02-09"
+        },
+        {
+            "id": "system-orchestrator",
+            "name": "System Orchestrator",
+            "status": "operative",
+            "health": 1.0,
+            "last_polish": "2026-02-09"
+        },
+        {
+            "id": "pricing-strategy",
+            "name": "Pricing Strategy (Wealth Core)",
+            "status": "operative",
+            "health": 1.0,
+            "last_polish": "2026-02-10",
+            "source": "hive/skills/marketing/pricing-strategy"
+        },
+        {
+            "id": "launch-strategy",
+            "name": "Launch Strategy (Wealth Core)",
+            "status": "operative",
+            "health": 1.0,
+            "last_polish": "2026-02-10",
+            "source": "hive/skills/marketing/launch-strategy"
+        },
+        {
+            "id": "copywriting",
+            "name": "Copywriting (Conversion)",
+            "status": "operative",
+            "health": 1.0,
+            "last_polish": "2026-02-10",
+            "source": "hive/skills/marketing/copywriting"
+        },
+        {
+            "id": "email-sequence",
+            "name": "Email Sequence (Automation)",
+            "status": "operative",
+            "health": 1.0,
+            "last_polish": "2026-02-10",
+            "source": "hive/skills/marketing/email-sequence"
+        },
+        {
+            "id": "product-marketing-context",
+            "name": "Product Marketing Context (Brain)",
+            "status": "operative",
+            "health": 1.0,
+            "last_polish": "2026-02-10",
+            "source": "hive/skills/marketing/product-marketing-context"
+        }
+    ]
+}

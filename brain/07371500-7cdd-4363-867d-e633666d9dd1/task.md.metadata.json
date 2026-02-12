@@ -1,0 +1,6 @@
+{
+  "artifactType": "ARTIFACT_TYPE_TASK",
+  "summary": "Cierre de la investigación sobre el archivo fantasma `workspace.json`. Se ha verificado que la entrada era un residuo de la interfaz y ha sido eliminada por el usuario.",
+  "updatedAt": "2026-02-12T01:17:07.384628800Z",
+  "version": "1"
+}

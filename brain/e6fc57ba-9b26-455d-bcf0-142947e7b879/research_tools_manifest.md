@@ -1,0 +1,38 @@
+# Manifiesto de Herramientas de Investigación y Labs
+
+Estas herramientas son **Experimentales (Google Labs)**. No tienen API pública estándar, por lo que el agente interactuará con ellas vía **Navegador Web**.
+
+## 📓 NotebookLM (Research Core)
+*   **Acceso Híbrido**:
+    *   **MCP Server**: Configurado en `mcp_config.json` (Experimental).
+    *   **Browser**: [notebooklm.google.com](https://notebooklm.google.com/)
+*   **Uso**: Deep Dives en documentos PDF/Docs.
+
+## 🧵 Stitch (UI Design)
+*   **Acceso Híbrido**:
+    *   **MCP Server**: Configurado (`google-stitch-mcp`).
+    *   **Browser**: Labs Interface.
+*   **Uso**: Generación de UI basada en Design DNA.
+
+## 🧪 Google Labs Suite
+
+### 1. Whisk (Image Gen)
+*   **URL**: [labs.google/whisk](https://labs.google/whisk) (o URL específica de acceso anticipado)
+*   **Función**: Mezcla de conceptos visuales y generación de imágenes.
+
+### 2. Stitch (UI Design)
+*   **URL**: [labs.google/stitch](https://labs.google/stitch)
+*   **Función**: Generación de interfaces de usuario y código frontend.
+
+### 3. Pomelli (Marketing)
+*   **URL**: [labs.google/pomelli](https://labs.google/pomelli)
+*   **Función**: Creación de campañas de marketing end-to-end.
+
+### 4. Opal (App Builder)
+*   **URL**: [labs.google/opal](https://labs.google/opal)
+*   **Función**: Construcción de mini-apps con lenguaje natural.
+
+## ⚠️ Nota de "Bleeding Edge"
+Al ser herramientas de acceso anticipado (Waitlist/Alpha), es posible que:
+1.  El agente necesite loguearse con tu cuenta de Google (ya conectada).
+2.  La URL cambie o requiera invitación específica.

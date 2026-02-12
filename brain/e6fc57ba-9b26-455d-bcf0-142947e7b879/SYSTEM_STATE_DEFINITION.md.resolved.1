@@ -1,0 +1,58 @@
+﻿# SYSTEM STATE DEFINITION (V1.0)
+**"The Blackboard Architecture"**
+
+## 1. The Core Principle
+> **"No Agent Speaks. All Agents Write."**
+
+In AXON, Agents ([Orion](file:///C:/Users/daria/.gemini/AXON/scratch/AXON-boilerplate/src/components/dashboard/OrionStudio.tsx#5-300), [Calliope](file:///C:/Users/daria/.gemini/AXON/scratch/AXON-boilerplate/src/types/agent_types.ts#50-57), `Echo`) are **strictly decoupled**.
+They do NOT call each other's functions.
+They do NOT pass variables directly.
+
+Instead, they interact with the **Global System Context** (The Blackboard).
+
+## 2. The Architecture Diagram
+
+```mermaid
+graph TD
+    User((User / Darias)) -->|Directives| CTX[System Context (Blackboard)]
+    
+    subgraph "Thinking (Orion)"
+        CTX -->|Trigger via State| ORION[Orion Agent]
+        ORION -->|Writes Strategy| CTX
+    end
+    
+    subgraph "Writing (Calliope)"
+        CTX -->|Reads Orion Strategy| CALLIOPE[Calliope Agent]
+        CALLIOPE -->|Writes Script| CTX
+    end
+    
+    subgraph "Speaking (Echo)"
+        CTX -->|Reads Script| ECHO[Echo Agent]
+        ECHO -->|Writes Post Status| CTX
+    end
+    
+    CTX -->|Real-Time Updates| DASH[Dashboard UI]
+```
+
+## 3. The Data Flow (The "Relay Race")
+
+1.  **Phase 1 (Input)**: User updates `Context.global_variables.focus_topic` = "AI Agents".
+2.  **Phase 2 (Orion)**: 
+    *   Reads `focus_topic`.
+    *   Executes Research.
+    *   **WRITES**: `Context.agents.ORION.data` (The Manifest).
+3.  **Phase 3 (Calliope)**:
+    *   Watcher detects `ORION.status == 'success'`.
+    *   Reads `Context.agents.ORION.data`.
+    *   Executes Writing.
+    *   **WRITES**: `Context.agents.CALLIOPE.data` (The Script).
+4.  **Phase 4 (Echo)**:
+    *   Watcher detects `CALLIOPE.status == 'success'`.
+    *   Reads `Context.agents.CALLIOPE.data`.
+    *   Executes Posting.
+    *   **WRITES**: `Context.agents.ECHO.logs` (Success URL).
+
+## 4. Why This Matters?
+*   **Resilience**: If Calliope crashes, Orion doesn't care. The data is safe on the Blackboard.
+*   **Auditability**: To debug, we just look at the Blackboard snapshot. We see exactly what Calliope saw.
+*   **Scalability**: We can add 50 more agents (e.g., "Legal_Review") that just read/write to the Blackboard without rewriting Orion.

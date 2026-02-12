@@ -1,0 +1,81 @@
+﻿# SYSTEM REGISTRY (The Golden Record)
+
+**Purpose**: Defines the "Ideal State" of the AXON System. The Auditor (Oculus) compares Reality vs. Registry to trigger repairs.
+
+## 1. Active Agents (The Roster)
+
+| Agent ID | Role | Status Key | Health Check Method | Owner |
+| :--- | :--- | :--- | :--- | :--- |
+| `hephaestus` | Factory / Builder | `active_heph` | CLI: `generate_skill --version` | Engineering |
+| `oculus` | Auditor / Security | `active_ocu` | Log: [SYSTEM_STATE_LOG.md](file:///C:/Users/daria/.gemini/AXON/brain/e6fc57ba-9b26-455d-bcf0-142947e7b879/SYSTEM_STATE_LOG.md) (24h) | Engineering |
+| `hermes` | Messenger / Bus | `active_her` | n8n: `webhook_health` | Operations |
+| `orion` | Brand Strategist | `active_ori` | CLI: [nightly_protocol.py](file:///C:/Users/daria/.gemini/AXON/scratch/AXON-boilerplate/src/skills/brand_orion/scripts/nightly_protocol.py) | Brand |
+| `calliope` | Script Writer | `active_cal` | CLI: `python brand_calliope_handler.py` | Brand |
+| `echo` | Social Manager | `active_echo` | CLI: `python brand_echo_handler.py` | Brand |
+| `argus` | QA / Vision | `active_arg` | CLI: `python brand_argus_handler.py` | Brand |
+| `thalia` | Visual Artist | `active_tha` | CLI: `python brand_thalia_handler.py` | Brand |
+| `apollo` | Voice Actor | `active_apo` | CLI: `python brand_apollo_handler.py` | Brand |
+| `lumiere`| Video Director| `active_lum` | CLI: `python brand_lumiere_handler.py`| Brand |
+| `wealth` | Finance Manager | `active_fin` | Supabase: `wealth_assets` (Update <24h) | Finance |
+
+## 2. Infrastructure Endpoints
+
+| Service | Endpoint | Auth Method | Criticality |
+| :--- | :--- | :--- | :--- |
+| **Dashboard** | `http://localhost:3000` | Supabase Auth | High |
+| **Supabase** | `https://[proj].supabase.co` | Service Role Key | Critical |
+| **NotebookLM** | `Manual (URL)` | User Session | High |
+| **n8n** | `Local / Cloud` | Webhook Secret | Medium |
+
+## 3. Tool Stack Strategy (Redundancy Protocol)
+
+| Capability | Primary Tool | Secondary Tool (Backup/Optimization) | Agent Owner |
+| :--- | :--- | :--- | :--- |
+| **Research** | Perplexity (Live) | Google Gemini / Trends | `orion` |
+| **Image** | **NanoBanana** | Midjourney / DALL-E 3 | `thalia` |
+| **Video** | **Veo3** | Runway Gen-3 | `lumiere` |
+| **Avatar** | **HeyGen** | D-ID / Synthesia | `lumiere` |
+| **Audio** | **ElevenLabs** | OpenAI TTS | `apollo` |
+| **Social** | Typefully | Direct API (X/LinkedIn) | `echo` |
+
+## 4. Data Flow Contracts (Feedback Loops)
+
+### A. The Optimization Loop
+`Metric (Viewer Retention)` -> `Echo Agent` -> `Strategy Update` -> `Orion Agent` -> `New Content`.
+
+### B. The Correction Loop
+`Error Log (Python Exception)` -> `Oculus Agent` -> `Patch Proposal` -> `User Approval` -> `Hephaestus Fix`.
+
+## 5. Knowledge Layer
+
+### 1. Agents (The Workforce)
+*   **Orion**:
+    *   **Type**: Strategy & Research Agent.
+    *   **Status**: **ACTIVE** (Expert Level).
+    *   **Protocol**: [agents/ORION_PROTOCOL.md](file:///C:/Users/daria/.gemini/AXON/brain/e6fc57ba-9b26-455d-bcf0-142947e7b879/agents/ORION_PROTOCOL.md).
+    *   **Brain (NotebookLM)**: [Orion Strategy Manual](https://notebooklm.google.com/notebook/3ec36f41-61d5-4c31-873a-452f547b3e9b).
+*   **Calliope**:
+    *   **Type**: Script & Narrative Agent.
+    *   **Status**: **ACTIVE** (Brain Connected).
+    *   **Protocol**: [agents/CALLIOPE_PROTOCOL.md](file:///C:/Users/daria/.gemini/AXON/brain/e6fc57ba-9b26-455d-bcf0-142947e7b879/agents/CALLIOPE_PROTOCOL.md).
+    *   **Brain (NotebookLM)**: [Calliope Scripting Brain](https://notebooklm.google.com/notebook/ca1a5f14-ef50-491a-9e09-a9b008cf66a2).
+*   **Echo**:
+    *   **Type**: Distribution & Engagement Agent.
+    *   **Status**: **PROTOCOL_READY** (Awaiting Skill Link).
+    *   **Protocol**: [agents/ECHO_PROTOCOL.md](file:///C:/Users/daria/.gemini/AXON/brain/e6fc57ba-9b26-455d-bcf0-142947e7b879/agents/ECHO_PROTOCOL.md).
+    *   **Brain (NotebookLM)**: *Pending Integration*.
+
+### 2. Context (The Soul)
+*   **Brand DNA**: [BRAND_DNA.md](file:///C:/Users/daria/.gemini/AXON/brain/e6fc57ba-9b26-455d-bcf0-142947e7b879/BRAND_DNA.md).
+*   **Knowledge Registry**: [SYSTEM_REGISTRY.md](file:///C:/Users/daria/.gemini/AXON/brain/e6fc57ba-9b26-455d-bcf0-142947e7b879/SYSTEM_REGISTRY.md) (This file).
+
+## 6. Security Gates (The Lattice)
+
+*   **Level 0 (Public)**: None.
+*   **Level 1 (User)**: Dashboard View.
+*   **Level 2 (Commander)**: Pause/Resume Agents, Approve Budget.
+*   **Level 3 (Root)**: Create/Delete Agents (Terminal Access Only).
+
+---
+**Auto-Correction Protocol:**
+If `Step(Check)` fails `Criteria(Registry)`, execute `Action(Repair)`.

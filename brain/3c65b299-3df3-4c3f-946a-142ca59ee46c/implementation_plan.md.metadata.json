@@ -1,0 +1,6 @@
+{
+  "artifactType": "ARTIFACT_TYPE_IMPLEMENTATION_PLAN",
+  "summary": "Implementation Plan for Calliope Agent (Copywriting Layer).\nGoal: Transform Orion Manifests into production-ready scripts.\nArchitecture: Sealed Runner Pattern.",
+  "updatedAt": "2026-02-01T23:58:25.559627500Z",
+  "version": "2"
+}

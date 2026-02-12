@@ -1,0 +1,6 @@
+{
+  "artifactType": "ARTIFACT_TYPE_IMPLEMENTATION_PLAN",
+  "summary": "Updated CALLIOPE Definition to align with the new System Integration Spec. Added specific dashboard functions, detailed data handshake protocols, and error handling responsibilities.",
+  "updatedAt": "2026-02-01T06:17:16.583012800Z",
+  "version": "2"
+}

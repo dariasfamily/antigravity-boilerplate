@@ -1,0 +1,68 @@
+﻿# Implementation Plan - Agent ORION Definition
+
+## Goal Description
+Create a comprehensive definition for **Agent ORION** (Analytic/Investigative Agent) by synthesizing multiple sources of input provided by the user. This definition will serve as the "Source of Truth" for this agent within the multi-agent ecosystem.
+
+## User Review Required
+- Confirmation that the integration of the "Elite Screenwriter" audit points into the Analytic Agent's knowledge base is correct (as requested: "Integrate all... specifically the 3 JSON structures faithfully").
+
+## Proposed Changes
+
+### Brain / Documentation
+#### [NEW] [ORION_AGENT_DEFINITION.md](file:///C:/Users/daria/.gemini/AXON/brain/d65fb39e-731e-4105-a607-93d240ddc562/ORION_AGENT_DEFINITION.md)
+- **Role & Purpose**: Define Orion as the Research/Analytic engine.
+- **Role & Purpose**: Define Orion as the Research/Analytic engine.
+- **Knowledge Architecture (LITERAL INTEGRATION)**:
+    - **Original Schema**: `conocimiento_base_agente_IA_analitico` (Ver 1.0).
+    - **Audit Schema**: Blocks A, B, C (Ver 2.0) with full fields (`Definicion_Operativa`, `Fuente`, etc.).
+    - **Professional Templates**: `bloque_A_nucleo_cognitivo` & `bloque_B_informacion_adicional`.
+- **Operational Context**:
+    - Include full text sections: "Â¿CuÃ¡ndo y cÃ³mo usar?", "IntegraciÃ³n Modular", "GeneraciÃ³n TemÃ¡tica".
+- **Operational Flow**:
+    - Usage in bootstrapping, scoring, and transfer.
+    - **System Integration**:
+        - **NEW: MBSE Schemas**: `Orion_Ingest` & `Orion_Manifest`.
+        - **NEW: Communication Protocols**: Interaction with Calliope (Writer) & Wealth (Monetizer).
+        - **Advanced Logic**: `Predict_Niche_RPM`, `Analyze_Hook_Psychology`, etc.
+        - **Strategic Intelligence 2025**: Hybrid Monetization, Audience Ownership, Neuro-Psychology.
+    - JSON schemas for interoperability.
+    - **Input Schema (High-Definition)**:
+        - Module 1: Strategic Context (Brand, KPI).
+        - Module 2: Characters & Relations.
+        - Module 3: Visual & Spatial Engineering.
+        - Module 4: Sound & Verbal Design.
+        - Module 5: Emotional Architecture & CTA.
+    - **Technical Logic (Business Rules)**:
+        - Marketing Frameworks (P.O.S.E., 3-Second Rule, Linklater).
+        - Decision Logic (Validation, Virality, Monetization Functions).
+        - Operational Guidelines (Must-Dos, Anti-Patterns).
+    - Input/Output specifications.
+
+## Operational Implementation (System Code)
+
+### [MODIFY] [agent_types.ts](file:///c:/Users/daria/.gemini/AXON/scratch/AXON-boilerplate/src/types/agent_types.ts)
+- **Refactor `OrionInput`**: Map strictly to `Orion_Ingest` JSON (P.O.S.E. Framework).
+- **Refactor `OrionBrief`**: Map strictly to `Orion_Manifest` JSON.
+- **Add `AgentPerformanceMetric`**: Interface for scoring/state reporting.
+- **Add [StandardizationRecord](file:///c:/Users/daria/.gemini/AXON/scratch/AXON-boilerplate/src/types/agent_types.ts#152-161)**: Interface for the system registry.
+
+### [NEW] [SYSTEM_STANDARDIZATION_REGISTRY.md](file:///C:/Users/daria/.gemini/AXON/brain/d65fb39e-731e-4105-a607-93d240ddc562/SYSTEM_STANDARDIZATION_REGISTRY.md)
+- A central ledger tracking:
+    - Agent Version & Definition Path.
+    - Input/Output Schemas.
+    - Backup Locations.
+    - Metric Definitions.
+
+### [NEW] [orion_logic.ts](file:///c:/Users/daria/.gemini/AXON/scratch/AXON-boilerplate/src/utils/orion_logic.ts)
+- Implement Hardcoded Business Rules (RPM Prediction, Hook Psychology).
+
+### [NEW] [orion_prompt_builder.ts](file:///c:/Users/daria/.gemini/AXON/scratch/AXON-boilerplate/src/services/orion_prompt_builder.ts)
+- Implement Service to inject Static Markdown Context into LLM.
+
+### [NEW] [orion_ingest_service.ts](file:///c:/Users/daria/.gemini/AXON/scratch/AXON-boilerplate/src/services/orion_ingest_service.ts)
+- Implement Service to parse Multi-Modal Inputs (PDF, URL) into text.
+
+## Verification Plan
+### Manual Verification
+- Verify that every JSON key/category from the user prompt is present in the final artifact.
+- Ensure the hierarchy is logical and "governs the structure of this agent".

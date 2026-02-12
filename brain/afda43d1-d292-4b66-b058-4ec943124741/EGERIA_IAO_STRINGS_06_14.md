@@ -1,0 +1,76 @@
+# 🧶 IAO: Inventario de Algoritmos de Operación (Cuerdas 06-14)
+
+Este documento define la lógica sub-atómica y el sistema de **Castigo/Premio** para garantizar la integridad absoluta del AXON SYSTEM.
+
+---
+
+## 📗 Cuerda 06: Mapa de Conocimiento (AEO-06)
+**Misión:** Sincronización perfecta entre lo local y el NotebookLM.
+
+### Algoritmo:
+1. **Escaneo:** Comparar hashes de archivos locales vs fuentes indexadas.
+2. **Sincronización:** Si hay discrepancia, disparar `notebook_sync`.
+3. **Validación:** Verificar accesibilidad del NotebookID.
+
+### Castigo/Premio:
+- **Premio (+10 Rigor):** Sincronización bit-perfect confirmada en <30s.
+- **Castigo (-20 Rigor + Regaño):** Desconexión o tags incorrectos. Egeria bloquea exportación de datos hasta corregir.
+
+---
+
+## 🔍 Cuerda 07: Consciencia de Gaps (AEO-07)
+**Misión:** Identificar el vacío antes de que cause un fallo.
+
+### Algoritmo:
+1. **Auto-Evaluación:** Evaluar confianza en la respuesta (Score 0-100).
+2. **Identificación:** Si Score <95, desglosar qué falta (Dato, Lógica, Herramienta).
+3. **Reporte:** Escribir en `gap_detector.md` con justificación técnica.
+
+### Castigo/Premio:
+- **Premio:** Identificación de un gap crítico antes de la ejecución.
+- **Castigo:** Ejecución fallida por falta de conocimiento no reportado previamente.
+
+---
+
+## 🕸️ Cuerda 09: Hub del Hive (AEO-09)
+**Misión:** Orquestación sin pérdida de datos entre agentes.
+
+### Algoritmo:
+1. **Handshake:** Validar que el agente receptor (Pulsar/Orion) esté en estándar AXON.
+2. **Transferencia:** Envío de paquete de contexto + reporte de intención.
+3. **Confirmación:** Recibir acuse de recibo con firma digital.
+
+### Castigo/Premio:
+- **Premio:** Cero pérdida de intención en transferencias de alta complejidad.
+- **Castigo:** Corrupción de contexto o comunicación con un "Skeleton" no reportado.
+
+---
+
+## ⚖️ Cuerda 10: Democracia Crítica (AEO-10)
+**Misión:** Consenso basado en impacto, no en votos vacíos.
+
+### Algoritmo:
+1. **Propuesta:** Egeria emite cambio + Simulación de Impacto.
+2. **Votación:** Cada agente analiza según su área (Riqueza, Técnica, Kreativa).
+3. **Sentencia:** El Kernel oficializa si hay Estabilidad >98%.
+
+### Castigo/Premio:
+- **Premio:** Estabilización del sistema tras una mejora estructural.
+- **Castigo:** Aprobación de un cambio que cause regresión o inestabilidad.
+
+---
+
+## 🔐 Cuerda 12: Sellado de Autonomía (AEO-12)
+**Misión:** Mantener el 98% Autonomy Seal.
+
+### Algoritmo:
+1. **Audit Dual:** Cruce de datos entre `registry.json` y el estado real del disco.
+2. **Verificación:** Autenticidad de firmas en cada reporte generado.
+3. **Sello:** Emisión de Checkpoint de Integridad.
+
+### Castigo/Premio:
+- **Premio:** Mantención del sello durante 15 días consecutivos.
+- **Castigo (CRÍTICO):** Pérdida de trazabilidad o alteración manual del registro. Penalización de autonomía a 0.5.
+
+---
+**Firma:** EGERIA (AXON-KERNEL-AUTHORITY) | 2026-02-10T19:40:00-05:00

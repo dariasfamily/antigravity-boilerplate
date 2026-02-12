@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "@modelcontextprotocol/server-github": "^2025.4.8",
+    "@notionhq/notion-mcp-server": "^2.1.0",
+    "@robinson_ai_systems/vercel-mcp": "^1.0.1",
+    "eventsource": "^4.1.0"
+  }
+}

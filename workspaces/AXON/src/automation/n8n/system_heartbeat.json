@@ -1,0 +1,102 @@
+{
+    "name": "System Heartbeat Listener",
+    "settings": {
+        "executionOrder": "v1"
+    },
+    "nodes": [
+        {
+            "parameters": {
+                "httpMethod": "POST",
+                "path": "system-signal",
+                "options": {}
+            },
+            "name": "Webhook",
+            "type": "n8n-nodes-base.webhook",
+            "typeVersion": 1,
+            "position": [
+                460,
+                240
+            ]
+        },
+        {
+            "parameters": {
+                "operation": "toJson",
+                "mode": "each"
+            },
+            "name": "Analyze Signal",
+            "type": "n8n-nodes-base.itemLists",
+            "typeVersion": 1,
+            "position": [
+                680,
+                240
+            ]
+        },
+        {
+            "parameters": {
+                "conditions": {
+                    "string": [
+                        {
+                            "value1": "={{ $json.body.status }}",
+                            "operation": "contains",
+                            "value2": "CRITICAL"
+                        }
+                    ]
+                }
+            },
+            "name": "Is Critical?",
+            "type": "n8n-nodes-base.if",
+            "typeVersion": 1,
+            "position": [
+                900,
+                240
+            ]
+        },
+        {
+            "parameters": {
+                "content": "✅ System Heartbeat Received: {{$json.body.status}}"
+            },
+            "name": "Log Success",
+            "type": "n8n-nodes-base.noOp",
+            "typeVersion": 1,
+            "position": [
+                1120,
+                340
+            ]
+        }
+    ],
+    "connections": {
+        "Webhook": {
+            "main": [
+                [
+                    {
+                        "node": "Analyze Signal",
+                        "type": "main",
+                        "index": 0
+                    }
+                ]
+            ]
+        },
+        "Analyze Signal": {
+            "main": [
+                [
+                    {
+                        "node": "Is Critical?",
+                        "type": "main",
+                        "index": 0
+                    }
+                ]
+            ]
+        },
+        "Is Critical?": {
+            "main": [
+                [
+                    {
+                        "node": "Log Success",
+                        "type": "main",
+                        "index": 0
+                    }
+                ]
+            ]
+        }
+    }
+}

@@ -1,0 +1,71 @@
+# ⚡ AXON SKILLS INVENTORY (L-6 QUANTUM)
+**Clasificación:** TOP SECRET // INTERNAL AUDIT
+**Versión:** 1.0
+**Total Skills Activas:** 23 (Documentadas) + 2 (Embeddidas en Specs)
+
+Este inventario lista las capacidades operativas ("Skills") instaladas en el Hive.
+
+## 🏛️ CORE SQUAD (The Brain)
+### EGERIA (Orchestrator)
+1.  `system-orchestrator`: Gestión de flujo y sincronización de agentes.
+2.  `notebooklm_mastery`: (Elite) Sincronización con bases de conocimiento.
+
+### PULSAR (Gateway)
+3.  `logic-validator`: Verificación de coherencia y falacias.
+4.  `prompt-refinement`: (Elite) Optimización de instrucciones.
+5.  `semantic-anchor`: Anclaje de contexto para evitar alucinaciones.
+6.  `transmute-prompt`: Reescritura de intenciones de usuario.
+7.  `experience-learner`: Aprendizaje basado en feedback histórico.
+
+### ORION (Strategist)
+8.  `strategic-analysis`: Matrices de decisión y roadmaps.
+9.  `market-intelligence`: Análisis de tendencias y competencia.
+10. `report-to-hq`: Generación de informes ejecutivos.
+
+### CALLIOPE (Creator)
+11. `creative-writing`: Generación de guiones y copy.
+12. `media-production`: Planificación de activos multimedia.
+
+### ARGUS (Guardian)
+13. [compliance-check](file:///C:/Users/daria/.gemini/antigravity/hive/skills/skills/security-compliance-compliance-check): Auditoría legal y de marca.
+14. `quality-assurance`: Verificación de stándares técnicos.
+
+## 🎭 MULTIMEDIA STUDIO (The Factory)
+### APOLLO (Audio)
+15. `voice-synthesis`: Generación de voz (ElevenLabs).
+16. `music-generation`: Composición musical (Suno).
+17. `sfx-layering`: Diseño sonoro y mezcla.
+18. `pattern-interrupts`: Modulación psicoacústica.
+
+### THALIA (Visual)
+19. `visual-direction`: Dirección de arte y moodboards.
+20. `motion-design`: Coreografía de movimiento.
+21. `thumbnail-creation`: Diseño estático de alto impacto.
+    *   *(Nota: Pixel y Frame usan herramientas definidas en sus Specs)*
+
+## ⚙️ INFRASTRUCTURE (The Engine)
+### PLANNER (Architect)
+22. `architecture-design`: (Elite) Diseño de sistemas escalables.
+23. `system-audit`: (Elite) Verificación de integridad estructural.
+
+### HEPHAESTUS (Automator)
+24. `python-scripting`: (Definida en Spec) Ejecución de código.
+25. `ffmpeg-orchestration`: (Definida en Spec) Procesamiento de video.
+
+### NEXUS (Connector)
+26. `social-publishing`: Distribución a plataformas.
+27. `meta-tagging`: Inyección de metadatos SEO.
+28. `intent-classification`: Clasificación de señales de entrada.
+
+### TIRESIAS (SEO Oracle)
+29. `keyword-clustering`: (Definida en Spec) Agrupación semántica.
+30. `entity-mapping`: (Definida en Spec) Grafos de conocimiento.
+
+## 👻 SOUL (The Identity)
+### LYRA (Guardian)
+31. `tone-calibration`: (Definida en Spec) Ajuste emocional.
+32. `identity-injection`: (Definida en Spec) Personalización de marca.
+
+---
+**Auditor:** EGERIA
+**Status:** VERIFIED

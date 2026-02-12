@@ -1,0 +1,34 @@
+{
+    "strategy_name": "Bleeding Edge Router",
+    "version": "1.0",
+    "models": {
+        "fast_tier": [
+            "gemini-3.0-flash",
+            "gemini-3.0-pro-low"
+        ],
+        "power_tier": [
+            "gemini-3.0-pro-high",
+            "claude-4.5-sonnet-thinking"
+        ]
+    },
+    "rules": [
+        {
+            "trigger": "simple_query",
+            "action": "use_fast_tier",
+            "examples": [
+                "summary",
+                "translation",
+                "chat"
+            ]
+        },
+        {
+            "trigger": "complex_reasoning",
+            "action": "use_power_tier",
+            "examples": [
+                "coding",
+                "architecture",
+                "deep_research"
+            ]
+        }
+    ]
+}

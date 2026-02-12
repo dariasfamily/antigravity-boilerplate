@@ -1,0 +1,13 @@
+# Tasks: Master Plan Execution
+
+## Phase 2: Essential MCPs (Troubleshooting)
+- [ ] **2.2 Supabase MCP (401 Error)** <!-- id: 4 -->
+    - [ ] Create `debug-auth.js` to test connection with native fetch <!-- id: 4g -->
+    - [ ] Verify Supabase token with native script <!-- id: 4h -->
+    - [ ] Rewrite bridge to use native fetch (if successful) <!-- id: 4i -->
+- [ ] **2.2 Vercel MCP (404 Error)** <!-- id: 5 -->
+    - [ ] Probe Vercel endpoints to find the correct URL <!-- id: 6b -->
+    - [ ] Update config with correct Vercel URL <!-- id: 6c -->
+
+## Future Phases
+- [ ] Phase 2.3: Social Media MCPs <!-- id: 7 -->

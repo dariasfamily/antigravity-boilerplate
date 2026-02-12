@@ -1,0 +1,32 @@
+# NotebookLM Troubleshooting Guide
+
+## Problema: Herramientas no visibles después de refresh_auth
+
+### Síntomas
+- `mcp_notebooklm_refresh_auth` ejecutado exitosamente
+- Credenciales actualizadas correctamente
+- `list_resources` devuelve lista vacía
+- Herramientas de NotebookLM no aparecen en el contexto del agente
+
+### Causa Raíz
+El servidor MCP no recarga las herramientas automáticamente después de actualizar credenciales. Requiere reinicio completo del agente/IDE.
+
+### Solución
+**Reiniciar AXON/IDE completamente** después de ejecutar `notebooklm-mcp-auth` o [refresh_auth](file:///C:/Users/daria/AppData/Roaming/Python/Python313/site-packages/notebooklm_mcp/server.py#112-157).
+
+### Verificación
+```
+Lista mis notebooks de NotebookLM
+```
+
+Si devuelve la lista de notebooks, la integración está funcional.
+
+### Comando de Diagnóstico Rápido
+1. Ejecutar `mcp_notebooklm_notebook_list`
+2. Si devuelve `{"status": "success", "count": N}`, todo está OK
+3. Si falla con error de autenticación, ejecutar `notebooklm-mcp-auth` y reiniciar
+
+---
+
+**Última actualización**: 2026-02-09
+**Estado**: Resuelto ✅

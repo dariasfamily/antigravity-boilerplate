@@ -1,0 +1,79 @@
+# 🗺️ SYSTEM UPGRADE ROADMAP: THE "GLASS BOX" STANDARD
+**Objective**: Elevate the entire OS to "Orion V3.4 Level" (Deep Context, Total Visibility).
+**Strategy**: Use Orion as the 'Golden Template' and implement a modular "Glass Box" architecture for real-time observability.
+
+---
+
+## 🏗️ PHASE 1: THE "ORION STANDARD" (DEFINITION)
+*What does it mean to be a "Level Superior" Agent?*
+We define the **Protocol** that every Agent must follow (Orion, Calliope, Cronos).
+
+1.  **Deep Schema Separation**:
+    *   **Input Schema**: Strict Type Checking (e.g., [OrionIngest](file:///C:/Users/daria/.gemini/AXON/scratch/AXON-boilerplate/src/types/agent_types.ts#16-42) with constraints).
+    *   **Context Object (RAM)**: ephemeral, heavy JSONs (e.g., full scripts, visual styles).
+    *   **DB Record (Disk)**: flattened, metric-heavy (ROI, Status, URLs).
+2.  **Audit Traceability**:
+    *   Every execution generates a Markdown Audit Log (like `ORION_WORKFLOW_AUDIT`).
+    *   "Why this decision?" Reasoning must be logged.
+3.  **Dashboard Hook**:
+    *   Every Agent must declare its [SystemContext](file:///C:/Users/daria/.gemini/AXON/scratch/AXON-boilerplate/src/types/agent_types.ts#137-165) to the Global State Manager.
+
+---
+
+## 👁️ PHASE 2: "GLASS BOX" OBSERVABILITY (ARCHITECTURE)
+*How Darias sees everything in Real-Time.*
+
+### The "Context Stream" API
+Instead of hidden backend logs, we build a dedicated API stream that the Dashboard subscribes to.
+*   **Active Sessions**: List of running workflows.
+*   **Live Memory**: View the exact JSON objects currently in RAM.
+*   **State Inspector**: Editable fields (User can tweak a "Style" mid-flight).
+
+**Implementation Plan**:
+1.  **Global Store (Redux/Zustand)**: Mirror the Backend [SystemContext](file:///C:/Users/daria/.gemini/AXON/scratch/AXON-boilerplate/src/types/agent_types.ts#137-165) in Frontend State.
+2.  **Socket/Polling**: `GET /api/system/context` endpoint that captures the *entire* state.
+3.  **Role-Based View**:
+    *   *Executive View*: ROI, Progress Bars, Status.
+    *   *Engineer View (Darias)*: Raw JSON, Memory Dumps, Error Logs.
+
+---
+
+## 🔄 PHASE 3: THE UPGRADE PROTOCOL (SOP)
+*How we upgrade the rest of the agents (Calliope, etc.) without breaking anything.*
+
+**The "Agent Upgrade" Checklist:**
+1.  [ ] **State Freeze**: Snapshot current [agent_types.ts](file:///C:/Users/daria/.gemini/AXON/scratch/AXON-boilerplate/src/types/agent_types.ts) (No data loss).
+2.  [ ] **Schema Mirroring**: Copy Orion's pattern ([Ingest](file:///C:/Users/daria/.gemini/AXON/scratch/AXON-boilerplate/src/types/agent_types.ts#16-42) -> `Logic` -> [Manifest](file:///C:/Users/daria/.gemini/AXON/scratch/AXON-boilerplate/src/types/agent_types.ts#43-48) -> [Context](file:///C:/Users/daria/.gemini/AXON/scratch/AXON-boilerplate/src/types/agent_types.ts#137-165) -> `DB`).
+3.  [ ] **Logic Separation**: Move hardcoded logic into pure functions (e.g., `calliope_logic.ts`).
+4.  [ ] **Simulation Audit**: Run a "Mega Audit" script to prove the flow.
+5.  [ ] **Context Integration**: Hook into the new [SystemContext](file:///C:/Users/daria/.gemini/AXON/scratch/AXON-boilerplate/src/types/agent_types.ts#137-165) object.
+
+---
+
+## 🚀 PHASE 4: EXECUTION ORDER (NEXT STEPS)
+
+### Step A: Finalize Orion (Completed ✅)
+*   Agente Base: Orion V3.4 (Reference Model).
+*   Estado: Listo.
+
+### Step B: Build the "Glass Box" Infra (Next 1-2 Days)
+1.  Update [SystemContext](file:///C:/Users/daria/.gemini/AXON/scratch/AXON-boilerplate/src/types/agent_types.ts#137-165) to include a global `agent_registry` (map of all agents).
+2.  Create `api/system/monitor` endpoint.
+3.  Build **Dashboard V4** "God View" Component.
+
+### Step C: Upgrade Agent Calliope (The Writer)
+1.  Apply "Orion Standard".
+2.  Consume Orion's `Top 3 Manifests`.
+3.  Produce `ScriptManifest` (Deep output).
+
+---
+
+## 🛡️ SAFETY & DATA CONTROL
+**"Zero Data Loss" Policy**:
+1.  **Versioning**: All new implementations use `_v2` or `_v3` suffixes until verified. Old pipelines remain active as fallbacks.
+2.  **Parallel Simulation**: We run the new agent in "Simulation Mode" (generating audits) before connecting it to the real DB.
+3.  **Context Snapshots**: Every major state change saves a JSON snapshot to `brain/snapshots/`.
+
+**Control for Darias**:
+*   **Editable Inputs**: The Dashboard will allow modifying the [SystemContext](file:///C:/Users/daria/.gemini/AXON/scratch/AXON-boilerplate/src/types/agent_types.ts#137-165) *before* the next agent starts.
+    *   *Example*: Orion produces 3 Manifests. Darias edits the "Hook" of Manifest #1 in the Dashboard. Calliope reads the *edited* version.

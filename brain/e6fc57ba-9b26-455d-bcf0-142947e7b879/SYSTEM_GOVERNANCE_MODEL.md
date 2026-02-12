@@ -1,0 +1,70 @@
+﻿# SYSTEM GOVERNANCE & HIVE MIND ARCHITECTURE
+
+## 1. Inter-Agent Communication (The "Swarm" Model)
+**Q: "Should each module contain instances of other agents?"
+A: NO.** Embedding agents inside agents leads to "Dependency Hell" (Infinite loops, heavy memory usage).
+
+**The AXON Solution: "Service Bus" Architecture**
+Instead of nesting, agents are **Modular Services** that reside in `src/skills/`. They communicate via a central **Bus** (CLI or API).
+*   **Wrong:** `WealthAgent` imports `EmailAgent`. `EmailAgent` imports `WealthAgent`. (Circular Crash).
+*   **Right:** `WealthAgent` broadcasts a request: "I need an email sent." The **System Router** invokes `EmailAgent` to handle it.
+
+**Mechanism:**
+Currently, we use a **CLI Bus** (`python src/skills/...`).
+Future: We will use a **Local API Bus** (Next.js API Routes triggering Python Scripts or n8n workflows).
+
+## 2. Global Context (The "Akashic Record")
+**Q: "How is context managed, accessed, and updated?"**
+Context is the "Blood" of the system. It flows through three organs:
+
+1.  **Structured Memory (Supabase):** "Hard Truths" (Asset values, User IDs, Task Status). accessible by ALL agents via `supabae-py` client.
+2.  **Episodic Memory (The Brain / Logs):** `SYSTEM_STATE_LOG.md`. The chronological journal of "What happened".
+3.  **Semantic Memory (NotebookLM):** "Knowledge". User documents, philosophy, recursive learnings.
+
+**Access Protocol:**
+*   **Read:** Any agent can READ Supabase or The Brain.
+*   **Write:** Only specific "Owner Agents" can WRITE to their domain tables. (e.g., Only `wealth_manager` writes to `wealth_assets`). This prevents data corruption.
+
+## 3. Persistence & Accessibility
+**Q: "Is this accessible every time I start AXON?"**
+**A: YES.**
+*   **Local Persistence:** The files (`src/`, `.env`) are on your hard drive. They survive restarts.
+*   **Cloud Persistence:** Supabase and NotebookLM are in the cloud. They are eternal.
+*   **The "Gap":** The *session context* (this chat) dies when you close the window.
+    *   *Solution:* We explicitly **Save to Brain** (Artifacts) so the next session can "Load" the state.
+
+## 4. NotebookLM: The "Librarian" Issue
+**Q: "How do we solve access to MY account?"**
+**A: Auth Tokens.**
+The `notebooklm` MCP server needs a customized authentication flow. We must run the specialized `setup_auth` tool. This opens a browser *on your machine* (managed by the tool), you logs in *once*, and it saves a cookie/token locally.
+*Action:* I will trigger this in the next step.
+
+## 5. The Governance Hierarchy (First Order Skills)
+**Q: "What are the Skills that govern everything?"**
+
+These are the **PRIME AGENTS** (Level 1) that are required for the system to exist:
+
+1.  **ðŸ§¬ HEPHAESTUS (The Creator)** -> `skill_forge`
+    *   *Function:* Creates other agents. Ensures fractal standards.
+    *   *Status:* **ONLINE**.
+
+2.  **ðŸ‘ï¸ OCULUS (The Auditor)** -> `auditor`
+    *   *Function:* Checks system health, file integrity, and secrets. Runs automatically.
+    *   *Status:* **PARTIAL** (Needs Self-Healing).
+
+3.  **ðŸ§  MNEMOSYNE (The Librarian)** -> `librarian` (NotebookLM Interface)
+    *   *Function:* Ingests documents, retrieves answers, manages "Knowledge".
+    *   *Status:* **OFFLINE** (Awaiting Auth).
+
+4.  **âš¡ HERMES (The Messenger)** -> `system_bus` (n8n + API)
+    *   *Function:* Moves data between agents. The "Glue".
+    *   *Status:* **ONLINE** (n8n installed).
+
+5.  **ðŸ‘‘ CHIEF OF STAFF (The Executive)** -> *You & Me (The LLM)*
+    *   *Function:* High-level decision making. We currently fill this role manually.
+
+## 6. How Modules & Skills Link
+Each "Module" (User Interface/Feature) is powered by a "Skill" (Agent Logic).
+*   **Module:** `src/app/dashboard/wealth/page.tsx` (The UI you see).
+*   **Skill:** `src/skills/wealth_manager` (The Logic that fetches data).
+*   **Link:** The UI calls the API -> API executes the Skill Script -> Skill updates DB -> UI reflects change.

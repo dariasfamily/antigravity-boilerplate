@@ -1,0 +1,5 @@
+{
+  "artifactType": "ARTIFACT_TYPE_OTHER",
+  "summary": "Protocolo MRP v1.0 (Master Refinement Protocol). Define la estructura ultra-estandarizada para los agentes del AXON SYSTEM. Incluye la arquitectura de archivos, el esquema de registry.json y la lógica de integración con NotebookLM para el auto-perfeccionamiento.",
+  "updatedAt": "2026-02-10T03:32:49.625196400Z"
+}

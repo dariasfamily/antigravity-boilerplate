@@ -1,0 +1,62 @@
+﻿# Task: AuditorÃ­a Completa de MCP Servers
+
+## Objetivo
+Auditar los 12 MCP servers uno por uno, probar sus tools, y crear configuraciÃ³n final funcional.
+
+## Checklist de AuditorÃ­a
+
+### Fase 1: PreparaciÃ³n
+- [x] Restaurar todos los 12 servidores del backup
+- [x] Deshabilitar todos (`"disabled": true`)
+- [x] Reiniciar AXON
+- [x] Verificar errores (Encontrados: 8 servidores en rojo en la parte inferior de la lista)
+
+### Fase 2: Grupo 1 - Alta Prioridad (AutenticaciÃ³n Configurada)
+- [x] **notebooklm** - Probar list_notebooks, get_notebook, list_sources
+- [x] **notion** - Probar list_databases, query_database, create_page
+- [x] **zapier** - Probar list_zaps, get_zap (Auditado: Timeout SSE)
+- [x] **make** - Probar list_scenarios, get_scenario
+
+### Fase 3: Grupo 2 - Media Prioridad (AutenticaciÃ³n Parcial)
+- [x] **github** - Probar list_repos, get_repo, list_issues
+- [x] **rube_mcp** - Probar tools disponibles (Auditado: 401 Error)
+- [x] **perplexity** - Probar search
+- [x] **supabase** - Probar list_tables, query
+- [x] **vercel** - Probar list_projects, get_project
+
+### Fase 4: Grupo 3 - Baja Prioridad (Sin ConfiguraciÃ³n)
+- [x] **cloudrun** - Verificar si requiere configuraciÃ³n adicional
+- [x] **firebase-mcp-server** - Verificar si requiere configuraciÃ³n adicional
+- [x] **gmp-code-assist** - Verificar si requiere configuraciÃ³n adicional
+
+### Fase 5: FinalizaciÃ³n
+- [x] Crear [mcp_audit_log.md](file:///C:/Users/daria/.gemini/AXON/brain/633eebe2-23a9-493d-9ab1-4e84b7f0a50b/mcp_audit_log.md) con resultados
+- [x] Crear [mcp_servers_status.md](file:///C:/Users/daria/.gemini/AXON/brain/633eebe2-23a9-493d-9ab1-4e84b7f0a50b/mcp_servers_status.md) con estado final
+- [x] Actualizar [mcp_config.json](file:///C:/Users/daria/.gemini/AXON/mcp_config.json) con solo servidores funcionales
+- [x] Actualizar [recommendations.md](file:///C:/Users/daria/.gemini/AXON/brain/633eebe2-23a9-493d-9ab1-4e84b7f0a50b/recommendations.md) con hallazgos
+
+### Fase 7: EvoluciÃ³n y AutomatizaciÃ³n (Egeria)
+- [x] Crear estructura `hive/integrations/notebooklm`
+- [x] Inicializar [registry.json](file:///C:/Users/daria/.gemini/AXON/hive/agents/registry.json) con los 27 notebooks detectados
+- [x] Crear carpetas de `projects`, `backups` y `scripts`
+- [x] Crear Skill `notebooklm_mastery`
+- [x] Crear Agente EGERIA (Secretaria / CKO)
+
+### Fase 8: Bureau of Agents (Registro Central)
+- [x] Crear Master Registry [agents_registry.md](file:///C:/Users/daria/.gemini/AXON/hive/agents/agents_registry.md) & [.json](file:///C:/Users/daria/.notebooklm/cookies_raw.json)
+- [x] Estandarizar carpetas de Orion y Calliope (Fractal Cell)
+- [x] Crear workflow `/agents` para referencia rÃ¡pida
+
+## Proceso por Servidor
+1. Habilitar solo ese servidor
+2. Reiniciar AXON
+3. Probar 2-3 tools principales
+4. Documentar resultado
+5. Deshabilitar servidor
+6. Continuar con siguiente
+
+## Estado Actual
+- **Fase:** Revert de Estabilidad (Post-NotebookLM).
+- **Secretaria:** THALIA (Restaurada para diagnÃ³stico de errores).
+- **Servidores Activos:** 2 (GitHub, NotebookLM).
+- **Estado Operativo:** Sistema simplificado para asegurar carga sin errores.

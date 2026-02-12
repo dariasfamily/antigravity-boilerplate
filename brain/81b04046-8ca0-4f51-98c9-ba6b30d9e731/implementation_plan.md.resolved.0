@@ -1,0 +1,31 @@
+# Implementation Plan - Zapier, Notion, & Make MCP Servers
+
+## Goal Description
+Install and configure MCP servers for Zapier, Notion, and Make to enable the AI assistant to interact with these services.
+
+## User Review Required
+> [!IMPORTANT]
+> **API Keys and URLs Required**:
+> - **Zapier**: Requires a **Zapier MCP URL** (created via `mcp.zapier.app`).
+> - **Make**: Requires a **Make MCP URL** (created via Make profile settings).
+> - **Notion**: Requires a **Notion Integration Token** (Internal Integration Secret).
+
+## Proposed Changes
+
+### Configuration
+1.  **Zapier**:
+    -   Use `mcp-remote` with the user-provided URL.
+2.  **Make**:
+    -   Use `mcp-remote` with the user-provided URL. (If Make provides a standalone server, we will use that, but `mcp-remote` is most likely for cloud SaaS).
+3.  **Notion**:
+    -   Install a local Notion MCP server (e.g., `mcp-notion-server` or clone a repo).
+    -   Configure with the user's API key.
+
+## Verification Plan
+
+### Automated Tests
+-   **Connection Test**: Run a script to list resources/tools for each server once configured.
+-   **mcp-remote Check**: Verify `mcp-remote` can connect to the provided URLs.
+
+### Manual Verification
+-   **User Confirmation**: Ask user to confirm they can see the new tools in their AI client.

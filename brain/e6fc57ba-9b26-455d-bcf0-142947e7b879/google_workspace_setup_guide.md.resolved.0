@@ -1,0 +1,21 @@
+# Guía de Activación: Google Workspace (Rube/Composio)
+
+Al igual que con las redes sociales, Rube (Composio) ya incluye integraciones nativas para Google. No necesitamos configurar servidores complejos.
+
+## Pasos para Conectar
+
+1.  **Abre el Dashboard de Composio/Rube**:
+    *   Ve a **[app.composio.dev](https://app.composio.dev)**.
+
+2.  **Busca las Integraciones**:
+    *   Ve a **"Integrations"**.
+    *   Busca **"Gmail"** -> Haz clic en **Connect Account** (Google OAuth).
+    *   Busca **"Google Calendar"** -> Haz clic en **Connect Account**.
+    *   Busca **"Google Drive"** -> Haz clic en **Connect Account**.
+
+3.  **Verificación**:
+    *   Reinicia la sesión de tu agente.
+    *   Nuevas herramientas disponibles: `gmail_send_email`, `google_calendar_create_event`, `google_drive_upload_file`, etc.
+
+## Nota de Privacidad
+Estás dando permiso al agente para leer y enviar correos/archivos. Asegúrate de conectar la cuenta correcta (Personal o de Trabajo) según lo que quieras que gestione.

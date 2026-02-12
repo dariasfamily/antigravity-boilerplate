@@ -1,0 +1,27 @@
+# Walkthrough - Official Skills Installation
+
+## Changes Made
+- **Global Skill Installation**: Installed the official `vercel-labs/agent-skills` collection into `C:\Users\daria\.gemini\AXON\hive\skills`.
+- **Skills Added**:
+  - **Official**: [web-design-guidelines](file:///c:/Users/daria/.gemini/antigravity/hive/skills/skills/web-design-guidelines), [react-best-practices](file:///c:/Users/daria/.gemini/antigravity/hive/skills/skills/vercel-react-best-practices), [composition-patterns](file:///c:/Users/daria/.gemini/antigravity/hive/skills/skills/vercel-composition-patterns), `react-native-guidelines`.
+  - **Marketing**: Installed 25+ marketing skills including `seo-audit`, `copywriting`, `launch-strategy`, etc.
+- **Registry**: Created [hive/skills/SKILL_REGISTRY.md](file:///C:/Users/daria/.gemini/antigravity/hive/skills/SKILL_REGISTRY.md) and mapped it to the `/skills` command.
+- **Verification**: Validated that [SKILL.md](file:///C:/Users/daria/.gemini/antigravity/hive/skills/marketing/SKILL.md) files are accessible and correctly structured in the `hive` directory.
+
+## What Was Tested
+- **Official Installation**: Ran `npx skills add` successfully.
+- **Marketing Integration**: Copied skills from desktop to `hive/skills/marketing`.
+- **Registry Access**: Verified [SKILL_REGISTRY.md](file:///C:/Users/daria/.gemini/antigravity/hive/skills/SKILL_REGISTRY.md) links to the correct files.
+- **Content Validation**: Read [seo-audit/SKILL.md](file:///C:/Users/daria/.gemini/antigravity/hive/skills/marketing/seo-audit/SKILL.md) to ensure valid content.
+
+## Validation Results
+- **Success**: All 30+ skills are installed and indexed.
+- **Accessibility**: Use `/skills` to view the registry.
+- **Discovery**: Use `/search-skills` to find new skills on the registry interactively.
+- **Automation Update**: Installed 700+ new skills via `sickn33/antigravity-awesome-skills`.
+- **New Capabilities**:
+  - `agent-browser`: Web browsing and scraping.
+  - `free-llm-provider`: Access to free AI model resources.
+
+> [!TIP]
+> **50k+ Skills**: `skills.sh` is a massive registry. We now have a local library of ~750 skills. Use `/search-skills` to explore them all, and check the `/skills` registry for our curated list.

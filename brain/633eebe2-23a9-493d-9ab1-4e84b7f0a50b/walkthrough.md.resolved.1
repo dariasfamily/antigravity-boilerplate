@@ -1,0 +1,121 @@
+﻿# NotebookLM Integration Walkthrough
+
+## ðŸŽ¯ Objetivo
+Configurar sincronizaciÃ³n automÃ¡tica de cuadernos de NotebookLM al proyecto local.
+
+## âœ… Lo que se completÃ³
+
+### 1. Estructura del Proyecto
+- Carpeta [notebooklm/](file:///c:/Users/daria/.gemini/AXON/workspaces/Proyecto%20MENISCO/dashboard-v3/notebooklm) creada
+- Script de sincronizaciÃ³n [scripts/sync_notebooklm.py](file:///c:/Users/daria/.gemini/AXON/workspaces/Proyecto%20MENISCO/dashboard-v3/scripts/sync_notebooklm.py) implementado
+- Dependencias instaladas: `notebooklm-py`, `playwright`, `python-dotenv`
+
+### 2. Intentos de AutenticaciÃ³n
+
+#### âŒ Intento 1: Cookies desde [.env.local](file:///c:/Users/daria/.gemini/AXON/workspaces/Proyecto%20MENISCO/dashboard-v3/.env.local)
+- Copiar cookies manualmente desde DevTools
+- **Resultado:** Cookies expiran rÃ¡pidamente, autenticaciÃ³n falla
+
+#### âŒ Intento 2: Playwright Automatizado
+- Script para abrir navegador y extraer cookies
+- **Resultado:** Google bloquea con "This browser may not be secure"
+
+#### âŒ Intento 3: Playwright con Chrome Real
+- Usar perfil de Chrome del usuario
+- **Resultado:** Error de compatibilidad Windows + Playwright
+
+#### âŒ Intento 4: Cookies desde `cookieStore.getAll()`
+- JavaScript en Chrome DevTools Console
+- **Resultado:** Solo obtiene cookies no-HttpOnly
+
+#### âŒ Intento 5: Cookies desde `document.cookie`
+- JavaScript alternativo
+- **Resultado:** Mismo problema - faltan cookies HttpOnly
+
+## ðŸ” AnÃ¡lisis del Problema
+
+### Root Cause
+Google usa **cookies HttpOnly** para autenticaciÃ³n (`__Secure-1PSID`, `__Secure-3PSID`, `HSID`, `SSID`). Estas cookies:
+- No son accesibles desde JavaScript (`document.cookie`)
+- No son accesibles desde `cookieStore.getAll()`
+- Solo pueden ser leÃ­das por extensiones de navegador o exportadas directamente desde Chrome
+
+### Cookies Requeridas por `notebooklm-py`
+```python
+MINIMUM_REQUIRED_COOKIES = {"SID"}  # MÃ­nimo
+# Pero tambiÃ©n necesita: __Secure-1PSID, __Secure-3PSID, HSID, SSID, etc.
+```
+
+## âœ… SoluciÃ³n Final: EditThisCookie
+
+### Por quÃ© funciona
+- Las extensiones de Chrome tienen acceso a **todas** las cookies (incluyendo HttpOnly)
+- Exporta en formato JSON compatible
+- MÃ©todo mÃ¡s confiable y recomendado por la comunidad
+
+### Pasos para Implementar
+
+1. **Instala EditThisCookie**
+   - Ve a [Chrome Web Store](https://chrome.google.com/webstore/detail/editthiscookie/fngmhnnpilhplaeedifhccceomclgfbg)
+   - Haz clic en "Agregar a Chrome"
+
+2. **Exporta las Cookies**
+   - Abre https://notebooklm.google.com/ (logueado)
+   - Haz clic en el Ã­cono de EditThisCookie (galleta en la barra de herramientas)
+   - Haz clic en el Ã­cono de "Export" (flecha hacia abajo)
+   - Las cookies se copian al portapapeles en formato JSON
+
+3. **Guarda las Cookies**
+   - Crea el archivo: [C:\Users\daria\.notebooklm\storage_state.json](file:///C:/Users/daria/.notebooklm/storage_state.json)
+   - Pega el JSON exportado
+   - AsegÃºrate de que tenga esta estructura:
+   ```json
+   {
+     "cookies": [
+       {"name": "SID", "value": "...", "domain": ".google.com", ...},
+       {"name": "__Secure-1PSID", "value": "...", "domain": ".google.com", ...},
+       ...
+     ]
+   }
+   ```
+
+4. **Ejecuta el Sync**
+   ```bash
+   python scripts/sync_notebooklm.py
+   ```
+
+### Mantenimiento
+- Las cookies expiran cada ~30 dÃ­as
+- Cuando falle con "Authentication expired", repite el proceso de exportaciÃ³n
+
+## ðŸ“Š EstadÃ­sticas del Proceso
+
+- **Tiempo total:** ~2 horas
+- **Intentos de autenticaciÃ³n:** 5 mÃ©todos diferentes
+- **Scripts creados:** 4 (login, extract, setup, sync)
+- **Dependencias instaladas:** 3 paquetes Python
+- **LecciÃ³n principal:** Google tiene protecciones anti-bot muy efectivas
+
+## ðŸ“ Archivos Creados
+
+| Archivo | PropÃ³sito | Estado |
+|---------|-----------|--------|
+| [scripts/sync_notebooklm.py](file:///c:/Users/daria/.gemini/AXON/workspaces/Proyecto%20MENISCO/dashboard-v3/scripts/sync_notebooklm.py) | Script de sincronizaciÃ³n | âœ… Funcional |
+| [scripts/setup_notebooklm_cookies.py](file:///c:/Users/daria/.gemini/AXON/workspaces/Proyecto%20MENISCO/dashboard-v3/scripts/setup_notebooklm_cookies.py) | GuÃ­a interactiva manual | âš ï¸ Limitado |
+| [scripts/extract_notebooklm_cookies.py](file:///c:/Users/daria/.gemini/AXON/workspaces/Proyecto%20MENISCO/dashboard-v3/scripts/extract_notebooklm_cookies.py) | ExtracciÃ³n Playwright | âŒ Bloqueado por Google |
+| [notebooklm/SETUP_GUIDE.md](file:///c:/Users/daria/.gemini/AXON/workspaces/Proyecto%20MENISCO/dashboard-v3/notebooklm/SETUP_GUIDE.md) | DocumentaciÃ³n | âœ… Completa |
+
+## ðŸš€ PrÃ³ximos Pasos
+
+1. **Instalar EditThisCookie** y exportar cookies
+2. **Probar sync:** `python scripts/sync_notebooklm.py`
+3. **Verificar** que liste los notebooks correctamente
+4. **(Futuro)** Implementar descarga automÃ¡tica de contenido
+
+## ðŸ’¡ Lecciones Aprendidas
+
+1. **Google Security:** Protecciones muy estrictas contra automatizaciÃ³n
+2. **HttpOnly Cookies:** No accesibles desde JavaScript por diseÃ±o de seguridad
+3. **Playwright Limitations:** Detectado como bot por Google
+4. **Browser Extensions:** Ãšnica forma confiable de acceder a todas las cookies
+5. **Cookie Lifespan:** Las cookies de Google expiran frecuentemente (~30 dÃ­as)

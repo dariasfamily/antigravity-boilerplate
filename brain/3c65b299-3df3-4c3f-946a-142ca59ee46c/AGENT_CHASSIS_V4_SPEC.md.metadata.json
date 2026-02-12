@@ -1,0 +1,6 @@
+{
+  "artifactType": "ARTIFACT_TYPE_IMPLEMENTATION_PLAN",
+  "summary": "Agent Chassis V4.1 Spec (Sealed Runner Pattern).\nUpdated to use Governance-by-Composition instead of Inheritance.\nThe `AgentRunner` is a final, sealed class that accepts an implementation of `AgentLogic`.\nThis prevents agents from overriding the core execution loop, ensuring Audit, RLS, and W3C Tracing logic is never bypassed.",
+  "updatedAt": "2026-02-01T22:58:06.061549900Z",
+  "version": "1"
+}

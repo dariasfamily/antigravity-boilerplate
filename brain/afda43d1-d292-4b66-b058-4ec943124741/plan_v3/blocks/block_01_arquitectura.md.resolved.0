@@ -1,0 +1,26 @@
+﻿# Block 01: Arquitectura Global
+
+## Metadata
+- **Plan:** v3.0
+- **SecciÃ³n:** I. Arquitectura del Sistema de Agentes
+- **Timestamp Inicio:** 2026-02-09T20:56:59-05:00
+- **Timestamp Fin:** [en progreso]
+- **Estado:** in-progress
+- **Agente Ejecutor:** AXON
+- **SesiÃ³n ID:** afda43d1-d292-4b66-b058-4ec943124741
+- **VersiÃ³n:** v1
+
+## Entrada
+- **Directorio a escanear:** `C:\Users\daria\.gemini\AXON`
+- **Archivos esperados:** Estructura completa del Hive y workspace zonal-parsec
+- **Criterios de bÃºsqueda:** Todos los directorios y archivos principales
+
+## Proceso
+1. Listar estructura de directorios del Hive
+2. Identificar directorios de agentes, skills, brain
+3. Listar estructura de `zonal-parsec`
+4. Mapear relaciÃ³n entre Hive y Workspace
+
+## Salida
+
+[Escaneando estructura...]

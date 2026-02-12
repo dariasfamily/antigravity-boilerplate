@@ -1,0 +1,8 @@
+﻿# Task: Define and Implement Agent ECHO
+
+- [ ] Analyze existing architecture for ORION and CALLIOPE <!-- id: 0 -->
+- [ ] Define ECHO's core purpose, role, and capabilities <!-- id: 1 -->
+- [ ] Create/Update ECHO's definition in [src/types/agent_types.ts](file:///c:/Users/daria/.gemini/AXON/scratch/AXON-boilerplate/src/types/agent_types.ts) <!-- id: 2 -->
+- [ ] Create detailed architecture artifact for ECHO (Markdown) <!-- id: 3 -->
+- [ ] Establish/Link NotebookLM entry for ECHO <!-- id: 4 -->
+- [ ] Verify integration with System Context <!-- id: 5 -->

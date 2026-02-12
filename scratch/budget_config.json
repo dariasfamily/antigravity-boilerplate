@@ -1,0 +1,19 @@
+{
+    "budget_control": {
+        "enabled": true,
+        "currency": "USD",
+        "limits": {
+            "daily_hard_limit": 5.0,
+            "monthly_hard_limit": 50.0,
+            "alert_threshold_percent": 80
+        },
+        "actions": {
+            "on_limit_reached": "kill_switch"
+        }
+    },
+    "rate_limiting": {
+        "global_rpm": 60,
+        "global_tpm": 1000000,
+        "retry_strategy": "exponential_backoff"
+    }
+}

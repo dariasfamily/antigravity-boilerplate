@@ -1,0 +1,99 @@
+﻿# AXON SYSTEM BLUEPRINT (The Technical Genome)
+
+> **Document Status**: `LIVING`
+> **Version**: 1.0 (Engineering Phase)
+> **Purpose**: Definitive technical reference for all modules, methods, and system anatomy.
+
+---
+
+## ðŸ—ï¸ DIVISION 1: ENGINEERING (The Body)
+**Objective**: Build, maintain, and evolve the digital infrastructure.
+
+### ðŸ­ Module 1: The Tech Factory (Infrastructure)
+*   **Repo**: `AXON-boilerplate`
+*   **Tech**: Next.js 14, TypeScript, Tailwind, ShadCN.
+*   **Role**: The physical vessel for all applications.
+
+#### ðŸ”§ Core Components (Methods & Functions)
+| Component | Path | Function/Signature | Purpose |
+|-----------|------|--------------------|---------|
+| **Auth** | [middleware.ts](file:///C:/Users/daria/.gemini/AXON/scratch/AXON-boilerplate/src/middleware.ts) | [updateSession(request)](file:///C:/Users/daria/.gemini/AXON/scratch/AXON-boilerplate/src/utils/supabase/middleware.ts#4-42) | Protects routes, refreshes Auth tokens. |
+| **DB Client** | `lib/supabase/` | [createClient()](file:///C:/Users/daria/.gemini/AXON/scratch/AXON-boilerplate/src/lib/supabase/server.ts#4-37) | Establishes authenticated connection to Brain. |
+| **UI Core** | `components/ui/` | `cn()`, `Button`, `Card` | Standardized visual atoms for "Premium" look. |
+
+#### ðŸ“‚ Data Structures (The Brain Schema)
+*   **Database**: Supabase (`AXONProyect`)
+    *   **Table: `users`** (Identity)
+        *   [id](file:///C:/Users/daria/.gemini/AXON/installation_id) (uuid, PK): User ID.
+        *   `email` (text): Contact.
+        *   `role` (text): 'admin' | 'user'.
+
+---
+
+### âš¡ Module 2: The Nervous System (Connectivity)
+**Objective**: Detect events and coordinate responses.
+
+#### ðŸ‘‚ Sub-Module: Webhooks Center (The Ears)
+*   **Endpoint**: `POST /api/hooks`
+*   **Security**: `x-AXON-secret` header.
+*   **Input Format**:
+    ```json
+    {
+      "event": "EVENT_NAME",
+      "payload": { ...data },
+      "timestamp": "ISO8601"
+    }
+    ```
+*   **Supported Events**:
+    *   `AUDIT_REQUEST`: Triggers self-check.
+    *   `DEPLOY_SUCCESS`: Triggers notification.
+
+#### ðŸ›¡ï¸ Sub-Module: The Auditor (The Immune System)
+*   **Script**: [src/scripts/auditor.ts](file:///C:/Users/daria/.gemini/AXON/scratch/AXON-boilerplate/src/scripts/auditor.ts)
+*   **Execution**: On-demand or Post-Deploy.
+*   **Logic**:
+    1.  Verify Environment Secrets.
+    2.  Verify Directory Structure.
+    3.  Log result to Memory.
+
+#### ðŸ§  Sub-Module: Evolution Engine (The Memory)
+*   **Storage**: `brain/SYSTEM_STATE_LOG.md`
+*   **Format**: Markdown Log Table.
+*   **Columns**: Date, Actor, Event, Details, Result/Icon.
+
+---
+
+### âœ‹ Module 3: Automation Hub (The Hands)
+**Objective**: Execute complex multi-step workflows.
+
+*   **Engine**: n8n (Desktop/Cloud).
+*   **Integrations**: Gmail, Slack, GitHub, Stripe.
+*   **Workflows (Planned)**:
+    1.  **Incoming Idea Processor**: Email -> Notion/DB.
+    2.  **Daily Profit Report**: Stripe -> Dashboard.
+
+---
+
+## ðŸ’° DIVISION 2: WEALTH (The Fuel)
+**Objective**: Maximize ROI and Asset Generation.
+*(Status: Planning Phase)*
+
+### ðŸ“Š Module: Wealth Dashboard
+*   **Location**: `/dashboard/wealth`
+*   **Metrics**:
+    *   `MRR` (Monthly Recurring Revenue).
+    *   `LTV` (Lifetime Value).
+    *   `Burn Rate`.
+
+---
+
+## ðŸ“¢ DIVISION 3: BRAND (The Voice)
+**Objective**: Influence and Traffic Generation.
+*(Status: Future)*
+
+---
+
+## ðŸ§¬ GLOBAL DATA RELATIONSHIPS
+*   **User** (1) <-> (N) **Assets** (Projects/SaaS).
+*   **Asset** (1) <-> (N) **Metrics** (Visits, Rev).
+*   **Event** (Webhooks) -> **Log** (Memory) -> **optimization** (Evolution).

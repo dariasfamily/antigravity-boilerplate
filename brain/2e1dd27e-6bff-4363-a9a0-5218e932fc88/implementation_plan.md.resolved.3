@@ -1,0 +1,46 @@
+# Harmonization Plan: NUCLEUS V5.3 Schema & Agent Definitions
+
+## Goal Description
+Analyze the "THE NUCLEUS V5.3" SQL schema provided by the user and harmonize it with the existing agent definitions found in the `dashboard-v3` workspace. This involves verifying that all agents (Egeria, Pulsar, Orion, Calliope, Argus, Planner) are correctly defined according to the new schema and reporting any discrepancies.
+
+## User Review Required
+- Confirmation of identified agent definitions location.
+- Approval of proposed updates to agent registry files to match V5.3 schema.
+
+## Proposed Changes
+### Analysis Phase
+1.  **Schema Breakdown**:
+    -   **New**: `DROP POLICY IF EXISTS` added for idempotency.
+    -   **New**: `diff_log` column in `ag_agent_memory` is now nullable.
+    -   **New**: `justification_knowledge` and `justification_math` restored in `ag_logic_trace`.
+2.  **Agent Discovery (COMPLETED)**:
+    -   **Orion**: `ORION_V3_4` (Investment Analyst) - *Found in Code*
+    -   **Calliope**: `CALLIOPE_V1_0` (Creative Director) - *Found in Code*
+    -   **Egeria**: `PROJ-SYSTEM-EGERIA` (Chief Knowledge Officer) - *Found in Hive*
+    -   **Pulsar**: `PROJ-2026-PULSAR-v0` (Universal Gateway) - *Found in Hive*
+    -   **Argus**: `ARGUS_V3_2` (The Guardian/Editor) - *Found in Notebook*
+    -   **Planner**: `PROJ-SYSTEM-PLANNER-v0` (The Architect) - *Found in Notebook*
+
+### Harmonization Phase (Execution)
+1.  **Create Migration**: Generate `supbase/migrations/20260208_nucleus_v5_3_diamond_cut.sql` with user's full SQL.
+2.  **Update Types**: Modify [src/types/agent_types.ts](file:///c:/Users/daria/.gemini/AXON/workspaces/Proyecto%20MENISCO/dashboard-v3/src/types/agent_types.ts) to:
+    -   Add `EGERIA`, `PULSAR`, `ARGUS`, `PLANNER` to `AgentID` and [SystemContext](file:///c:/Users/daria/.gemini/AXON/workspaces/Proyecto%20MENISCO/dashboard-v3/src/types/agent_types.ts#182-224).
+    -   Remove `CRONOS`, `NEXUS` (unless they map to Planner/Argus, but user requested explicit names).
+3.  **Create Central Registry**: Create [src/config/agent_registry.ts](file:///c:/Users/daria/.gemini/AXON/workspaces/Proyecto%20MENISCO/dashboard-v3/src/config/agent_registry.ts) exporting `AGENTS` constant with:
+    -   **Egeria**: Role "CKO", Phases: ALL (Orchestrator).
+    -   **Pulsar**: Role "Prompt Gateway", Phases: PLANNING, RESEARCH.
+    -   **Planner**: Role "Architect", Phases: PLANNING.
+    -   **Orion**: Role "Analyst", Phases: RESEARCH, SCRIPTING.
+    -   **Calliope**: Role "Creator", Phases: SCRIPTING, PRODUCTION.
+    -   **Argus**: Role "Guardian", Phases: AUDIT, PUBLISHING.
+4.  **Seed Update**: Generate [supabase/seeds/agents_seed.sql](file:///c:/Users/daria/.gemini/AXON/workspaces/Proyecto%20MENISCO/dashboard-v3/supabase/seeds/agents_seed.sql) to insert these 6 agents.
+5.  **Agent Expansion Phase** (New):
+    -   **Argus**: Hydrate from existing notebook.
+    -   **Automation**: Hydrate from "Master Automation Agent" notebook.
+    -   **Lyra, Apollo, Thalia**: Create new notebooks for these agents to establish their "Wisdom".
+    -   **Registry Update**: Register all new agents in [agent_registry.ts](file:///c:/Users/daria/.gemini/AXON/workspaces/Proyecto%20MENISCO/dashboard-v3/src/config/agent_registry.ts) and [agents_seed.sql](file:///c:/Users/daria/.gemini/AXON/workspaces/Proyecto%20MENISCO/dashboard-v3/supabase/seeds/agents_seed.sql).
+
+## Verification Plan
+### Automated Verification
+- **Schema Validation**: Use a script to validate that generated JSON/SQL matches the V5.3 schema constraints (e.g., checking enum values).
+- **Consistency Check**: Verify that all agents in the "Hive" or known lists are present in the final registry.

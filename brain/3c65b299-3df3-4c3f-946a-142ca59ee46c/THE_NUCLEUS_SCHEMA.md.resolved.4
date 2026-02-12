@@ -1,0 +1,131 @@
+# ⚛️ THE NUCLEUS SCHEMA (V5.1 TITANIUM)
+
+> **Status**: FINAL (Expert Verified)
+> **Target**: Supabase (PostgreSQL 15+)
+> **Philosophy**: "Ironclad Integrity" - The database enforces truth, not the application.
+
+---
+
+## 🏗️ 1. CORE TYPES (ENUMS)
+Strict typing prevents "Magic Strings" and logic drift.
+
+```sql
+CREATE TYPE ag_platform_type AS ENUM ('Desktop', 'Mobile_iOS', 'Mobile_Android', 'API_Headless');
+CREATE TYPE ag_session_phase AS ENUM ('PLANNING', 'RESEARCH', 'SCRIPTING', 'PRODUCTION', 'AUDIT', 'PUBLISHING');
+CREATE TYPE ag_agent_status AS ENUM ('IDLE', 'ACTIVE', 'PAUSED', 'ERROR', 'SLEEPING');
+CREATE TYPE ag_asset_type AS ENUM ('SCRIPT_MD', 'VIDEO_MP4', 'AUDIO_WAV', 'IMAGE_PNG', 'THUMBNAIL_JPG', 'METADATA_JSON');
+CREATE TYPE ag_decision_type AS ENUM ('RANKING', 'HOOK_SELECTION', 'VISUAL_STYLE', 'TREND_ANALYSIS', 'SAFETY_GATE');
+CREATE TYPE ag_command_type AS ENUM ('START', 'PAUSE', 'RESUME', 'STOP', 'EDIT_MEMORY', 'ROLLBACK');
+```
+
+---
+
+## 🎮 2. CONTROL PLANE (IDENTITY)
+
+### `ag_agent_registry`
+The "Passport Control" for agents.
+
+```sql
+CREATE TABLE ag_agent_registry (
+    id text PRIMARY KEY, -- e.g., 'ORION_V3_4'
+    name text NOT NULL,
+    version text NOT NULL,
+    role_description text,
+    allowed_phases ag_session_phase[] NOT NULL,
+    config_schema jsonb,
+    created_at timestamptz DEFAULT now()
+);
+ALTER TABLE ag_agent_registry ENABLE ROW LEVEL SECURITY;
+```
+
+---
+
+## 🎬 3. ORCHESTRATION LAYER (SESSIONS)
+
+### `ag_sessions`
+The root state container.
+
+```sql
+CREATE TABLE ag_sessions (
+    id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
+    user_id uuid REFERENCES auth.users NOT NULL,
+    active_agent_id text REFERENCES ag_agent_registry(id),
+    current_phase ag_session_phase DEFAULT 'PLANNING',
+    current_status ag_agent_status DEFAULT 'ACTIVE',
+    accumulated_cost numeric(10,4) DEFAULT 0.0000, -- Financial Integrity
+    created_at timestamptz DEFAULT now(),
+    updated_at timestamptz DEFAULT now()
+);
+ALTER TABLE ag_sessions ENABLE ROW LEVEL SECURITY;
+```
+
+---
+
+## 🧠 4. INTELLIGENCE LAYER (PARTITIONED MEMORY)
+
+### `ag_agent_memory`
+**CRITICAL ARCHITECTURE**: Partitioned by time (Range). Requires Composite Primary Key.
+
+```sql
+CREATE TABLE ag_agent_memory (
+    session_id uuid REFERENCES ag_sessions NOT NULL,
+    agent_id text REFERENCES ag_agent_registry(id) NOT NULL,
+    captured_at timestamptz DEFAULT now(),
+    id bigint GENERATED ALWAYS AS IDENTITY,
+    
+    memory_snapshot jsonb NOT NULL, 
+    diff_log jsonb CHECK (jsonb_typeof(diff_log) = 'array'), -- RFC 6902 Compliance
+    
+    -- Composite PK includes Partition Key
+    PRIMARY KEY (captured_at, id)
+) PARTITION BY RANGE (captured_at);
+ALTER TABLE ag_agent_memory ENABLE ROW LEVEL SECURITY;
+```
+
+---
+
+## 🕵️ 5. OBSERVABILITY LAYER (FORENSIC TRACING)
+
+### `ag_logic_trace`
+**W3C COMPLIANT**: Stores decision reasoning with strict Trace Context.
+**COMPOSITE FK**: Correctly references the partitioned memory table.
+
+```sql
+CREATE TABLE ag_logic_trace (
+    id bigint GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    session_id uuid REFERENCES ag_sessions NOT NULL,
+    
+    -- W3C Trace Context (Strict Hex Validation)
+    trace_id char(32) NOT NULL CHECK (trace_id ~ '^[a-f0-9]{32}$'),
+    span_id char(16) NOT NULL CHECK (span_id ~ '^[a-f0-9]{16}$'),
+    parent_span_id char(16) CHECK (parent_span_id ~ '^[a-f0-9]{16}$'),
+    
+    decision_type ag_decision_type NOT NULL,
+    
+    -- Composite Foreign Key to Partitioned Table
+    input_snapshot_captured_at timestamptz,
+    input_snapshot_id bigint,
+    FOREIGN KEY (input_snapshot_captured_at, input_snapshot_id) 
+        REFERENCES ag_agent_memory (captured_at, id),
+    
+    justification_identity text,
+    confidence_score numeric(3,2) CHECK (confidence_score BETWEEN 0.00 AND 1.00)
+);
+ALTER TABLE ag_logic_trace ENABLE ROW LEVEL SECURITY;
+```
+
+---
+
+## 📜 6. EVENT LOG
+Immutable "Black Box" recording.
+
+```sql
+CREATE TABLE ag_control_events (
+    id bigint GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    session_id uuid REFERENCES ag_sessions NOT NULL,
+    command_type ag_command_type NOT NULL,
+    payload jsonb,
+    created_at timestamptz DEFAULT now()
+);
+ALTER TABLE ag_control_events ENABLE ROW LEVEL SECURITY;
+```

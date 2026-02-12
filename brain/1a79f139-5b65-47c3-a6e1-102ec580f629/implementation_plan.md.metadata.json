@@ -1,0 +1,5 @@
+{
+  "artifactType": "ARTIFACT_TYPE_IMPLEMENTATION_PLAN",
+  "summary": "Plan to install official skills from `vercel-labs/agent-skills` into the global `hive/skills` directory. Includes verification steps.",
+  "updatedAt": "2026-02-09T23:05:26.769843900Z"
+}

@@ -1,0 +1,5 @@
+{
+  "artifactType": "ARTIFACT_TYPE_IMPLEMENTATION_PLAN",
+  "summary": "GLASS_COCKPIT_MASTER_BLUEPRINT.md\nThe Definitive \"Bible\" for the Glass Cockpit UI V3.\nContent:\n1. Global Shell (OS-Level) - mapped to `ag_sessions`.\n2. Orion Module (Strategist) - mapped to `OrionIngest` / `OrionManifest`.\n3. Calliope Module (Creator) - mapped to `CalliopeIngest` / `CalliopeOutput`.\n4. Admin Vault (The Nucleus) - mapped to `ag_agent_registry`, `ag_agent_memory`, `ag_logic_trace`.\n5. UX Mechanics - Theme, Animation, Sound tokens.",
+  "updatedAt": "2026-02-02T00:19:23.485466100Z"
+}

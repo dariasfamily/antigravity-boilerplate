@@ -1,0 +1,13 @@
+# Task: Sincronización del Núcleo AXON en Knowledge
+**Objetivo:** Asegurar que los documentos constituyentes de AXON residan en la sección "Knowledge" para gobernanza total.
+
+## 📋 Checklist
+- [/] Identificar Archivos Críticos de la Constitución AXON
+    - [x] Reglas Globales (System Constitution)
+    - [x] Contrato de Operación Canónico (COC v1.0)
+    - [x] Especificaciones Maestrías de Agentes (SS v0)
+    - [x] Protocolos (SMP, ACP, PUSA)
+- [ ] Preparar paquetes de conocimiento para Egeria
+- [ ] Ejecutar Sincronización vía `mcp_notebooklm`
+- [ ] Verificar visibilidad en la sección "Knowledge"
+- [ ] Crear Walkthrough final de Sincronización

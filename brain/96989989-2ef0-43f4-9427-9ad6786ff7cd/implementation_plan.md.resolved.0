@@ -1,0 +1,35 @@
+# Plan de Sincronización del Núcleo AXON
+
+Este plan detalla la subida de los documentos constituyentes de AXON a la sección de **Knowledge** (vía NotebookLM), asegurando que todos los agentes consulten la misma "verdad" operativa.
+
+## Objetivo
+Consolidar el ADN corporativo y operativo de AXON en una base de conocimientos centralizada para mejorar la precisión y el rigor de todos los procesos internos.
+
+## Cambios Propuestos
+
+### 📂 Identificación de Recursos Críticos
+Se subirán los siguientes archivos a NotebookLM:
+
+1.  **Constitución Global**: `C:\Users\daria\.gemini\antigravity\GEMINI.md` (si existe) o el bloque de la Constitución en las reglas globales.
+2.  **Protocolos de Gobernanza**:
+    - `COC v1.0 — Contrato de Operación Canónico` (ubicado en `brain/0cb99e15.../implementation_plan.md` o similar).
+    - `SMP v1.0` (Mantenimiento): [hive/agents/egeria/protocols/SMP_v1.0.md](file:///C:/Users/daria/.gemini/antigravity/hive/agents/egeria/protocols/SMP_v1.0.md).
+3.  **Especificaciones de Agentes (SS v0)**:
+    - Egeria: [hive/agents/egeria/FINAL_SSv0_EGERIA.md](file:///C:/Users/daria/.gemini/antigravity/hive/agents/egeria/FINAL_SSv0_EGERIA.md)
+    - Pulsar: [hive/agents/pulsar/PULSAR_V1.2_MASTER_SPEC.md](file:///C:/Users/daria/.gemini/antigravity/hive/agents/pulsar/PULSAR_V1.2_MASTER_SPEC.md)
+    - Orion: [hive/agents/orion/ORION_V1.2_MASTER_SPEC.md](file:///C:/Users/daria/.gemini/antigravity/hive/agents/orion/ORION_V1.2_MASTER_SPEC.md)
+    - Calliope: [hive/agents/calliope/CALLIOPE_V1.2_MASTER_SPEC.md](file:///C:/Users/daria/.gemini/antigravity/hive/agents/calliope/CALLIOPE_V1.2_MASTER_SPEC.md)
+4.  **Mapa Arquitectónico**: [hive/MODULAR_ARCHITECTURE_MAP.md](file:///C:/Users/daria/.gemini/antigravity/hive/MODULAR_ARCHITECTURE_MAP.md).
+
+### ⚙️ Proceso de Ejecución
+1.  **Lectura de Contenido**: Extraer el texto completo de cada archivo identificado.
+2.  **Identificación de Notebook**: Localizar el Notebook ID maestro de AXON (presumiblemente `[AXON-CORE]`).
+3.  **Subida de Fuentes**: Utilizar `mcp_notebooklm_notebook_add_text` para añadir cada documento como fuente, usando títulos claros como `[CONSTITUCION]`, `[PROTOCOL]`, `[AGENT-SPEC]`.
+
+## Plan de Verificación
+
+### Verificación Automatizada
+- Ejecutar `mcp_notebooklm_notebook_get` para confirmar que los IDs de las nuevas fuentes aparecen en el registro del Notebook.
+
+### Verificación Manual
+- Solicitar al usuario que abra la sección de **Knowledge** en la UI y verifique que los nombres de los documentos (ej: `COC v1.0`, `PULSAR SSv0`) sean visibles y accesibles.

@@ -1,0 +1,12 @@
+{
+    "mcpServers": {
+        "vercel_mcp": {
+            "command": "npx",
+            "args": [
+                "-y",
+                "@robinson_ai_systems/vercel-mcp",
+                "hDo3Q2tKt54UbZn3ifgmFzUy"
+            ]
+        }
+    }
+}

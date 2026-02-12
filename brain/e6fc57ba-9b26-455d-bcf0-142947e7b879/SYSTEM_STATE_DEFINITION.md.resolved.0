@@ -1,0 +1,58 @@
+﻿# SYSTEM STATE & AGENT CONTEXT DEFINITION
+**Version**: 1.0.0
+**Status**: ACTIVE
+
+## 1. PHILOSOPHY
+The "Brain" is not a static database; it is a living stream of **Context**.
+Agents do not just "read files"; they inherit the **System State**.
+
+## 2. THE SHARED CONTEXT ([AgentContext](file:///C:/Users/daria/.gemini/AXON/scratch/AXON-boilerplate/src/context/AgentContext.tsx#39-46))
+This is the "Short-Term Memory" (RAM) of the system, shared in real-time between React Components (UI) and the underlying Agent Logic.
+
+### A. Core Components
+| Key | Type | Description | Persistence |
+| :--- | :--- | :--- | :--- |
+| `systemLogs` | `SystemLog[]` | The "Black Box" flight recorder. Tracks every major action. | Session (RAM) -> Supabase (Long-term) |
+| `activeBrief` | [OrionBrief](file:///C:/Users/daria/.gemini/AXON/scratch/AXON-boilerplate/src/types/agent_types.ts#7-36) | The current "Hot Potato" being passed between agents. | Session (RAM) |
+| `agentStatus` | `Map<Agent, Status>` | Health/Busy state of each agent (Idle, Thinking, Error). | Real-time |
+
+### B. The Handoff Protocol
+When **Orion** finishes a strategy:
+1.  **Writes** brief to `activeBrief`.
+2.  **Emits** event `ORION_STRATEGY_APPROVED`.
+3.  **Calliope** detects change in `activeBrief`.
+4.  **Calliope** activates "Input Mode" automatically.
+
+## 3. THE PERSISTENT STATE (Supabase / Artifacts)
+This is the "Long-Term Memory" (HDD).
+
+### A. The "Brain" (Markdown Artifacts)
+*   [SYSTEM_REGISTRY.md](file:///C:/Users/daria/.gemini/AXON/brain/e6fc57ba-9b26-455d-bcf0-142947e7b879/SYSTEM_REGISTRY.md): The map of all infrastructure.
+*   [task.md](file:///C:/Users/daria/.gemini/AXON/brain/e6fc57ba-9b26-455d-bcf0-142947e7b879/task.md): The global to-do list.
+*   [ideas_backlog.md](file:///C:/Users/daria/.gemini/AXON/brain/e6fc57ba-9b26-455d-bcf0-142947e7b879/ideas_backlog.md): The cold storage for ideas not yet active.
+
+### B. The "Vault" (Supabase)
+*   **Table `system_logs`**: Permanent audit trail.
+*   **Table [brand_dna](file:///C:/Users/daria/.gemini/AXON/scratch/AXON-boilerplate/src/skills/brand_orion/scripts/nightly_protocol.py#25-41)**: The immutable voice settings.
+
+## 4. METRICS & KPI TRACKING
+The system state must always track the "Health" of the business.
+
+| Metric | Source | Frequency |
+| :--- | :--- | :--- |
+| `MRR` (Monthly Recurring Revenue) | Stripe API | Hourly |
+| `Active Agents` | Health Check | Real-time |
+| `Pending Tasks` | [task.md](file:///C:/Users/daria/.gemini/AXON/brain/e6fc57ba-9b26-455d-bcf0-142947e7b879/task.md) | Per Session |
+
+## 5. FLOW CHART (Data Movement)
+
+[User] -> (Directive) -> [Orion]
+                          |
+                          v
+                   [activeBrief] (Context)
+                          |
+                          v
+                     [Calliope]
+                          |
+                          v
+                     [Script] -> (Approval) -> [Echo]

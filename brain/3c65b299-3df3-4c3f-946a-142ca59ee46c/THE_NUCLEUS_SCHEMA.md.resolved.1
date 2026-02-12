@@ -1,0 +1,177 @@
+# ⚛️ THE NUCLEUS: DEEP DATABASE SCHEMA (V4.1 TITAN)
+**Objective**: "God View" Visibility. Trace every atom, justification, and metric.
+**Target**: Supabase (PostgreSQL).
+
+---
+
+## 1. ORCHESTRATION LAYER ("The Pulse")
+*Who, What, Where, When... and WHY?*
+
+### Table: `ag_sessions`
+*The Master Thread. Tracks the intent and the exact wait-state.*
+
+```sql
+create table ag_sessions (
+  id uuid primary key default uuid_generate_v4(),
+  user_id uuid references auth.users not null,
+  
+  -- Context Meta
+  platform text check (platform in ('Desktop', 'Mobile', 'API')),
+  location_iso text, -- 'US', 'ES'
+  time_zone text,
+  client_timestamp timestamptz default now(),
+  
+  -- The "Why" & "What For"
+  trigger_reason text, -- "User explicitly requested upgrade"
+  objective_goal text, -- "Generate 3 High-RPM Scripts"
+  
+  -- Execution State (Real-Time)
+  active_agent_id text, -- 'ORION_V3_4'
+  current_step_label text, -- "Generating Top 10 Structure"
+  status text check (status in ('ACTIVE', 'PAUSED', 'COMPLETED', 'ERROR')),
+  
+  -- Wait Analysis
+  is_waiting boolean default false,
+  waiting_for text, -- "User Approval on Manifest #1"
+  wait_reason_details text, -- "Nulls displayed? Show comment explanation."
+  
+  -- Financials
+  accumulated_cost float4 default 0.0,
+  
+  created_at timestamptz default now(),
+  updated_at timestamptz default now()
+);
+```
+
+---
+
+## 2. INTELLIGENCE LAYER ("The Mind")
+*Linked Logic. Why did we decide this? Prove it.*
+
+### Table: `ag_agent_memory` (The Glass Box)
+*Snapshots of RAM linked to the Data it is using.*
+
+```sql
+create table ag_agent_memory (
+  id bigint generated always as identity primary key,
+  session_id uuid references ag_sessions not null,
+  agent_id text not null,
+  
+  -- The "Brain" Dump
+  memory_snapshot jsonb not null, 
+  used_data_refs jsonb, -- IDs of DB records used in this snapshot
+  
+  -- Null Handling
+  null_field_explanations jsonb, -- { "viral_score": "Pending external API" }
+  
+  captured_at timestamptz default now()
+);
+```
+
+### Table: `ag_logic_trace` (The Titan Auditor)
+*Triple-Justification Protocol. Knowledge Integration.*
+
+```sql
+create table ag_logic_trace (
+  id bigint generated always as identity primary key,
+  session_id uuid references ag_sessions not null,
+  agent_id text not null,
+  
+  -- Evaluation Context
+  decision_type text, 
+  input_data_snapshot jsonb,
+  output_decision jsonb,
+  
+  -- The "Triple Justification" (Hard Requirement)
+  justification_1 text, -- "Based on Identity Protocol / Config"
+  justification_2 text, -- "Based on Knowledge Base (NotebookLM)"
+  justification_3 text, -- "Based on Heuristic / Math Calculation"
+  
+  -- Auto-Learning
+  knowledge_source_ref text, -- "NotebookLM: 'Orion_Strategy_Doc.pdf' p.4"
+  confidence_score float4, 
+  auto_corrected boolean default false,
+  
+  created_at timestamptz default now()
+);
+```
+
+---
+
+## 3. ASSET LAYER ("The Inventory")
+*Ownership, Purpose, and Results.*
+
+### Table: `ag_assets`
+
+```sql
+create table ag_assets (
+  id uuid primary key default uuid_generate_v4(),
+  session_id uuid references ag_sessions,
+  
+  -- Identity
+  title text,
+  asset_type text,
+  
+  -- Ownership & Intent
+  created_by_agent text, -- "ORION"
+  owner_business_unit text, -- "Marketing Dept"
+  strategic_goal text, -- "Increase Top-of-Funnel Traffic"
+  
+  -- Storage
+  storage_path text not null,
+  
+  -- Outcome Evaluation
+  production_cost float4,
+  est_revenue_rpm float4,
+  roi_actual float4, -- Updated post-publish
+  
+  created_at timestamptz default now()
+);
+```
+
+---
+
+## 4. FEEDBACK LAYER ("The Evolution")
+*External Metrics -> Internal Decisions.*
+
+### Table: `ag_social_metrics` (The Outside World)
+*Ingested from APIs (YouTube, Instagram).*
+
+```sql
+create table ag_social_metrics (
+  id bigint generated always as identity primary key,
+  asset_id uuid references ag_assets,
+  platform text,
+  
+  -- Raw Metrics
+  views int8,
+  likes int8,
+  retention_avg_exclude_0s float4,
+  
+  -- Derived Success
+  trend_direction text, -- "RISING", "FALLING"
+  algo_score float4, -- 0-100 Internal Score
+  
+  captured_at timestamptz default now()
+);
+```
+
+### Table: `ag_feedback_loop` (Self-Improvement)
+*Critical Decision Making based on Results.*
+
+```sql
+create table ag_feedback_loop (
+  id uuid primary key default uuid_generate_v4(),
+  target_agent_id text,
+  
+  -- Analysis
+  trigger_metric_ref uuid references ag_social_metrics,
+  insight_generated text, -- "Shorts < 30s have 20% higher retention"
+  
+  -- Action
+  proposed_rule_change text, -- "Update Orion Logic: Prefer <30s for 'Growth' KPI"
+  status text check (status in ('LEARNED', 'REJECTED')),
+  
+  created_at timestamptz default now()
+);
+```

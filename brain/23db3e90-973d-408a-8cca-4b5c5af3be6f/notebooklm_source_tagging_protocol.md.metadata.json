@@ -1,0 +1,6 @@
+{
+  "artifactType": "ARTIFACT_TYPE_OTHER",
+  "summary": "Protocolo actualizado v2.0 para etiquetado de fuentes NotebookLM. Incluye formato modular [MOD-X AGENTE] para organización por módulos, identificación de agente responsable, y sistema de selección granular de fuentes. Basado en el estándar observado en el notebook ChatGPT.",
+  "updatedAt": "2026-02-10T00:25:17.274883500Z",
+  "version": "1"
+}

@@ -1,0 +1,6 @@
+{
+  "artifactType": "ARTIFACT_TYPE_WALKTHROUGH",
+  "summary": "Resolved MCP connection issues.\n- **Tools**: Replaced `mcp-remote` with `debug-mcp-bridge.js`.\n- **Make**: Fixed 401 error by using correct zone URL (`us2.make.com`).\n- **Zapier**: Verified connection.\n- **Rube**: Disabled due to persistent upstream authentication errors.",
+  "updatedAt": "2026-02-08T04:09:00.944437600Z",
+  "version": "1"
+}

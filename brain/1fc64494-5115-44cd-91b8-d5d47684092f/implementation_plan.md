@@ -1,0 +1,31 @@
+# Vercel MCP Setup Instructions
+
+To configure Vercel, we will use the official Vercel remote MCP server.
+
+## 1. Get Vercel API Token
+1.  Go to your [Vercel Account Token Settings](https://vercel.com/account/tokens).
+2.  Click **Create**.
+3.  Name it "AXON MCP".
+4.  Select a scope (usually "Full Account" for full control, or limit it if you prefer).
+5.  **Copy the token**.
+
+## 2. Configuration Strategy
+We will configure `mcp_config.json` similar to Supabase, pointing to `https://mcp.vercel.com`. Use the `mcp-remote` bridge (or our custom bridge if needed).
+
+**Command preview:**
+```json
+"vercel": {
+  "command": "node",
+  "args": [
+    "path/to/script",
+    "https://mcp.vercel.com",
+    "Bearer <YOUR_TOKEN>"
+  ]
+}
+```
+
+## Resuming the Chat
+If you restart the application:
+1.  Open this chat again (History -> "Debugging Rube MCP Error").
+2.  Type "I'm back, here is the Vercel token: ..." (or just say "Ready").
+3.  I will pick up exactly where we left off.

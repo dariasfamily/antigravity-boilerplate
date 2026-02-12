@@ -1,0 +1,41 @@
+# Implementation Plan - Wealth Dashboard (The Eyes)
+
+The goal is to verify the "Wealth Brain" by visualizing the data residing in the `wealth_assets` and `wealth_transactions` tables.
+This will solve the "Blindness" gap identified in the System Audit.
+
+## User Review Required
+> [!IMPORTANT]
+> This plan includes installing **ShadCN UI**, a high-quality component library. This fixes the `src/components/ui` missing directory error reported by the Auditor.
+
+## Proposed Changes
+
+### 1. Structure & Dependencies (Fixing the Skeleton)
+#### [NEW] ShadCN UI Installation
+- Run `npx shadcn-ui@latest init` to scaffold the UI system.
+- Install core components: `card`, `table`, `button`, `input`.
+- **Reason**: We need premium aesthetics ("World Class Design") as per the Constitution.
+
+### 2. Wealth Division UI (`src/modules/wealth`)
+#### [NEW] [WealthDashboard](file:///src/components/wealth/WealthDashboard.tsx)
+- A high-level client component to orchestrate the view.
+- Displays: "Total Net Worth", "Monthly Cashflow" (calculated from DB).
+
+#### [NEW] [AssetTable](file:///src/components/wealth/AssetTable.tsx)
+- A table listing all assets from `wealth_assets`.
+- Columns: Name, Type, Value, Currency, Status.
+
+### 3. Application Route (`src/app`)
+#### [NEW] [Page](file:///src/app/dashboard/wealth/page.tsx)
+- The main entry point.
+- Protected by Supabase Auth (already in middleware).
+- Fetches initial data server-side for SEO/Performance.
+
+## Verification Plan
+
+### Automated Tests
+- Run `npx tsx src/scripts/auditor.ts` to confirm `src/components/ui` now exists (Auditor should pass ✅).
+- access `/dashboard/wealth` to verify the UI loads.
+
+### Manual Verification
+- User will visit the dashboard.
+- If data is empty, we will create a "Seeding Script" to populate dummy wealth data.

@@ -1,0 +1,31 @@
+﻿# Implementation Plan - Refactoring MCP to STDIO
+
+The current HTTP-based configurations are failing with 401 (Unauthorized) and 404 (Not Found) errors because the remote endpoints likely typically require browser-based OAuth flows or are strictly internal.
+
+We will switch to **local STDIO** execution using [npx](file:///C:/Users/daria/.gemini/AXON/scratch/npx). This runs the official (or community-standard) MCP servers directly on your machine, authenticated via the tokens we've already gathered. This is the recommended and most stable setup for Cursor/Claude.
+
+## Proposed Changes
+
+### 1. Supabase MCP ([supabase_mcp.json](file:///C:/Users/daria/.gemini/AXON/scratch/Dev/AXON-agents/shared-resources/mcp-configs/supabase_mcp.json))
+- **Change Driver**: From `http` to `command` (stdio).
+- **Command**: [npx](file:///C:/Users/daria/.gemini/AXON/scratch/npx)
+- **Args**: [-y](file:///C:/Users/daria/.gemini/AXON/scratch/-y), `@supabase/mcp-server-supabase`, `--access-token`, `YOUR_PAT`
+- **Why**: Official Supabase documentation recommends this method.
+
+### 2. Vercel MCP ([vercel_mcp.json](file:///C:/Users/daria/.gemini/AXON/scratch/Dev/AXON-agents/shared-resources/mcp-configs/vercel_mcp.json))
+- **Change Driver**: From `http` to `command` (stdio).
+- **Command**: [npx](file:///C:/Users/daria/.gemini/AXON/scratch/npx)
+- **Args**: [-y](file:///C:/Users/daria/.gemini/AXON/scratch/-y), `@robinson_ai_systems/vercel-mcp`, `YOUR_VERCEL_TOKEN`
+- **Why**: The remote Vercel endpoint is returning 404s for SSE. Running locally avoids endpoint guessing.
+
+### 3. Rube MCP ([rube_mcp.json](file:///c:/Users/daria/.gemini/AXON/scratch/Dev/AXON-agents/shared-resources/mcp-configs/rube_mcp.json))
+- **Action**: Keep as is for now, or investigate [npx](file:///C:/Users/daria/.gemini/AXON/scratch/npx) if it continues to fail. The user last reported errors only for Supabase/Vercel.
+
+## Verification Plan
+
+### Automated Verification
+- We cannot fully automatedly verify `stdio` servers without an MCP client.
+- **Manual User Verification**: The user will need to restart their IDE (Cursor/Windsurf) and check the "MCP" tab for green status lights.
+
+### Pre-computation
+- I will run a `npx ... --help` dry run for the Vercel package to confirm the package name and argument structure before writing the config.

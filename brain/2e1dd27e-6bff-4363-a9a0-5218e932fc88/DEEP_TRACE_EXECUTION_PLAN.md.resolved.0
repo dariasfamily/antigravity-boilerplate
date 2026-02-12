@@ -1,0 +1,73 @@
+# 🕵️ DEEP TRACE EXECUTION PLAN: "Macro to Micro"
+
+**Objective**: Verify the "Whole System" capabilities by tracing a single input through all 9 Agents, pausing for audit at each step.
+**Input**: `"temas sobre uso y aplicaciones de IA modernos 2026"`
+**Protocol**: "Stop-and-Verify" (User confirms each state transition).
+
+## 🟢 PHASE 1: INGESTION & STRATEGY (The Foundation)
+**Goal**: Transform raw text into a structured System Command.
+1.  **EGERIA (Orchestrator)**
+    *   **Input**: Raw User Text.
+    *   **Process**: Intent Analysis, Memory Check (Have we done this before?), Delegation Strategy.
+    *   **Output**: `SESSION_MANIFEST.json` (UUID, Owner, Status).
+    *   **Audit**: Verify Session ID and User Context are locked.
+2.  **PLANNER (Architect)**
+    *   **Input**: `SESSION_MANIFEST`.
+    *   **Process**: Deconstructs "Modern AI 2026" into sub-tasks (Research vs. Creative).
+    *   **Output**: `EXECUTION_BLUEPRINT.md` (The Roadmap).
+    *   **Audit**: Check if the plan covers all necessary agents.
+
+## 🟡 PHASE 2: INTELLIGENCE & EXPANSION (The Brain)
+**Goal**: Expand the topic into actionable data points.
+3.  **PULSAR (Gateway)**
+    *   **Input**: Blueprint (Human Language).
+    *   **Process**: Prompt Engineering (Optimizing for LLM retrieval).
+    *   **Output**: `PROMPT_CHAIN.json` (Machine Instructions).
+    *   **Audit**: Verify prompt fidelity / non-loss of nuance.
+4.  **ORION (Analyst)**
+    *   **Input**: Optimized Prompts.
+    *   **Process**: Simulated RAG/Web Search (Trends, Keywords, Competitors).
+    *   **Output**: `TREND_MATRIX.json` (The "Knowledge").
+    *   **Audit**: Verify data quality and relevance.
+
+## 🟠 PHASE 3: SYNTHESIS & IDENTITY (The Soul)
+**Goal**: Filter data through the Brand Identity.
+5.  **LYRA (Brand DNA)**
+    *   **Input**: `TREND_MATRIX`.
+    *   **Process**: Alignment Check (Does "Autonomous Weapons" fit our brand? Maybe no. Filter out.).
+    *   **Output**: `BRAND_ALIGNMENT_REPORT.md` (Approved Topics).
+    *   **Audit**: Verify "Safety/Brand" decisions (Deletions/Omissions).
+6.  **CALLIOPE (Creator)**
+    *   **Input**: Approved Topics.
+    *   **Process**: Narrative Structure, Hook Design, Scriptwriting.
+    *   **Output**: `MASTER_SCRIPT.md` (The Core Content).
+    *   **Audit**: Check Tone, Pacing, and Structure.
+
+## 🔵 PHASE 4: PRODUCTION (The Senses)
+**Goal**: Generate sensory assets.
+7.  **THALIA (Visuals)**
+    *   **Input**: `MASTER_SCRIPT`.
+    *   **Process**: Scene extraction, visual prompting, style transfer.
+    *   **Output**: `VISUAL_ASSET_LIST.json` (Prompts for Midjourney/Ideogram).
+    *   **Audit**: Verify Aesthetic Consistency.
+8.  **APOLLO (Audio)**
+    *   **Input**: `MASTER_SCRIPT`.
+    *   **Process**: Voice selection, pacing markers, SFX cues.
+    *   **Output**: `AUDIO_DIRECTOR_FILE.json` (SSML/TTS Config).
+    *   **Audit**: Verify Voice Vibe alignment.
+
+## 🟣 PHASE 5: GOVERNANCE & DELIVERY (The Seal)
+**Goal**: Final verification and routing.
+9.  **ARGUS (Guardian)**
+    *   **Input**: All Generated Assets (Script, Visuals, Audio Plan).
+    *   **Process**: Compliance Scan, SEO Check, Legal Guardrails.
+    *   **Output**: `FINAL_AUDIT_CERTIFICATE.md` (Pass/Fail).
+    *   **Audit**: The "Green Light".
+10. **NEXUS (Automation)**
+    *   **Input**: Certified Package.
+    *   **Process**: API Routing (to YouTube, Blog, Socials).
+    *   **Output**: `TRANSMISSION_SIGNAL.json` (The final webhook payload).
+    *   **Audit**: Verify destination and payload integrity.
+
+---
+**Next Step**: Wait for User Approval to begin **Phase 1**.

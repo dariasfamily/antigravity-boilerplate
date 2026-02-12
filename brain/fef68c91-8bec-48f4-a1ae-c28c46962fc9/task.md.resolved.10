@@ -1,0 +1,15 @@
+# Debugging MCP Credentials
+
+- [x] Obtain new Make.com MCP URL <!-- id: 0 -->
+    - [x] Ask user to generate/copy new URL
+    - [x] Tested `9600...` (401)
+    - [x] Tested `6b4c...` as Token (401)
+    - [x] Testing `6b4c...` as URL UUID (401)
+- [ ] Research Make.com MCP Auth <!-- id: 4 -->
+    - [/] Search for official guides/forums
+    - [ ] Identify correct URL structure and header requirements
+- [ ] Research Rube.app Auth Error <!-- id: 5 -->
+    - [/] Analyze "Authenticated user not found" error
+    - [ ] Guide user to fix Rube account status
+- [ ] Verify Make.com Connection <!-- id: 2 -->
+- [ ] Verify Rube Connection <!-- id: 3 -->

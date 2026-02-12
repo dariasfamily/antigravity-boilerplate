@@ -1,0 +1,14 @@
+# Task: Creating the Prompt Specialist Agent (SS v0 FULL 3.2)
+
+- [/] Research \& Knowledge Extraction (DOH v1.1) <!-- id: 10 -->
+    - [x] Locate Notebook "Ingeniería de Prompts y Procesamiento del Lenguaje" <!-- id: 11 -->
+    - [ ] Request permission to consult and use sources <!-- id: 12 -->
+    - [ ] Extract RAW content of all relevant sources <!-- id: 13 -->
+- [ ] Define Agent Architecture (SS v0 FULL 3.2) <!-- id: 20 -->
+    - [ ] Módulo I: Intención y Estrategia <!-- id: 21 -->
+    - [ ] Módulo II: Gobierno y Seguridad <!-- id: 22 -->
+    - [ ] Módulo III: Estructura y Datos <!-- id: 23 -->
+    - [ ] Módulo IV: Motor de IA (Prompt Specs) <!-- id: 24 -->
+- [ ] Implementation \& Verification <!-- id: 30 -->
+    - [ ] Create Agent Definition File <!-- id: 31 -->
+    - [ ] Test with "Idea to Prompt" flow <!-- id: 32 -->

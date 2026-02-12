@@ -1,0 +1,29 @@
+﻿---
+description: Standard Operating Procedure for adding new Divisions or Modules to AXON
+---
+
+# MODULE CREATION PROTOCOL (The Growth Hormone)
+
+> **Objective**: Expand the system without breaking its fractal structure.
+> **Trigger**: When the "Execution Roadmap" enters a new Phase (e.g., Wealth, Brand).
+
+## ðŸ§¬ Phase 1: The Blueprint (Planning)
+1.  **Define Objective**: specific outcome (e.g., "Visualize Cash Flow").
+2.  **Update Architecture**: Add the module to `SYSTEM_BLUEPRINT.md`.
+    *   Define Inputs/Outputs.
+    *   Define Database Schema.
+3.  **Update Roadmap**: Create granular checklist in `EXECUTION_ROADMAP.md`.
+
+## ðŸ—ï¸ Phase 2: The Skeleton (Scaffolding)
+1.  **Create Directory**: `src/modules/<division>/<module>/`.
+2.  **Create Route**: `src/app/dashboard/<division>/page.tsx`.
+3.  **Create Signal**: Add entry to `PROJECT_STRUCTURE.md`.
+
+## âš™ï¸ Phase 3: The Logic (Implementation)
+1.  **Database**: Create Supabase Migration for needed tables.
+2.  **Backend**: Create Server Actions in `src/modules/<division>/actions.ts`.
+3.  **Frontend**: Build UI Components in `src/components/<division>/`.
+
+## ðŸ”— Phase 4: The Connection (Nervous System)
+1.  **Audit**: Run `src/scripts/auditor.ts` to verify structure.
+2.  **Evolution**: Log the creation in `SYSTEM_STATE_LOG.md`.

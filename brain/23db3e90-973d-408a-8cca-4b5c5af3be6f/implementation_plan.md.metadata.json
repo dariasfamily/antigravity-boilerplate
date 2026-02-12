@@ -1,0 +1,5 @@
+{
+  "artifactType": "ARTIFACT_TYPE_IMPLEMENTATION_PLAN",
+  "summary": "Plan para implementar sistema de etiquetado de fuentes en NotebookLM con prefijo [G-Anti] y registro de cambios. Incluye workaround para limitación de API (URLs auto-fetch titles), propone usar add_text con referencias a URLs, y define protocolo de registro automático.",
+  "updatedAt": "2026-02-10T00:06:28.963422200Z"
+}

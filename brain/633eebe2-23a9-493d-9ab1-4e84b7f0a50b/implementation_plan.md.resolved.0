@@ -1,0 +1,31 @@
+# Implementation Plan - NotebookLM Automation
+
+We will implement an automated "Sync" script using the unofficial `notebooklm-py` library. This allows us to programmatically list and download notebooks and sources.
+
+## User Review Required
+> [!IMPORTANT]
+> **Authentication**: You will need to extract your Google Cookies (specifically `__Secure-1PSID` etc.) and place them in [.env.local](file:///c:/Users/daria/.gemini/AXON/workspaces/Proyecto%20MENISCO/dashboard-v3/.env.local). This is necessary because there is no official API.
+> **Stability**: This relies on an unofficial library/API which may break if Google changes their backend.
+
+## Proposed Changes
+
+### Configuration
+#### [MODIFY] [.env.local](file:///c:/Users/daria/.gemini/AXON/workspaces/Proyecto%20MENISCO/dashboard-v3/.env.local)
+- Add `GOOGLE_TOKEN` / `GOOGLE_COOKIES` variable.
+
+### Scripts
+#### [NEW] [scripts/sync_notebooklm.py](file:///c:/Users/daria/.gemini/AXON/workspaces/Proyecto%20MENISCO/dashboard-v3/scripts/sync_notebooklm.py)
+- Python script to:
+    1. Authenticate using cookies.
+    2. List all Notebooks.
+    3. Download "Audio Overviews" and "Source Texts" to `notebooklm/exports/`.
+
+### Dependencies
+- `pip install notebooklm-py` (or add to `requirements.txt` if we had one).
+
+## Verification Plan
+### Manual Verification
+1.  **Install**: Run `pip install notebooklm-py` (User/Agent).
+2.  **Config**: User adds cookies to [.env.local](file:///c:/Users/daria/.gemini/AXON/workspaces/Proyecto%20MENISCO/dashboard-v3/.env.local).
+3.  **Run**: Execute `python scripts/sync_notebooklm.py`.
+4.  **Check**: Verify files appear in `notebooklm/exports/`.

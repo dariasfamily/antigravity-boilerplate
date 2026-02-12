@@ -1,0 +1,22 @@
+# Walkthrough - Official Skills Installation
+
+## Changes Made
+- **Global Skill Installation**: Installed the official `vercel-labs/agent-skills` collection into `C:\Users\daria\.gemini\AXON\hive\skills`.
+- **Skills Added**:
+  - `web-design-guidelines`: Best practices for accessibility, performance, and UX.
+  - `vercel-react-best-practices`: Performance optimization guidelines.
+  - `vercel-composition-patterns`: React architecture patterns.
+  - `vercel-react-native-skills`: Mobile development guidelines.
+- **Verification**: Validated that `SKILL.md` files are accessible and correctly structured in the `hive` directory.
+
+## What Was Tested
+- **Installation Command**: Ran `npx skills add vercel-labs/agent-skills --all` successfully.
+- **Directory Structure**: Confirmed skills are present in `hive/skills` (linked to `.agents`).
+- **Content Validation**: Read `web-design-guidelines/SKILL.md` to ensure valid content.
+
+## Validation Results
+- **Success**: All skills installed without errors.
+- **Accessibility**: Skills are ready to be used by any agent configured to look in `hive/skills`.
+
+> [!TIP]
+> You can now use these skills in your prompts or allow agents to automatically discover them for relevant tasks (e.g., "Review my UI code for accessibility").

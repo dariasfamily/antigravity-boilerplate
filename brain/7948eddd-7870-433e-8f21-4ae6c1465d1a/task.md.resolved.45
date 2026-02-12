@@ -1,0 +1,83 @@
+﻿# Task: Creating Agent PULSAR (Prompt Specialist)
+**Protocol:** Standardized Recursive Refinement (DOH v1.1)
+
+- [x] Phase 0: Workflow & Infrastructure <!-- id: 10 -->
+    - [x] Create standardized workflow [.agent/workflows/pulsar.md](file:///c:/Users/daria/.gemini/AXON/.agent/workflows/pulsar.md) <!-- id: 11 -->
+    - [x] Initialize directory `hive/agents/pulsar` <!-- id: 12 -->
+- [x] Phase 1: Semantic Foundation (LITE 3.2) <!-- id: 20 -->
+    - [x] Apply mirrored [lite_3.2.md](file:///c:/Users/daria/.gemini/AXON/hive/agents/egeria/knowledge_mirror/seeds/lite_3.2.md) to define high-level intent <!-- id: 21 -->
+    - [x] Validate against Notebook "IngenierÃ­a de Prompts" (Initial Scan) <!-- id: 22 -->
+- [x] Phase 2: Structural Formalization (FULL 3.2) <!-- id: 30 -->
+    - [x] Apply mirrored [full_3.2.md](file:///c:/Users/daria/.gemini/AXON/hive/agents/egeria/knowledge_mirror/seeds/full_3.2.md) to build the core architecture <!-- id: 31 -->
+    - [x] Enrich FULL modules with RAW content from the 6 Prompt sources <!-- id: 32 -->
+    - [x] Certification & Audit Marks (GAP v1.0) <!-- id: 33 -->
+- [x] Phase 3: Hybrid Orchestration (DOH v1.0) <!-- id: 40 -->
+    - [x] Determine rigor levels for each component (Reasoning vs UI) <!-- id: 41 -->
+    - [x] Final polish using NotebookLM Chat for specific gaps <!-- id: 42 -->
+    - [x] Certification & Audit Marks (GAP v1.0) <!-- id: 43 -->
+- [x] Phase 4: Final Deployment <!-- id: 50 -->
+    - [x] Generate [pulsar/config.json](file:///c:/Users/daria/.gemini/AXON/hive/agents/pulsar/config.json) and [system_prompt.md](file:///c:/Users/daria/.gemini/AXON/hive/agents/argus/system_prompt.md) <!-- id: 51 -->
+    - [x] Register PULSAR in the Global Registry <!-- id: 52 -->
+- [x] Phase 5: Final Synthesis & Ecosystem Integration <!-- id: 60 -->
+- [x] Phase 6: Standardization & Strengthening (PULSAR v1.1) <!-- id: 70 -->
+    - [x] Create [ACP_v1.0_STANDARD.md](file:///c:/Users/daria/.gemini/AXON/hive/agents/egeria/knowledge_mirror/seeds/ACP_v1.0_STANDARD.md) <!-- id: 71 -->
+    - [x] Analyze NotebookLM for advanced decision logic <!-- id: 72 -->
+    - [x] Apply "Fast-Path" latency optimization to PULSAR <!-- id: 73 -->
+    - [x] Implement `experience-learner` skill <!-- id: 74 -->
+    - [x] Update [FINAL_SSv0_PULSAR.md](file:///c:/Users/daria/.gemini/AXON/hive/agents/pulsar/FINAL_SSv0_PULSAR.md) and [system_prompt.md](file:///c:/Users/daria/.gemini/AXON/hive/agents/argus/system_prompt.md) <!-- id: 75 -->
+    - [x] Final Audit GAP v1.0 <!-- id: 76 -->
+    - [x] Sync Knowledge to NotebookLM (Close Loop) <!-- id: 77 -->
+- [x] Phase 7: System Maintenance Operationalization (The Living Hive) <!-- id: 80 -->
+    - [x] Create [SMP_v1.0.md](file:///c:/Users/daria/.gemini/AXON/hive/agents/egeria/protocols/SMP_v1.0.md) (System Maintenance Protocol) <!-- id: 81 -->
+    - [x] Create `system-orchestrator` skill for Egeria <!-- id: 82 -->
+    - [x] Create [.agent/workflows/system-maintenance.md](file:///c:/Users/daria/.gemini/AXON/.agent/workflows/system-maintenance.md) <!-- id: 83 -->
+    - [x] Update [agents_registry.md](file:///c:/Users/daria/.gemini/AXON/hive/agents/agents_registry.md) with Egeria's new role <!-- id: 84 -->
+- [x] Phase 8: Mandatory Knowledge Reporting (The Feedback Loop) <!-- id: 90 -->
+    - [x] Update SMP v1.0 with MRP (Mandatory Reporting Protocol) <!-- id: 91 -->
+    - [x] Create Global Skill `report-to-hq` <!-- id: 92 -->
+    - [x] Create Inbox directory for Egeria <!-- id: 93 -->
+    - [x] Test reporting flow with PULSAR <!-- id: 94 -->
+- [x] Phase 9: Egeria-PULSAR Interaction Test (Zero Residue) <!-- id: 100 -->
+    - [x] Simulate PULSAR Task & Output <!-- id: 101 -->
+    - [x] Simulate Reporting to Egeria <!-- id: 102 -->
+    - [x] Execute Egeria's Processing (Ledger Update) <!-- id: 103 -->
+    - [x] Execute Egeria's Processing (Ledger Update) <!-- id: 103 -->
+    - [x] Perform Strict Cleanup (No Residue) <!-- id: 104 -->
+- [x] Phase 10: Deep Reporting & Pulse-Gate Implementation <!-- id: 110 -->
+    - [x] Upgrade `report-to-hq` skill (Deep-Log) <!-- id: 111 -->
+    - [x] Update ACP v1.0 with Pulse-Gate Protocol <!-- id: 112 -->
+    - [x] Update PULSAR Datasheet (Gateway Role) <!-- id: 113 -->
+    - [x] Update SMP v1.0 with Deep Reporting Logic <!-- id: 114 -->
+    - [x] Sync upgrades to NotebookLM <!-- id: 115 -->
+- [x] Phase 11: Standardizing Agent ORION (The Strategist) <!-- id: 120 -->
+    - [x] Audit existing ORION files <!-- id: 121 -->
+    - [x] Create/Update Seeds (LITE, FULL, HYBRID) <!-- id: 122 -->
+    - [x] Generate [FINAL_SSv0_ORION.md](file:///c:/Users/daria/.gemini/AXON/hive/agents/orion/FINAL_SSv0_ORION.md) (Absolute Fidelity) <!-- id: 123 -->
+    - [x] Generate [TECHNICAL_DATASHEET_ORION.md](file:///c:/Users/daria/.gemini/AXON/hive/agents/orion/TECHNICAL_DATASHEET_ORION.md) (v1.1) <!-- id: 124 -->
+    - [x] Define Atomic Skills (`strategic-analysis`, etc.) <!-- id: 125 -->
+    - [x] Register ORION in [agents_registry.md](file:///c:/Users/daria/.gemini/AXON/hive/agents/agents_registry.md) <!-- id: 126 -->
+    - [x] Register ORION in [agents_registry.md](file:///c:/Users/daria/.gemini/AXON/hive/agents/agents_registry.md) <!-- id: 126 -->
+    - [x] Sync ORION to NotebookLM (ID: 3ec36f41...) <!-- id: 127 -->
+- [x] Phase 12: ORION Knowledge Audit & Enhancement <!-- id: 130 -->
+    - [x] Deep Audit of Notebook Sources (70+ items analyzed) <!-- id: 131 -->
+    - [x] Update Datasheet with specific domains (Video, SEO, Psych) <!-- id: 132 -->
+    - [x] Update Registry with Notebook Links & File Paths <!-- id: 133 -->
+- [x] Phase 13: Standardizing Agent CALLIOPE (The Creator) <!-- id: 140 -->
+    - [x] Create/Update Seeds (LITE, FULL, HYBRID) <!-- id: 141 -->
+    - [x] Generate [FINAL_SSv0_CALLIOPE.md](file:///c:/Users/daria/.gemini/AXON/hive/agents/calliope/FINAL_SSv0_CALLIOPE.md) (Absolute Fidelity) <!-- id: 142 -->
+    - [x] Generate [TECHNICAL_DATASHEET_CALLIOPE.md](file:///c:/Users/daria/.gemini/AXON/hive/agents/calliope/TECHNICAL_DATASHEET_CALLIOPE.md) (v1.1) <!-- id: 143 -->
+    - [x] Define Atomic Skills (`creative-writing`, `media-production`) <!-- id: 144 -->
+    - [x] Register CALLIOPE in [agents_registry.md](file:///c:/Users/daria/.gemini/AXON/hive/agents/agents_registry.md) <!-- id: 145 -->
+    - [x] Sync CALLIOPE to NotebookLM <!-- id: 146 -->
+- [ ] Phase 14: Inter-Agent I/O Protocol Standardization (Strict Typing) <!-- id: 150 -->
+    - [ ] Define JSON Schemas for Agent Inputs/Outputs (Global Library) <!-- id: 151 -->
+    - [ ] Update System Prompts to enforce I/O Schemas <!-- id: 152 -->
+    - [ ] Define Execution Algorithms for each Agent (Step-by-Step Logic) <!-- id: 153 -->
+    - [ ] Implement "Handshake Protocol" for inter-agent data transfer <!-- id: 154 -->
+- [x] Phase 15: Standardizing Agent ARGUS (The Guardian) <!-- id: 160 -->
+    - [x] Create/Update Seeds (LITE, FULL, HYBRID) <!-- id: 161 -->
+    - [x] Generate [FINAL_SSv0_ARGUS.md](file:///c:/Users/daria/.gemini/AXON/hive/agents/argus/FINAL_SSv0_ARGUS.md) (Integrate existing Protocol) <!-- id: 162 -->
+    - [x] Generate [TECHNICAL_DATASHEET_ARGUS.md](file:///c:/Users/daria/.gemini/AXON/hive/agents/argus/TECHNICAL_DATASHEET_ARGUS.md) (v1.1) <!-- id: 163 -->
+    - [x] Define Atomic Skills (`compliance-check`, `quality-assurance`) <!-- id: 164 -->
+    - [x] Register ARGUS in [agents_registry.md](file:///c:/Users/daria/.gemini/AXON/hive/agents/agents_registry.md) <!-- id: 165 -->
+    - [x] Sync ARGUS to NotebookLM <!-- id: 166 -->

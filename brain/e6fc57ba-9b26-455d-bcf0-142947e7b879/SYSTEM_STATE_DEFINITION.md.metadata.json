@@ -1,0 +1,6 @@
+{
+  "artifactType": "ARTIFACT_TYPE_OTHER",
+  "summary": "Defines the 'Shared Blackboard' architecture where agents communicate via a central SystemContext. Includes Mermaid diagrams.",
+  "updatedAt": "2026-02-01T07:12:46.553092200Z",
+  "version": "1"
+}

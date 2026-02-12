@@ -1,0 +1,6 @@
+# Task: Checking Thalia Status and Abilities
+
+- [/] Search for "Thalia" in the `hive` and `brain` directories
+- [ ] Determine if Thalia is an active agent or skill
+- [ ] List Thalia's abilities based on found documentation
+- [ ] Respond to the user with the status and abilities

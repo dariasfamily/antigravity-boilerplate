@@ -1,0 +1,34 @@
+# Plan de Estructuración del Conocimiento Activo (Knowledge UI)
+
+Este plan detalla la organización de los documentos de gobernanza que deben vivir en la sección de **Knowledge** de la interfaz de Antigravity para regir cada interacción en tiempo real.
+
+## Objetivo
+Transformar el "Cerebro" del sistema de archivos pasivos a un **Marco de Gobernanza Activo** que el agente consulte obligatoriamente.
+
+## Cambios Propuestos
+
+### 📂 1. Formalización de Protocolos (Nuevos Archivos)
+Se han extraído y creado los siguientes documentos en `/hive/protocols/`:
+- [NEW] [COC_v1.0.md](file:///C:/Users/daria/.gemini/antigravity/hive/protocols/COC_v1.0.md): Contrato de Operación Canónico.
+- [NEW] [INTENT_ENGINEERING_v3.md](file:///C:/Users/daria/.gemini/antigravity/hive/protocols/INTENT_ENGINEERING_v3.md): Marco FFRS + EET.
+
+### 🧩 2. Selección de "Knowledge Items" para la UI
+Proponemos incluir los siguientes documentos en la sección de Knowledge mostrada en la captura:
+
+| Categoría | Documento | Propósito |
+| :--- | :--- | :--- |
+| **Gobernanza** | [COC_v1.0.md](file:///C:/Users/daria/.gemini/antigravity/hive/protocols/COC_v1.0.md) | Garantizar trazabilidad y no-síntesis. |
+| **Gobernanza** | [INTENT_ENGINEERING_v3.md](file:///C:/Users/daria/.gemini/antigravity/hive/protocols/INTENT_ENGINEERING_v3.md) | Aplicar FFRS + EET en cada respuesta. |
+| **Operación** | [ANTIGRAVITY_OPERATING_MANUAL.md](file:///C:/Users/daria/.gemini/antigravity/brain/e6fc57ba-9b26-455d-bcf0-142947e7b879/ANTIGRAVITY_OPERATING_MANUAL.md) | Seguir el protocolo de "Mayor Domo". |
+| **Arquitectura** | [MODULAR_ARCHITECTURE_MAP.md](file:///C:/Users/daria/.gemini/antigravity/hive/MODULAR_ARCHITECTURE_MAP.md) | Entender la jerarquía de agentes M0-M9. |
+| **Evolución** | [block_2.5_contexto_intencion.md](file:///C:/Users/daria/.gemini/antigravity/brain/afda43d1-d292-4b66-b058-4ec943124741/plan_v4/blocks/block_2.5_contexto_intencion.md) | Mantener la historia y visión del sistema. |
+
+### ⚙️ 3. Sincronización
+1.  **Carga en UI:** Utilizar el mecanismo de la interfaz para indexar estos archivos específicos de `/hive/`.
+2.  **Referencia Cruzada:** Asegurar que el System Prompt de los agentes apunte a estos "Knowledge Items" como fuente de verdad.
+
+## Plan de Verificación
+
+### Verificación Manual
+- [ ] Verificar que los 5 documentos aparecen en la sección de "Knowledge" de la barra lateral.
+- [ ] Confirmar que el agente (tú) puede citar secciones del `COC_v1.0` tras subirlos.

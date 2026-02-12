@@ -1,0 +1,30 @@
+﻿# AXON Global Configuration (The Hive DNS)
+# Version: 1.0.0
+
+system:
+  owner: "Darias"
+  role: "Mayor Domo"
+  
+structure:
+  hive_root: "C:/Users/daria/.gemini/AXON/hive"
+  workspaces_root: "C:/Users/daria/.gemini/AXON/workspaces"
+
+active_workspace:
+  name: "Proyecto MENISCO"
+  path: "C:/Users/daria/.gemini/AXON/workspaces/Proyecto MENISCO/dashboard-v3"
+
+agents:
+  ORION:
+    type: "strategist"
+    source: "local" # Currently deployed in active_workspace
+    
+  CALLIOPE:
+    type: "creator"
+    source: "local"
+
+  EGERIA:
+    type: "knowledge_manager"
+    source: "hive"
+
+skills:
+  registry: "C:/Users/daria/.gemini/AXON/hive/skills"

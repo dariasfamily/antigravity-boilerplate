@@ -1,0 +1,1 @@
+2(file:///c:/Users/daria/.gemini/GEMINI.md

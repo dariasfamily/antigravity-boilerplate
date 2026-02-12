@@ -1,0 +1,19 @@
+# Task: Set up NotebookLM Integration
+
+- [x] Research existing NotebookLM integration or config
+- [x] Create folder for NotebookLM notebooks  
+- [x] Determine authentication method (Playwright-based login)
+- [x] Extract cookies from Chrome (via EditThisCookie)
+- [ ] [/] Complete Playwright-based authentication
+    - [x] Install notebooklm-py library
+    - [x] Create login wrapper script
+    - [x] Launch Chromium browser with persistent profile
+    - [ ] User completes Google login
+    - [ ] Save authentication tokens
+- [ ] Test sync script successfully
+
+## Current Status
+Playwright-based login script is running. Chromium browser opened at `C:\Users\daria\.notebooklm\browser_profile`. Waiting for user to:
+1. Complete Google login in the browser
+2. Wait for NotebookLM homepage to load
+3. Press ENTER in terminal to save authentication

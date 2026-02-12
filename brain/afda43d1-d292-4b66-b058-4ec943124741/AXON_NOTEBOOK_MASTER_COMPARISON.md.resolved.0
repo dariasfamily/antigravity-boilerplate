@@ -1,0 +1,74 @@
+# 📊 AXON NOTEBOOK MASTER COMPARISON [L-6]
+**Classification:** ARCHITECTURAL_AUDIT
+**Objective:** Identify the "Golden Template" (Planilla Oficial) for AXON Knowledge Bases.
+**Status:** GENERATED
+
+This document compares all 35 Notebooks based on their **Structural Integrity**, **Source Purity**, and **Alignment with the L-6 Standard**.
+
+---
+
+## 🏆 THE GOLD STANDARD (The Official Template)
+**Winner:** `[AXON-CORE] EGERIA v1.0.0`
+*   **Why:** It is the only notebook with a **Low Source Count (9)** but **100% High-Value Governance Data**. It does not contain "noise". It is structured as a **Constitution**, not a dump.
+*   **The Structure:**
+    1.  Master Blueprint (The Law)
+    2.  Atomic Matrix (The Roles)
+    3.  Protocol Strings (The Logic)
+
+---
+
+## 📉 THE COMPARISON MATRIX
+
+| Notebook Name | Category | Sources | Structure Rating | Status | Notes |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **[AXON-CORE] EGERIA v1.0.0** | 🧠 **BRAIN** | **9** | ⭐⭐⭐⭐⭐ (L-6) | **OFFICIAL** | The Perfect Template. Pure Logic. |
+| **[AXON-KNOWLEDGE] VIDEO_MASTER_CLASS** | 🧠 **BRAIN** | **3** | ⭐⭐⭐⭐⭐ (L-6) | **OFFICIAL** | *Newly Created.* Follows Egeria's Purity Standard. |
+| [AXON-CORE] PLANNER | 🛠️ ENGINE | 84 | ⭐⭐⭐⭐ (L-5) | **VALID** | Powerful, but slightly messy. Needs curation. |
+| [AXON-CORE] ORION | 🛠️ ENGINE | 76 | ⭐⭐⭐⭐ (L-5) | **VALID** | Specific knowledge (Marketing). Good structure. |
+| [AXON-CORE] CALLIOPE | 🛠️ ENGINE | 82 | ⭐⭐⭐⭐ (L-5) | **VALID** | Specific knowledge (Copywriting). Good structure. |
+| [AXON-CORE] ARGUS | 🛡️ AUDIT | 58 | ⭐⭐⭐ (L-4) | **VALID** | Mixed compliance data. |
+| [AXON-CORE] PULSAR | 🛠️ ENGINE | 16 | ⭐⭐⭐ (L-4) | **VALID** | Low source count, but specific to Prompting. |
+| [AXON-MEDIA] THALIA | 🎨 MEDIA | 90 | ⭐⭐⭐ (L-4) | **VALID** | High volume of prompt examples. |
+| [AXON-MEDIA] APOLLO | 🔊 MEDIA | 96 | ⭐⭐⭐ (L-4) | **VALID** | High volume of technical manuals. |
+| [AXON-INFRA] HEPHAESTUS | ⚙️ INFRA | 59 | ⭐⭐⭐ (L-4) | **VALID** | Tech stack documentation. |
+| [AXON-SOUL] LYRA | 👻 SOUL | 58 | ⭐⭐⭐ (L-4) | **VALID** | Brand identity mixed with theory. |
+| [AXON-SYSTEM] DEEP TRACE | ⚖️ LAW | 20 | ⭐⭐⭐⭐ (L-5) | **VALID** | Specific protocols. Clean. |
+| [AXON-ARCHIVE] Plan v3.0 Audit | 📁 ARCHIVE | 29 | ⭐⭐ (L-3) | **READ-ONLY** | Historical data. |
+| [AXON-ARCHIVE] Plan v4.0 Rebuild | 📁 ARCHIVE | 7 | ⭐⭐ (L-3) | **READ-ONLY** | Draft data. |
+| MOD 1+2 Automation | 🎓 TRAINING | 99 | ⭐⭐⭐ (Raw) | **LIBRARY** | Raw training data. Not an agent brain. |
+| MOD 3+4 Prompt Engineering | 🎓 TRAINING | 141 | ⭐⭐⭐ (Raw) | **LIBRARY** | Raw training data. |
+| MOD 5+6 DevOps | 🎓 TRAINING | 95 | ⭐⭐⭐ (Raw) | **LIBRARY** | Raw training data. |
+| MOD 7+8 LLM Security | 🎓 TRAINING | 101 | ⭐⭐⭐ (Raw) | **LIBRARY** | Raw training data. |
+| Diseño de Sistemas Multi-Agentes | 📚 BOOK | 99 | ⭐⭐ (Legacy) | **MERGE** | Should be absorbed into Planner. |
+| Semilla de Especificación v0 | 🧟 LEGACY | 70 | ⭐ (L-0) | **ARCHIVE** | Old "Seed". Obsolete. |
+| Agencia de Contenido | 🧟 LEGACY | 4 | ⭐ (L-0) | **ARCHIVE** | Gemini legacy. |
+| Spy Bot Molbot | 🧟 LEGACY | 1 | ⭐ (L-0) | **DELETE** | Noise. |
+| FULL Chat Vaso de 8 Onzas | 🧟 LEGACY | 24 | ⭐ (L-0) | **ARCHIVE** | Chat logs. |
+| Standalone (WhatsApp, FMC, etc) | 📚 BOOK | <15 | ⭐⭐ (Niche) | **LIBRARY** | Specific reference books. Keep as is. |
+
+---
+
+## 🏛️ THE OFFICIAL "PLANILLA" (The Rules for New Notebooks)
+
+To be certified as **[AXON-OFFICIAL]**, a notebook must strictly follow this structure:
+
+### 1. Naming Convention
+*   **Format:** `[CATEGORY] NAME - Role/Description`
+*   **Example:** `[AXON-CORE] EGERIA - Master Node`
+
+### 2. Source Hierarchy (The Pyramid)
+A notebook is NOT a dumpster. It must have tiers:
+*   **Tier 1 (The Law):** 1-3 documents defining the Agent's identity and generic rules (e.g., `SS_v0`, `MASTER_BLUEPRINT`).
+*   **Tier 2 (The Skills):** 5-10 documents defining specific workflows (e.g., `VIDEO_PRODUCTION_MASTER_SPEC`).
+*   **Tier 3 (The Data):** Reference manuals, API docs, or specific research papers. **LIMIT: 30 highly relevant sources.**
+
+### 3. Purity Rule
+*   **Action:** If a notebook exceeds 50 sources, it is likely a "Library", not a "Brain".
+*   **Exceptions:** `THALIA` and `APOLLO` need massive reference libraries for creative generation, but they should ideally be split into `[BRAIN]` (Logic) and `[LIBRARY]` (Assets).
+
+---
+
+## 🚀 ACTION PLAN
+1.  **Adopt `EGERIA` structure** for all future Agent Brains.
+2.  **Split** `THALIA` and `APOLLO` into Logic vs. Assets if performance degrades.
+3.  **Archive** the `LEGACY` notebooks to clean the workspace.

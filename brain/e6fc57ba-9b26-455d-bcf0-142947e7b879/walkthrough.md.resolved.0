@@ -1,0 +1,43 @@
+﻿# Walkthrough: System Governance & Command Center Launch
+
+**Mission**: Establish the "AXON LifeOS" governance structure, enabling agents to communicate, self-heal, and visualize data.
+
+## 1. Governance Architecture ("The Hive Mind")
+We moved from isolated scripts to a **Fractal Skill System**:
+- **Skill Forge**: A meta-tool to generate new standardized skills.
+- **Hermes (Service Bus)**: Central router for agent communication (decouples dependencies).
+- **Oculus (Auditor)**: System immune system (checks secrets, structure, and signals n8n). [Renamed from Auditor]
+- **Wealth Manager**: Specialized skill for checking Supabase assets (Emergency Fund).
+- **Mnemosyne (NotebookLM)**: The semantic brain.
+
+## 2. Key Implementations
+### Skills
+- Created `src/skills/skill_forge`, `src/skills/hermes_agent`, `src/skills/auditor_agent`, `src/skills/wealth_manager`.
+- Each has a fractal [SKILL.md](file:///C:/Users/daria/.gemini/AXON/scratch/AXON-boilerplate/src/skills/skill_forge/SKILL.md) and a Python handler.
+
+### Automation (n8n)
+- **Hermes Gateway**: [hermes_gateway.json](file:///C:/Users/daria/.gemini/AXON/scratch/AXON-boilerplate/src/automation/n8n/hermes_gateway.json) (Webhook listener).
+- **Heartbeat**: [system_heartbeat.json](file:///C:/Users/daria/.gemini/AXON/scratch/AXON-boilerplate/src/automation/n8n/system_heartbeat.json) (System monitoring).
+
+### Dashboard (Command Center)
+- **Tech**: Next.js 14 + Tailwind CSS + Supabase.
+- **Location**: `http://localhost:3000/dashboard`.
+- **Status**: **ONLINE**.
+- **Fix**: Resolved `constsupabase` typo in [middleware.ts](file:///C:/Users/daria/.gemini/AXON/scratch/AXON-boilerplate/src/middleware.ts).
+
+## 3. Verification Results
+| Component | Test Info | Result |
+| :--- | :--- | :--- |
+| **Hermes -> n8n** | Python script execution | âœ… Signal Sent |
+| **Wealth Fetch** | `$python wealth_manager_handler.py` | âœ… Assets Listed ($1000) |
+| **Dashboard** | `read_url_content` | âœ… Status 200 OK |
+| **NotebookLM** | `re_auth` + `list_notebooks` | âœ… "AXON Knowledge Base" Visible |
+
+## 4. Known Issues / Next Steps
+- **RLS Policy**: Dashboard shows $0.00 because Browser Anon Key lacks permission (or state mismatch), while Python script (Admin/Service) sees $1000. Needs RLS fix.
+- **Browser Tool**: Still compromised (`$HOME` error). Relying on internal tool usage.
+
+## 5. Artifacts Created
+- [SYSTEM_GOVERNANCE_MODEL.md](file:///C:/Users/daria/.gemini/AXON/brain/e6fc57ba-9b26-455d-bcf0-142947e7b879/SYSTEM_GOVERNANCE_MODEL.md)
+- [SYSTEM_BLUEPRINT.md](file:///C:/Users/daria/.gemini/AXON/brain/e6fc57ba-9b26-455d-bcf0-142947e7b879/SYSTEM_BLUEPRINT.md) (Updated)
+- [SYSTEM_STATE_LOG.md](file:///C:/Users/daria/.gemini/AXON/brain/e6fc57ba-9b26-455d-bcf0-142947e7b879/SYSTEM_STATE_LOG.md) (Events logged)

@@ -1,0 +1,8 @@
+# Debugging Make.com MCP Connection
+
+- [/] Identify the source of the connection error <!-- id: 0 -->
+- [ ] Locate the MCP configuration file <!-- id: 1 -->
+- [ ] Verify the Make.com MCP server URL and credentials <!-- id: 2 -->
+- [ ] Test the connection using `mcp-bridge` or `curl` <!-- id: 3 -->
+- [ ] Implement a fix for the timeout or configuration issue <!-- id: 4 -->
+- [ ] Verify the fix with the user <!-- id: 5 -->

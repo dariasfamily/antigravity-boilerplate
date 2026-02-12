@@ -1,0 +1,55 @@
+
+# DASHBOARD V3 ("COMMANDER") REDESIGN SPEC
+
+## 🚨 Critical Feedback Analysis
+The current dashboard was flagged as a "disaster" because it:
+1.  **Lacks Depth**: Generic buttons ("Start") don't match the complex inputs required by `OrionIngest`.
+2.  **Hides the Brain**: The "Sealed Runner" architecture (Traces, Justifications) is invisible.
+3.  **Mock Data**: Telemetry doesn't reflect the live Nucleus database `ag_sessions`.
+
+## 🎨 Design Philosophy: "The Glass Cockpit"
+*   **Aesthetic**: Deep space dark mode (`#050505`), neon accents (Blue for Strategy, Purple for Creative), frosted glass panels.
+*   **Interaction**: high-density data displays, toggle switches for "Auto-Pilot", live terminal streams.
+
+## 🏗️ Structural Redesign
+
+### 1. Global Header ("The Bridge")
+*   **Active Session Indicator**: Real-time sync with `ag_sessions` (Active Agent, Phase).
+*   **Global Kill Switch**: Emergency Stop for all agents.
+*   **Wallet**: Live integration with internal ledger (Projected vs Actual Cost).
+
+### 2. Agent Modules (Replacements for `AgentControlPanel`)
+
+#### A. ORION MODULE ("The Strategist")
+*   **Input Mode**:
+    *   *Topic Matrix*: Grid for inputting keywords/trends.
+    *   *Constraint Sliders*: Budget Tier, Duration, Platform.
+*   **Output Mode (The Manifest)**:
+    *   Visual "Manifest Card" showing Predicted Virality Score.
+    *   Timeline Visualization (Hook -> Body -> CTA).
+
+#### B. CALLIOPE MODULE ("The Creator")
+*   **Input Mode**:
+    *   *Manifest Selector*: Dropdown to pick approved Orion manifests.
+    *   *Tone Dial*: "Authoritative" <-> "Reluctant Guru".
+*   **Output Mode (The Script)**:
+    *   Split-screen: Visual Prompts (Left) vs Narration (Right).
+    *   Markdown Editor for manual polish.
+
+### 3. LIVE TELEMETRY ("The Nervous System")
+*   **Trace Context Stream**: Visualization of the W3C Trace IDs propagating.
+*   **Justification Log**: "Why did you do that?" - displaying the `TripleJustification` for every action.
+*   **Database Heartbeat**: Live indicator of writes to `ag_agent_memory`.
+
+## 🔧 Technical Implementation Plan
+
+1.  **Refactor `AgentContext`**: Remove mock data. Hook directly into Supabase Realtime for `ag_sessions` and `ag_agent_memory`.
+2.  **New Component Architecture**:
+    *   `components/dashboard/modules/OrionModule.tsx`
+    *   `components/dashboard/modules/CalliopeModule.tsx`
+    *   `components/dashboard/telemetry/TraceStream.tsx`
+3.  **Authentication**: Enforce strict session presence. No dashboard access without a valid Nucleus Session.
+
+## 📝 User Action Requirements
+*   **Input**: User must be able to configure specific `OrionIngest` fields via UI.
+*   **Approval**: Explicit "Approve/Reject" UI for generated Artifacts before they pass to the next agent.

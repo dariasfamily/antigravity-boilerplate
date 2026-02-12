@@ -1,0 +1,18 @@
+# Supabase MCP Configuration
+
+Implement the Supabase MCP connection using `mcp-remote` as a bridge to the remote SSE endpoint, passing the required Authorization header.
+
+## Proposed Changes
+
+### Configuration
+#### [MODIFY] [mcp_config.json](file:///c:/Users/daria/.gemini/AXON/mcp_config.json)
+- Add a new server entry `supabase`.
+- Use `npx -y mcp-remote` command.
+- Pass the Supabase MCP URL and Authorization header as arguments.
+- Credentials will be extracted from the user's provided [supabase_mcp.json](file:///c:/Users/daria/.gemini/AXON/scratch/Dev/AXON-agents/shared-resources/mcp-configs/supabase_mcp.json).
+
+## Verification Plan
+
+### Manual Verification
+1.  User restarts MCP client.
+2.  Verify `supabase` server appears in the tool list (or check logs for connection success).

@@ -1,0 +1,36 @@
+﻿# Walkthrough - MCP Connection Fixes
+
+## Changes Made
+I have replaced the failing `mcp-remote` tool with a custom [debug-mcp-bridge.js](file:///C:/Users/daria/.gemini/AXON/scratch/debug-mcp-bridge.js) script to handle Server-Sent Events (SSE) connections more reliably and provides detailed error logging.
+
+### 1. Custom Bridge Script
+Created [debug-mcp-bridge.js](file:///C:/Users/daria/.gemini/AXON/scratch/debug-mcp-bridge.js) in your scratch directory. This script:
+-   Uses `eventsource` directly to avoid `mcp-remote` overhead/bugs.
+-   Logs connection status and errors to the "MCP Log" output in VS Code.
+-   Supports environment variable expansion (e.g., `$RUBE_API_KEY`) for secure headers.
+
+### 2. Configuration Updates ([mcp_config.json](file:///C:/Users/daria/.gemini/AXON/mcp_config.json))
+-   **Zapier**: Switched to [debug-mcp-bridge.js](file:///C:/Users/daria/.gemini/AXON/scratch/debug-mcp-bridge.js). **Status: Connected \u2705**
+-   **Make.com**: Switched to [debug-mcp-bridge.js](file:///C:/Users/daria/.gemini/AXON/scratch/debug-mcp-bridge.js). **Status: Connected (401 Unauthorized)**.
+    -   *Action*: The connection works (no timeout), but the server rejected the request. You may need to generate a new endpoint URL or check if an API key is required.
+-   **Rube**: Switched to [debug-mcp-bridge.js](file:///C:/Users/daria/.gemini/AXON/scratch/debug-mcp-bridge.js) and properly passed the API Key. **Status: Connected (401 Unauthorized)**.
+    -   *Action*: Please verify your `Rube-Api-Key`.
+-   **NotebookLM**: Increased start timeout to 600 seconds (10 minutes) to prevent "context deadline exceeded" during slow startups.
+
+## verification Results
+
+### Automated Tests
+Ran the bridge script manually against your endpoints:
+```powershell
+# Zapier Test
+node debug-mcp-bridge.js "https://mcp.zapier.com/..."
+> [DebugBridge] Connected to SSE stream. (SUCCESS)
+
+# Make.com Test
+node debug-mcp-bridge.js "https://us1.make.com/..."
+> [DebugBridge] SSE Error: 401 (Network OK, Auth Failed)
+```
+
+## Next Steps
+1.  **Reload MCP Servers**: Open the command palette and run `MCP: Reload` (or restart VS Code).
+2.  **Check Make/Rube**: If you need these working, please verify the credentials/URLs. The logs in the Output panel (select "MCP Log" or similar) will now show detailed error messages from my bridge script.

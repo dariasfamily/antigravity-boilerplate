@@ -1,0 +1,36 @@
+﻿# Implementation Plan: Agent MIDAS (Wealth & Analytics)
+
+## Goal Description
+To define and integrate **Agent MIDAS**, the "Wealth" layer of the system. MIDAS sits at the end of the execution loop (after Echo) to analyze performance, calculate ROI, and feed financial intelligence back into ORION (Strategy). This completes the "Metabolic Loop" described in the Constitution.
+
+## User Review Required
+> [!IMPORTANT]
+> **Identity Confirmation**: I have identified the next agent as **MIDAS** (Finance/ROI). If you intended a different agent (e.g., Community Management), please correct me.
+
+## Proposed Changes
+
+### 1. Conceptual Definition
+- **Name**: MIDAS (Metric Integration & Data Analysis System)
+- **Role**: CFO / Chief Analyst
+- **Objective**: "Wealth First" - Optimize Asset Generation and Revenue.
+
+### 2. Code Integration ([src/types/agent_types.ts](file:///C:/Users/daria/.gemini/AXON/scratch/AXON-boilerplate/src/types/agent_types.ts))
+#### [MODIFY] [agent_types.ts](file:///C:/Users/daria/.gemini/AXON/scratch/AXON-boilerplate/src/types/agent_types.ts)
+- Add Section 8: **MIDAS: WEALTH LAYER**
+- Define `MidasInput`:
+    - `echo_metrics`: From Echo.
+    - `financial_data`: From Stripe/Costs.
+    - `orion_goal`: To benchmark against.
+- Define `MidasOutput`:
+    - `roi_analysis`: Net Profit/Loss.
+    - `efficiency_score`: Cost per result.
+    - `strategic_adjustment`: Recommendation for Orion (e.g., "Pivot to Video").
+
+### 3. Documentation
+#### [NEW] [agent_midas_definition.md](file:///C:/Users/daria/.gemini/AXON/brain/dfe95997-2930-442b-85c6-21d08da1e15c/agent_midas_definition.md)
+- Comprehensive profile as requested by the user.
+
+## Verification Plan
+### Manual Verification
+- Verify [agent_types.ts](file:///C:/Users/daria/.gemini/AXON/scratch/AXON-boilerplate/src/types/agent_types.ts) compiles with no type errors.
+- User review of the Midas Definition Artifact.

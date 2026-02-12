@@ -1,0 +1,31 @@
+
+# Implementation Plan: Calliope Agent (Copywriting)
+
+## Goal
+Implement the **Calliope Agent**, responsible for transforming strategic "Manifests" (from Orion) into production-ready "Scripts" (Markdown + Scene Directions).
+
+## User Review Required
+> [!NOTE]
+> Calliope will use a "Mock" generation logic initially (V1.0) to establish the pipeline. LLM integration will happen in V1.1.
+
+## Proposed Changes
+
+### 1. Core Logic (src/agents/calliope)
+*   **[NEW]** `src/agents/calliope/CalliopeLogic.ts`
+    *   Implements `AgentLogic<CalliopeIngest, CalliopeOutput>`.
+    *   **Process**: Takes [OrionManifest](file:///C:/Users/daria/.gemini/AXON/scratch/AXON-boilerplate/src/types/agent_types.ts#57-106), expands timeline segments into full scenes with narration and visual prompts.
+    *   **Evaluate**: Checks script duration vs constraints.
+    *   **Justify**: Explains creative choices based on "Brand Tone".
+
+### 2. API Layer
+*   **[NEW]** `src/app/api/agents/calliope/run/route.ts` - Production route for triggering Calliope.
+
+## Verification Plan
+### Automated Tests
+*   **E2E Test**: Trigger via Dashboard (requires Orion output as input).
+*   **Unit Test**: Verify `CalliopeLogic.evaluate` rejects scripts that are too long.
+
+### Manual Verification
+1.  Run Orion to generate a Manifest.
+2.  Pass Manifest to Calliope.
+3.  Verify generated Script appears in Dashboard [ContextInspector](file:///C:/Users/daria/.gemini/AXON/scratch/AXON-boilerplate/src/components/dashboard/ContextInspector.tsx#5-91) and `AgentControlPanel`.

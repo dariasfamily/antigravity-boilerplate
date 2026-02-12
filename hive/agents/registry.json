@@ -1,0 +1,141 @@
+{
+    "version": "2.0",
+    "system_name": "AXON SYSTEM",
+    "last_audit": "2026-02-09",
+    "owner": "Darias",
+    "autonomy_level": 0.98,
+    "agents": [
+        {
+            "id": "EGERIA",
+            "type": "knowledge_manager",
+            "specialties": [
+                "NotebookLM",
+                "Audit",
+                "Mimicry"
+            ],
+            "skills": [
+                "notebooklm_mastery",
+                "system-orchestrator"
+            ],
+            "path": "hive/agents/egeria",
+            "status": "operative"
+        },
+        {
+            "id": "PULSAR",
+            "type": "prompt_engineer",
+            "specialties": [
+                "Prompt Engineering",
+                "Intent Transmutation",
+                "Logic Verification"
+            ],
+            "skills": [
+                "transmute_prompt",
+                "semantic_anchoring",
+                "logic_validation",
+                "experience-learner"
+            ],
+            "path": "hive/agents/pulsar",
+            "status": "operative"
+        },
+        {
+            "id": "ORION",
+            "type": "strategist",
+            "specialties": [
+                "Strategy",
+                "Market Analysis",
+                "Blueprints"
+            ],
+            "skills": [
+                "strategic-analysis",
+                "market-intelligence",
+                "report-to-hq"
+            ],
+            "path": "hive/agents/orion",
+            "status": "operative"
+        },
+        {
+            "id": "CALLIOPE",
+            "type": "creator",
+            "specialties": [
+                "Content",
+                "Storyboards",
+                "Tone"
+            ],
+            "skills": [
+                "creative-writing",
+                "media-production",
+                "report-to-hq"
+            ],
+            "path": "hive/agents/calliope",
+            "status": "operative"
+        },
+        {
+            "id": "ARGUS",
+            "type": "guardian",
+            "specialties": [
+                "Compliance",
+                "QA",
+                "SEO"
+            ],
+            "skills": [
+                "compliance-check",
+                "quality-assurance",
+                "report-to-hq"
+            ],
+            "path": "hive/agents/argus",
+            "status": "operative"
+        },
+        {
+            "id": "PLANNER",
+            "type": "architect",
+            "specialties": [
+                "System Design",
+                "Audit",
+                "Planning"
+            ],
+            "skills": [
+                "system-audit",
+                "architecture-design",
+                "report-to-hq"
+            ],
+            "path": "hive/agents/planner",
+            "status": "operative"
+        },
+        {
+            "id": "APOLLO",
+            "type": "audio_engineer",
+            "specialties": [
+                "Audio Synthesis",
+                "Voice",
+                "Sound Design"
+            ],
+            "skills": [],
+            "path": "hive/agents/apollo",
+            "status": "skeleton"
+        },
+        {
+            "id": "NEXUS",
+            "type": "integrator",
+            "specialties": [
+                "Automation",
+                "Meta-Creation",
+                "n8n/Make"
+            ],
+            "skills": [],
+            "path": "hive/agents/nexus",
+            "status": "skeleton"
+        },
+        {
+            "id": "THALIA",
+            "type": "visual_muse",
+            "specialties": [
+                "Visual Assets",
+                "Art Direction",
+                "Thumbnailing"
+            ],
+            "skills": [],
+            "path": "hive/agents/thalia",
+            "status": "skeleton"
+        }
+    ]
+}

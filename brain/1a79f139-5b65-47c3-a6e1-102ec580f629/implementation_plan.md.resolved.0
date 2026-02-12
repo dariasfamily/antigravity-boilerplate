@@ -1,0 +1,39 @@
+# Implementation Plan - Official Skills Installation
+
+## Goal Description
+Install "official and safe" skills from `skills.sh` (specifically the `vercel-labs/agent-skills` collection) to enhance the AXON system's capabilities. These skills will be installed in the central `hive/skills` directory to be accessible as global resources.
+
+## User Review Required
+> [!IMPORTANT]
+> **Source Confirmation**: We will install skills from `https://github.com/vercel-labs/agent-skills`. This is the official Vercel Labs collection and is considered safe and standard for AI agents.
+
+> [!NOTE]
+> **Installation Path**: Skills will be installed into `C:\Users\daria\.gemini\AXON\hive\skills`. This aligns with the "Hive" architecture for global resources.
+
+## Proposed Changes
+
+### Global Skills Directory (`hive/skills`)
+We will use the `npx skills add` command to install the following skills:
+
+1.  **react-best-practices**: Performance optimization guidelines.
+2.  **web-design-guidelines**: Accessibility, performance, and UX audits.
+3.  **react-native-guidelines**: Best practices for mobile development (if relevant).
+4.  **composition-patterns**: React component architecture patterns.
+5.  **vercel-deploy-claimable**: Direct deployment to Vercel.
+
+**Command:**
+```bash
+npx skills add vercel-labs/agent-skills --all
+```
+*Note: We will run this inside `hive/skills`.*
+
+## Verification Plan
+
+### Automated Verification
+- **List Installed Skills**: Run `npx skills list` inside `hive/skills` to confirm they are registered.
+- **Check File Structure**: Verify that skill folders (e.g., `react-best-practices/SKILL.md`) are created in `hive/skills`.
+- **Content Check**: Read one of the `SKILL.md` files to ensure content is valid.
+
+### Manual Verification
+- User can check the `hive/skills` directory to see the new folders.
+- User can try using a skill in a future task (we will validatate installation first).

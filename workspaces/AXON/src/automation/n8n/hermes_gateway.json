@@ -1,0 +1,64 @@
+﻿{
+    "name": "Hermes Gateway",
+    "nodes": [
+        {
+            "parameters": {
+                "httpMethod": "POST",
+                "path": "hermes-gateway",
+                "options": {}
+            },
+            "name": "Hermes Webhook",
+            "type": "n8n-nodes-base.webhook",
+            "typeVersion": 1,
+            "position": [
+                460,
+                240
+            ],
+            "webhookId": "hermes-gateway"
+        },
+        {
+            "parameters": {
+                "operation": "append",
+                "fileName": "C:/Users/daria/.gemini/AXON/brain/e6fc57ba-9b26-455d-bcf0-142947e7b879/SYSTEM_STATE_LOG.md",
+                "dataPropertyName": "body",
+                "options": {}
+            },
+            "name": "Log to Brain",
+            "type": "n8n-nodes-base.writeBinaryFile",
+            "typeVersion": 1,
+            "position": [
+                680,
+                240
+            ],
+            "disabled": true,
+            "notes": "Disabled by default to avoid file lock issues. Enable to maximize logging."
+        },
+        {
+            "parameters": {},
+            "name": "NoOp",
+            "type": "n8n-nodes-base.noOp",
+            "typeVersion": 1,
+            "position": [
+                680,
+                440
+            ]
+        }
+    ],
+    "connections": {
+        "Hermes Webhook": {
+            "main": [
+                [
+                    {
+                        "node": "NoOp",
+                        "type": "main",
+                        "index": 0
+                    }
+                ]
+            ]
+        }
+    },
+    "settings": {
+        "executionOrder": "v1"
+    },
+    "active": true
+}

@@ -1,0 +1,27 @@
+# Task: Integrity Check & Agent Expansion
+
+- [x] Save M0-M9 specification to Notebook ("Agencia de Contenido") <!-- id: 10 -->
+- [x] Map M0-M9 skills to Agents (Egeria, Orion, Calliope, Argus, Pulsar) <!-- id: 11 -->
+- [x] Create [hive/MODULAR_ARCHITECTURE_MAP.md](file:///c:/Users/daria/.gemini/AXON/hive/MODULAR_ARCHITECTURE_MAP.md) artifact <!-- id: 12 -->
+- [x] Update [src/types/agent_types.ts](file:///c:/Users/daria/.gemini/AXON/workspaces/Proyecto%20MENISCO/dashboard-v3/src/types/agent_types.ts) with new interfaces (Idea, Trend, Score) <!-- id: 13 -->
+- [x] **Hydrate PLANNER Agent** from Notebook (v1.1.0) <!-- id: 19 -->
+- [x] **Define Agent "ARGUS" (Guardian)** <!-- id: 20 -->
+    - [x] Hydrate from Notebook: `Argus`
+    - [x] Create [TECHNICAL_DATASHEET_ARGUS.md](file:///c:/Users/daria/.gemini/AXON/hive/agents/argus/TECHNICAL_DATASHEET_ARGUS.md)
+- [x] **Define Agent "AUTOMATION" (NEXUS/Engine)** <!-- id: 21 -->
+    - [x] Hydrate from Notebook: `MASTER AUTOMATION AGENT`
+    - [x] Create [TECHNICAL_DATASHEET_NEXUS.md](file:///c:/Users/daria/.gemini/AXON/hive/agents/nexus/TECHNICAL_DATASHEET_NEXUS.md)
+    - [x] Add to Registry and Seeds
+- [x] **Define Agent "LYRA" (Brand DNA)** <!-- id: 18 -->
+    - [ ] Create Notebook: `LYRA (Brand Custodian)` (Pending User)
+    - [ ] Create `TECHNICAL_DATASHEET_LYRA.md`
+    - [x] Add to Registry and Seeds (Placeholder)
+- [x] **Define Agent "APOLLO" (Audio/Voice)** <!-- id: 22 -->
+    - [x] Hydrate from Notebook: `APOLLO`
+    - [x] Create [TECHNICAL_DATASHEET_APOLLO.md](file:///c:/Users/daria/.gemini/AXON/hive/agents/apollo/TECHNICAL_DATASHEET_APOLLO.md)
+    - [x] Add to Registry and Seeds
+- [x] **Define Agent "THALIA" (Visuals)** <!-- id: 23 -->
+    - [x] Hydrate from Notebook: `THALIA`
+    - [x] Create [TECHNICAL_DATASHEET_THALIA.md](file:///c:/Users/daria/.gemini/AXON/hive/agents/thalia/TECHNICAL_DATASHEET_THALIA.md)
+    - [x] Add to Registry and Seeds
+- [ ] Notify User with Mapping Report and Questionnaire (A-E) <!-- id: 15 -->

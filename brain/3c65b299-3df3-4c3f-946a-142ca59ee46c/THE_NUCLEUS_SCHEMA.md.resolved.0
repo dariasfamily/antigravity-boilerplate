@@ -1,0 +1,141 @@
+# ⚛️ THE NUCLEUS: DEEP DATABASE SCHEMA (V4.0)
+**Objective**: "God View" Visibility. Trace every atom of the system.
+**Target**: Supabase (PostgreSQL).
+
+---
+
+## 1. ORCHESTRATION LAYER
+*Who is doing what, when, and where?*
+
+### Table: `ag_sessions`
+*The master thread for every user interaction.*
+
+```sql
+create table ag_sessions (
+  id uuid primary key default uuid_generate_v4(),
+  user_id uuid references auth.users not null,
+  
+  -- Context Meta
+  platform text check (platform in ('Desktop', 'Mobile', 'API')),
+  location_iso text, -- 'US', 'ES'
+  client_timestamp timestamptz default now(),
+  
+  -- State
+  phase text, -- 'PLANNING', 'SCRIPTING', 'PRODUCING'
+  active_agent_id text, -- 'ORION_V3_4'
+  status text check (status in ('ACTIVE', 'PAUSED', 'COMPLETED', 'ERROR')),
+  
+  -- Financials (Session Running Total)
+  accumulated_cost float4 default 0.0,
+  
+  created_at timestamptz default now(),
+  updated_at timestamptz default now()
+);
+```
+
+---
+
+## 2. INTELLIGENCE LAYER (The "Mind")
+*What are the agents thinking (RAM) and deciding (Logic)?*
+
+### Table: `ag_agent_memory` (The "Glass Box")
+*Snapshots of the ephemeral [SystemContext](file:///C:/Users/daria/.gemini/AXON/scratch/AXON-boilerplate/src/types/agent_types.ts#137-165) RAM. High frequency updates.*
+
+```sql
+create table ag_agent_memory (
+  id bigint generated always as identity primary key,
+  session_id uuid references ag_sessions not null,
+  agent_id text not null, -- 'ORION', 'CALLIOPE'
+  
+  -- The "Brain" Dump
+  memory_snapshot jsonb not null, -- Full JSON state
+  diff_log jsonb, -- What changed since last snapshot?
+  
+  -- Metrics
+  ram_usage_mb float4,
+  latency_ms int4,
+  
+  captured_at timestamptz default now()
+);
+```
+
+### Table: `ag_logic_trace` (Result of "Mega Audit")
+*Why did the agent make this decision? Auto-Correction logs.*
+
+```sql
+create table ag_logic_trace (
+  id bigint generated always as identity primary key,
+  session_id uuid references ag_sessions not null,
+  agent_id text not null,
+  
+  -- Decision Context
+  decision_type text, -- 'RANKING', 'HOOK_SELECTION'
+  input_data jsonb, -- What did it see?
+  output_data jsonb, -- What did it decide?
+  reasoning_text text, -- "Chosen because X > Y"
+  
+  -- Quality Control
+  confidence_score float4, -- 0.0 - 1.0
+  auto_corrected boolean default false,
+  correction_diff jsonb, -- If corrected, what changed?
+  
+  created_at timestamptz default now()
+);
+```
+
+---
+
+## 3. ASSET LAYER (The "Body")
+*Where are the files? How much do they cost?*
+
+### Table: `ag_assets` (Master Inventory)
+
+```sql
+create table ag_assets (
+  id uuid primary key default uuid_generate_v4(),
+  session_id uuid references ag_sessions,
+  
+  -- Identity
+  asset_type text check (asset_type in ('SCRIPT', 'VIDEO', 'AUDIO', 'THUMBNAIL')),
+  title text,
+  
+  -- Storage
+  storage_provider text default 'S3',
+  storage_path text not null, -- 's3://bucket/...'
+  file_size_bytes bigint,
+  
+  -- Performance
+  production_cost float4,
+  est_revenue_rpm float4,
+  
+  -- Versioning
+  version int4 default 1,
+  parent_asset_id uuid references ag_assets,
+  
+  created_at timestamptz default now()
+);
+```
+
+---
+
+## 4. FEEDBACK LAYER (The "Evolution")
+*How does the system upgrade itself?*
+
+### Table: `ag_feedback_loop`
+
+```sql
+create table ag_feedback_loop (
+  id uuid primary key default uuid_generate_v4(),
+  target_agent_id text, -- 'ORION'
+  
+  -- The Trigger
+  trigger_event text, -- 'USER_EDIT', 'LOW_PERFORMANCE'
+  description text,
+  
+  -- The Lesson
+  proposed_improvement text,
+  status text check (status in ('PENDING_REVIEW', 'IMPLEMENTED', 'REJECTED')),
+  
+  created_at timestamptz default now()
+);
+```

@@ -1,0 +1,7 @@
+# Task: Resolver visualización de workspace.json
+
+- [x] Investigar directorios raíz para encontrar workspace.json
+- [/] Comparar estado del disco con la barra lateral (UI)
+- [ ] Localizar configuración de espacios de trabajo en el IDE
+- [ ] Eliminar entrada fantasma o corregir archivo si existe
+- [ ] Notificar a Daria la resolución

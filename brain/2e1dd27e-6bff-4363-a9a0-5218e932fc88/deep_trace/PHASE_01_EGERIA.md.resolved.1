@@ -1,0 +1,109 @@
+# 🕵️ ELITE DEEP TRACE: PHASE 1 - EGERIA ("La Secre")
+**Role**: The Gatekeeper, The CFO, The Compliance Officer.
+**Protocol**: Level 5 (Maximum Oversight)
+**Dashboard State**: 🟡 `EGERIA_INGESTING` (Blinking)
+
+## 1. THE INPUT ARTIFACT (Minimal Requirements)
+**Interface: User (Admin) -> Egeria**
+Before the system moves, Egeria demands a "Quality Input". If not provided, she asks.
+
+### 1.1 Structural Input Object
+```json
+{
+  "admin_id": "USER-DARIAS-001",
+  "trigger_source": "DASHBOARD_V3_MAIN_INPUT",
+  "timestamp": "2026-02-08T20:30:00Z",
+  "request_package": {
+    "raw_intent": "temas sobre uso y aplicaciones de IA modernos 2026",
+    "delivery_urgency": "NORMAL", // Options: URGENT, NORMAL, BACKGROUND
+    "execution_mode": "EXPLORER", // Options: TEST, EXPLORER, PRODUCTION, DEBUG
+    "constraints": {
+        "budget_tier": "STANDARD",
+        "format": "AUTO_DETECT"
+    }
+  }
+}
+```
+
+## 2. THE PROCESS (Logic Kernel)
+
+### 2.1 Micro-Step: Identity & Permissions (The Badge Check)
+*   **Action**: Validate `admin_id` against `ag_users` DB.
+*   **Context**: "Does Darias have `ROOT_ACCESS`?" -> **YES**.
+*   **Audit L1 (Access)**: "User Darias authenticated via Secure Session."
+
+### 2.2 Micro-Step: Context Hydration (The "Expedient")
+Egeria pulls the "File" on this topic.
+*   **Query**: `NotebookLM` (Brand Bible + Agent Memory).
+*   **Search**: "IA 2026", "Modern Applications".
+*   **Result**: "No exact match in 2026 logs. Found related 'AI Trends 2025' in Archive."
+*   **Decision**: Treat as **NEW_TOPIC** but link '2025' context for continuity.
+
+### 2.3 Micro-Step: Parameter Expansion (The "Packaging")
+Egeria prepares the package for **Phase 2 (Planner)**. She knows Planner needs specific fields.
+*   **Inference**:
+    *   *User said:* "temas..." (Plural) -> *Egeria sets:* `scope: "BROAD_SCAN"`.
+    *   *User said:* "uso y aplicaciones" -> *Egeria sets:* `focus: "PRACTICAL_UTILITY"`.
+*   **Fill Gaps**:
+    *   `planner_audit_scope`: Set to "FULL_SYSTEM" (Default for Admin requests).
+    *   `planner_depth`: Set to "L3_DETAILED".
+
+### 2.4 Micro-Step: Resource & Budget (The CFO)
+*   **Calculation**:
+    *   Est. Tokens: 50k (Input) + 10k (Output).
+    *   Est. Cost: $0.15.
+    *   Est. Time: 120s.
+*   **Check**: "Wallet Balance > Encumbered?" -> **YES**.
+*   **Audit L2 (Resources)**: "Budget allocated. Resources reserved."
+
+## 3. THE OUTPUT INTERFACE (Egeria -> Planner)
+
+### 3.1 Session Manifest V2 (The "Golden Ticket")
+```json
+{
+  "session_uuid": "SESS-2026-02-08-001",
+  "status": "AWAITING_USER_APPROVAL",
+  "owner": "Darias",
+  "context_lock": {
+    "snapshot_id": "CTX-998877",
+    "related_memories": ["mem-2025-ai-trends"]
+  },
+  "downstream_payloads": {
+    "planner": {
+      "task_type": "STRATEGIC_FORESIGHT",
+      "output_format": "BLUEPRINT_JSON",
+      "constraints": ["VISUALS_REQUIRED", "AUDIO_REQUIRED"]
+    },
+    "pulsar": { "model_preference": "GEMINI_2_PRO" },
+    "argus": { "brand_safety_level": "STRICT" }
+  }
+}
+```
+
+## 4. DASHBOARD SIGNALS & CONTROL (The Cockpit)
+
+### 4.1 Status Indicators
+*   **Led Color**: 🟠 **ORANGE (Blinking)** = `WAITING_FOR_USER`.
+*   **Message**: "Manifest Generated. Review & Approve."
+*   **Timer**: `15s` Count Down (Auto-Pause).
+
+### 4.2 User Intervention Controls
+1.  **[APPROVE]** (Green): Commit Manifest -> Send to Planner.
+2.  **[MODIFY]** (Yellow): Open JSON Editor. Add/Remove `constraints`.
+    *   *Example*: Add "Include 'Autonomous Agents' specifically".
+3.  **[REJECT]** (Red): Abort Session. Log reason.
+4.  **[PAUSE]** (White): Freeze State. Hold resources.
+
+## 5. AUDIT LOG (The "Black Box" - 5 Levels)
+
+| Level | Type | Message | Hash |
+| :--- | :--- | :--- | :--- |
+| **L1** | **IDENTITY** | `User Darias (Admin) Authenticated.` | `a1b2...` |
+| **L2** | **RESOURCE** | `Budget Locked: $0.15 est. Drive Check: OK.` | `c3d4...` |
+| **L3** | **DECISION** | `Inferred Scope: BROAD_SCAN. Inferred Focus: UTILITY.` | `e5f6...` |
+| **L4** | **DATA** | `Manifest Created. Size: 4KB. Context: 2 Links.` | `g7h8...` |
+| **L5** | **STATE** | `Transition: INGESTING -> WAITING_APPROVAL.` | `i9j0...` |
+
+---
+**NEXT**: **PHASE 2: PLANNER (The Architect)**
+*Dependency*: User Approval of Phase 1 Manifest.

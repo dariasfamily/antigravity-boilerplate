@@ -1,0 +1,51 @@
+# Task: Set up NotebookLM Integration
+
+## Status: ⚠️ BLOQUEADO - Limitación de Librería
+
+### Completado ✅
+- [x] Research existing NotebookLM integration
+- [x] Create project structure (`notebooklm/` folder)
+- [x] Install dependencies (`notebooklm-py` v0.3.2)
+- [x] Create sync script ([scripts/sync_notebooklm.py](file:///c:/Users/daria/.gemini/AXON/workspaces/Proyecto%20MENISCO/dashboard-v3/scripts/sync_notebooklm.py))
+- [x] Extract cookies via EditThisCookie (24 cookies con valores)
+- [x] Test Playwright login (navegador abre correctamente)
+- [x] Identify root cause of authentication failure
+
+### Bloqueado ❌
+- [ ] Complete authentication (Google rechaza peticiones HTTP)
+- [ ] Test sync successfully
+
+## Root Cause Identificado
+
+**Problema:** La librería `notebooklm-py` NO puede autenticarse vía peticiones HTTP simples.
+
+**Evidencia:**
+1. ✅ Cookies extraídas correctamente (24 cookies incluyendo HttpOnly)
+2. ✅ Cookies tienen valores reales (no vacías)
+3. ✅ Formato correcto de [storage_state.json](file:///C:/Users/daria/.notebooklm/storage_state.json)
+4. ❌ Google redirige a login en TODAS las peticiones HTTP
+5. ❌ Playwright login funciona PERO falla al guardar cookies en Windows
+
+**Conclusión:** Google requiere navegador real completo, no solo cookies + HTTP requests.
+
+## Solución Temporal (Workaround)
+
+Hasta que se arregle el bug de Playwright en Windows, usa este proceso manual:
+
+1. Abre Chrome → https://notebooklm.google.com/
+2. Loguéate normalmente
+3. Usa EditThisCookie para exportar cookies
+4. Guarda en [C:\Users\daria\.notebooklm\storage_state.json](file:///C:/Users/daria/.notebooklm/storage_state.json)
+5. Ejecuta: `python scripts/sync_notebooklm.py`
+
+**Frecuencia:** Cada ~30 días (cuando expiren las cookies)
+
+## Next Steps
+
+1. **Reportar bug** en GitHub de `notebooklm-py`:
+   - Issue: "Playwright login fails on Windows"
+   - Error: "Target page, context or browser has been closed"
+
+2. **Alternativa:** Implementar con Selenium (más estable en Windows)
+
+3. **Monitorear** updates de la librería

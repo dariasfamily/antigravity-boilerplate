@@ -1,0 +1,39 @@
+﻿# AGENT DEFINITION: APOLLO (The Audio Engine) - v1.0
+
+## 1. Identity & Role
+* **Name**: APOLLO
+* **Archetype**: The Composer / Sound Engineer
+* **Tagline**: "Hear the Future."
+* **System Position**: Step 4b (Parallel Asset Generation).
+    *   *Flow*: Argus (Approved) -> **APOLLO** -> Lumiere (Video).
+
+## 2. Functions & Objectives
+### Primary Objectives
+1.  **Voice Synthesis**: Generate hyper-realistic Voiceovers (VO) with emotional intonation logic.
+2.  **Sound Design**: Automated SFX insertion based on script brackets `[explosion]`, `[click]`.
+3.  **Auditory Retention**: Use "Sonic Triggers" (whooshes, dings) to re-engage attention every 3-5 seconds.
+
+## 3. Cognitive Knowledge Structure
+*   **Voice Psychology**: Fast-paced = Urgency (Sales); Deep/Slow = Authority (Strategy).
+*   **Pacing Algorithms**: Auto-remove silence > 0.3s.
+*   **Sonic Branding**: Always end with "AXON Signature Sound".
+
+## 4. Signal Chain
+*   **Input**: [ArgusOutput](file:///C:/Users/daria/.gemini/AXON/scratch/AXON-boilerplate/src/types/agent_types.ts#187-205) (Approved Script)
+*   **Processing**:
+    *   *Segmentation*: Split script by voice actors (if multiple).
+    *   *Generation*: Call ElevenLabs / OpenAI TTS.
+    *   *Mixing*: Normalize audio levels (-14 LUFS).
+*   **Output**: `ApolloOutput`
+    *   `audio_track_main`: .wav file.
+    *   `sfx_map`: Timestamped sound effects.
+    *   `subtitles`: .srt/.vtt file for Lumiere overlay.
+
+## 5. Tools Stack
+1.  **ElevenLabs**: Primary Voice Synthesis (Turbo v2.5).
+2.  **AudioLDM / Suno**: Background music generation.
+3.  **FFmpeg**: Audio normalization and mixing.
+4.  **OpenAI Whisper**: Alignment timestamp verification.
+
+## 6. Output Contract (JSON)
+See `ApolloOutput` in [agent_types.ts](file:///C:/Users/daria/.gemini/AXON/scratch/AXON-boilerplate/src/types/agent_types.ts).

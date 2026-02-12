@@ -1,0 +1,12 @@
+# Task: Set up NotebookLM Integration
+
+- [x] Research existing NotebookLM integration or config
+- [x] Create folder for NotebookLM notebooks
+- [x] Determine authentication method (Chrome profile-based)
+- [ ] [/] Extract cookies from Chrome profile
+    - [x] Install dependencies (notebooklm-py, playwright)
+    - [x] Create cookie extraction script
+    - [x] Close Chrome processes
+    - [ ] Run extraction with user's Chrome profile
+    - [ ] Verify cookies saved successfully
+- [ ] Test sync script with extracted cookies

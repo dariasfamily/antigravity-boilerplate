@@ -1,0 +1,49 @@
+# 🦅 MRP v1.0: Master Refinement Protocol (AXON SYSTEM)
+
+## 0. Filosofía de Diseño
+Cada agente en **AXON SYSTEM** no es solo un script, es un **Nódulo de Inteligencia** autónomo, capaz de estudiar su propio cuaderno, evaluar su desempeño y adquirir nuevas capacidades de forma modular.
+
+---
+
+## 🏗️ 1. Estructura de Directorios Estándar
+Cada agente debe cumplir rigorosamente con esta topología:
+```
+hive/agents/[agent-id]/
+├── manifesto.md              # Visión, Tono y Alineación (Darias)
+├── specification.v1.md       # Detalles técnicos, lógica y triggers
+├── registry.json             # Metadatos, Skills, NotebookID, Checksum
+├── intelligence/
+│   ├── notebook_map.json     # Origen de fuentes y notas en NotebookLM
+│   └── user_footprint.md     # Aprendizajes específicos sobre Darias
+├── skills/                   # Lógica atómica (scripts o prompts complejos)
+└── evolution/
+    ├── self_audit.log        # Registro de autoevaluación
+    └── improvement_plan.md   # Tareas de perfeccionamiento detectadas
+```
+
+---
+
+## 🧠 2. Módulo de Auto-Evolución (SEM)
+Algoritmo de mejora constante:
+1. **Study Phase:** El agente consulta su NotebookLM mediante `notebook_query` para hallar nuevas tendencias o gaps.
+2. **Evaluation Phase:** Compara su desempeño actual contra los KPIs definidos en su `manifesto.md`.
+3. **Acquisition Phase:** Si detecta una nueva necesidad, solicita al CKO (Egeria) la creación de una nueva skill o la actualización de su cuaderno.
+4. **Purge & Sync:** Limpieza de fuentes obsoletas en NotebookLM y actualización de la SSoT.
+
+---
+
+## 📊 3. Especificación de Metadatos (registry.json)
+```json
+{
+  "agent_id": "[ID]",
+  "version": "1.0.0",
+  "status": "operative",
+  "notebook_id": "UUID",
+  "last_self_study": "ISO-TIMESTAMP",
+  "skills": ["skill-id-1", "..."],
+  "checksum_master": "MD5"
+}
+```
+
+---
+**Firma:** AXON Kernel Authority

@@ -1,0 +1,131 @@
+# 🕵️ ELITE DEEP TRACE: "The Administrator's Eye" (Macro to Micro)
+
+**Objective**: Verify the "Whole System" capabilities by tracing a single input through 10 distinct phases, with "Micro-Level" inspection of every data transformation.
+**Input**: `"temas sobre uso y aplicaciones de IA modernos 2026"`
+**Protocol**: "Stop-and-Verify" (Absolute User Control at each Gate).
+
+## 🟢 PHASE 1: THE ADMINISTRATOR ("La Secre" / EGERIA)
+**Role**: The Gatekeeper, The CFO, The Compliance Officer. She knows *everything*.
+**Goal**: Transform a vague User Request into a **Fully Funded & Parameterized Session**.
+
+### 1.1 Micro-Step: INGESTION (Interface User -> Egeria)
+*   **Input**: Raw Text + User Metadata (Admin ID).
+*   **Action**:
+    *   Validate User Permissions (Is this Darias?).
+    *   **Context Lookup**: Query `ag_agent_memory`, `workspaces`, and `NotebookLM` (The Brain) for context. *"Have we discussed AI 2026 before?"*
+*   **Audit Point**: Confirm User Identity & Context Lock.
+
+### 1.2 Micro-Step: PARAMETER EXPANSION (The "Package")
+*   **Action**: Egeria consults the **Registry (DB)** to see what *Planner* needs.
+*   **Inference**:
+    *   *Planner needs `audit_scope`?* -> Set to "Full System" (inferred from "modernos 2026").
+    *   *Planner needs `task_description`?* -> Refine input to "Generate comprehensive report on AI 2026 trends".
+*   **Output Construction**: Builds the `SessionContext` object.
+
+### 1.3 Micro-Step: RESOURCE CHECK
+*   **Action**: Check "Budget" (API Tokens, Drive Space).
+*   **Decision**: Go/No-Go.
+
+### 1.4 MICRO-OUTPUT (Interface Egeria -> Planner)
+*   **Artifact**: `SESSION_MANIFEST_V1.json`
+    *   Contains: UUID, User(Admin), Global Variables, **Pre-filled Input Slots for Downstream**.
+*   **Human Check**: Darias reviews the Manifest before it touches the Planner.
+
+---
+> 🛑 **STOP**: User Confirmation Required to proceed to Planner.
+---
+
+## 🟡 PHASE 2: THE ARCHITECT (PLANNER)
+**Micro-Goal**: Convert "Session Manifest" into "Execution Graph".
+*   **Input**: `SESSION_MANIFEST_V1.json` (From Egeria).
+*   **Micro-Step 2.1**: **Decompilation**. Break down "AI 2026" into:
+    *   *Sub-Task A*: Research (Orion).
+    *   *Sub-Task B*: Visuals (Thalia).
+*   **Micro-Step 2.2**: **Dependency Mapping**. (Orion must finish before Calliope starts).
+*   **Output**: `EXECUTION_BLUEPRINT.json` (Directed Acyclic Graph).
+
+---
+> 🛑 **STOP**: User Confirmation Required to proceed to Pulsar.
+---
+
+## 🟡 PHASE 3: THE TRANSLATOR (PULSAR)
+**Micro-Goal**: Convert "Human Blueprint" into "LLM Prompts".
+*   **Input**: `EXECUTION_BLUEPRINT.json`.
+*   **Micro-Step 3.1**: **Prompt Injection**. Select "Research Persona" for Orion.
+*   **Micro-Step 3.2**: **Optimization**. Refine "AI 2026" -> "State of the Art Generative Models 2026".
+*   **Output**: `PROMPT_MATRIX.json`.
+
+---
+> 🛑 **STOP**: User Confirmation Required to proceed to Orion.
+---
+
+## 🟠 PHASE 4: THE ANALYST (ORION)
+**Micro-Goal**: Execute Intelligence Gathering.
+*   **Input**: `PROMPT_MATRIX.json`.
+*   **Micro-Step 4.1**: **Query Execution**. (Simulated RAG/Web).
+*   **Micro-Step 4.2**: **Data Structuring**. Raw text -> `TrendObject[]`.
+*   **Output**: `INTELLIGENCE_REPORT.json` (Source of Truth).
+
+---
+> 🛑 **STOP**: User Confirmation Required to proceed to Lyra.
+---
+
+## 🟠 PHASE 5: THE SOUL (LYRA)
+**Micro-Goal**: Brand Alignment Filter.
+*   **Input**: `INTELLIGENCE_REPORT.json`.
+*   **Micro-Step 5.1**: **Vibe Check**. Compare Trends vs. "AXON Brand Bible".
+*   **Micro-Step 5.2**: **Rejection**. Delete topics that are "Too Generic" or "Unsafe".
+*   **Output**: `BRAND_CERTIFIED_TOPICS.md`.
+
+---
+> 🛑 **STOP**: User Confirmation Required to proceed to Calliope.
+---
+
+## 🔵 PHASE 6: THE WRITER (CALLIOPE)
+**Micro-Goal**: Narration & Storytelling.
+*   **Input**: `BRAND_CERTIFIED_TOPICS.md`.
+*   **Micro-Step 6.1**: **Hook Generation**.
+*   **Micro-Step 6.2**: **Scripting**. Write full text.
+*   **Output**: `MASTER_SCRIPT_V1.md`.
+
+---
+> 🛑 **STOP**: User Confirmation Required to proceed to Thalia.
+---
+
+## 🔵 PHASE 7: THE ARTIST (THALIA)
+**Micro-Goal**: Visual Asset Production.
+*   **Input**: `MASTER_SCRIPT_V1.md`.
+*   **Micro-Step 7.1**: **Scene Extraction**. Identify "Cyberpunk City" keyword.
+*   **Micro-Step 7.2**: **Prompt Gen**. Create Midjourney prompts.
+*   **Output**: `VISUAL_MANIFEST.json`.
+
+---
+> 🛑 **STOP**: User Confirmation Required to proceed to Apollo.
+---
+
+## 🔵 PHASE 8: THE COMPOSER (APOLLO)
+**Micro-Goal**: Auditory Experience.
+*   **Input**: `MASTER_SCRIPT_V1.md`.
+*   **Micro-Step 8.1**: **Voice Selection**. (Authority Mode).
+*   **Output**: `AUDIO_CONFIG.json`.
+
+---
+> 🛑 **STOP**: User Confirmation Required to proceed to Argus.
+---
+
+## 🟣 PHASE 9: THE GUARDIAN (ARGUS)
+**Micro-Goal**: Final Audit & Seal of Approval.
+*   **Input**: All Assets (Script, Visuals, Audio).
+*   **Micro-Step 9.1**: **Compliance Scan**.
+*   **Micro-Step 9.2**: **Metadata Seal**. Sign with System Version.
+*   **Output**: `PUBLISHING_PACKAGE_SIGNED.zip` (Virtual).
+
+---
+> 🛑 **STOP**: User Confirmation Required to proceed to Nexus.
+---
+
+## 🟣 PHASE 10: THE ENGINEER (NEXUS)
+**Micro-Goal**: Transmission.
+*   **Input**: `PUBLISHING_PACKAGE_SIGNED`.
+*   **Input**: User Admin Signal ("Launch!").
+*   **Output**: `TRANSMISSION_LOG.json`.

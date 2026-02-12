@@ -1,0 +1,113 @@
+# Dashboard V3 "Glass Cockpit" - UX Architecture & Flow Spec
+
+## 1. High-Level Architecture (Sitemap)
+
+The Dashboard operates as a **Single Page Application (SPA)** with a fixed "OS Shell" and dynamic interactive modules.
+
+```mermaid
+graph TD
+    A[Global Shell (Fixed Header)] --> B[System Overview Section]
+    A --> C[Cockpit Section]
+    A --> D[Nucleus Section]
+    
+    B --> B1[KPI Widgets]
+    B --> B2[System Map]
+    
+    C --> C1[Orion Module (Strategist)]
+    C --> C2[Calliope Module (Creator)]
+    
+    D --> D1[Nucleus Panel (Live Trace)]
+```
+
+---
+
+## 2. Interaction Flows (The "Neural Loop")
+
+The core user journey follows a linear data flow through the modules, representing the "Brain" (Orion) to "Voice" (Calliope) pipeline.
+
+### Flow A: The "Genesis" Loop (Content Creation)
+1.  **Orion Input**: User sets `Topic Keywords`, `Tone Dial`, `Platform`.
+2.  **Action**: Click `EXECUTE STRATEGY`.
+3.  **Process**: Orion enters "Neural Scan" (Processing State).
+4.  **Handoff**:
+    *   Orion generates [Manifest](file:///C:/Users/daria/.gemini/AXON/scratch/AXON-boilerplate/src/types/agent_types.ts#43-48).
+    *   Calliope detects Manifest availability (Auto-wake or Manual Trigger).
+5.  **Calliope Action**: User clicks `GENERATE SCRIPT` (or Auto-run).
+6.  **Process**: Calliope enters "Drafting" (Shimmer State).
+7.  **Result**: Script Editor unlocks with generated content.
+
+### Flow B: The "Audit" Loop (System Monitoring)
+1.  **Trigger**: Any action in Orion or Calliope.
+2.  **Signal**: [logEvent](file:///C:/Users/daria/.gemini/AXON/scratch/AXON-boilerplate/src/context/AgentContext.tsx#121-159) is fired in background.
+3.  **Visualization**:
+    *   Global Dock: Agent Status LED blinks (Blue/Purple).
+    *   Nucleus Panel: New row appears in "Live Trace" table.
+
+### Flow C: The "Kill Switch" (Safety)
+1.  **Trigger**: User identifies loop/hallucination or error.
+2.  **Action**: Click Red `RESET` button in Header.
+3.  **Result**: Full page reload, Session ID regenerated, State cleared.
+
+---
+
+## 3. Visual Specification (The "Glass" Aesthetic)
+
+### Color Palette
+| Token | Hex | Usage |
+| :--- | :--- | :--- |
+| `bg-void` | `#020202` | Main Background |
+| `glass-panel` | `#050505` + `border-white/5` | Component Containers |
+| `neon-blue` | `#3b82f6` | Orion / System Optimal |
+| `neon-purple` | `#a855f7` | Calliope / Creative |
+| `neon-red` | `#ef4444` | Errors / Kill Switch / High Cost |
+| `neon-emerald` | `#10b981` | Success / Low Cost |
+
+### Typography
+*   **Headings**: [Inter](file:///C:/Users/daria/.gemini/AXON/scratch/AXON-boilerplate/src/core/InternalAffairs.ts#10-89) (Sans-serif) - Tracking `tight`.
+*   **Data/Code**: `JetBrains Mono` or `Monospace` - Tracking `wide`.
+*   **Labels**: Uppercase, `text-[10px]`, tracking `widest`.
+
+---
+
+## 4. Detailed Component Breakdown
+
+### A. Global Shell (Header)
+*   **Identity Block**: Logo + "AXON OS v3.0".
+*   **Session Badge**: Interactive pill showing `session_id` (e.g., `SESS-8X29`).
+*   **Active Dock**: 4 LED indicators for Agents (Orion, Calliope, Thalia, Apollo).
+*   **Control Cluster**:
+    *   **Kill Switch**: Hidden by default, appears on hover or error.
+    *   **Wallet**: Live counter of API costs (Red if > $1.00).
+
+### B. Orion Module (The Strategist)
+**Layout**: Full-width or Left Col (7/12).
+*   **State: Idle**
+    *   `MatrixInput`: Tag-based keyword entry.
+    *   `ToneDial`: Circular knob for styling (Reluctant Guru, Tech Bro, etc.).
+    *   `PlatformGrid`: Selectable icons (YouTube, LinkedIn, X).
+*   **State: Processing**
+    *   **Animation**: "Neural Ring" pulsing.
+    *   **Telemetry**: "Scanning Vector Space..." text.
+*   **State: Output (Manifest Deck)**
+    *   **Virality Gauge**: Donut chart (0-100%).
+    *   **Hook Cards**: Stack of 3 alternative hooks.
+    *   **Tactic Tags**: "Contrarian", "Data-Backed".
+
+### C. Calliope Module (The Creator)
+**Layout**: Right Col (5/12).
+*   **State: Idle**
+    *   **Dropzone**: "Waiting for Strategy" placeholder.
+*   **State: Output (Split Pane)**
+    *   **Sidebar (Left)**: Storyboard frames (Scene 1, Scene 2...).
+    *   **Editor (Right)**: Markdown-ready text area.
+    *   **Timeline (Bottom)**: Progress bar showing estimated video duration.
+
+### D. Nucleus Panel (Live Trace)
+**Layout**: Bottom Section (Full Width).
+*   **Format**: High-density Data Table.
+*   **Columns**:
+    *   `TIMESTAMP`: ISO format (dimmed).
+    *   `TRACE ID`: Clickable hash.
+    *   `AGENT`: Colored Badge (Blue=Orion, Purple=Calliope).
+    *   `ACTION`: Uppercase Verb (e.g., `GENERATE_MANIFEST`).
+    *   `SIGNAL`: JSON Payload preview or Status Message.

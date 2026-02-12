@@ -1,0 +1,38 @@
+# 🧶 PROTOCOLO DE PULIDO PROACTIVO (PPP) v1.0
+
+## 0. Propósito: La "Búsqueda de la Perfección Natural"
+Cada cambio en el AXON SYSTEM debe ser procesado a través de este ciclo atómico antes de ser sellado en el Kernel.
+
+---
+
+## 🏗️ 1. Ciclo de Ejecución Atómica (CEA)
+Para cada "Cuerda" o "Átomo" de un agente:
+
+### Fase 1: Disección & Auditoría (Micro)
+- **Análisis de Hechos:** ¿Qué hace actualmente? ¿Qué vacío existe?
+- **Base de Conocimiento:** Identificar las fuentes en NotebookLM que alimentan este átomo. Si son pobres, activar `research_hub`.
+- **Efecto de Darias:** ¿Cómo afecta esto a la Riqueza, Salud o Influencia del usuario?
+
+### Fase 2: Mejora Cuántica (Quantum Polish)
+- **Refactorización:** Reparar, mejorar o expandir la cuerda.
+- **Inyección de Hábito:** Asegurar que la nueva lógica sea un hábito natural del agente.
+- **Análisis Crítico Pro:** Evaluar impactos colaterales en otros hilos o agentes.
+
+### Fase 3: Prueba de Esfuerzo (Stress Test)
+- El agente ejecuta su nueva función en un entorno simulado de AXON.
+- **Métrica:** 98% de fidelidad sin pérdida de datos.
+
+### Fase 4: Reporte & Consenso
+- Generación de **AXON-REPORT.json**.
+- Voto sistémico si el cambio es estructural.
+
+---
+
+## 📊 2. El Reporte Estándar (Output)
+Cada pulido exitoso DEBE producir:
+1.  **Versión Actualizada** del archivo fuente.
+2.  **Reporte de Auditoría** detallado (Fact-based).
+3.  **Sincronización** con el Cuaderno Maestro del Agente.
+
+---
+**Firma:** EXECUTOR-AXON-PRO-KERNEL-V1

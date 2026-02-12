@@ -1,0 +1,454 @@
+﻿# PLAN v3.0 - Inventario Forense del Sistema de Agentes
+
+**VersiÃ³n:** 3.0  
+**Tipo:** Inventario Forense  
+**Fecha:** 2026-02-09T20:27:30-05:00  
+**Nivel de Rigor:** FULL (ProducciÃ³n/Multi-Agente)  
+**Infraestructura:** OpciÃ³n A (Base ~92% confianza)
+
+---
+
+## ðŸŽ¯ PropÃ³sito
+
+Documentar **QUÃ‰ existe, DÃ“NDE estÃ¡, en QUÃ‰ estado** en el sistema de agentes AXON para creaciÃ³n de contenido y desarrollo de app web (`zonal-parsec`).
+
+---
+
+## ðŸ“Š Resumen Ejecutivo
+
+| Aspecto | Detalle |
+|---------|---------|
+| **Secciones** | 10 |
+| **Bloques de ejecuciÃ³n** | 14 |
+| **Sesiones de trabajo** | 6 |
+| **Entregables** | 6 artefactos |
+| **Tiempo estimado** | 25-30 tool calls |
+| **Resultado** | Inventario completo sin sÃ­ntesis ni omisiones |
+
+---
+
+## ðŸ“‹ Secciones del Inventario
+
+### **I. Arquitectura del Sistema de Agentes**
+**PropÃ³sito:** Documentar la estructura de directorios y la relaciÃ³n entre Hive y Workspace.
+
+**Contenido:**
+- Estructura completa del Hive (`C:\Users\daria\.gemini\AXON`)
+- Estructura del Workspace (`zonal-parsec`)
+- RelaciÃ³n entre componentes globales y de proyecto
+- Diagrama de arquitectura (si existe)
+
+---
+
+### **II. ConfiguraciÃ³n de Agentes**
+**PropÃ³sito:** Documentar todas las configuraciones globales de agentes.
+
+**Contenido:**
+- `hive_config.json` (secciÃ³n de agentes)
+- Configuraciones globales de comportamiento
+- ParÃ¡metros de sistema
+- Variables de entorno relacionadas con agentes
+
+---
+
+### **III. Inventario de Agentes**
+**PropÃ³sito:** Documentar cada agente existente en el sistema.
+
+**Para cada agente:**
+- Nombre oficial
+- ID Ãºnico
+- PropÃ³sito y responsabilidades
+- Estado (activo, en desarrollo, skeleton)
+- UbicaciÃ³n de archivos:
+  - SS v0 (System Specification)
+  - Datasheet
+  - System Prompt
+  - Memories (si aplica)
+- Skills asignadas
+- NotebookLM asociado
+- Dependencias con otros agentes
+
+**Agentes esperados:**
+- Egeria
+- Pulsar
+- Orion
+- Calliope
+- Argus
+- Planner
+- Lyra
+- Otros encontrados
+
+---
+
+### **IV. Skills del Sistema**
+**PropÃ³sito:** Documentar todas las skills disponibles para agentes.
+
+**Contenido:**
+- Skills globales (ubicaciÃ³n en Hive)
+- Skills de terceros instaladas
+- Skills en desarrollo
+- Para cada skill:
+  - Nombre
+  - UbicaciÃ³n (ruta absoluta)
+  - PropÃ³sito (segÃºn SKILL.md)
+  - Scripts incluidos
+  - Recursos adicionales
+  - Dependencias
+
+---
+
+### **V. Knowledge Base (NotebookLM + Brain)**
+**PropÃ³sito:** Documentar todas las fuentes de conocimiento del sistema.
+
+**Contenido:**
+- NotebookLM registries:
+  - Cuadernos existentes
+  - Notas por cuaderno
+  - Fuentes por nota
+  - Agentes asociados
+- Brain artifacts:
+  - DocumentaciÃ³n de sistema
+  - Planes maestros
+  - Especificaciones
+  - Artefactos de conversaciones previas
+
+---
+
+### **VI. Proyecto zonal-parsec (App Web)**
+**PropÃ³sito:** Documentar la estructura completa del proyecto Next.js.
+
+**Contenido:**
+- Estructura de directorios
+- Componentes:
+  - UbicaciÃ³n
+  - PropÃ³sito
+  - Dependencias
+- PÃ¡ginas y rutas
+- Servicios y APIs
+- Configuraciones:
+  - `next.config.js`
+  - `package.json`
+  - `tsconfig.json`
+  - `.env` (sin exponer secretos)
+- Estado de build
+- Estado de deployment
+
+---
+
+### **VII. Integraciones Activas**
+**PropÃ³sito:** Documentar todas las integraciones externas utilizadas.
+
+**Contenido:**
+- MCPs configurados y utilizados:
+  - Nombre
+  - Estado (configurado, funcional, inactivo)
+  - Credenciales requeridas (sin exponer valores)
+  - Uso por agentes
+- APIs externas:
+  - Supabase
+  - Vercel
+  - Otras
+- Webhooks y automatizaciones activas
+
+---
+
+### **VIII. Registros y Metadatos de Agentes**
+**PropÃ³sito:** Documentar todos los registros del sistema.
+
+**Contenido:**
+- Agent Registry (`agents/registry.json`)
+- NotebookLM Registry
+- Logs de agentes (si existen)
+- Historial de versiones (git, si aplica)
+- Metadatos de archivos (timestamps, tamaÃ±os)
+
+---
+
+### **IX. LÃ³gica y Algoritmos de Agentes**
+**PropÃ³sito:** Documentar la lÃ³gica de negocio de cada agente.
+
+**Contenido:**
+- Extractos de algoritmos clave
+- ParÃ¡metros de configuraciÃ³n
+- Reglas de negocio codificadas
+- Flujos de trabajo entre agentes
+- Protocolos de comunicaciÃ³n
+
+---
+
+### **X. AnÃ¡lisis de Estado del Sistema**
+**PropÃ³sito:** Identificar gaps, riesgos y deuda tÃ©cnica.
+
+**Contenido:**
+- Gaps identificados:
+  - Agentes incompletos
+  - Skills faltantes
+  - Configuraciones pendientes
+- Riesgos:
+  - Dependencias rotas
+  - Configuraciones faltantes
+  - Integraciones no funcionales
+- Elementos en desarrollo vs. producciÃ³n
+- Deuda tÃ©cnica del sistema de agentes
+
+---
+
+## ðŸ”„ Bloques de EjecuciÃ³n (14 total)
+
+### **Block 01: Arquitectura Global**
+**SecciÃ³n:** I  
+**Entrada:** `C:\Users\daria\.gemini\AXON`  
+**Proceso:**
+1. Listar estructura de directorios del Hive
+2. Identificar directorios de agentes, skills, brain
+3. Listar estructura de `zonal-parsec`
+4. Mapear relaciÃ³n entre Hive y Workspace
+
+**Salida:** Estructura completa de directorios sin omisiones
+
+---
+
+### **Block 02: ConfiguraciÃ³n de Agentes**
+**SecciÃ³n:** II  
+**Entrada:** `hive_config.json`, archivos de configuraciÃ³n  
+**Proceso:**
+1. Leer `hive_config.json`
+2. Extraer secciÃ³n de agentes
+3. Identificar parÃ¡metros globales
+4. Documentar variables de entorno
+
+**Salida:** Configuraciones completas en formato estructurado
+
+---
+
+### **Block 03: Agentes Core (Egeria, Pulsar, Orion)**
+**SecciÃ³n:** III  
+**Entrada:** Directorios de agentes core  
+**Proceso:**
+1. Para cada agente:
+   - Leer SS v0
+   - Leer Datasheet
+   - Leer System Prompt
+   - Identificar skills asignadas
+   - Identificar NotebookLM asociado
+2. Documentar sin sÃ­ntesis
+
+**Salida:** Inventario completo de 3 agentes core
+
+---
+
+### **Block 04: Agentes Content (Calliope, Argus)**
+**SecciÃ³n:** III  
+**Entrada:** Directorios de agentes de contenido  
+**Proceso:** (Mismo que Block 03)  
+**Salida:** Inventario completo de 2 agentes de contenido
+
+---
+
+### **Block 05: Agentes Planning (Planner, Lyra)**
+**SecciÃ³n:** III  
+**Entrada:** Directorios de agentes de planning  
+**Proceso:** (Mismo que Block 03)  
+**Salida:** Inventario completo de 2 agentes de planning
+
+---
+
+### **Block 06: Otros Agentes**
+**SecciÃ³n:** III  
+**Entrada:** Directorio de agentes  
+**Proceso:**
+1. Listar todos los directorios de agentes
+2. Identificar agentes no cubiertos en blocks anteriores
+3. Documentar cada uno
+
+**Salida:** Inventario completo de agentes adicionales
+
+---
+
+### **Block 07: Skills Globales**
+**SecciÃ³n:** IV  
+**Entrada:** Directorio de skills  
+**Proceso:**
+1. Listar todas las skills
+2. Para cada skill:
+   - Leer SKILL.md
+   - Identificar scripts
+   - Identificar recursos
+   - Documentar propÃ³sito
+
+**Salida:** Inventario completo de skills
+
+---
+
+### **Block 08: Knowledge Base**
+**SecciÃ³n:** V  
+**Entrada:** NotebookLM registry, brain artifacts  
+**Proceso:**
+1. Leer NotebookLM registry
+2. Documentar cuadernos y notas
+3. Listar brain artifacts
+4. Mapear fuentes de conocimiento
+
+**Salida:** Inventario completo de knowledge base
+
+---
+
+### **Block 09: Proyecto zonal-parsec**
+**SecciÃ³n:** VI  
+**Entrada:** Directorio `zonal-parsec`  
+**Proceso:**
+1. Listar estructura de directorios
+2. Identificar componentes
+3. Identificar pÃ¡ginas y rutas
+4. Leer configuraciones
+5. Verificar estado de build
+
+**Salida:** Inventario completo del proyecto
+
+---
+
+### **Block 10: Integraciones**
+**SecciÃ³n:** VII  
+**Entrada:** `mcp_config.json`, configuraciones de APIs  
+**Proceso:**
+1. Leer `mcp_config.json`
+2. Identificar MCPs configurados
+3. Verificar estado de cada MCP
+4. Documentar APIs externas
+
+**Salida:** Inventario completo de integraciones
+
+---
+
+### **Block 11: Registros y Metadatos**
+**SecciÃ³n:** VIII  
+**Entrada:** `agents/registry.json`, NotebookLM registry  
+**Proceso:**
+1. Leer agent registry
+2. Leer NotebookLM registry
+3. Identificar logs existentes
+4. Documentar metadatos
+
+**Salida:** Inventario completo de registros
+
+---
+
+### **Block 12: LÃ³gica y Algoritmos**
+**SecciÃ³n:** IX  
+**Entrada:** Archivos de agentes, cÃ³digo fuente  
+**Proceso:**
+1. Extraer algoritmos clave de cada agente
+2. Documentar parÃ¡metros de configuraciÃ³n
+3. Identificar reglas de negocio
+4. Mapear flujos de trabajo
+
+**Salida:** DocumentaciÃ³n de lÃ³gica de agentes
+
+---
+
+### **Block 13: AnÃ¡lisis de Gaps y Riesgos**
+**SecciÃ³n:** X  
+**Entrada:** Resultados de blocks anteriores  
+**Proceso:**
+1. Identificar agentes incompletos
+2. Identificar skills faltantes
+3. Identificar configuraciones rotas
+4. Documentar deuda tÃ©cnica
+
+**Salida:** AnÃ¡lisis completo de gaps y riesgos
+
+---
+
+### **Block 14: ConsolidaciÃ³n Final**
+**SecciÃ³n:** Todas  
+**Entrada:** Todos los bloques anteriores  
+**Proceso:**
+1. Ensamblar todos los bloques en un solo documento
+2. Verificar completitud
+3. Generar Ã­ndice
+4. Validar integridad
+
+**Salida:** `SYSTEM_AUDIT_INVENTORY.md` completo
+
+---
+
+## ðŸ“¦ Entregables (6 artefactos)
+
+### **1. SYSTEM_AUDIT_INVENTORY.md**
+Inventario completo del sistema ensamblado desde todos los bloques.
+
+### **2. AUDIT_AGENTS_MATRIX.md**
+Matriz de agentes con nombre, estado, skills, notebook, dependencias.
+
+### **3. AUDIT_GAPS_AND_RISKS.md**
+AnÃ¡lisis de gaps, riesgos y recomendaciones.
+
+### **4. AUDIT_TRANSACTION_LOG.md**
+Log de ejecuciÃ³n de cada bloque con timestamps y errores.
+
+### **5. AUDIT_TRACEABILITY_MATRIX.md**
+RTM: mapeo de elementos a ubicaciones fÃ­sicas.
+
+### **6. AUDIT_RECOVERY_PROTOCOL.md**
+MÃ©todo de recuperaciÃ³n ante interrupciones (ya creado en FASE 0).
+
+---
+
+## ðŸ—“ï¸ Sesiones de Trabajo
+
+### **SesiÃ³n 1.1: Arquitectura y ConfiguraciÃ³n**
+- Block 01: Arquitectura Global
+- Block 02: ConfiguraciÃ³n de Agentes
+- **Tiempo estimado:** 3-5 tool calls
+
+### **SesiÃ³n 1.2: Agentes (Parte 1)**
+- Block 03: Agentes Core
+- Block 04: Agentes Content
+- **Tiempo estimado:** 4-6 tool calls
+
+### **SesiÃ³n 1.3: Agentes (Parte 2)**
+- Block 05: Agentes Planning
+- Block 06: Otros Agentes
+- **Tiempo estimado:** 3-5 tool calls
+
+### **SesiÃ³n 1.4: Skills y Knowledge**
+- Block 07: Skills Globales
+- Block 08: Knowledge Base
+- **Tiempo estimado:** 4-6 tool calls
+
+### **SesiÃ³n 1.5: Proyecto y Integraciones**
+- Block 09: Proyecto zonal-parsec
+- Block 10: Integraciones
+- **Tiempo estimado:** 4-6 tool calls
+
+### **SesiÃ³n 1.6: AnÃ¡lisis y ConsolidaciÃ³n**
+- Block 11: Registros y Metadatos
+- Block 12: LÃ³gica y Algoritmos
+- Block 13: AnÃ¡lisis de Gaps y Riesgos
+- Block 14: ConsolidaciÃ³n Final
+- **Tiempo estimado:** 6-8 tool calls
+
+---
+
+## âœ… Criterios de Ã‰xito
+
+El Plan v3.0 se considera **completo** si:
+1. âœ… Los 14 bloques estÃ¡n en estado `completed`
+2. âœ… Los 6 entregables existen y son vÃ¡lidos
+3. âœ… No hay datos sintetizados u omitidos
+4. âœ… Todos los checksums son correctos
+5. âœ… El inventario permite reconstruir ~60% del sistema
+
+---
+
+## ðŸ”— RelaciÃ³n con Plan v4.0
+
+El Plan v3.0 es **prerequisito** del Plan v4.0:
+- v3.0 documenta QUÃ‰ existe
+- v4.0 documenta CÃ“MO funciona y POR QUÃ‰
+
+---
+
+**Ãšltima actualizaciÃ³n:** 2026-02-09T20:27:30-05:00  
+**Estado:** Documentado, listo para ejecuciÃ³n  
+**PrÃ³ximo paso:** Esperar confirmaciÃ³n de Darias para iniciar FASE 1

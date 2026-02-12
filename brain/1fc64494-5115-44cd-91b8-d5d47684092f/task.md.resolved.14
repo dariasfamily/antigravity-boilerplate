@@ -1,0 +1,22 @@
+# Tasks: Master Plan Execution
+
+## Cleanup & Setup
+- [x] Save Master Plan <!-- id: 0 -->
+- [x] Delete unnecessary [mcp](file:///C:/Users/daria/.gemini/AXON/scratch/mcp) file in scratch <!-- id: 1 -->
+
+## Phase 2: Essential MCPs
+- [ ] **2.2 Supabase MCP** <!-- id: 2 -->
+    - [x] Configure [mcp_config.json](file:///c:/Users/daria/.gemini/AXON/mcp_config.json) for Supabase <!-- id: 3 -->
+    - [x] Verify Supabase connection <!-- id: 4 -->
+    - [ ] **Troubleshoot Supabase Connection** <!-- id: 4b -->
+        - [x] Analyze `mcp-remote` arguments to disable OAuth <!-- id: 4c -->
+        - [x] Consider custom proxy script if `mcp-remote` fails <!-- id: 4d -->
+        - [x] Implement custom bridge script <!-- id: 4e -->
+        - [x] Fix EventSource import error in bridge <!-- id: 4f -->
+- [ ] **2.2 Vercel MCP** <!-- id: 5 -->
+    - [x] Research Vercel MCP installation/config <!-- id: 6a -->
+    - [x] Configure Vercel in [mcp_config.json](file:///c:/Users/daria/.gemini/AXON/mcp_config.json) <!-- id: 6 -->
+
+## Future Phases
+- [ ] Phase 2.3: Social Media MCPs <!-- id: 7 -->
+- [ ] Phase 3: APIs Pro <!-- id: 8 -->

@@ -1,0 +1,44 @@
+# Task: Set up NotebookLM Integration
+
+## ✅ SOLUCIÓN ENCONTRADA
+
+### Root Cause Identificado
+**Google bloquea autenticación vía HTTP-only requests** (incluso con cookies válidas)
+- ✅ Cookies extraídas correctamente (24 cookies con valores reales)
+- ✅ Formato correcto de [storage_state.json](file:///C:/Users/daria/.notebooklm/storage_state.json)
+- ❌ Google requiere navegador real completo, no solo cookies + HTTP
+
+### Estado Actual
+- ✅ Usuario tiene Chrome abierto con sesión activa de NotebookLM
+- ✅ MCP server instalado y configurado
+- ⏳ Necesitamos que MCP server use la sesión de Chrome abierta
+
+## Próximos Pasos
+
+1. **Verificar si MCP server puede conectarse a Chrome abierto**
+   - Investigar opciones de `notebooklm-mcp.exe`
+   - Verificar si soporta modo "attach to existing browser"
+
+2. **Alternativa: Mantener navegador Playwright en segundo plano**
+   - Si MCP server no puede usar Chrome existente
+   - Ejecutar Playwright headless con sesión persistente
+   - MCP server usa esa sesión en lugar de HTTP requests
+
+3. **Última alternativa: Usar scripts directos**
+   - Si MCP server no funciona
+   - Crear scripts Python que usen la librería directamente
+   - Ejecutar bajo demanda en lugar de MCP server persistente
+
+## Archivos Importantes
+
+- [mcp_config.json](file:///C:/Users/daria/.gemini/AXON/mcp_config.json#L55-L61) - Config MCP
+- [storage_state.json](file:///C:/Users/daria/.notebooklm/storage_state.json) - Cookies (formato correcto)
+- [scripts/convert_cookies.py](file:///c:/Users/daria/.gemini/AXON/workspaces/Proyecto%20MENISCO/dashboard-v3/scripts/convert_cookies.py) - Convertidor funcional
+- [scripts/sync_notebooklm.py](file:///c:/Users/daria/.gemini/AXON/workspaces/Proyecto%20MENISCO/dashboard-v3/scripts/sync_notebooklm.py) - Script de sync
+
+## Lecciones Aprendidas
+
+1. **Cookies no son suficientes** - Google 2026 requiere navegador real
+2. **Playwright en Windows tiene bugs** - Error "browser has been closed"
+3. **EditThisCookie funciona** - Mejor método para extraer cookies
+4. **Formato importa** - MCP server necesita formato Playwright exacto

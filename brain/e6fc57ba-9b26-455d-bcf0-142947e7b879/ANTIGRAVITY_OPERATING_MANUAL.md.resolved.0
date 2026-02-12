@@ -1,0 +1,109 @@
+﻿# AXON OS: OPERATING MANUAL (V2.1)
+**"The Self-Evolving Organism for Wealth, Health, and Influence"**
+
+---
+
+## ðŸ§­ 1. PHILOSOPHY & PRIME DIRECTIVES
+This workspace is not a passive code repository. It is a **Constructive Living System**.
+Every file, agent, and line of code exists to serve three goals:
+1.  **Wealth Generation**: Automate revenue.
+2.  **Influence Expansion**: Automate attention.
+3.  **Self-Correction**: Eliminate error and inefficiency.
+
+### The "User-Zero" Principle
+*   **The User (Daria)**: Is the "Commander". She approves high-level strategies and critical checkpoints.
+*   **The System (AXON)**: Does everything else. Research, drafting, coding, deployment, and auditing.
+
+---
+
+## ðŸ¢ 2. ARCHITECTURE (The Factory Floor)
+The system is visualized and controlled via the **AXON Dashboard** (`localhost:3000`).
+
+### Tier 1: System Control ("The Tower")
+*   **Cockpit**: Real-time registry of all agents.
+    *   *Function*: Start/Stop Agents, Emergency Kill Switch.
+    *   *Source Truth*: [SYSTEM_REGISTRY.md](file:///C:/Users/daria/.gemini/AXON/brain/e6fc57ba-9b26-455d-bcf0-142947e7b879/SYSTEM_REGISTRY.md) + Supabase.
+*   **System Map**: Visual topology of how data flows (Nodes & Edges).
+
+### Tier 2: Telemetry ("The Eyes")
+*   **Live Logs**: Real-time stream of agent decisions ([AgentContext](file:///C:/Users/daria/.gemini/AXON/scratch/AXON-boilerplate/src/context/AgentContext.tsx#39-46)).
+*   **KPI Widgets**: Revenue (Stripe), Health (Uptime), Attention (Views).
+
+### Tier 3: Production Floor ("The Workers")
+*   **Orion Studio**: The Strategy Lab.
+*   **Calliope Studio**: The Narrative Engine.
+*   *(Future)*: **Echo Studio** (Distribution), **Wealth Dashboard**.
+
+---
+
+## ðŸ¤– 3. THE AGENT ROSTER (Specialized Workforce)
+Each agent is a specialized "Skill Cluster" with a defined protocol.
+
+| Agent | Role | Input | Output | Protocol |
+| :--- | :--- | :--- | :--- | :--- |
+| **ORION** | **Strategy** | Broad Directive (e.g., "Make Money") | [OrionBrief](file:///C:/Users/daria/.gemini/AXON/scratch/AXON-boilerplate/src/types/agent_types.ts#7-39) (JSON) | [ORION_PROTOCOL.md](file:///C:/Users/daria/.gemini/AXON/brain/e6fc57ba-9b26-455d-bcf0-142947e7b879/agents/ORION_PROTOCOL.md) |
+| **CALLIOPE** | **Narrative** | [OrionBrief](file:///C:/Users/daria/.gemini/AXON/scratch/AXON-boilerplate/src/types/agent_types.ts#7-39) + Brand DNA | Technical Script (MD) | [CALLIOPE_PROTOCOL.md](file:///C:/Users/daria/.gemini/AXON/brain/e6fc57ba-9b26-455d-bcf0-142947e7b879/agents/CALLIOPE_PROTOCOL.md) |
+| **ECHO** | **Social** | Finished Content | Platforms (X/YT) | *(Pending)* |
+| **HEPHAESTUS** | **Engineering** | Feature Request | Code / Deployment | [ENGINEERING_STANDARDS.md](file:///C:/Users/daria/.gemini/AXON/brain/e6fc57ba-9b26-455d-bcf0-142947e7b879/constitution/02_ENGINEERING_STANDARDS.md) |
+| **OCULUS** | **Auditor** | System Logs | Risk Report | [SYSTEM_STATE_LOG.md](file:///C:/Users/daria/.gemini/AXON/brain/e6fc57ba-9b26-455d-bcf0-142947e7b879/SYSTEM_STATE_LOG.md) |
+
+---
+
+## âš¡ 4. DATA FLOW & STATE MANAGEMENT
+The system uses a "Hot Potato" context model to minimize latency.
+
+### The "Active Brief" Protocol
+1.  **Orion** receives a directive.
+2.  **Orion** generates a Strategy Brief (JSON) containing:
+    *   `core_idea`: The Topic & Validation Score.
+    *   `execution_guide`: Visual/Verbal Hooks.
+    *   `constraints`: Format (Reel/Deep Dive) & Duration.
+3.  Orion **writes** this brief to the shared [AgentContext](file:///C:/Users/daria/.gemini/AXON/scratch/AXON-boilerplate/src/context/AgentContext.tsx#39-46) (RAM).
+4.  **Calliope** detects the new context and **automatically** generates a script.
+
+### Persistence Layers
+*   **Short-Term (RAM)**: React Context (`activeBrief`). Fast, ephemeral.
+*   **Long-Term (HDD)**: Supabase (`system_logs`, [brand_dna](file:///C:/Users/daria/.gemini/AXON/scratch/AXON-boilerplate/src/skills/brand_orion/scripts/nightly_protocol.py#25-41)). Permanent, audit-ready.
+*   **Knowledge (Brain)**: Markdown Artifacts ([brain/](file:///C:/Users/daria/.gemini/AXON/scratch/AXON-boilerplate/src/skills/brand_orion/scripts/nightly_protocol.py#42-48)). The trainable memory.
+
+---
+
+## ðŸ› ï¸ 5. HOW TO OPERATE (User Guide)
+
+### Workflow A: "Generate New Content"
+1.  Open Dashboard (`/dashboard`).
+2.  Go to **Orion Studio**.
+3.  Type a directive (e.g., *"How to make extra money"* or *"Python new features"*).
+4.  **Approve** the best strategy from the Batch Analysis.
+5.  Watch **Calliope** instantly generate the script in the adjacent panel.
+6.  Click **"Send to Production"** (Future: Triggers Echo/Lumiere).
+
+### Workflow B: "System Health Check"
+1.  Check **System Control** panel. Are all indicators Green?
+2.  Check **Live Telemetry**. Are there red "FAILURE" logs?
+3.  If Error: The system logs self-correction attempts. If stuck, use "Panic Stop".
+
+---
+
+## ðŸš€ 6. SELF-CORRECTION & EVOLUTION
+The system is designed to "Mutate Constructively".
+
+1.  **Feedback Loops**:
+    *   *Performance*: If a script fails V.E.R.A score, Calliope regenerates it.
+    *   *Correction*: If Orion generates bad JSON, the system falls back to structured Mocks (as implemented in [OrionStudio.tsx](file:///C:/Users/daria/.gemini/AXON/scratch/AXON-boilerplate/src/components/dashboard/OrionStudio.tsx)).
+2.  **Expansion**:
+    *   New "Skills" are added as Markdown files in `agents/`.
+    *   New "Tools" are added to [package.json](file:///C:/Users/daria/.gemini/AXON/scratch/package.json) and registered in [SYSTEM_REGISTRY.md](file:///C:/Users/daria/.gemini/AXON/brain/e6fc57ba-9b26-455d-bcf0-142947e7b879/SYSTEM_REGISTRY.md).
+
+---
+
+## ðŸ“‚ 7. FILE STRUCTURE (The Cortex)
+*   `/brain`: All knowledge artifacts (Memory).
+*   `/src/app`: The Dashboard (Interface).
+*   `/src/components/dashboard`: The Agent Studios (Workstations).
+*   `/src/context`: The Neural Network (State Management).
+*   `/src/types`: The Genetic Code (TypeScript Interfaces).
+
+*Using this manual ensures alignment with the Prime Directives.*
+*Authorized by: Daria (Commander)*
+*Date: 2026-01-31*

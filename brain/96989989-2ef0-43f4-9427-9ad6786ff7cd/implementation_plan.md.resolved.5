@@ -1,0 +1,47 @@
+# Plan de Instanciación: AXON System Loop (v1.0)
+
+Este plan define la implementación del **Bucle de Sistema (The System Loop)**, el motor de ejecución recurrente que asegura que cada átomo de AXON se sincronice con sus espejos tras cada interacción, siguiendo la doctrina de los 7 Hilos.
+
+## Objetivo
+Transformar el "Cerebro" del sistema de archivos pasivos a un **Marco de Gobernanza Activo y Centralizado** en el núcleo del HIVE (`hive/knowledge/`), asegurando que todos los agentes y sesiones compartan el mismo ADN oficial.
+
+## Cambios Propuestos
+
+### 📂 1. Formalización de Protocolos (Nuevos Archivos)
+Se han extraído y creado los siguientes documentos en `/hive/protocols/`:
+- [NEW] [COC_v1.0.md](file:///C:/Users/daria/.gemini/antigravity/hive/protocols/COC_v1.0.md): Contrato de Operación Canónico.
+- [NEW] [INTENT_ENGINEERING_v3.md](file:///C:/Users/daria/.gemini/antigravity/hive/protocols/INTENT_ENGINEERING_v3.md): Marco FFRS + EET.
+
+### 🧩 2. Selección de "Knowledge Items" (Estructura de Gobierno)
+Proponemos una estructura dividida en **Gobernanza Estática** (reglas) y **Gobernanza Dinámica** (hilos de ejecución):
+
+| Categoría | Documento | Función en el Hilo de Ejecución |
+| :--- | :--- | :--- |
+| **Gobernanza** | [COC_v1.0.md](file:///C:/Users/daria/.gemini/antigravity/hive/protocols/COC_v1.0.md) | Regla maestra de trazabilidad (Mapeo de Intención). |
+| **Gobernanza** | [INTENT_ENGINEERING_v3.md](file:///C:/Users/daria/.gemini/antigravity/hive/protocols/INTENT_ENGINEERING_v3.md) | Motor lógico (FFRS + EET) para validación. |
+| **Thread Manual** | [AXON_EXECUTION_THREADS_MANUAL.md](file:///C:/Users/daria/.gemini/antigravity/brain/afda43d1-d292-4b66-b058-4ec943124741/AXON_EXECUTION_THREADS_MANUAL.md) | **La Doctrina**: Define los 7 hilos activos del sistema. |
+| **Hilos (Estado)** | [RTM_MASTER.md](file:///C:/Users/daria/.gemini/antigravity/hive/protocols/RTM_MASTER.md) | Trazabilidad Viva: Mapea cada interacción a un Hilo. |
+| **Hilos (Ops)** | [OIM_MASTER.md](file:///C:/Users/daria/.gemini/antigravity/hive/protocols/OIM_MASTER.md) | Operación: Instrucciones para cerrar y auditar hilos. |
+| **Hilos (Log)** | [KNOWLEDGE_LEDGER.md](file:///C:/Users/daria/.gemini/antigravity/hive/KNOWLEDGE_LEDGER.md) | Bitácora de Sincronización: Memoria del Septumvirato. |
+
+### ⚙️ 3. El Bucle de Sistema (The System Loop Protocol)
+Para asegurar la concurrencia y actualización total:
+
+1.  **Gobernanza de Hilos (OIM + RTM v1.0.0):** Se aplicará versionado estricto a todas las piezas.
+2.  **Algoritmo Recurrente (Pre/Post):**
+    - **Pre-Interacción:** El agente consulta `OIM_MASTER` para identificar hilos latentes que requieran atención (basado en el contexto del workspace).
+    - **Post-Interacción:** Ejecución obligatoria de la **Auditoría Forense (7mo Hilo)** para reflejar cambios en:
+        - `RTM_MASTER` (Trazabilidad).
+        - [KNOWLEDGE_LEDGER.md](file:///C:/Users/daria/.gemini/antigravity/hive/KNOWLEDGE_LEDGER.md) (Log).
+        - **Espejos (NotebookLM):** Sincronización de los cuadernos v3/v4 para reflejar el estado actual.
+3.  **Gaia-Orchestrator Logic:** Integración de la lógica de dirección de hilos en el System Prompt para que actúe como un "recordatorio" constante de tareas pendientes no explícitas.
+
+## Plan de Verificación
+
+### Verificación Manual
+- [ ] Verificar que los 5 documentos aparecen en la sección de "Knowledge" de la barra lateral.
+- [ ] Confirmar que el agente (tú) puede citar secciones del `COC_v1.0` tras subirlos.
+
+### Auditoría Forense
+- [ ] Validar que `RTM_MASTER` v1.0.0 refleja la última versión de los protocolos.
+- [ ] Ejecutar un ciclo completo de "Cambio -> Sincronización -> Espejo" y verificar consistencia.

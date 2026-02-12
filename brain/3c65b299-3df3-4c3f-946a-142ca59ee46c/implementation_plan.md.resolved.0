@@ -1,0 +1,53 @@
+# Implementation Plan - Orion Agent V2 Upgrade
+
+## Goal Description
+Upgrade Agent **Orion** to Version 2.0 to support deeper strategic analysis, user-defined constraints, and multi-variant output generation. This aligns with the "Investment Analyst" persona, moving from simple trend retrieval to rigorous validation (P.O.S.E. Matrix, 0-10 Evaluation).
+
+## User Review Required
+> [!IMPORTANT]
+> **Schema Breaking Change**: [OrionIngest](file:///C:/Users/daria/.gemini/AXON/scratch/AXON-boilerplate/src/types/agent_types.ts#26-32) will now require a nested `raw_input` object. Any existing scripts calling Orion must be updated.
+> **Output Format Change**: [OrionOutput](file:///C:/Users/daria/.gemini/AXON/scratch/AXON-boilerplate/src/types/agent_types.ts#34-82) will now return an **Array** of strategic options (`top_candidates`), not a single object.
+
+## Proposed Changes
+
+### Core Types ([src/types/agent_types.ts](file:///C:/Users/daria/.gemini/AXON/scratch/AXON-boilerplate/src/types/agent_types.ts))
+*   **Update [OrionIngest](file:///C:/Users/daria/.gemini/AXON/scratch/AXON-boilerplate/src/types/agent_types.ts#26-32)**:
+    *   Add `source_trigger`, `raw_input` (keywords, platform, brand_profile, constraints), `strategic_goals`.
+*   **Update [OrionOutput](file:///C:/Users/daria/.gemini/AXON/scratch/AXON-boilerplate/src/types/agent_types.ts#34-82)**:
+    *   Change structure to return `top_candidates: CandidateBrief[]`.
+    *   Define `CandidateBrief` with:
+        *   `validation_score` (0-10).
+        *   `pain_points` (Array of 3).
+        *   `evidence` (Array of 3).
+        *   `hooks` (Array of 3 variants: Primary, Secondary, Contrarian).
+
+### Logic Engine ([src/utils/orion_logic.ts](file:///C:/Users/daria/.gemini/AXON/scratch/AXON-boilerplate/src/utils/orion_logic.ts))
+*   **Implement `calculateValidationScore(idea)`**:
+    *   Weighted scoring: P.O.S.E. (40%), Virality (30%), Brand Fit (30%).
+*   **Implement `generateHookVariants(topic)`**:
+    *   Logic to produce Primary, Secondary, and Tertiary hooks.
+*   **New Helpers**:
+    *   `identifyPainPoints()`
+    *   `validateEvidence()`
+
+### Simulation Script (`src/scripts/simulate_orion_v2.ts`)
+*   **[NEW]** create a TypeScript script to run the exact simulation requested by the user:
+    1.  Ingest "Crypto" input.
+    2.  Generate 5 queries.
+    3.  Mock "Prompting Agent" interaction.
+    4.  Run validation logic on results.
+    5.  Output the detailed log to console/file.
+
+## Verification Plan
+
+### Automated Verification
+*   **Run Simulation Script**:
+    ```bash
+    npx ts-node src/scripts/simulate_orion_v2.ts
+    ```
+    *   Verify output JSON matches the new [OrionOutput](file:///C:/Users/daria/.gemini/AXON/scratch/AXON-boilerplate/src/types/agent_types.ts#34-82) schema.
+    *   Verify score is calculated correctly (0-10).
+    *   Verify 3 unique hook variants are generated.
+
+### Manual Verification
+*   Review `ORION_SIMULATION_LOG_V2.md` (generated from the script output) to ensure it tells the "Story" of the data processing as requested.

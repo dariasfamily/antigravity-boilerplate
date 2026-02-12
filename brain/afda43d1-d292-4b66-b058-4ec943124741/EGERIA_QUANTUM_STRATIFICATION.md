@@ -1,0 +1,46 @@
+# 🦅 ESTRATIFICACIÓN CUÁNTICA AXON: Agente EGERIA (L-1)
+
+Para alcanzar el 98% de autonomía y fidelidad técnica, desglosamos la "Cuerda 01: Identidad" en sus niveles sub-atómicos. Todo cambio aquí genera un **AXON-REPORT** gestionable desde el Dashboard.
+
+---
+
+## 🟢 NIVEL MICRO: Cuerda 01 (Identidad)
+
+### L1: ADN Filosófico (Manifesto)
+- **Estado Actual:** v1.0.0 LEGIT.
+- **Archivo:** `egeria/manifesto.md`
+- **Sub-hilo 1.1:** Alineación con la Directiva Primera (Wealth/Health/Influence).
+- **Sub-hilo 1.2:** Tono de Voz (Casual-Executive Spanish).
+
+### L2: ADN Lógico (Prompts Core)
+- **Archivo:** `egeria/prompts/system_prompt.md`
+- **Sub-hilo 2.1:** Lógica de Decisión (Filtro de Gaps).
+- **Sub-hilo 2.2:** Mecanismo de Democracia Crítica (Impact Analysis).
+- **Sub-hilo 2.3:** Protocolo de Sincronización (Firma Digital).
+
+### L3: ADN Cognitivo (Research & Sources)
+- **Archivo:** `egeria/intelligence/notebook_map.json`
+- **Sub-hilo 3.1:** Fuentes de Autoridad (NotebookLM [AXON-CORE]).
+- **Sub-hilo 3.2:** Módulo Proactivo de Descubrimiento (`research_hub`).
+- **Sub-hilo 3.3:** Purgado Natural de Conocimiento Obsoleto.
+
+---
+
+## 🛠️ MECANISMO DE REPORTE (Dashboard-Ready)
+Cada pulido en estos sub-hilos genera un archivo JSON en `egeria/evolution/reports/` con este esquema:
+
+```json
+{
+  "axon_report_id": "RE-EGE-C01-L2.1-TIMESTAMP",
+  "component": "EGERIA.IDENTITY.LOGIC.GAP_DETECTION",
+  "version": "1.0.1",
+  "audit_type": "quantum_polish",
+  "analysis_micro": "Detección de redundancia en la instrucción X...",
+  "impact_analysis": "Mejora del 15% en precisión de triggers",
+  "notebook_sync": "Verified",
+  "status": "PASS/SEALED"
+}
+```
+
+---
+**Plan Inmediato:** Bajar a la LUPA del **Sub-hilo 2.1 (Lógica de Decisión)** dentro del prompt maestro para pulirlo cuerda a cuerda.

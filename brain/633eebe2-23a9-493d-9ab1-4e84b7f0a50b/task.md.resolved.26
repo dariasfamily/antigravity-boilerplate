@@ -1,0 +1,35 @@
+# Task: Configurar y Probar NotebookLM MCP Integration
+
+## Estado Actual: Testing
+
+### Completado ✅
+- [x] Investigar autenticación de NotebookLM
+- [x] Ejecutar `notebooklm-mcp-auth` exitosamente
+- [x] Extraer 23 cookies + CSRF token + Session ID
+- [x] Configurar todos los MCP servers deshabilitados por defecto
+- [x] Crear guía completa de MCP servers
+- [x] Reiniciar AXON
+
+### En Progreso 🔄
+- [ ] [/] Habilitar NotebookLM MCP server
+- [ ] [/] Probar acceso a notebooks
+- [ ] [/] Documentar resultados y recomendaciones
+
+## Observaciones
+
+### Tiempo de Carga de MCP Servers
+**Problema identificado:** La carga de MCP servers en AXON es lenta
+- Con 12 servidores configurados (aunque deshabilitados), el inicio toma tiempo
+- Esto puede afectar la experiencia de usuario
+
+**Recomendación para investigar:**
+1. ¿Los servidores deshabilitados se intentan cargar de todas formas?
+2. ¿Hay forma de lazy-load los MCP servers?
+3. ¿Debería reducirse el número de servidores en el config?
+
+### Próximos Pasos
+1. Habilitar NotebookLM
+2. Reiniciar AXON nuevamente
+3. Probar: "Lista mis notebooks de NotebookLM"
+4. Documentar tiempo de carga y rendimiento
+5. Crear recomendaciones finales

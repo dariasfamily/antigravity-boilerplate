@@ -1,0 +1,60 @@
+# Walkthrough: Orion Agent V3.1 Implementation
+
+## Goal
+Implement the rigorous **Orion V3.1 Specification**, enabling the agent to handle detailed "Content Specifications" (Duration, Format, Mode) and produce a high-definition [OrionManifest](file:///C:/Users/daria/.gemini/AXON/scratch/AXON-boilerplate/src/types/agent_types.ts#66-120).
+
+## Changes Implemented
+
+### 1. Schema Upgrade ([src/types/agent_types.ts](file:///C:/Users/daria/.gemini/AXON/scratch/AXON-boilerplate/src/types/agent_types.ts))
+*   **New [OrionIngest](file:///C:/Users/daria/.gemini/AXON/scratch/AXON-boilerplate/src/types/agent_types.ts#25-65)**: Added `content_spec` object.
+    ```typescript
+    content_spec: {
+        target_platform: 'YouTube' | 'TikTok' | ...;
+        content_format: 'Shorts/Reels' | 'Long_Form' | ...;
+        duration_category: 'Micro' | 'Short' | 'Medium' | 'Deep_Dive' | 'Variable';
+    }
+    ```
+*   **New [OrionManifest](file:///C:/Users/daria/.gemini/AXON/scratch/AXON-boilerplate/src/types/agent_types.ts#66-120)**: Added `production_audit`, `technical_constraints` (audio/visual), and `structure_template`.
+
+### 2. Logic Core ([src/utils/orion_logic.ts](file:///C:/Users/daria/.gemini/AXON/scratch/AXON-boilerplate/src/utils/orion_logic.ts))
+*   **P.O.S.E. Validation**: Now checks for `duration_category` compliance.
+*   **Audio Layer Designer**: Automatically selects "Silent Optimization" for vertical video, or "Cinematic" for long-form.
+*   **Anti-Pattern Detection**: Filters blocked phrases ("Hey guys").
+
+## Verification Results
+
+### Simulation: "Crypto Wealth" (Medium Duration)
+Ran `npx tsx src/scripts/simulate_orion_v3.ts` with input:
+- **Topic**: Crypto
+- **Duration**: Medium (5-15m)
+- **Niche**: Finance
+
+#### Output Log (Success)
+```text
+🧪 ORION V3 SIMULATION: 'Crypto Systems' Analysis
+==================================================
+> Mode: Specific_Target
+> Duration Target: Medium (5-15m)
+> Target Niche: Finance ($$$)
+
+⚙️ PROCESSING TOP CANDIDATE: "Automated Liquidity Pools as Digital Real Estate"
+
+📋 ORION MANIFEST GENERATED:
+--------------------------------------------------
+[Validation Score]: 10/10 (P.O.S.E. Perfect Score)
+[Status]: APPROVED
+[Trend Vertigo Check]: PASS
+
+🏗️ CONTENT ARCHITECTURE:
+  Title: "Why Automated Liquidity Pools as Digital Real Estate is Dead"
+  archetype: Talking Head (The Guru)
+  Audio: Cinematic, Clear Voiceover, Slow build
+  Structure (0-3s): "Visual Pattern Interrupt (Stop scrolling)"
+
+💰 FINANCIAL PROJECTION:
+  Estimated RPM: $20
+  Funnel Stage: Trust
+```
+
+## Conclusion
+The system now correctly accepts specific duration constraints/modes and alters the output architecture (Audio, Pacing) accordingly.

@@ -1,0 +1,24 @@
+# Task: Set up NotebookLM Integration
+
+- [x] Research existing NotebookLM integration or config
+- [x] Create folder for NotebookLM notebooks  
+- [x] Determine authentication method (EditThisCookie)
+- [x] Extract cookies from Chrome
+    - [x] Install EditThisCookie extension
+    - [x] Export all cookies including HttpOnly
+    - [x] Save to storage_state.json
+- [ ] [/] Resolve authentication issues
+    - [x] Cookies extracted successfully (24 cookies including all secure ones)
+    - [x] Cookies saved in correct format
+    - [ ] Library `notebooklm-py` authentication failing
+    - [ ] Google redirecting to login despite valid cookies
+    - [ ] Investigating root cause and alternatives
+- [ ] Test sync script successfully
+
+## Current Blocker
+The `notebooklm-py` library is failing to authenticate even with complete cookie set including HttpOnly cookies. Google is redirecting HTTP requests to login page, suggesting the library may not be compatible with current Google security measures.
+
+## Next Steps
+1. Search for updated library version or known issues
+2. Consider alternative approaches (direct API calls, browser automation)
+3. Document findings and recommend solution to user

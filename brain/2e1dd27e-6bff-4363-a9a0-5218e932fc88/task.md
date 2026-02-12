@@ -1,0 +1,23 @@
+# Task: Deep System Audit & Pipeline Verification
+
+- [x] **Agent Expansion** (Argus, Nexus, Apollo, Thalia) <!-- id: 24 -->
+- [x] **System Audit ("The Great Tune-Up")** <!-- id: 25 -->
+    - [x] Locate/Define `skill_forge` protocol <!-- id: 26 -->
+    - [x] Gap Analysis: Registry vs. Seeds vs. Hive <!-- id: 27 -->
+    - [x] Schema Validation: Check DB tables for new Agent outputs <!-- id: 28 -->
+    - [x] Check `agent_types.ts` for complete coverage <!-- id: 29 -->
+- [x] **Optimization & Refactoring** <!-- id: 30 -->
+    - [x] Standardize Skill Definitions (using `skill_forge` logic) <!-- id: 31 -->
+    - [x] Fix identified gaps/inconsistencies <!-- id: 32 -->
+- [x] **Pipeline Simulation (End-to-End)** <!-- id: 33 -->
+    - [x] Define Test Case (e.g., "Viral AI News") <!-- id: 34 -->
+    - [x] Trace: Egeria -> Planner -> Pulsar -> Orion -> Calliope <!-- id: 35 -->
+    - [x] Trace: Calliope -> Thalia/Apollo -> Argus -> Nexus <!-- id: 36 -->
+    - [x] Generate `PIPELINE_VERIFICATION_REPORT.md` <!-- id: 37 -->
+- [x] Notify User with Audit Results and Test Outcomes <!-- id: 38 -->
+- [ ] **DEEP TRACE: "Macro to Micro" Execution** <!-- id: 39 -->
+    - [ ] **Phase 1: Ingestion** (Egeria + Planner) <!-- id: 40 -->
+    - [ ] **Phase 2: Intelligence** (Pulsar + Orion) <!-- id: 41 -->
+    - [ ] **Phase 3: Synthesis** (Lyra + Calliope) <!-- id: 42 -->
+    - [ ] **Phase 4: Production** (Thalia + Apollo) <!-- id: 43 -->
+    - [ ] **Phase 5: Governance** (Argus + Nexus) <!-- id: 44 -->

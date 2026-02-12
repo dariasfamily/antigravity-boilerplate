@@ -1,0 +1,17 @@
+# Task: Deep System Audit & Pipeline Verification
+
+- [x] **Agent Expansion** (Argus, Nexus, Apollo, Thalia) <!-- id: 24 -->
+- [ ] **System Audit ("The Great Tune-Up")** <!-- id: 25 -->
+    - [ ] Locate/Define `skill_forge` protocol <!-- id: 26 -->
+    - [ ] Gap Analysis: Registry vs. Seeds vs. Hive <!-- id: 27 -->
+    - [ ] Schema Validation: Check DB tables for new Agent outputs <!-- id: 28 -->
+    - [ ] Check [agent_types.ts](file:///c:/Users/daria/.gemini/AXON/workspaces/Proyecto%20MENISCO/dashboard-v3/src/types/agent_types.ts) for complete coverage <!-- id: 29 -->
+- [ ] **Optimization & Refactoring** <!-- id: 30 -->
+    - [ ] Standardize Skill Definitions (using `skill_forge` logic) <!-- id: 31 -->
+    - [ ] Fix identified gaps/inconsistencies <!-- id: 32 -->
+- [ ] **Pipeline Simulation (End-to-End)** <!-- id: 33 -->
+    - [ ] Define Test Case (e.g., "Viral AI News") <!-- id: 34 -->
+    - [ ] Trace: Egeria -> Planner -> Pulsar -> Orion -> Calliope <!-- id: 35 -->
+    - [ ] Trace: Calliope -> Thalia/Apollo -> Argus -> Nexus <!-- id: 36 -->
+    - [ ] Generate `PIPELINE_VERIFICATION_REPORT.md` <!-- id: 37 -->
+- [ ] Notify User with Audit Results and Test Outcomes <!-- id: 38 -->

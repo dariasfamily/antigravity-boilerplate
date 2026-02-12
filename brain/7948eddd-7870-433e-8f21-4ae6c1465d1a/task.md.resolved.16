@@ -1,0 +1,16 @@
+# Task: Full-Fidelity Knowledge Mirroring (FFRS + EET)
+
+- [x] Identify failure in "Conservación de Información" <!-- id: 10 -->
+- [/] Extract and Mirror Raw Content (Exact Text):
+    - [ ] SS v0 LITE 3.2 Raw Mirror <!-- id: 11 -->
+    - [ ] SS v0 FULL 3.2 Raw Mirror <!-- id: 12 -->
+    - [ ] SS v0 SUPERIOR 3.2 Raw Mirror <!-- id: 13 -->
+    - [ ] SS v0 HÍBRIDA 1.0 Raw Mirror <!-- id: 14 -->
+    - [ ] Phase 1: NUCLEO Master Mirror <!-- id: 15 -->
+    - [ ] Phase 2: ESTRUCTURA Master Mirror <!-- id: 16 -->
+    - [ ] Phase 3: VOLUMEN Master Mirror <!-- id: 17 -->
+    - [ ] Phase 4: MOTOR Master Mirror <!-- id: 18 -->
+    - [ ] Phase 5: ESCUDO Master Mirror <!-- id: 19 -->
+    - [ ] Phase 6: MENTE Master Mirror <!-- id: 20 -->
+- [ ] Audit local knowledge vs NotebookLM source count <!-- id: 21 -->
+- [ ] Update Master Engineering Constitution with raw references <!-- id: 22 -->

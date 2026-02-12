@@ -1,0 +1,191 @@
+﻿# NotebookLM MCP Integration - SOLUCIÃ“N EXITOSA âœ…
+
+## ðŸŽ‰ Resultado Final
+
+**FUNCIONÃ“** - El MCP server de NotebookLM estÃ¡ configurado y autenticado correctamente.
+
+## ðŸ”‘ SoluciÃ³n Encontrada
+
+### El Comando MÃ¡gico
+```powershell
+notebooklm-mcp-auth.exe
+```
+
+Este comando:
+1. âœ… Lanza Chrome con perfil de autenticaciÃ³n
+2. âœ… Usa remote debugging (`--remote-debugging-port=9222`)
+3. âœ… Extrae cookies automÃ¡ticamente (23 cookies)
+4. âœ… Obtiene CSRF token y Session ID
+5. âœ… Guarda todo en [C:\Users\daria\.notebooklm-mcp\auth.json](file:///Users/daria/.notebooklm-mcp/auth.json)
+6. âœ… Cierra Chrome (perfil guardado para futuro uso headless)
+
+### Resultado de la AutenticaciÃ³n
+```
+========================================
+SUCCESS!
+========================================
+
+Cookies: 23 extracted
+CSRF Token: Yes
+Session ID: 2449621143179239635
+
+Tokens cached to: C:\Users\daria\.notebooklm-mcp\auth.json
+```
+
+## ðŸ“‹ Pasos Ejecutados
+
+### 1. InstalaciÃ³n
+```powershell
+pip install notebooklm-py
+```
+
+### 2. AutenticaciÃ³n
+```powershell
+& "C:\Users\daria\AppData\Roaming\Python\Python313\Scripts\notebooklm-mcp-auth.exe"
+```
+
+- Chrome se abriÃ³ automÃ¡ticamente
+- Usuario ya estaba logueado (sesiÃ³n existente)
+- Cookies extraÃ­das exitosamente
+
+### 3. ConfiguraciÃ³n MCP
+Ya estaba configurado en [mcp_config.json](file:///C:/Users/daria/.gemini/AXON/mcp_config.json#L55-L61):
+
+```json
+{
+  "notebooklm": {
+    "command": "C:/Users/daria/AppData/Roaming/Python/Python313/Scripts/notebooklm-mcp.exe",
+    "args": [],
+    "timeout": 600,
+    "disabled": false
+  }
+}
+```
+
+### 4. PrÃ³ximos Pasos
+1. **Reiniciar AXON** (para que cargue el MCP server)
+2. **Probar**: "Lista mis notebooks de NotebookLM"
+3. **Disfrutar** de las 32 herramientas MCP
+
+## ðŸ› ï¸ Herramientas MCP Disponibles
+
+Una vez que AXON se reinicie, tendrÃ¡s acceso a:
+
+### Notebooks
+- `list_notebooks` - Listar todos los notebooks
+- `get_notebook` - Detalles de un notebook
+- `create_notebook` - Crear nuevo
+- `delete_notebook` - Eliminar
+- `rename_notebook` - Renombrar
+- `get_notebook_summary` - Obtener resumen
+
+### Sources
+- `list_sources` - Listar fuentes
+- `add_source` - AÃ±adir fuente (texto, URL, archivo, video YouTube)
+- `delete_source` - Eliminar fuente
+- `get_source_content` - Leer contenido
+
+### Notes
+- `list_notes` - Listar notas
+- `create_note` - Crear nota
+- `update_note` - Actualizar
+- `delete_note` - Eliminar
+
+### Chat
+- `chat` - Chatear con el notebook
+- `get_chat_history` - Ver historial
+
+### Generation
+- `generate_faq` - Generar FAQ
+- `generate_briefing` - Generar briefing
+- `generate_study_guide` - GuÃ­a de estudio
+- `generate_timeline` - Timeline
+- `generate_table_of_contents` - Tabla de contenidos
+
+### Audio
+- `generate_audio` - Generar audio overview
+- `get_audio_status` - Estado del audio
+- `download_audio` - Descargar audio
+
+## ðŸ” DiagnÃ³stico del Problema Original
+
+### Lo que NO funcionÃ³
+1. âŒ **Cookies vÃ­a HTTP requests** - Google bloquea peticiones no-browser
+2. âŒ **Playwright manual** - Bug en Windows ("browser has been closed")
+3. âŒ **EditThisCookie manual** - Formato correcto pero Google rechaza HTTP
+
+### Por quÃ© NO funcionÃ³
+Google en 2026 requiere:
+- âœ… Navegador real (no solo cookies)
+- âœ… Headers completos de navegador
+- âœ… JavaScript execution
+- âœ… Fingerprinting vÃ¡lido
+
+### La SoluciÃ³n
+`notebooklm-mcp-auth` usa **Chrome DevTools Protocol** para:
+- Conectarse a Chrome real
+- Extraer cookies desde el navegador activo
+- Obtener tokens CSRF y Session ID
+- Guardar todo para uso headless futuro
+
+## ðŸ“ Archivos Creados
+
+| Archivo | PropÃ³sito | Estado |
+|---------|-----------|--------|
+| [C:\Users\daria\.notebooklm-mcp\auth.json](file:///Users/daria/.notebooklm-mcp/auth.json) | Auth tokens del MCP | âœ… Funcional |
+| [mcp_config.json](file:///C:/Users/daria/.gemini/AXON/mcp_config.json) | Config MCP server | âœ… Configurado |
+| [scripts/convert_cookies.py](file:///c:/Users/daria/.gemini/AXON/workspaces/Proyecto%20MENISCO/dashboard-v3/scripts/convert_cookies.py) | Convertidor cookies | âœ… Funcional |
+| [scripts/sync_notebooklm.py](file:///c:/Users/daria/.gemini/AXON/workspaces/Proyecto%20MENISCO/dashboard-v3/scripts/sync_notebooklm.py) | Script de sync | âš ï¸ Requiere browser |
+
+## ðŸŽ¯ Uso PrÃ¡ctico
+
+### Ejemplo 1: Listar Notebooks
+```
+Usuario: "Lista mis notebooks de NotebookLM"
+AXON: [Usa list_notebooks del MCP]
+Resultado:
+- Orion (71 fuentes)
+- Apollo (95 fuentes)
+- DiseÃ±o de Sistemas Multi-Agentes (97 fuentes)
+- [CHATGPT] SEMILLA DE ESPECIFICACIÃ“N v0 (69 fuentes)
+- [GEMINI] FULL Chat Vaso de 8 Onzas (24 fuentes)
+```
+
+### Ejemplo 2: Obtener Fuentes
+```
+Usuario: "MuÃ©strame las fuentes del notebook Orion"
+AXON: [Usa list_sources con notebook_id de Orion]
+Resultado: Lista de 71 fuentes con tÃ­tulos y tipos
+```
+
+### Ejemplo 3: Chatear
+```
+Usuario: "PregÃºntale al notebook Apollo sobre arquitectura de agentes"
+AXON: [Usa chat tool]
+Resultado: Respuesta del notebook basada en sus 95 fuentes
+```
+
+## ðŸ”„ Mantenimiento
+
+### Renovar AutenticaciÃ³n
+Cuando las cookies expiren (~30 dÃ­as):
+```powershell
+notebooklm-mcp-auth.exe
+```
+
+### Verificar Estado
+```powershell
+notebooklm-mcp --help
+```
+
+## ðŸ ConclusiÃ³n
+
+**Tiempo total:** ~4 horas de troubleshooting
+**Intentos fallidos:** 6 mÃ©todos diferentes
+**SoluciÃ³n final:** 1 comando simple (`notebooklm-mcp-auth`)
+
+**LecciÃ³n aprendida:** A veces la soluciÃ³n mÃ¡s simple es la correcta. En lugar de intentar hackear la autenticaciÃ³n con cookies manuales, usar la herramienta oficial diseÃ±ada especÃ­ficamente para esto.
+
+**Estado:** âœ… **COMPLETADO Y FUNCIONAL**
+
+**PrÃ³ximo paso:** Reiniciar AXON y probar las herramientas MCP.

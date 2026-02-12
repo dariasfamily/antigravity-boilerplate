@@ -1,0 +1,40 @@
+# Task: Set up NotebookLM Integration
+
+## Enfoque Actualizado: MCP Server
+
+### Completado ✅
+- [x] Identificar que MCP server ya está configurado
+- [x] Verificar configuración en [mcp_config.json](file:///C:/Users/daria/.gemini/AXON/mcp_config.json) (línea 55-61)
+- [x] MCP server habilitado (`disabled: false`)
+
+### En Progreso 🔄
+- [ ] [/] Verificar ejecutable MCP existe
+- [ ] [/] Reiniciar AXON para activar MCP server
+- [ ] [/] Probar acceso a las 32 herramientas de NotebookLM
+
+## Cómo Funciona (Nuevo Enfoque)
+
+**Flujo:**
+1. Usuario abre Chrome y se loguea en NotebookLM
+2. MCP server de NotebookLM se mantiene activo
+3. AXON tiene acceso a 32 tools de NotebookLM vía MCP
+4. Cuando Chrome se cierra, MCP server se desconecta automáticamente
+
+**Ventajas:**
+- ✅ No necesita extraer cookies manualmente
+- ✅ Acceso directo a todas las funciones de NotebookLM
+- ✅ Se mantiene sincronizado con la sesión del navegador
+- ✅ Más simple y confiable
+
+## MCP Server Config
+
+```json
+{
+  "notebooklm": {
+    "command": "C:/Users/daria/AppData/Roaming/Python/Python313/Scripts/notebooklm-mcp.exe",
+    "args": [],
+    "timeout": 600,
+    "disabled": false
+  }
+}
+```

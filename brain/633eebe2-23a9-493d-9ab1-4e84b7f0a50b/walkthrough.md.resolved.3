@@ -1,0 +1,161 @@
+﻿# NotebookLM MCP Server - SoluciÃ³n Final
+
+## âœ… Estado Actual
+
+### ConfiguraciÃ³n Completada
+- âœ… MCP server instalado: `notebooklm-mcp.exe`
+- âœ… Configurado en [mcp_config.json](file:///C:/Users/daria/.gemini/AXON/mcp_config.json) (habilitado)
+- âœ… Cookies extraÃ­das y guardadas en [storage_state.json](file:///C:/Users/daria/.notebooklm/storage_state.json)
+
+### Problema Identificado
+El servidor MCP de NotebookLM **requiere autenticaciÃ³n** antes de poder usarse. Las 32 herramientas solo estÃ¡n disponibles despuÃ©s de autenticarse correctamente.
+
+## ðŸ”§ SoluciÃ³n Completa
+
+### OpciÃ³n 1: AutenticaciÃ³n Manual (Recomendada)
+
+**Paso 1: Login con Playwright**
+```powershell
+cd "C:\Users\daria\.gemini\AXON\workspaces\Proyecto MENISCO\dashboard-v3"
+python scripts/notebooklm_login.py
+```
+
+**Paso 2: Completar Login**
+1. Se abrirÃ¡ navegador Chromium
+2. LoguÃ©ate con tu cuenta de Google
+3. Espera a ver la pÃ¡gina de NotebookLM
+4. Presiona ENTER en la terminal
+
+**Paso 3: Reiniciar AXON**
+- Cierra y vuelve a abrir AXON
+- El MCP server ahora tendrÃ¡ acceso a tus notebooks
+
+### OpciÃ³n 2: Usar Cookies Existentes
+
+Ya tienes las cookies guardadas en:
+- [C:\Users\daria\.notebooklm\storage_state.json](file:///C:/Users/daria/.notebooklm/storage_state.json)
+
+El MCP server deberÃ­a poder usarlas automÃ¡ticamente.
+
+## ðŸ“Š Herramientas MCP Disponibles
+
+Una vez autenticado, tendrÃ¡s acceso a ~32 herramientas:
+
+### Notebooks
+- `list_notebooks` - Listar todos tus notebooks
+- `get_notebook` - Obtener detalles de un notebook
+- `create_notebook` - Crear nuevo notebook
+- `delete_notebook` - Eliminar notebook
+
+### Sources (Fuentes)
+- `list_sources` - Listar fuentes de un notebook
+- `add_source` - AÃ±adir nueva fuente
+- `delete_source` - Eliminar fuente
+- `get_source_content` - Obtener contenido de fuente
+
+### Notes (Notas)
+- `list_notes` - Listar notas
+- `create_note` - Crear nota
+- `update_note` - Actualizar nota
+- `delete_note` - Eliminar nota
+
+### Chat & Generation
+- `chat` - Chatear con el notebook
+- `generate_faq` - Generar FAQ
+- `generate_briefing` - Generar briefing
+- `generate_study_guide` - Generar guÃ­a de estudio
+- `generate_timeline` - Generar timeline
+
+### Audio
+- `generate_audio` - Generar audio overview
+- `get_audio_status` - Ver estado de audio
+
+## ðŸŽ¯ Uso PrÃ¡ctico
+
+### Ejemplo 1: Listar Notebooks
+Una vez conectado el MCP, podrÃ¡s pedirme:
+```
+"Lista todos mis notebooks de NotebookLM"
+```
+
+Y yo usarÃ© la herramienta `list_notebooks` del MCP para mostrarte:
+- Orion (71 fuentes)
+- Apollo (95 fuentes)
+- DiseÃ±o de Sistemas Multi-Agentes (97 fuentes)
+- etc.
+
+### Ejemplo 2: Obtener Fuentes
+```
+"MuÃ©strame todas las fuentes del notebook Orion"
+```
+
+UsarÃ© `list_sources` para obtener las 71 fuentes y sus detalles.
+
+### Ejemplo 3: Crear Nota
+```
+"Crea una nota en el notebook Apollo con el resumen de nuestra conversaciÃ³n de hoy"
+```
+
+UsarÃ© `create_note` para aÃ±adir la nota automÃ¡ticamente.
+
+## ðŸ”„ Flujo de Trabajo
+
+```mermaid
+graph TD
+    A[Usuario abre AXON] --> B{MCP autenticado?}
+    B -->|No| C[Ejecutar notebooklm_login.py]
+    C --> D[Login en navegador]
+    D --> E[Cookies guardadas]
+    E --> F[Reiniciar AXON]
+    F --> G[MCP conectado]
+    B -->|SÃ­| G
+    G --> H[32 herramientas disponibles]
+    H --> I[Usuario pide acciÃ³n]
+    I --> J[AXON usa MCP tools]
+    J --> K[Resultado mostrado]
+```
+
+## âš ï¸ Limitaciones Conocidas
+
+### Bug de Playwright en Windows
+- El login con Playwright funciona PERO falla al guardar cookies
+- **Workaround:** Las cookies ya estÃ¡n guardadas de sesiones anteriores
+- El MCP server puede usarlas directamente
+
+### ExpiraciÃ³n de Cookies
+- Las cookies expiran cada ~30 dÃ­as
+- Cuando expiren, ejecuta [notebooklm_login.py](file:///c:/Users/daria/.gemini/AXON/workspaces/Proyecto%20MENISCO/dashboard-v3/scripts/notebooklm_login.py) nuevamente
+
+## ðŸ“ Archivos Importantes
+
+| Archivo | PropÃ³sito |
+|---------|-----------|
+| [mcp_config.json](file:///C:/Users/daria/.gemini/AXON/mcp_config.json#L55-L61) | ConfiguraciÃ³n del MCP server |
+| [storage_state.json](file:///C:/Users/daria/.notebooklm/storage_state.json) | Cookies de autenticaciÃ³n |
+| [scripts/notebooklm_login.py](file:///c:/Users/daria/.gemini/AXON/workspaces/Proyecto%20MENISCO/dashboard-v3/scripts/notebooklm_login.py) | Script de login |
+| `notebooklm-mcp.exe` | Ejecutable del MCP server |
+
+## ðŸŽ‰ Resultado Final
+
+Una vez configurado correctamente:
+
+1. **Abres AXON** â†’ MCP server se conecta automÃ¡ticamente
+2. **Pides algo** â†’ "Lista mis notebooks"
+3. **AXON usa MCP** â†’ Llama a `list_notebooks`
+4. **Recibes resultados** â†’ Lista completa con detalles
+
+**No necesitas:**
+- âŒ Abrir Chrome manualmente
+- âŒ Copiar cookies cada vez
+- âŒ Ejecutar scripts de sync
+
+**Todo es automÃ¡tico** mientras las cookies sean vÃ¡lidas.
+
+## ðŸ” VerificaciÃ³n
+
+Para verificar que el MCP estÃ¡ funcionando, pregÃºntame:
+```
+"Â¿Puedes acceder a mis notebooks de NotebookLM?"
+```
+
+Si el MCP estÃ¡ conectado, podrÃ© listar tus notebooks. Si no, te dirÃ© que necesitas autenticarte primero.

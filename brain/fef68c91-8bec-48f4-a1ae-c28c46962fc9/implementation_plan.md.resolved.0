@@ -1,0 +1,33 @@
+﻿# Implementation Plan - Fix MCP Server Connections
+
+## Goal Description
+Resolve "context deadline exceeded" and 405 errors for Make, Zapier, Rube, and NotebookLM MCP servers in [mcp_config.json](file:///C:/Users/daria/.gemini/AXON/mcp_config.json).
+
+## User Review Required
+> [!IMPORTANT]
+> I will be replacing `mcp-remote` with a custom `debug-mcp-bridge.js` script for the remote servers. This script will provide better error visibility and handle headers more reliably.
+
+## Proposed Changes
+
+### Custom Bridge Script
+#### [NEW] [debug-mcp-bridge.js](file:///C:/Users/daria/.gemini/AXON/scratch/debug-mcp-bridge.js)
+-   Create a Node.js script based on [mcp-bridge/index.js](file:///C:/Users/daria/.gemini/AXON/scratch/mcp-bridge/index.js).
+-   It will accept the SSE URL and optional headers.
+-   It will log connection status and events to `stderr` (for debugging) and forward messages to `stdout`.
+
+### Configuration Updates
+#### [MODIFY] [mcp_config.json](file:///C:/Users/daria/.gemini/AXON/mcp_config.json)
+-   **NotebookLM**: Add `"timeout": 600` (10 minutes) to allow for slow startup.
+-   **Make**: Change command to `node` and args to point to `debug-mcp-bridge.js`.
+-   **Zapier**: Change command to `node` and args to point to `debug-mcp-bridge.js`.
+-   **Rube**: Change command to `node` and args to point to `debug-mcp-bridge.js`, correctly passing the `Rube-Api-Key` or `Authorization` header.
+
+## Verification Plan
+
+### Automated Tests
+-   **Script Test**: Run `node debug-mcp-bridge.js <URL>` manually for each server to verify it connects and receives the `endpoint` event.
+    -   `node debug-mcp-bridge.js "https://us1.make.com/..."`
+    -   `node debug-mcp-bridge.js "https://mcp.zapier.com/..."`
+
+### Manual Verification
+-   After updating usage, ask the user to reload the MCP servers in VS Code and check if the errors persist.

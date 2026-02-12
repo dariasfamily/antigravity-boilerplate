@@ -1,0 +1,12 @@
+# MCP Verification Log
+
+## Objective
+Verify the functionality of the 'notebooklm' MCP server.
+
+## Findings
+- **NotebookLM Server**: Reachable. `resources/list` returns empty.
+- **GitHub Server**: `resources/list` failed with "Method not found".
+- **Configuration**: Located [mcp_config.json](file:///c:/Users/daria/.gemini/AXON/mcp_config.json).
+
+## Next Steps
+- Analyze [mcp_config.json](file:///c:/Users/daria/.gemini/AXON/mcp_config.json) for server details.

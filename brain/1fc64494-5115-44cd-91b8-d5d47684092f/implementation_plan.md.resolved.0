@@ -1,0 +1,21 @@
+# Rube MCP Configuration Fix
+
+The "Rube MCP" configuration is currently pointing to an interactive setup CLI (`@composio/rube-mcp`) instead of the actual MCP server connection. The `info` command from the CLI indicates that the server should be accessed via `mcp-remote` pointing to `https://rube.app/mcp`.
+
+## Proposed Changes
+
+### Configuration
+#### [MODIFY] [mcp_config.json](file:///c:/Users/daria/.gemini/AXON/mcp_config.json)
+- Update the `rube_mcp` command to use `npx -y mcp-remote` instead of running the `rube` CLI directly.
+- Set the target URL to `https://rube.app/mcp`.
+- Maintain the `RUBE_API_KEY` environment variable.
+
+## Verification Plan
+
+### Automated Tests
+- None available for this configuration change.
+
+### Manual Verification
+1.  Ask the user to restart their MCP client (e.g. reload the window or restart the agent) to pick up the new configuration.
+2.  The error `calling "initialize": EOF` should disappear.
+3.  The Rube MCP tools should become available.

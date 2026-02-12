@@ -1,0 +1,107 @@
+﻿# MCP Server Configuration
+
+- [x] Configure Rube MCP
+    - [x] Clean up garbage files
+    - [x] Fix `rube_mcp.json` to use HTTP driver
+    - [x] Verify connection (Confirmed working)
+- [x] Configure Supabase MCP
+    - [x] Obtain Project Ref
+    - [x] Obtain Service Role Key (Switched to PAT `sbp_...` for MCP access)
+    - [x] Update `supabase_mcp.json` (Refactored to local `npx`)
+    - [x] Verify connection (Confirmed working)
+- [x] Configure Vercel MCP
+    - [x] Research Vercel MCP auth (Access Token)
+    - [x] Create/Update `vercel_mcp.json` (Refactored to local `npx`)
+- [ ] Configure Social Media MCPs (Phase 2.3)
+    - [ ] Investigate Rube/Composio support for Twitter/LinkedIn
+    - [ ] Configure Twitter integration
+    - [ ] Configure LinkedIn integration
+    - [x] Configure Reddit integration
+- [ ] Configure Perplexity MCP (Phase 2.4)
+    - [x] Obtain Perplexity API Key
+    - [x] Create/Update `perplexity_mcp.json` (Added to global `mcp_config.json`)
+    - [x] Create/Update `perplexity_mcp.json` (Added to global `mcp_config.json`)
+    - [x] Verify connection (Configured global)
+- [x] Configure Google Workspace MCP (Phase 2.5)
+    - [x] Connect Drive account
+- [ ] Configure Gemini Pro API (Phase 3.1)
+    - [x] Obtain Gemini API Key
+    - [x] Configure `gemini_config.json` (or env var)
+    - [x] Verify access (Key stored)
+- [ ] Configure Intelligent Routing (Phase 3.2)
+    - [x] Create Routing Strategy ([model_routing_plan.md](file:///C:/Users/daria/.gemini/AXON/brain/e6fc57ba-9b26-455d-bcf0-142947e7b879/model_routing_plan.md))
+    - [x] Define Complexity Rules (Gemini 3 / Claude 4.5)
+    - [x] Implement Routing Logic (Configured in `routing_config.json`)
+- [x] Configure Budgets and Rate Limits (Phase 3.3)
+    - [x] Create Budget Config (`budget_config.json`)
+    - [x] Approve Limits
+    - [x] Activate Kill Switch
+- [x] Refactor Main Dashboard (Orion -> Calliope)
+    - [x] Create [AgentContext.tsx](file:///C:/Users/daria/.gemini/AXON/scratch/AXON-boilerplate/src/context/AgentContext.tsx) (System Logs + Active Brief)
+    - [x] Update [OrionStudio](file:///C:/Users/daria/.gemini/AXON/scratch/AXON-boilerplate/src/components/dashboard/OrionStudio.tsx#5-300) to write to Context
+    - [x] Update [CalliopeStudio](file:///C:/Users/daria/.gemini/AXON/scratch/AXON-boilerplate/src/components/dashboard/CalliopeStudio.tsx#6-204) to read from Context
+    - [x] Update [AgentMonitor](file:///C:/Users/daria/.gemini/AXON/scratch/AXON-boilerplate/src/components/dashboard/AgentMonitor.tsx#4-51) to display real logs
+    - [x] **New:** Define System State & Shared Context ([SYSTEM_STATE_DEFINITION.md](file:///C:/Users/daria/.gemini/AXON/brain/e6fc57ba-9b26-455d-bcf0-142947e7b879/SYSTEM_STATE_DEFINITION.md))
+- [x] Debug AgentControlPanel setState error (Fix "Cannot update component while rendering")
+- [ ] Connect [AgentMonitor](file:///C:/Users/daria/.gemini/AXON/scratch/AXON-boilerplate/src/components/dashboard/AgentMonitor.tsx#4-51) to Real Logs (Completed in Refactor)
+- [x] Configure Research Tools (Phase 2.7)
+    - [x] Research Integration Methods (API vs Browser: Browser confirmed)
+    - [x] Configure NotebookLM (Added to [research_tools_manifest.md](file:///C:/Users/daria/.gemini/AXON/brain/e6fc57ba-9b26-455d-bcf0-142947e7b879/research_tools_manifest.md))
+    - [x] Configure Google Studio (AI Studio done in Phase 3.1)
+    - [x] Configure Whisk/Stich/Pomelli/Opal (Added to Manifest)
+    - [x] Verify Research Workflow (Manifest created)
+- [x] Configure Media Generation Tools (Phase 2.6)
+    - [x] Research Integration (Veo/Nano Banana are Gemini API)
+    - [x] Configure/Document Access (Added to [media_tools_manifest.md](file:///C:/Users/daria/.gemini/AXON/brain/e6fc57ba-9b26-455d-bcf0-142947e7b879/media_tools_manifest.md))
+    - [x] Validate Media Workflow (Key already set in Phase 3.1)
+- [x] Configure Automation Engines (Phase 2.8)
+    - [x] Check Rube Support (Native apps not found, using Webhooks)
+    - [x] Configure Connectors (Created [automation_manifest.md](file:///C:/Users/daria/.gemini/AXON/brain/e6fc57ba-9b26-455d-bcf0-142947e7b879/automation_manifest.md))
+    - [x] Create Automation Manifest
+- [x] Configure CLIs (Phase 2.9)
+    - [x] Research/Install Claude CLI (Guide created)
+    - [x] Research/Install Gemini CLI (Guide created)
+    - [x] Create `cli_manifest.md` (Renamed to [cli_setup_guide.md](file:///C:/Users/daria/.gemini/AXON/brain/e6fc57ba-9b26-455d-bcf0-142947e7b879/cli_setup_guide.md))
+- [x] Configure Global Rules (Phase 4)
+    - [x] Create [GEMINI.md](file:///C:/Users/daria/.gemini/AXON/brain/e6fc57ba-9b26-455d-bcf0-142947e7b879/GEMINI.md) (Constitution v2 - Auto-Update enabled)
+    - [x] Define Workspace Rules (Integrated in [GEMINI.md](file:///C:/Users/daria/.gemini/AXON/brain/e6fc57ba-9b26-455d-bcf0-142947e7b879/GEMINI.md))
+    - [x] Create Reusable Workflows (Created `.agent/workflows`)
+- [/] DivisiÃ³n IngenierÃ­a (Phase 5)
+    - [x] Create `AXON-boilerplate` (Next.js + Supabase)
+    - [x] Implementar MÃ³dulo de AutomatizaciÃ³n (n8n/Ops) - **Wired & Active**
+    - [x] Configure Auth & Database (Supabase + RLS)
+- [ ] **Division de Marca (The AXON Studio)**
+    - [ ] **Infrastructure**:
+        - [ ] Schema: `brand_studio` table.
+        - [x] Connection: `NotebookLM` "Writers Room" (Doc Created: `AXON_Writers_Room_LOG`)
+        - [ ] Connection: `NotebookLM` "Writers Room" (Doc Created: `AXON_Writers_Room_LOG`)
+        - [x] Research Source: `AXON_Research_Master_Prompt` (Doc Created & Tagged)
+        - [ ] **Notebook Creation**: Requires Manual User URL (Browser Agent Blocked).
+        - [ ] **System Persistence**: Sync [SystemContext](file:///C:/Users/daria/.gemini/AXON/scratch/AXON-boilerplate/src/types/agent_types.ts#234-246) to Supabase `system_state` (The Blackboard Recorder).
+    - [ ] **Phase 1: Text & Strategy**
+        - [x] **Orion**: Strategy Agent (Forged & Linked to Writers Room).
+        - [x] **Calliope**: Script Agent (Protocol v1.1 DOcumented & Notebook Connected).
+        - [/] **Argus**: QA/Vision Agent.
+            - [x] Protocol Defined ([ARGUS_PROTOCOL.md](file:///C:/Users/daria/.gemini/AXON/brain/e6fc57ba-9b26-455d-bcf0-142947e7b879/agents/ARGUS_PROTOCOL.md))
+            - [x] Types Registered ([ArgusOutput](file:///C:/Users/daria/.gemini/AXON/scratch/AXON-boilerplate/src/types/agent_types.ts#186-204))
+            - [x] Registry Updated ([SYSTEM_REGISTRY.md](file:///C:/Users/daria/.gemini/AXON/brain/e6fc57ba-9b26-455d-bcf0-142947e7b879/SYSTEM_REGISTRY.md))
+            - [x] Implement Handler ([brand_argus_handler.py](file:///C:/Users/daria/.gemini/AXON/scratch/AXON-boilerplate/scripts/brand_argus_handler.py)) - **Verified via Validation Script**
+        - [ ] **Thalia/Apollo/Lumiere** (Media Production - Phase 2)
+        - [ ] **Echo**: Social Agent (Wait for Production).
+            - [x] Protocol Defined ([ECHO_PROTOCOL.md](file:///C:/Users/daria/.gemini/AXON/brain/e6fc57ba-9b26-455d-bcf0-142947e7b879/agents/ECHO_PROTOCOL.md))
+            - [x] Types Registered ([EchoOutput](file:///C:/Users/daria/.gemini/AXON/scratch/AXON-boilerplate/src/types/agent_types.ts#209-222))
+            - [x] Registry Updated ([SYSTEM_REGISTRY.md](file:///C:/Users/daria/.gemini/AXON/brain/e6fc57ba-9b26-455d-bcf0-142947e7b879/SYSTEM_REGISTRY.md))
+
+    - [x] **UI**: "Studio" View in Dashboard.
+        - [x] **Orion Studio**: Input/Output Control.
+        - [x] **Calliope Studio**: Script Editor/Control.
+        - [x] **Argus Studio**: Audit Panel.
+    - [x] Integrate Gemini/Payments (Next: Wealth Dashboard) - **PENDING (User Request)**
+    - [x] **Create AXON Dashboard (Command Center)** - Verificado en `localhost:3000/dashboard`
+    - [x] **Command Center V2 (The Cockpit)**
+        - [x] **Registry**: Create [SYSTEM_REGISTRY.md](file:///C:/Users/daria/.gemini/AXON/brain/e6fc57ba-9b26-455d-bcf0-142947e7b879/SYSTEM_REGISTRY.md) (Golden State).
+        - [x] **Data Layer**: `system_state` table in Supabase (Migrated & Seeded).
+        - [x] **Control**: Pause/Resume Logic (RLS Policies & Cockpit.tsx).
+        - [x] **UI**: Real-time Status Widgets (Integrated in [dashboard/page.tsx](file:///C:/Users/daria/.gemini/AXON/scratch/AXON-boilerplate/src/app/dashboard/page.tsx)).
+        - [x] **Visualization**: Agent Workflow Checklist ([AgentChecklist.tsx](file:///C:/Users/daria/.gemini/AXON/scratch/AXON-boilerplate/src/components/dashboard/AgentChecklist.tsx) + Admin Toggle).
+    - [x] Verify Deployment Pipeline (GitHub Connected)

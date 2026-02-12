@@ -1,0 +1,58 @@
+﻿# DiseÃ±o del Sistema Ã“ptimo (The AXON Bio-Machine)
+
+Basado en anÃ¡lisis de arquitecturas autÃ³nomas y bucles de retroalimentaciÃ³n econÃ³mica.
+
+## 1. Concepto Central
+No es solo un "bot", es una **Bio-MÃ¡quina EconÃ³mica**.
+Funciona como un organismo: **Detecta Nutrientes (Ideas) -> Procesa (Crea Apps) -> Genera EnergÃ­a (Dinero) -> Evoluciona (Mejora su cÃ³digo).**
+
+## 2. Estructura Modular (Niveles)
+
+### Nivel 0: El Estratega (Strategic Layer)
+*   **FunciÃ³n**: "CEO & Board". Toma decisiones de alto nivel.
+*   **Agente**: `Orchestrator Agent`.
+*   **Entradas**: Tendencias de mercado (Perplexity), Estado de la cuenta bancaria (Stripe).
+*   **Salidas**: Ã“rdenes de trabajo ([task.md](file:///C:/Users/daria/.gemini/AXON/brain/e6fc57ba-9b26-455d-bcf0-142947e7b879/task.md)), Cambios de Estrategia ([master_plan.md](file:///C:/Users/daria/.gemini/AXON/brain/e6fc57ba-9b26-455d-bcf0-142947e7b879/master_plan.md)).
+*   **Ritmo**: Diario/Semanal.
+
+### Nivel 1: La FÃ¡brica (Production Layer)
+*   **FunciÃ³n**: transformar Ã³rdenes en activos tangibles.
+*   **MÃ³dulos**:
+    *   **Builder Agent**: Escribe cÃ³digo (Next.js/Supabase). Usa el *Boilerplate*.
+    *   **Content Agent**: Produce media (Video/Img) para marketing.
+*   **Entradas**: Especificaciones del Orchestrator.
+*   **Salidas**: Apps desplegadas (URLs), Videos en YouTube.
+*   **Ritmo**: Continuo/Bajo demanda.
+
+### Nivel 2: La DistribuciÃ³n (Market Layer)
+*   **FunciÃ³n**: Vender y distribuir los activos.
+*   **Agentes**: Social Agents (Traffic Generators).
+*   **Entradas**: Activos producidos por la fÃ¡brica.
+*   **Salidas**: TrÃ¡fico, Usuarios, Ventas.
+*   **Ritmo**: 24/7.
+
+### Nivel 3: El Sistema Nervioso (Evolution Layer)
+*   **FunciÃ³n**: Sentir, recordar y optimizar.
+*   **Componentes**:
+    *   **Meta-Database (Supabase)**:
+        *   `metrics_table`: Tiempos, Costos, Ingresos.
+        *   `knowledge_graph`: Lo que hemos aprendido.
+    *   **The Metabolic Loop**:
+        *   Si `Ingresos < Costos` durante 3 dÃ­as -> **KILL PROJECT**.
+        *   Si `Tarea X` es lenta -> **REWRITE WORKFLOW**.
+*   **Entradas**: Logs de todos los niveles.
+*   **Salidas**: Actualizaciones automÃ¡ticas de [GEMINI.md](file:///C:/Users/daria/.gemini/AXON/brain/e6fc57ba-9b26-455d-bcf0-142947e7b879/GEMINI.md) y reglas.
+
+## 3. Flujo de Datos (The Loop)
+1.  **Sense**: Perplexity detecta "Demanda de Apps de Abogados".
+2.  **Plan**: Orchestrator ordena "Crear Legal-App v1".
+3.  **Build**: Builder Agent clona Boilerplate + Personaliza.
+4.  **Deploy**: Vercel publica la URL.
+5.  **Sell**: Social Agents spamean (Ã©ticamente) la soluciÃ³n.
+6.  **Measure**: Meta-Database registra visitas y ventas.
+7.  **Evolve**: Si vende bien, Orchestrator ordena "Legal-App v2". Si no, cierra y aprende.
+
+## 4. EstÃ¡ndares & Registros
+*   **ComunicaciÃ³n**: Todo vÃ­a `Signal Files` (JSON) en `/brain/signals/` o Supabase.
+*   **Memoria**: Nada se pierde. Cada error se guarda en `error_log` para no repetirlo.
+*   **Lenguaje**: InglÃ©s para el Mundo (Productos), EspaÃ±ol para el NÃºcleo (Nosotros).

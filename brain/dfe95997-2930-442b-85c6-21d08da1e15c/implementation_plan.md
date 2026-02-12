@@ -1,0 +1,56 @@
+﻿# Implementation Plan: Agent THALIA (Visuals)
+
+## Goal Description
+To define and integrate **Agent THALIA**, the "Visuals" layer of the system. Thalia accepts approved scripts/prompts from Argus and generates static visual assets (Thumbnails, Scene Backgrounds) which are then passed to **Lumiere** (Video) or **Echo** (Social).
+
+## User Review Required
+> [!NOTE]
+> **Correction**: Previous proposal (Midas) was incorrect. Based on `SystemMap.tsx`, the next agent is **THALIA** (Visuals).
+
+## Proposed Changes
+
+### 1. Conceptual Definition
+- **Name**: THALIA (The Muse of Comedy/Idyllic Poetry - Visuals)
+- **Role**: Creative Director / Lead Artist
+- **Objective**: "Stop the Scroll" - High-impact visual storytelling.
+
+### 2. Code Integration (`src/types/agent_types.ts`)
+#### [MODIFY] [agent_types.ts](file:///C:/Users/daria/.gemini/AXON/scratch/AXON-boilerplate/src/types/agent_types.ts)
+- Add Section 3.1: **THALIA: VISUAL LAYER**
+- Define `ThaliaInput`:
+    - `argus_approved_concept`: From Argus.
+    - `visual_style`: "Cinematic", "Anime", "Corporate", etc.
+- Define `ThaliaOutput`:
+    - `assets`: Array of image URLs.
+    - `prompt_log`: The exact prompts used.
+    - `consistency_score`: 0-100.
+
+### 3. Documentation
+#### [NEW] [agent_thalia_definition.md](file:///C:/Users/daria/.gemini/AXON/brain/dfe95997-2930-442b-85c6-21d08da1e15c/agent_thalia_definition.md)
+- Comprehensive profile.
+
+## Verification Plan
+### Manual Verification
+- Verify `agent_types.ts` compiles.
+- Confirm Thalia's inputs line up with Argus outputs.
+
+# Implementation Plan: Agent APOLLO (Audio)
+
+## Goal Description
+To define **Agent APOLLO**, the Audio Engineer. Apollo receives approved scripts and generates Voiceovers (VO) and Sound Effects (SFX) which are merged with Thalia's visuals by Lumiere.
+
+## Proposed Changes
+### 1. Conceptual Definition
+- **Name**: APOLLO (The Musician/Healer - Audio)
+- **Role**: Audio Engineer / Composer
+- **Objective**: "Sonic Branding" - Immersive audio retention.
+
+### 2. Code Integration
+#### [MODIFY] [agent_types.ts](file:///C:/Users/daria/.gemini/AXON/scratch/AXON-boilerplate/src/types/agent_types.ts)
+- Add Section: **APOLLO: AUDIO LAYER**
+- Define `ApolloInput`: `script_text`, `voice_id`
+- Define `ApolloOutput`: `audio_url`, `duration`, `subtitles_vtt`
+
+### 3. Documentation
+#### [NEW] [agent_apollo_definition.md](file:///C:/Users/daria/.gemini/AXON/brain/dfe95997-2930-442b-85c6-21d08da1e15c/agent_apollo_definition.md)
+

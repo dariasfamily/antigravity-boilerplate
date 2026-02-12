@@ -1,0 +1,13 @@
+{
+    "mcpServers": {
+        "rube_mcp": {
+            "driver": "http",
+            "args": {
+                "url": "https://rube.app/mcp",
+                "headers": {
+                    "Authorization": "Bearer ak_QFR_EzBxQ7PYOGy2BZg2"
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,105 @@
+﻿# AXON SYSTEM BLUEPRINT (The Technical Genome)
+
+> **Document Status**: `LIVING`
+> **Version**: 1.0 (Engineering Phase)
+> **Purpose**: Definitive technical reference for all modules, methods, and system anatomy.
+
+---
+
+## ðŸ—ï¸ DIVISION 1: ENGINEERING (The Body)
+**Objective**: Build, maintain, and evolve the digital infrastructure.
+
+### ðŸ­ Module 1: The Tech Factory (Infrastructure)
+*   **Repo**: `AXON-boilerplate`
+*   **Live Path**: `C:\Users\daria\.gemini\AXON\scratch\AXON-boilerplate`
+*   **Tech Stack**: Next.js 14 App Router, TypeScript, Tailwind, ShadCN, Supabase SSR.
+
+#### ðŸ”§ Core Components (Methods & Functions)
+| Component | File Path | Method | Input | Output | Purpose |
+|-----------|-----------|--------|-------|--------|---------|
+| **Auth Middleware** | `src/utils/supabase/middleware.ts` | `updateSession(request)` | `NextRequest` | `NextResponse` | Intercepts requests, refreshes Auth tokens, protects `/dashboard`. |
+| **Server Client** | `src/lib/supabase/server.ts` | `createClient()` | `cookies()` | `SupabaseClient` | Returns authorized DB client for Server Components. |
+| **Client Client** | `src/lib/supabase/client.ts` | `createClient()` | `-` | `SupabaseClient` | Returns authorized DB client for Client Components (Browser). |
+| **The Auditor** | `src/scripts/auditor.ts` | `audit()` | `FileSystem`, `.env` | `Exit Code 0/1`, `Log Entry` | Validates integrity of secrets and structure post-build. |
+
+#### ðŸ“‚ Data Structures (The Brain Schema)
+**Database**: Supabase (`AXONProyect`)
+*   **Table: `auth.users`** (Managed by Supabase)
+    *   `id` (uuid): Primary Key.
+    *   `email` (varchar): User identity.
+*   **Table: `public.users`** (Profile Data - *To Be Created*)
+    *   `id` (uuid): FK -> auth.users.id.
+    *   `full_name` (text): Display name.
+    *   `avatar_url` (text): Profile image.
+    *   `billing_status` (text): 'free' | 'pro'.
+
+---
+
+### âš¡ Module 2: The Nervous System (Connectivity)
+**Objective**: Detect events and coordinate responses between Agents and the World.
+
+#### ðŸ‘‚ Sub-Module: Webhooks Center (The Ears)
+*   **Endpoint**: `POST /api/hooks`
+*   **Security Header**: `x-AXON-secret: <AXON_SECRET>`
+*   **Response**: `200 OK` (success) | `401 Unauthorized` | `400 Bad Request`
+
+**Input Schema (JSON):**
+```json
+{
+  "event": "EVENT_NAME",  // Required: 'AUDIT_REQUEST' | 'DEPLOY_SUCCESS'
+  "timestamp": "ISO8601", // Required: Execution time
+  "source": "AGENT_NAME", // Optional: 'Github', 'n8n', 'Vercel'
+  "payload": {            // Flexible Object
+    "details": "string",
+    "status": "string"
+  }
+}
+```
+
+#### ðŸ§  Sub-Module: Evolution Engine (The Memory)
+*   **Storage**: `brain/SYSTEM_STATE_LOG.md`
+*   **Access**: Read/Append by Auditor and Human.
+*   **Log Format**: `| Date | Actor | Event | Details | Result |`
+
+---
+
+### âœ‹ Module 3: Automation Hub (The Hands)
+**Objective**: Execute complex multi-step workflows.
+*   **Software**: n8n (v2.4.8)
+*   **Installation**: Global npm package (`C:\Users\daria\AppData\Roaming\npm\n8n.ps1`)
+*   **Local Server**: `http://localhost:5678`
+*   **Status**: Installed, Ready for Workflow Creation.
+
+---
+
+### ðŸ’° Module 4: The Wealth Engine (Metabolism)
+**Objective**: Track and Optimize Financial Flows.
+
+#### ðŸ“‚ Data Structures (Wealth Schema)
+**Database**: Supabase (`AXONProyect`)
+*   **Table: `public.wealth_assets`** (The Assets)
+    *   `id` (uuid, PK): Asset ID.
+    *   `name` (text): e.g., "AXON SaaS".
+    *   `type` (text): 'SAAS' | 'CRYPTO' | 'CASH' | 'REAL_ESTATE'.
+    *   `value` (numeric): Current estimated value.
+    *   `currency` (text): Default 'USD'.
+    *   `updated_at` (timestamp).
+*   **Table: `public.wealth_transactions`** (The Flow)
+    *   `id` (uuid, PK): Transaction ID.
+    *   `asset_id` (uuid, FK): Link to Asset.
+    *   `amount` (numeric): Positive (Income) or Negative (Expense).
+    *   `type` (text): 'INCOME' | 'EXPENSE' | 'INVESTMENT'.
+    *   `status` (text): 'PENDING' | 'COMPLETED'.
+
+---
+
+## ðŸ“¢ DIVISION 3: BRAND (The Voice)
+**Objective**: Influence and Traffic Generation.
+*(Status: Future)*
+
+---
+
+## ðŸ§¬ GLOBAL DATA RELATIONSHIPS
+*   **User** (1) <-> (N) **Assets** (Projects/SaaS).
+*   **Asset** (1) <-> (N) **Metrics** (Visits, Rev).
+*   **Event** (Webhooks) -> **Log** (Memory) -> **optimization** (Evolution).

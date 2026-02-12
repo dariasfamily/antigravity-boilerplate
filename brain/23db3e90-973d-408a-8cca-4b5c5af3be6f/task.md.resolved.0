@@ -1,0 +1,8 @@
+
+# Task: Verify NotebookLM Integration
+
+- [ ] Verify NotebookLM Resources [/]
+    - [ ] List resources from `notebooklm` server
+    - [ ] Confirm access to notebooks
+- [ ] Test NotebookLM Tools
+    - [ ] Attempt to use a basic tool (if available)

@@ -1,0 +1,25 @@
+{
+  "agent_id": "pulsar",
+  "name": "PULSAR",
+  "version": "1.0.0",
+  "type": "Prompt Engineering Specialist",
+  "project_id": "PROJ-2026-PULSAR-v0",
+  "rigor_level": "HYBRID (SUPERIOR-BRAIN)",
+  "capabilities": [
+    "prompt_optimization",
+    "meta_prompting",
+    "semantic_drift_mitigation",
+    "framework_application_co_star",
+    "reasoning_cot_tot_react"
+  ],
+  "configuration": {
+    "default_temperature": 0.0,
+    "validation_protocol": "semantic_anchoring",
+    "max_refinement_steps": 3
+  },
+  "paths": {
+    "lite_spec": "hive/agents/pulsar/LITE_3.2_INTENT.md",
+    "full_spec": "hive/agents/pulsar/FULL_3.2_ARCHITECTURE.md",
+    "hybrid_spec": "hive/agents/pulsar/HYBRID_1.0_SPEC.md"
+  }
+}

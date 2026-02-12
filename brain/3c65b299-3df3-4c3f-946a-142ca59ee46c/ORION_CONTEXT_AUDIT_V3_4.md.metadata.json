@@ -1,0 +1,5 @@
+{
+  "artifactType": "ARTIFACT_TYPE_TASK",
+  "summary": "Audit of SystemContext vs MasterDB Split. Demonstrates that DB holds metric/status records, while SystemContext holds the full JSON Manifests for the Writer Agent.",
+  "updatedAt": "2026-02-01T19:42:41.003651600Z"
+}

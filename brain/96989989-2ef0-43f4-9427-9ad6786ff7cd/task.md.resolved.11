@@ -1,0 +1,23 @@
+# Task: Sincronización del Núcleo AXON en Knowledge
+**Objetivo:** Asegurar que los documentos constituyentes de AXON residan en la sección "Knowledge" para gobernanza total.
+
+## 📋 Checklist
+- [x] Identificar y Formalizar Archivos de Gobernanza (COC, INTENT)
+- [x] Crear Esqueleto de Hilos de Ejecución (`RTM_MASTER`, `OIM_MASTER`)
+- [/] **INSTANCIACIÓN DEL BUCLE DE SISTEMA (SYSTEM LOOP)**
+    - [x] Aplicar Versionado Canónico (v1.0.0) a RTM y OIM.
+    - [x] Definir el Algoritmo de Loop Recurrente (Pre/Post-Interacción).
+    -5. La Ley de Paridad Total (Zero-Drift)
+        Sincronización Absoluta: El sistema garantiza al 100% su actualización en cada interacción, de lo micro a lo macro.
+        Inmunidad Forense: Ninguna respuesta es válida si el Heartbeat detecta un desfase (drift) con el ADN oficial del HIVE.
+        Continuidad Multi-Proyecto: Esta regla es universal para AXON y cualquier proyecto derivado futuro.
+    - [x] Integrar el Manual de Hilos en la lógica de Gaia-Orchestrator.
+- [x] Centralización Global de Gobernanza en `hive/knowledge/`.
+- [x] Ejecutar Indexación en la Interfaz (Knowledge UI)
+- [x] Implementar Sincronización de Espejos (NotebookLM Mirroring)
+- [x] Verificar Coherencia en Interacciones mediante Auditoría Forense
+- [/] **PRUEBA DE ESTRÉS: HEARTBEAT PROTOCOL**
+    - [x] Inyectar "Drift" Deliberado (v1.5.9 Unauthorized).
+    - [x] Ejecutar Detección Forense (7mo Hilo).
+    - [x] Aplicar Reconciliación Forzada.
+    - [x] Certificar Zero-Drift Final.

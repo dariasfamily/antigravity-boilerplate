@@ -1,0 +1,6 @@
+{
+  "artifactType": "ARTIFACT_TYPE_IMPLEMENTATION_PLAN",
+  "summary": "Nucleus Schema V5.3 (Diamond Cut).\n- **Idempotency**: All policies have `DROP IF EXISTS`.\n- **Nullable Checks**: `diff_log` accepts NULL or Array.\n- **Triple Justification**: Restored `knowledge` and `math` columns.\n- **Seed Data**: Includes INSERT for `ORION_V3_4`.",
+  "updatedAt": "2026-02-01T23:12:51.866975800Z",
+  "version": "6"
+}

@@ -1,0 +1,5 @@
+{
+  "artifactType": "ARTIFACT_TYPE_OTHER",
+  "summary": "Block 10 - Integraciones (Configuración Externa). Documenta el estado de MCPs y servicios externos. Confirma que Stripe, Notion, Make y Zapier son GAPS críticos no configurados. Verifica Supabase y NotebookLM como las únicas integraciones operativas.",
+  "updatedAt": "2026-02-10T03:00:30.723258500Z"
+}

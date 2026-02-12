@@ -1,0 +1,23 @@
+﻿--- STARTING AGENT CHAIN VALIDATION ---
+
+[1] Calling ORION...
+Orion Success: sys_orion_1769934283087
+
+[2] Calling CALLIOPE...
+Calliope Success: VIRAL: Validation Test Topic
+
+[3] Calling ARGUS...
+node : 
+At line:1 char:1
++ node scripts/validate_agent_chain.js > validation.log 2>&1
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (:String) [], RemoteExc 
+   eption
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+!!! VALIDATION FAILED !!! Error: Argus failed (500): 
+{"error":"Invalid Output from Argus"}
+    at validateChain (C:\Users\daria\.gemini\AXON\scratch\ant
+igravity-boilerplate\scripts\validate_agent_chain.js:43:19)
+    at process.processTicksAndRejections 
+(node:internal/process/task_queues:95:5)
