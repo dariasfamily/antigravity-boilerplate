@@ -1,0 +1,84 @@
+# Plan de Auditoría Forense Élite: Sistema AXON v1.1
+
+Este plan establece una metodología de revisión exhaustiva, profunda y de nivel "Forense Élite" de cada recurso del ecosistema AXON, aplicando los principios de **Ingeniería de Intención (FFRS + EET)** y asegurando la **Recuperación ante Interrupciones** como núcleo operativo absoluto.
+
+## User Review Required
+
+> [!IMPORTANT]
+> **Cambio de Identidad del Workspace**: Se procederá a renombrar formalmente "AXON Boilerplate" a **AXON Core** (o similar), eliminando el término "boilerplate" que ya no refleja la madurez del sistema.
+> **Protocolo [PROT-005] Genuinidad**: Se detalla cómo los checkpoints garantizan que la ejecución sea 100% genuina mediante sumas de verificación (hashes) de contexto y estado de memoria.
+
+---
+
+## Proposed Changes
+
+### [Component: Governance, Hive & Identity]
+Revisión y actualización de los cimientos y la identidad del sistema.
+
+#### [MODIFY] [KNOWLEDGE_ITEMS.md](file:///c:/Users/daria/.gemini/antigravity/hive/knowledge/KNOWLEDGE_ITEMS.md)
+- Añadir `[PROT-005] Protocolo de Resiliencia, Genuinidad y Recuperación`.
+- Definir la obligatoriedad del "State-Log" con verificación de integridad de contexto.
+
+#### [MODIFY] Renombre de "AXON Boilerplate"
+- Eliminar referencias a "boilerplate" en [README.md](file:///c:/Users/daria/.gemini/antigravity/workspaces/AXON/README.md), [PROJECT_STRUCTURE.md](file:///c:/Users/daria/.gemini/antigravity/workspaces/AXON/PROJECT_STRUCTURE.md) y archivos de configuración. El sistema será **AXON System Core**.
+
+#### [NEW] [RESILIENCE_PROTOCOL.md](file:///c:/Users/daria/.gemini/antigravity/hive/protocols/RESILIENCE_PROTOCOL.md)
+- Detalle del mecanismo de checkpoint con inyección de contexto persistente.
+
+---
+
+### [Component: Agent Ecosystem (The Decemvirate)]
+Auditoría individual y profunda de los **10 agentes** operando en el sistema.
+
+#### [AUDIT] Egeria, Pulsar, Orion, Calliope, Argus, Planner, Nexus, Lyra, Apollo, Thalia
+- **Análisis de Versión**: Detectar quién tiene el estándar más alto y quién requiere actualización (Gap Analysis).
+- **Validación SS v0**: Verificar que la "System Specification v0" (el documento fundacional que define su identidad y lógica) sea coherente con su ejecución real.
+- **Mirroring de Funcionalidades**: Validar capacidades, piezas y procesos internos contra los registros del Hive.
+
+---
+
+### [Component: Infrastructure & Data Mirroring]
+Verificación forense de la infraestructura con mapeo /mirror absoluto.
+
+#### [CHECK] Supabase / DB (Mirror Completo)
+- Comparar 1:1 cada dato registrado en las 53 tablas proyectadas contra los datos manejados por cada agente y el Dashboard.
+#### [CHECK] NotebookLM (Optimización AXON 98%)
+- Asegurar que el **98% de AXON** (docs, specs, chats, prompts) esté reflejado en NotebookLM.
+- Detectar incongruencias, redundancias o "alucinaciones de indexación" que frenen el sistema.
+#### [CHECK] GitHub (The 100% Repository)
+- Validar que GitHub sea el único lugar con el 100% de AXON (incluyendo código binario y scripts).
+
+---
+
+## Check-list de Ejecución Forense (Punto a Punto)
+
+### 1. Reconstrucción de Contexto & Identidad
+- [ ] 1.1 Eliminar rastro de "Boilerplate" y establecer **AXON System Core**.
+- [ ] 1.2 Verificar paridad/mirror de todas las funcionalidades, capacidades y piezas entre `hive/` y local.
+- [ ] 1.3 Crear Checkpoint "Genuino" `audit_checkpoint_001.json` con hash de estado actual.
+
+### 2. Auditoría Forense de Agentes (El Decemvirato)
+- [ ] 2.1 Auditar los 10 agentes sin excepción.
+- [ ] 2.2 Detectar brechas de estándares y versiones (Egeria vs Otros).
+- [ ] 2.3 Validar cada `FINAL_SSv0` (Especificación Maestra de Operación).
+
+### 3. Sincronización de Conocimiento (Zero-Drift)
+- [ ] 3.1 Ejecutar `/egeria-sync` para NotebookLM.
+- [ ] 3.2 Validar que cada recurso externalizado tiene su espejo en `hive/knowledge/`.
+- [ ] 3.3 Corregir naming conventions en fuentes de NotebookLM.
+
+### 4. Blindaje de Gobernanza
+- [ ] 4.1 Implementar `[PROT-005]` en el core de Antigravity.
+- [ ] 4.2 Probar recuperación de interrupción simulada.
+
+---
+
+## Verification Plan
+
+### Automated Tests
+- `npm run validate-system`: Script personalizado para verificar conectividad de agentes. (Necesita ser creado).
+- `python scripts/sync_notebooklm.py --dry-run`: Verificar sincronización sin cambios.
+
+### Manual Verification
+- Revisión visual de la estructura del Hive por el usuario (Darias).
+- Validación de la "Hoja de Fidelidad" de un agente aleatorio.

@@ -1,0 +1,5 @@
+{
+  "artifactType": "ARTIFACT_TYPE_OTHER",
+  "summary": "Protocolo de Resiliencia, Genuinidad y Recuperación [PROT-005]. Define mecanismos de checkpoint con hashing de contexto para garantizar ejecuciones 100% genuinas en AXON.",
+  "updatedAt": "2026-02-12T03:08:17.694249Z"
+}
